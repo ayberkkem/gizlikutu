@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gizli Kutu | Ürün Detayı</title>
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
+<body>
+  <div class="drawerBackdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer"></aside>
+
+  <header class="topbar">
+    <div class="container header">
+      <button class="iconbtn" id="menuBtn">☰</button>
+<a class="brand" href="./index.html">
+  <img src="./assets/logo.svg" alt="Gizli Kutu">
+  <b>Gizli Kutu</b>
+</a>
+
+      <div class="header-right" style="flex:1">
+        <a class="iconbtn" href="https://wa.me/905423933145" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z" stroke="#111827" stroke-width="1.5"/><path d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z" fill="#e11d48"/></svg>
+        </a>
+        <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5"/><path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round"/></svg><input id="globalSearch" placeholder="Ürün ara..." /></div>
+        <a class="iconbtn cartWrap" href="./cart.html">🛒<span class="badge" id="cartCount" style="display:none">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="productWrap" class="card" style="padding:16px">
+      <div class="row" style="align-items:flex-start;gap:16px">
+        <div style="flex:1;min-width:260px;border:1px solid var(--border);border-radius:14px;overflow:hidden">
+          <img id="pImg" src="" alt="Ürün görseli">
+<!-- Thumbnail galeri -->
+<div id="thumbs" class="thumbs"></div>
+
+        </div>
+        <div style="flex:1.2;min-width:280px">
+          <div class="row">
+            <span class="kbd" id="pCat"></span>
+          </div>
+          <h1 id="pTitle" style="margin:10px 0 6px"></h1>
+          <div class="row" style="justify-content:space-between">
+            <div class="price" id="pPrice" style="font-size:22px"></div>
+            <a class="btn ghost" href="./products.html">← Ürünlere Dön</a>
+
+          </div>
+          <p id="pDesc" style="color:var(--muted)"></p>
+
+          <div class="row">
+            <label style="color:var(--muted);font-size:13px">Adet</label>
+            <input id="qty" type="number" min="1" value="1" style="width:90px;border:1px solid var(--border);border-radius:12px;padding:10px 12px">
+            <button class="btn primary" id="addToCart">Sepete Ekle</button>
+          </div>
+          <div class="trustRow" style="margin-top:14px">
+  <span>%100 Gizli Paketleme</span>
+  <span>Güvenli Ödeme</span>
+  <span>Hızlı Kargo</span>
+  <span>WhatsApp Destek</span>
+</div>
+
+
+
+          <hr class="sep">
+          <div class="notice">
+            Sipariş öncesi: <a href="./distance-sales.html" style="text-decoration:underline">Mesafeli Satış</a> •
+            <a href="./returns.html" style="text-decoration:underline">İade</a> •
+            <a href="./privacy.html" style="text-decoration:underline">Gizlilik</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="container">© <span id="y"></span> Gizli Kutu</div></footer>
+
+  <script src="./js/storage.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/ui.js"></script>
+  <script>
+    document.getElementById("drawer").innerHTML = `
+      <div class="row" style="justify-content:space-between">
+        <div class="brand"><img src="./assets/logo.svg" alt=""><b>Gizli Kutu</b></div>
+        <button class="iconbtn" onclick="document.getElementById('drawerBackdrop').click()">✕</button>
+      </div>
+     <h3>Kategoriler</h3>
+
+<a class="navlink" data-close-drawer href="./products.html?cat=fantazi-ic-giyim">Fantezi İç Giyim</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=realistik-mankenler">Realistik Mankenler</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=vibratorler">Vibratörler</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=bdsm-fetis">BDSM &amp; Fetiş Ürünler</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=halka-kiliflar">Halka &amp; Kılıflar</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=belden-baglamalilar">Belden Bağlamalılar</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=erkeklere-ozel">Erkeklere Özel Ürünler</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=anal-urunler">Anal Ürünler</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=jel-dildo-vibrator">Jel Dildo ve Vibratörler</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=kayganlastiricilar">Kayganlaştırıcılar</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=kadin-cinsel-bakim">Kadın Cinsel Bakım Ürünleri</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=masaj-yaglari">Masaj Yağları</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=vibrator-modern">Vibratörler Modern</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=prezervatifler">Prezervatifler</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=dildolar">Dildolar</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=fantezi-ic-giyim">Fantezi İç Giyim Ürünleri</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=sex-makineleri">Sex Makineleri</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=sisme-erkekler">Şişme Erkekler</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=sisme-kadinlar">Şişme Kadınlar</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=suni-vajina-masturbatorler">Suni Vajina &amp; Mastürbatörler</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=vakum-pompalar">Vakum Pompalar</a>
+<a class="navlink" data-close-drawer href="./products.html?cat=vibrator-setler">Vibratör Setler</a>
+
+      <h3>Sözleşmeler</h3>
+      <a class="navlink" data-close-drawer href="./kvkk.html">KVKK</a>
+      <a class="navlink" data-close-drawer href="./privacy.html">Gizlilik</a>
+      <a class="navlink" data-close-drawer href="./distance-sales.html">Mesafeli Satış</a>
+      <a class="navlink" data-close-drawer href="./returns.html">İade</a>
+    `;
+  </script>
+  <script src="./js/product-page.js"></script>
+  <script>
+    GK.bindGlobalUI();
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+  <script src="./js/age-gate.js"></script>
+</body>
+</html>

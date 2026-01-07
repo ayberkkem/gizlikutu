@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gizli Kutu | Sepet</title>
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/main.css" />
+</head>
+<body>
+  <div class="drawerBackdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer"></aside>
+
+  <header class="topbar">
+    <div class="container header">
+      <button class="iconbtn" id="menuBtn">☰</button>
+      <a class="brand" href="./index.html"><img src="./assets/logo.svg" alt=""><b>Gizli Kutu</b></a>
+      <div class="header-right" style="flex:1">
+        <a class="iconbtn" href="https://wa.me/90XXXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z" stroke="#111827" stroke-width="1.5"/><path d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z" fill="#e11d48"/></svg>
+        </a>
+        <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5"/><path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round"/></svg><input id="globalSearch" placeholder="Ürün ara..." /></div>
+        <a class="iconbtn cartWrap" href="./cart.html">🛒<span class="badge" id="cartCount" style="display:none">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="sectionTitle">
+      <h2>Sepetim</h2>
+      <p><a href="./products.html" style="text-decoration:underline">Alışverişe devam</a></p>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr><th></th><th>Ürün</th><th>Fiyat</th><th>Adet</th><th></th></tr>
+      </thead>
+      <tbody id="cartBody"></tbody>
+    </table>
+
+    <div class="row" style="justify-content:space-between;margin-top:14px">
+      <button class="btn" id="clearCart">Sepeti Temizle</button>
+      <div class="row">
+        <div style="color:var(--muted)">Toplam:</div>
+        <div class="price" id="cartTotal" style="font-size:20px"></div>
+        <a class="btn primary" href="./checkout.html">Ödemeye Geç</a>
+      </div>
+    </div>
+
+    <div style="margin-top:14px" class="notice">
+      Kargo/ödeme gerçek entegrasyon için backend gerekir. Bu demo akışında ödeme simülasyondur.
+    </div>
+  </main>
+
+  <footer class="footer"><div class="container">© <span id="y"></span> Gizli Kutu</div></footer>
+
+  <script src="./js/storage.js"></script>
+  <script src="./js/app.js"></script>
+
+  <script>
+    document.getElementById("drawer").innerHTML = `
+      <div class="row" style="justify-content:space-between">
+        <div class="brand"><img src="./assets/logo.svg" alt=""><b>Gizli Kutu</b></div>
+        <button class="iconbtn" onclick="document.getElementById('drawerBackdrop').click()">✕</button>
+      </div>
+
+     
+      <!-- 🔥 EKLENDİ: Otomatik kategori alanı -->
+      <div id="hamburgerCategories"></div>
+      <!-- 🔥 EK BİTTİ -->
+
+      <h3>Sözleşmeler</h3>
+      <a class="navlink" data-close-drawer href="./privacy.html">Gizlilik</a>
+      <a class="navlink" data-close-drawer href="./distance-sales.html">Mesafeli Satış</a>
+      <a class="navlink" data-close-drawer href="./returns.html">İade</a>
+    `;
+  </script>
+
+  <script src="./js/cart-page.js"></script>
+
+  <script>
+    GK.bindGlobalUI();
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- 🔥 EKLENDİ: Hamburger menü kategorilerini JSON’dan yükle -->
+  <script>
+    (async function(){
+      try {
+        const res = await fetch("./data/categories.json", { cache: "no-store" });
+        const categories = await res.json();
+        const box = document.getElementById("hamburgerCategories");
+        if(!box) return;
+        box.innerHTML = categories.map(cat => `
+          <a class="navlink" data-close-drawer href="./products.html?cat=${cat.id}">
+            ${cat.label}
+          </a>
+        `).join("");
+      } catch(e){
+        console.error("Hamburger kategori yükleme hatası", e);
+      }
+    })();
+  </script>
+  <!-- 🔥 EK BİTTİ -->
+
+</body>
+</html>

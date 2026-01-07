@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Gizli Kutu | Siparişiniz Alındı</title>
+  <meta name="description" content="Siparişiniz başarıyla alındı. Tüm siparişler %100 gizli paketleme ile hazırlanır." />
+
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/main.css" />
+
+  <!-- =========================
+       META PIXEL (INIT ONLY)
+       ========================= -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}
+  (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', 'PIXEL_ID_HERE'); /* ← kendi Pixel ID */
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=PIXEL_ID_HERE&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <!-- =========================
+       GOOGLE ANALYTICS (INIT)
+       ========================= -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX', {
+      anonymize_ip: true
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <div class="container header">
+      <a class="brand" href="./index.html">
+        <img src="./assets/logo.svg" alt="Gizli Kutu">
+        <b>Gizli Kutu</b>
+      </a>
+      <div class="header-right" style="flex:1;justify-content:flex-end">
+        <a class="btn" href="./products.html">Alışverişe Devam Et</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="container" style="max-width:760px">
+    <div class="card" style="padding:24px;text-align:center">
+
+      <div style="font-size:48px;margin-bottom:10px">✅</div>
+
+      <h1 style="margin:0 0 8px">Siparişiniz Başarıyla Alındı</h1>
+
+      <p style="color:var(--muted);margin:0 0 18px">
+        Siparişiniz güvenli şekilde alınmıştır.  
+        En kısa sürede <b>tam gizli paketleme</b> ile hazırlanacaktır.
+      </p>
+
+      <div class="trustRow" style="justify-content:center;margin-bottom:16px">
+        <span>🔒 %100 Gizli Paketleme</span>
+        <span>💳 Güvenli Ödeme</span>
+        <span>🚚 Hızlı Kargo</span>
+        <span>💬 WhatsApp Destek</span>
+      </div>
+
+      <div class="notice" style="
+        background:#fff1f2;
+        border:1px solid #fecaca;
+        color:#b91c1c;
+        font-weight:600;
+        text-align:left;
+      ">
+        🔒 <b>Tüm siparişler tam gizli paketleme</b> ile hazırlanır.  
+        Paket üzerinde ürün içeriğine veya site adına dair <u>hiçbir ibare</u> yer almaz.
+      </div>
+
+      <hr class="sep">
+
+      <p style="font-size:14px;color:var(--muted)">
+        Siparişinizle ilgili tüm sorularınız için  
+        WhatsApp destek hattımızdan bize ulaşabilirsiniz.
+      </p>
+
+      <div class="row" style="justify-content:center;margin-top:14px">
+        <a class="btn primary" href="https://wa.me/905423933145" target="_blank" rel="noopener">
+          WhatsApp Destek
+        </a>
+        <a class="btn" href="./index.html">Ana Sayfa</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      © <span id="y"></span> Gizli Kutu • Güvenli & Gizli Alışveriş
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- =========================
+       PURCHASE TRACKING (ONCE)
+       ========================= -->
+  <script>
+  (function () {
+    const order = JSON.parse(localStorage.getItem("gizlikutu_last_order_v1"));
+    if (!order) return;
+
+    /* META PURCHASE */
+    fbq('track', 'Purchase', {
+      value: Number(order.paidPrice),
+      currency: 'TRY'
+    });
+
+    /* GA4 PURCHASE */
+    gtag('event', 'purchase', {
+      transaction_id: order.conversationId,
+      value: Number(order.paidPrice),
+      currency: 'TRY',
+      shipping: 79,
+      items: order.basketItems.map(i => ({
+        item_id: i.id,
+        item_name: i.name,
+        price: Number(i.price),
+        quantity: 1
+      }))
+    });
+
+    /* 🔒 SAYFA YENİLENİNCE TEKRAR ÇALIŞMASIN */
+    localStorage.removeItem("gizlikutu_last_order_v1");
+  })();
+  </script>
+<script src="./js/age-gate.js"></script>
+</body>
+</html>
