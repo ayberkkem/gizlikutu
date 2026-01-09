@@ -1,5 +1,14 @@
 /* products.html - Products Listing Page */
 
+/* Premium Background */
+body {
+    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .page-title {
     margin: 20px 0;
 }

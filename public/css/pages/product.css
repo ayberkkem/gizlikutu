@@ -1,5 +1,14 @@
 /* product.html - Product Detail Page */
 
+/* Premium Background */
+body {
+    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .product-detail {
     display: grid;
     gap: 30px;
@@ -18,7 +27,7 @@
     aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: var(--radius);
-    background: #f3f4f6;
+    background: rgba(243, 244, 246, 0.85);
 }
 
 .thumbs {

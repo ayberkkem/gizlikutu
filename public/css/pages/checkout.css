@@ -1,5 +1,14 @@
 /* checkout.html - Checkout Page */
 
+/* Premium Background */
+body {
+    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 .checkout-page {
     display: grid;
     gap: 30px;

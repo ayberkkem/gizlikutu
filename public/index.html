@@ -119,16 +119,6 @@
       </div>
     </div>
 
-    <div class="sectionTitle">
-      <h2>Popüler Ürünler</h2>
-      <p><a href="./products.html" style="text-decoration:underline">Hepsini gör</a></p>
-    </div>
-    <div class="grid" id="homeGrid"></div>
-    <!-- ======================================================
-   HOME EXTENDED SECTIONS (ORDERED)
-====================================================== -->
-
-    <!-- 1) İLK AÇILIŞ -->
     <section class="home-hero">
       <h1>Gizli Kutu Online</h1>
       <p class="hero-sub">
@@ -141,8 +131,11 @@
         <div>⚡ 1 Saatte Teslim</div>
       </div>
 
-      <a href="./products.html" class="btn primary">Ürünleri Gör</a>
+      <a href="./popular.html" class="btn primary">Ürünleri Gör</a>
     </section>
+    <!-- ======================================================
+   HOME EXTENDED SECTIONS (ORDERED)
+====================================================== -->
 
     <!-- 2) 21 MAHALLE TESLİMAT -->
     <section class="delivery-zone">
@@ -385,11 +378,7 @@
       loadSliderJson();
     })();
 
-    // Home grid (4 ürün)
-    GK.loadProducts().then(ps => {
-      const top = ps.slice(0, 4).map(GKUI.productCard).join("");
-      document.getElementById("homeGrid").innerHTML = top;
-    });
+
   </script>
 
   <!-- 🔥 EKLENDİ: Hamburger menü kategorilerini JSON’dan yükle -->

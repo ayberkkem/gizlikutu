@@ -1,5 +1,14 @@
 /* index.html - Home Page Styles */
 
+/* Premium Background */
+body {
+    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 /* Hero Section */
 .hero {
     display: grid;

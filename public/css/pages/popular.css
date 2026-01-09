@@ -1,0 +1,25 @@
+/* popular.html - Popüler Ürünler Sayfası Stilleri */
+
+/* Premium Background */
+body {
+    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.popular-page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.popular-page-header h1 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+}
+
+.popular-page-header p {
+    color: var(--muted);
+    margin: 0;
+}
