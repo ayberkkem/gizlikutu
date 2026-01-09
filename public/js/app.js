@@ -98,6 +98,9 @@
     if (menuBtn) menuBtn.addEventListener("click", openDrawer);
     if (backdrop) backdrop.addEventListener("click", closeDrawer);
 
+    const closeBtn = qs("#closeDrawer");
+    if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+
     const searchInput = qs("#globalSearch");
     if (searchInput) {
       searchInput.addEventListener("keydown", (e) => {

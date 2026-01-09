@@ -1,25 +1,29 @@
 <!doctype html>
 <html lang="tr">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gizli Kutu | Gizli Paketleme ile Güvenli Alışveriş</title>
-  <meta name="description" content="Gizli paketleme, güvenli ödeme ve hızlı teslimat ile özel alışveriş deneyimi. Gizli Kutu ile güvenle alışveriş yapın."/>
+  <meta name="description"
+    content="Gizli paketleme, güvenli ödeme ve hızlı teslimat ile özel alışveriş deneyimi. Gizli Kutu ile güvenle alışveriş yapın." />
 
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/pages/index.css">
 </head>
+
 <body>
   <div class="drawerBackdrop" id="drawerBackdrop"></div>
   <aside class="drawer" id="drawer" aria-label="Menü">
     <div class="row" style="justify-content:space-between">
       <div class="brand"><img src="./assets/logo.svg" alt="Gizli Kutu"><b>Gizli Kutu</b></div>
-      <button class="iconbtn" id="closeDrawer" onclick="document.getElementById('drawerBackdrop').click()">✕</button>
+      <button class="iconbtn" id="closeDrawer">✕</button>
     </div>
 
-  <h5>Kategoriler</h5>
-<div id="hamburgerCategories"></div>
+    <h5>Kategoriler</h5>
+    <div id="hamburgerCategories"></div>
     <h4>Kurumsal</h4>
     <a class="navlink" data-close-drawer href="./about.html">Hakkımızda</a>
     <a class="navlink" data-close-drawer href="./contact.html">İletişim</a>
@@ -33,7 +37,7 @@
 
     <div class="notice">
       WhatsApp hızlı hat: <a href="https://wa.me/905423933145" target="_blank" rel="noopener">tıkla</a><br>
-      
+
     </div>
   </aside>
 
@@ -47,17 +51,22 @@
       </a>
 
       <div class="header-right" style="flex:1">
-        <a class="iconbtn" aria-label="WhatsApp" href="https://wa.me/905423933145" target="_blank" rel="noopener" title="WhatsApp">
+        <a class="iconbtn" aria-label="WhatsApp" href="https://wa.me/905423933145" target="_blank" rel="noopener"
+          title="WhatsApp">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z" stroke="#111827" stroke-width="1.5"/>
-            <path d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z" fill="#e11d48"/>
+            <path
+              d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z"
+              stroke="#111827" stroke-width="1.5" />
+            <path
+              d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z"
+              fill="#e11d48" />
           </svg>
         </a>
 
         <div class="search" title="Ürün ara">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5"/>
-            <path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5" />
+            <path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
           </svg>
           <input id="globalSearch" placeholder="Ürün ara..." autocomplete="off" />
         </div>
@@ -91,20 +100,21 @@
       <div class="smallCard">
         <div class="kicker">HOŞGELDİNİZ</div>
         <h1>Gizli Alışverişin Güvenli Adresi</h1>
-        <p style="color:var(--muted);margin:0 0 12px">Gizli paketleme, güvenli ödeme ve hızlı teslimat ile özel alışveriş deneyimi.</p>
+        <p style="color:var(--muted);margin:0 0 12px">Gizli paketleme, güvenli ödeme ve hızlı teslimat ile özel
+          alışveriş deneyimi.</p>
         <div class="ctaRow">
           <a class="btn primary" href="./products.html">Güvenli Alışverişe Başla</a>
-          </div>
-  <div class="trustRow">
-  <span>%100 Gizli Paketleme</span>
-  <span>Hızlı ve Özel Kargo</span>
-  <span>Güvenli Ödeme</span>
-  <span>WhatsApp Destek</span>
-</div>
+        </div>
+        <div class="trustRow">
+          <span>%100 Gizli Paketleme</span>
+          <span>Hızlı ve Özel Kargo</span>
+          <span>Güvenli Ödeme</span>
+          <span>WhatsApp Destek</span>
+        </div>
 
         <hr class="sep">
         <div class="notice">
-         Gizli. Güvenli. Size Özel.
+          Gizli. Güvenli. Size Özel.
         </div>
       </div>
     </div>
@@ -114,6 +124,126 @@
       <p><a href="./products.html" style="text-decoration:underline">Hepsini gör</a></p>
     </div>
     <div class="grid" id="homeGrid"></div>
+    <!-- ======================================================
+   HOME EXTENDED SECTIONS (ORDERED)
+====================================================== -->
+
+    <!-- 1) İLK AÇILIŞ -->
+    <section class="home-hero">
+      <h1>Gizli Kutu Online</h1>
+      <p class="hero-sub">
+        Gizliliğin Adresi – Kapıda Ödeme &amp; Gizli Paketleme
+      </p>
+
+      <div class="hero-features">
+        <div>📦 Gizli Paketleme</div>
+        <div>💵 Kapıda Ödeme</div>
+        <div>⚡ 1 Saatte Teslim</div>
+      </div>
+
+      <a href="./products.html" class="btn primary">Ürünleri Gör</a>
+    </section>
+
+    <!-- 2) 21 MAHALLE TESLİMAT -->
+    <section class="delivery-zone">
+      <h2>AKHİSAR'DA 21 MAHALLEYE 1 SAATTE TESLİMAT</h2>
+      <p>
+        Siparişiniz Akhisar merkez mahallelerine ortalama <strong>1 saat</strong> içinde teslim edilir.
+      </p>
+
+      <div class="delivery-features">
+        <div>🏍️ Hızlı Motor Kurye</div>
+        <div>🕵️ Gizli Paketleme</div>
+        <div>🔒 Güvenli Altyapı</div>
+      </div>
+
+      <div class="neighborhoods">
+        <strong>Merkez:</strong> Atatürk, Cumhuriyet, Efendi, Hacı İshak, Hashoca, Hürriyet, İnönü, Kethüda, Paşa,
+        Ragıpbey, Reşatbey, Seyitahmet, Şeyhisa, Ulucami<br>
+        <strong>Çevre:</strong> Kayalıoğlu, Dayıoğlu, Medar, Pınarcık, Kızlaralanı, Yenidoğan, Çamönü
+      </div>
+    </section>
+
+    <!-- 3) AKHİSAR HARİTA -->
+    <section class="map-zone">
+      <h2>Akhisar Teslimat Bölgemiz</h2>
+      <p>Motor kurye ile hızlı teslimat sağlanan bölgeler.</p>
+
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3108.079505943654!2d27.838798675961477!3d38.92073244419595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b9b789dd5a1c05%3A0x74e9b7e0a4b741f6!2sAkhisar%2C%20Manisa!5e0!3m2!1str!2str!4v1728742100000!5m2!1str!2str"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- 4) İLETİŞİM -->
+    <section class="contact-zone">
+      <h2>İletişim</h2>
+      <p>
+        Sipariş, teslimat ve bilgi için bizimle dilediğiniz kanaldan iletişime geçebilirsiniz.
+      </p>
+
+      <div class="contact-links">
+        <a href="https://wa.me/905423933145" target="_blank">WhatsApp</a>
+        <a href="https://t.me/gizlikutuonline" target="_blank">Telegram</a>
+        <a href="mailto:info@gizlikutu.online">E-Posta</a>
+        <a href="https://www.instagram.com/gizlikutu.online" target="_blank">Instagram</a>
+      </div>
+    </section>
+
+    <!-- 5) WHATSAPP QR -->
+    <section class="qr-zone">
+      <h2>WhatsApp ile Sipariş</h2>
+
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://wa.me/905423933145"
+        alt="WhatsApp QR" loading="lazy" />
+
+      <a href="https://wa.me/905423933145" target="_blank" class="btn primary">
+        WhatsApp’a Git
+      </a>
+    </section>
+
+    <!-- 6) BİZ KİMİZ -->
+    <section class="about-zone">
+      <h2>Biz Kimiz?</h2>
+
+      <p>
+        Gizli Kutu Online, gizlilik prensibiyle çalışan özel ürün mağazasıdır.
+        Tüm siparişler gizli paketleme ile gönderilir.
+      </p>
+
+      <div class="about-features">
+        <div>🔒 SSL Güvenliği</div>
+        <div>🚚 Gizli Teslimat</div>
+        <div>💬 7/24 Destek</div>
+      </div>
+    </section>
+
+    <!-- 7) SIK SORULAN SORULAR -->
+    <section class="faq-zone">
+      <h2>Sık Sorulan Sorular</h2>
+
+      <details>
+        <summary>Siparişler gizli mi gönderiliyor?</summary>
+        <p>Evet. Tüm siparişler logosuz paketlenir.</p>
+      </details>
+
+      <details>
+        <summary>Kapıda ödeme yapabilir miyim?</summary>
+        <p>Akhisar içi motor kurye teslimatlarında mümkündür.</p>
+      </details>
+
+      <details>
+        <summary>İade süreci nasıl işler?</summary>
+        <p>Kullanılmamış ürünler 7 gün içinde iade edilir.</p>
+      </details>
+    </section>
+
+    <!-- 8) SSL GÜVENLİĞİ -->
+    <section class="security-zone">
+      🔒 %100 Gizlilik Garantisi • 🚚 Hızlı Teslimat • 💳 Güvenli Ödeme • 🔐 SSL Koruması
+    </section>
 
     <hr class="sep">
 
@@ -122,9 +252,24 @@
       <p>KVKK / Gizlilik / Sözleşmeler hazır</p>
     </div>
     <div class="grid" style="grid-template-columns:repeat(3,1fr)">
-      <a class="card" href="./kvkk.html"><div class="body"><div class="title">KVKK</div><div class="meta">Kişisel veriler</div></div></a>
-      <a class="card" href="./privacy.html"><div class="body"><div class="title">Gizlilik</div><div class="meta">Çerezler & güvenlik</div></div></a>
-      <a class="card" href="./distance-sales.html"><div class="body"><div class="title">Mesafeli Satış</div><div class="meta">Satış şartları</div></div></a>
+      <a class="card" href="./kvkk.html">
+        <div class="body">
+          <div class="title">KVKK</div>
+          <div class="meta">Kişisel veriler</div>
+        </div>
+      </a>
+      <a class="card" href="./privacy.html">
+        <div class="body">
+          <div class="title">Gizlilik</div>
+          <div class="meta">Çerezler & güvenlik</div>
+        </div>
+      </a>
+      <a class="card" href="./distance-sales.html">
+        <div class="body">
+          <div class="title">Mesafeli Satış</div>
+          <div class="meta">Satış şartları</div>
+        </div>
+      </a>
     </div>
   </main>
 
@@ -147,38 +292,38 @@
     document.getElementById("y").textContent = new Date().getFullYear();
 
     // ✅ SLIDER.JSON (Firebase URL) ile sliderı kur
-    (async function initSliderFromJson(){
+    (async function initSliderFromJson() {
       const sliderEl = document.getElementById("slider");
       const wrap = document.getElementById("slidesWrap");
       const dots = document.getElementById("dots");
       const prevBtn = document.getElementById("prev");
       const nextBtn = document.getElementById("next");
-      if(!sliderEl || !wrap || !dots || !prevBtn || !nextBtn) return;
+      if (!sliderEl || !wrap || !dots || !prevBtn || !nextBtn) return;
 
       let slides = [];
       let idx = 0;
       let timer = null;
 
-      function clearTimer(){
-        if(timer) { clearInterval(timer); timer = null; }
+      function clearTimer() {
+        if (timer) { clearInterval(timer); timer = null; }
       }
-      function startTimer(){
+      function startTimer() {
         clearTimer();
-        timer = setInterval(()=>go((idx+1) % slides.length), 5000);
+        timer = setInterval(() => go((idx + 1) % slides.length), 5000);
       }
 
-      function buildDots(){
+      function buildDots() {
         dots.innerHTML = "";
         slides.forEach((_, i) => {
           const d = document.createElement("div");
-          d.className = "dot" + (i===0 ? " active" : "");
-          d.addEventListener("click", ()=>go(i, true));
+          d.className = "dot" + (i === 0 ? " active" : "");
+          d.addEventListener("click", () => go(i, true));
           dots.appendChild(d);
         });
       }
 
-      function go(i, userAction){
-        if(!slides.length) return;
+      function go(i, userAction) {
+        if (!slides.length) return;
         slides[idx].classList.remove("active");
         dots.children[idx]?.classList.remove("active");
 
@@ -187,12 +332,12 @@
         slides[idx].classList.add("active");
         dots.children[idx]?.classList.add("active");
 
-        if(userAction) startTimer();
+        if (userAction) startTimer();
       }
 
-      async function loadSliderJson(){
-        try{
-          const res = await fetch("./data/slider.json", { cache:"no-store" });
+      async function loadSliderJson() {
+        try {
+          const res = await fetch("./data/slider.json", { cache: "no-store" });
           const arr = await res.json();
 
           const active = (Array.isArray(arr) ? arr : [])
@@ -200,19 +345,19 @@
             .map(x => String(x.url));
 
           // slider.json boşsa: mevcut SVG slide’ları kalsın
-          if(!active.length){
+          if (!active.length) {
             slides = [...wrap.querySelectorAll(".slide")];
             buildDots();
-            prevBtn.onclick = ()=>go((idx-1+slides.length)%slides.length, true);
-            nextBtn.onclick = ()=>go((idx+1)%slides.length, true);
-            if(slides.length) startTimer();
+            prevBtn.onclick = () => go((idx - 1 + slides.length) % slides.length, true);
+            nextBtn.onclick = () => go((idx + 1) % slides.length, true);
+            if (slides.length) startTimer();
             return;
           }
 
           // JSON’dan bas
-          wrap.innerHTML = active.map((u, i)=>`
-            <div class="slide ${i===0 ? "active" : ""}">
-              <img src="${u}" alt="Slider ${i+1}" loading="lazy">
+          wrap.innerHTML = active.map((u, i) => `
+            <div class="slide ${i === 0 ? "active" : ""}">
+              <img src="${u}" alt="Slider ${i + 1}" loading="lazy">
             </div>
           `).join("");
 
@@ -221,18 +366,18 @@
 
           buildDots();
 
-          prevBtn.onclick = ()=>go((idx-1+slides.length)%slides.length, true);
-          nextBtn.onclick = ()=>go((idx+1)%slides.length, true);
+          prevBtn.onclick = () => go((idx - 1 + slides.length) % slides.length, true);
+          nextBtn.onclick = () => go((idx + 1) % slides.length, true);
 
           startTimer();
-        }catch(e){
+        } catch (e) {
           console.error("slider.json okunamadı:", e);
           // hata olursa: SVG slide’lar kalsın
           slides = [...wrap.querySelectorAll(".slide")];
-          if(!slides.length) return;
+          if (!slides.length) return;
           buildDots();
-          prevBtn.onclick = ()=>go((idx-1+slides.length)%slides.length, true);
-          nextBtn.onclick = ()=>go((idx+1)%slides.length, true);
+          prevBtn.onclick = () => go((idx - 1 + slides.length) % slides.length, true);
+          nextBtn.onclick = () => go((idx + 1) % slides.length, true);
           startTimer();
         }
       }
@@ -241,26 +386,26 @@
     })();
 
     // Home grid (4 ürün)
-    GK.loadProducts().then(ps=>{
-      const top = ps.slice(0,4).map(GKUI.productCard).join("");
+    GK.loadProducts().then(ps => {
+      const top = ps.slice(0, 4).map(GKUI.productCard).join("");
       document.getElementById("homeGrid").innerHTML = top;
     });
   </script>
 
   <!-- 🔥 EKLENDİ: Hamburger menü kategorilerini JSON’dan yükle -->
   <script>
-    (async function(){
+    (async function () {
       try {
         const res = await fetch("./data/categories.json", { cache: "no-store" });
         const categories = await res.json();
         const box = document.getElementById("hamburgerCategories");
-        if(!box) return;
+        if (!box) return;
         box.innerHTML = categories.map(cat => `
           <a class="navlink" data-close-drawer href="./products.html?cat=${cat.id}">
             ${cat.label}
           </a>
         `).join("");
-      } catch(e){
+      } catch (e) {
         console.error("Hamburger kategori yükleme hatası", e);
       }
     })();
@@ -268,53 +413,65 @@
 
   <script src="./js/age-gate.js"></script>
 
-<!-- 💬 Canlı Destek -->
-<div class="live-support" id="liveSupport">
-  <div class="live-header">
-    <span>💬 Canlı Destek</span>
-    <button id="closeSupport">✕</button>
-  </div>
-
-  <div class="live-body">
-    <div class="live-welcome">
-      Merhaba 👋<br>
-      Size nasıl yardımcı olabiliriz?
+  <!-- 💬 Canlı Destek -->
+  <div class="live-support" id="liveSupport">
+    <div class="live-header">
+      <span>💬 Canlı Destek</span>
+      <button id="closeSupport">✕</button>
     </div>
 
-    <textarea id="supportMsg" placeholder="Mesajınızı yazın..."></textarea>
+    <div class="live-body">
+      <div class="live-welcome">
+        Merhaba 👋<br>
+        Size nasıl yardımcı olabiliriz?
+      </div>
 
-    <button id="sendSupport">WhatsApp’tan Gönder</button>
+      <textarea id="supportMsg" placeholder="Mesajınızı yazın..."></textarea>
+
+      <button id="sendSupport">WhatsApp’tan Gönder</button>
+    </div>
   </div>
-</div>
-<script>
-(function () {
-  const phone = "905423933145"; // senin WhatsApp numaran
+  <script>
+    (function () {
+      const phone = "905423933145"; // senin WhatsApp numaran
 
-  const box = document.getElementById("liveSupport");
-  const closeBtn = document.getElementById("closeSupport");
-  const sendBtn = document.getElementById("sendSupport");
-  const textarea = document.getElementById("supportMsg");
+      const box = document.getElementById("liveSupport");
+      const closeBtn = document.getElementById("closeSupport");
+      const sendBtn = document.getElementById("sendSupport");
+      const textarea = document.getElementById("supportMsg");
 
-  closeBtn.onclick = () => {
-    box.style.display = "none";
-  };
+      closeBtn.onclick = () => {
+        box.style.display = "none";
+      };
 
-  sendBtn.onclick = () => {
-    const msg = textarea.value.trim();
-    if (!msg) {
-      alert("Lütfen mesajınızı yazın 🙂");
-      return;
+      sendBtn.onclick = () => {
+        const msg = textarea.value.trim();
+        if (!msg) {
+          alert("Lütfen mesajınızı yazın 🙂");
+          return;
+        }
+
+        const text = encodeURIComponent(
+          "📩 Gizli Kutu Canlı Destek Mesajı:\n\n" + msg
+        );
+
+        window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+        textarea.value = "";
+      };
+    })();
+  </script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW registered:', reg.scope))
+          .catch(err => console.warn('SW failed:', err));
+      });
     }
-
-    const text = encodeURIComponent(
-      "📩 Gizli Kutu Canlı Destek Mesajı:\n\n" + msg
-    );
-
-    window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
-    textarea.value = "";
-  };
-})();
-</script>
+  </script>
 
 </body>
+
 </html>

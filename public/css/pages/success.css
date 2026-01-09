@@ -1,0 +1,30 @@
+/* Success Page */
+.success-page {
+    text-align: center;
+    padding: 60px 20px;
+    margin: 30px 0;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #10b981;
+    color: #fff;
+    font-size: 40px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 24px;
+}
+
+.success-page h1 {
+    margin-bottom: 16px;
+}
+
+.success-page p {
+    color: var(--muted);
+    margin-bottom: 24px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}

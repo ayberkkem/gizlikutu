@@ -1,12 +1,15 @@
 <!doctype html>
 <html lang="tr">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gizli Kutu | Ürün Detayı</title>
   <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/pages/product.css">
 </head>
+
 <body>
   <div class="drawerBackdrop" id="drawerBackdrop"></div>
   <aside class="drawer" id="drawer"></aside>
@@ -14,17 +17,28 @@
   <header class="topbar">
     <div class="container header">
       <button class="iconbtn" id="menuBtn">☰</button>
-<a class="brand" href="./index.html">
-  <img src="./assets/logo.svg" alt="Gizli Kutu">
-  <b>Gizli Kutu</b>
-</a>
+      <a class="brand" href="./index.html">
+        <img src="./assets/logo.svg" alt="Gizli Kutu">
+        <b>Gizli Kutu</b>
+      </a>
 
       <div class="header-right" style="flex:1">
         <a class="iconbtn" href="https://wa.me/905423933145" target="_blank" rel="noopener" aria-label="WhatsApp">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z" stroke="#111827" stroke-width="1.5"/><path d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z" fill="#e11d48"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z"
+              stroke="#111827" stroke-width="1.5" />
+            <path
+              d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z"
+              fill="#e11d48" />
+          </svg>
         </a>
-        <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5"/><path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round"/></svg><input id="globalSearch" placeholder="Ürün ara..." /></div>
-        <a class="iconbtn cartWrap" href="./cart.html">🛒<span class="badge" id="cartCount" style="display:none">0</span></a>
+        <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5" />
+            <path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+          </svg><input id="globalSearch" placeholder="Ürün ara..." /></div>
+        <a class="iconbtn cartWrap" href="./cart.html">🛒<span class="badge" id="cartCount"
+            style="display:none">0</span></a>
       </div>
     </div>
   </header>
@@ -34,8 +48,8 @@
       <div class="row" style="align-items:flex-start;gap:16px">
         <div style="flex:1;min-width:260px;border:1px solid var(--border);border-radius:14px;overflow:hidden">
           <img id="pImg" src="" alt="Ürün görseli">
-<!-- Thumbnail galeri -->
-<div id="thumbs" class="thumbs"></div>
+          <!-- Thumbnail galeri -->
+          <div id="thumbs" class="thumbs"></div>
 
         </div>
         <div style="flex:1.2;min-width:280px">
@@ -52,15 +66,16 @@
 
           <div class="row">
             <label style="color:var(--muted);font-size:13px">Adet</label>
-            <input id="qty" type="number" min="1" value="1" style="width:90px;border:1px solid var(--border);border-radius:12px;padding:10px 12px">
+            <input id="qty" type="number" min="1" value="1"
+              style="width:90px;border:1px solid var(--border);border-radius:12px;padding:10px 12px">
             <button class="btn primary" id="addToCart">Sepete Ekle</button>
           </div>
           <div class="trustRow" style="margin-top:14px">
-  <span>%100 Gizli Paketleme</span>
-  <span>Güvenli Ödeme</span>
-  <span>Hızlı Kargo</span>
-  <span>WhatsApp Destek</span>
-</div>
+            <span>%100 Gizli Paketleme</span>
+            <span>Güvenli Ödeme</span>
+            <span>Hızlı Kargo</span>
+            <span>WhatsApp Destek</span>
+          </div>
 
 
 
@@ -75,7 +90,9 @@
     </div>
   </main>
 
-  <footer class="footer"><div class="container">© <span id="y"></span> Gizli Kutu</div></footer>
+  <footer class="footer">
+    <div class="container">© <span id="y"></span> Gizli Kutu</div>
+  </footer>
 
   <script src="./js/storage.js"></script>
   <script src="./js/app.js"></script>
@@ -125,4 +142,5 @@
   </script>
   <script src="./js/age-gate.js"></script>
 </body>
+
 </html>

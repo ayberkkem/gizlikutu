@@ -1,0 +1,117 @@
+/* product.html - Product Detail Page */
+
+.product-detail {
+    display: grid;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+@media(min-width: 768px) {
+    .product-detail {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Gallery */
+.gallery-main img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    background: #f3f4f6;
+}
+
+.thumbs {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    overflow-x: auto;
+}
+
+.thumbs img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.thumbs img.active {
+    border-color: var(--accent);
+}
+
+/* Info */
+.product-info h1 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.product-cat {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.product-desc {
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* Quantity */
+.qty-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px;
+    margin-right: 12px;
+}
+
+.qty-wrap button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: var(--card);
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.qty-wrap input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+}
+
+/* Actions Row */
+.product-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Trust Row */
+.trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--muted);
+}
