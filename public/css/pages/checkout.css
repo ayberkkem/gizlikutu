@@ -29,6 +29,15 @@ body {
     padding: 24px;
 }
 
+/* Checkout Form - Premium Background */
+#checkoutForm {
+    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: var(--radius);
+}
+
 .checkout-form h2 {
     margin-bottom: 20px;
 }
@@ -149,4 +158,11 @@ body {
     text-align: center;
     padding: 60px 20px;
     color: var(--muted);
+}
+
+/* Checkout form içindeki metin alanlarının beyazlığını kır */
+#checkoutForm input,
+#checkoutForm select,
+#checkoutForm textarea {
+    background: #f767ca2a !important;
 }
