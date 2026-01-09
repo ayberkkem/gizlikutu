@@ -1530,3 +1530,118 @@ hr.sep {
 .product-meta .kbd {
   display: none !important;
 }
+
+/* ============================================
+   🔥 GLOBAL TEXT COLOR OVERRIDE - HARD BLACK
+   Tüm sayfalarda tüm metinler siyah (#000)
+============================================ */
+
+/* Base text color override */
+html,
+body,
+div,
+span,
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+ul,
+ol,
+label,
+small,
+strong,
+em,
+b,
+i,
+th,
+td,
+caption,
+figcaption,
+blockquote,
+cite,
+nav,
+header,
+footer,
+main,
+section,
+article,
+aside {
+  color: #000 !important;
+}
+
+/* Form elements text color */
+input,
+select,
+textarea,
+button,
+option {
+  color: #000 !important;
+}
+
+/* Placeholder text color */
+::placeholder {
+  color: #000 !important;
+  opacity: 0.7;
+}
+
+::-webkit-input-placeholder {
+  color: #000 !important;
+  opacity: 0.7;
+}
+
+::-moz-placeholder {
+  color: #000 !important;
+  opacity: 0.7;
+}
+
+:-ms-input-placeholder {
+  color: #000 !important;
+}
+
+/* Links */
+a,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: #000 !important;
+}
+
+/* Buttons text */
+.btn,
+button,
+[type="submit"],
+[type="button"] {
+  color: #000 !important;
+}
+
+/* Primary button exception - keep white text */
+.btn.primary,
+button.primary {
+  color: #fff !important;
+}
+
+/* Navigation and menu text */
+.navlink,
+.nav-link,
+.menu-item,
+.drawer a {
+  color: #000 !important;
+}
+
+/* Badge text stays white */
+.badge {
+  color: #fff !important;
+}
+
+/* Muted text override */
+.muted,
+[class*="muted"],
+.text-muted {
+  color: #000 !important;
+}

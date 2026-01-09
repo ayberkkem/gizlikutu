@@ -166,3 +166,8 @@ body {
 #checkoutForm textarea {
     background: #f767ca2a !important;
 }
+
+/* Checkout sağ özet alanındaki notice arka planını inputlarla uyumlu yap */
+#checkoutWrap .notice {
+    background: #f767ca2a !important;
+}
