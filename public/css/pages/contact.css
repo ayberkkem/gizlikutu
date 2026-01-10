@@ -1,4 +1,4 @@
-/* Contact Page - Uses static.css for shared styles */
+/* Contact Page */
 
 /* Premium Background */
 body {
@@ -7,4 +7,43 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+/* FORCE REMOVE WHITE BACKGROUND - LEGAL PAGES */
+/* Yaygın container katmanları */
+.container,
+.page,
+.page-container,
+.wrapper,
+.content,
+.content-wrap,
+.main,
+main,
+section,
+article,
+.card,
+.paper,
+.panel,
+.box,
+.layout,
+.inner,
+.inner-wrap,
+.policy {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Override CSS variable backgrounds */
+main.container,
+main.container.policy,
+.container.policy {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Override var(--card) and white backgrounds */
+[style*="background"],
+.container *:not(button):not(.btn):not(a):not(nav):not(header):not(.topbar):not(.footer) {
+    background-color: transparent !important;
 }
