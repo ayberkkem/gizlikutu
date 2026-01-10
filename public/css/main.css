@@ -1970,6 +1970,45 @@ textarea {
   }
 }
 
+/* =====================================================
+   PC HEADER NAV - SADECE DESKTOP (min-width: 1024px)
+===================================================== */
+
+/* Varsayılan: Mobil ve tablet'te gizli */
+.desktop-header-nav {
+  display: none;
+}
+
+/* Desktop'ta görünür */
+@media (min-width: 1024px) {
+  .desktop-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 16px;
+  }
+
+  .desktop-header-nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .desktop-header-nav a:hover {
+    background: var(--accent);
+    color: #fff !important;
+    border-color: var(--accent);
+  }
+}
+
 /* ============================================
    MOBİL ARAMA TOGGLE - SADECE MOBİLDE
 ============================================ */
