@@ -171,3 +171,42 @@ body {
 #checkoutWrap .notice {
     background: #f767ca2a !important;
 }
+
+/* =====================================================
+   MOBİL CHECKOUT LAYOUT - DİKEY DÜZEN
+   Özet → Teslimat → Ödeme sıralaması
+===================================================== */
+@media (max-width: 768px) {
+
+    /* Ana row dikey düzene geçsin */
+    #checkoutWrap>.row {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+    }
+
+    /* Özet kartı EN ÜSTE (order: 1) */
+    #checkoutWrap>.row>.card:not(#checkoutForm) {
+        order: 1 !important;
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    /* Teslimat + Ödeme formu ALTA (order: 2) */
+    #checkoutWrap>.row>#checkoutForm {
+        order: 2 !important;
+        width: 100% !important;
+        flex: none !important;
+    }
+
+    /* Form içi satırlar da dikey olsun */
+    #checkoutForm .row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #checkoutForm .row input,
+    #checkoutForm .row select {
+        width: 100% !important;
+    }
+}
