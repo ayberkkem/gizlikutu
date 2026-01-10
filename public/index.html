@@ -56,14 +56,22 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path
               d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z"
-              stroke="#111827" stroke-width="1.5" />
+              stroke="#25D366" stroke-width="1.5" fill="#25D366" fill-opacity="0.1" />
             <path
               d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z"
-              fill="#e11d48" />
+              fill="#25D366" />
           </svg>
         </a>
 
-        <div class="search" title="Ürün ara">
+        <!-- Mobil arama toggle butonu -->
+        <button class="iconbtn searchToggleBtn" id="searchToggle" aria-label="Ara">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5" />
+            <path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <div class="search" id="searchBox" title="Ürün ara">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5" />
             <path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
@@ -402,7 +410,20 @@
 
   <script src="./js/age-gate.js"></script>
 
-  <!-- 💬 Canlı Destek -->
+  <!-- � Mobil Arama Toggle -->
+  <script>
+    (function () {
+      const toggleBtn = document.getElementById('searchToggle');
+      const searchBox = document.getElementById('searchBox');
+      if (toggleBtn && searchBox) {
+        toggleBtn.addEventListener('click', function () {
+          searchBox.classList.toggle('search-open');
+        });
+      }
+    })();
+  </script>
+
+  <!-- �💬 Canlı Destek -->
   <div class="live-support" id="liveSupport">
     <div class="live-header">
       <span>💬 Canlı Destek</span>
