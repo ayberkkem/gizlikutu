@@ -423,11 +423,15 @@
     })();
   </script>
 
-  <!-- �💬 Canlı Destek -->
+
+  <!-- 💬 Canlı Destek -->
   <div class="live-support" id="liveSupport">
     <div class="live-header">
       <span>💬 Canlı Destek</span>
-      <button id="closeSupport">✕</button>
+      <div style="display:flex;gap:4px">
+        <button id="minimizeSupport" title="Küçült">−</button>
+        <button id="closeSupport" title="Kapat">✕</button>
+      </div>
     </div>
 
     <div class="live-body">
@@ -438,22 +442,52 @@
 
       <textarea id="supportMsg" placeholder="Mesajınızı yazın..."></textarea>
 
-      <button id="sendSupport">WhatsApp’tan Gönder</button>
+      <button id="sendSupport">WhatsApp'tan Gönder</button>
     </div>
   </div>
+
+  <!-- Minimized floating WhatsApp logo -->
+  <div class="live-support-mini" id="liveSupportMini" title="Canlı Destek">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path
+        d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z"
+        fill="#fff" />
+      <path
+        d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z"
+        fill="#25D366" />
+    </svg>
+  </div>
+
   <script>
     (function () {
-      const phone = "905423933145"; // senin WhatsApp numaran
+      const phone = "905423933145";
 
       const box = document.getElementById("liveSupport");
       const closeBtn = document.getElementById("closeSupport");
+      const minimizeBtn = document.getElementById("minimizeSupport");
       const sendBtn = document.getElementById("sendSupport");
       const textarea = document.getElementById("supportMsg");
+      const miniBtn = document.getElementById("liveSupportMini");
 
+      // Close completely
       closeBtn.onclick = () => {
         box.style.display = "none";
+        miniBtn.classList.remove("active");
       };
 
+      // Minimize to floating button
+      minimizeBtn.onclick = () => {
+        box.style.display = "none";
+        miniBtn.classList.add("active");
+      };
+
+      // Expand from floating button
+      miniBtn.onclick = () => {
+        miniBtn.classList.remove("active");
+        box.style.display = "";
+      };
+
+      // Send message
       sendBtn.onclick = () => {
         const msg = textarea.value.trim();
         if (!msg) {
@@ -470,6 +504,7 @@
       };
     })();
   </script>
+
 
   <!-- Service Worker Registration -->
   <script>
