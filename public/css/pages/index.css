@@ -220,30 +220,129 @@ details p {
 }
 
 /* =====================================================
-   MOBİL ANASAYFA - SLIDER GİZLEME
-   PC slider'a dokunulmaz, sadece mobilde gizlenir
+   HERO BRAND BOX - Glitter arka plan + metalik yazı
+===================================================== */
+.hero-brand-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../assets/backgrounds/glitter-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 50px 24px;
+    text-align: center;
+    min-height: 195px;
+    /* 260px * 0.75 = 195px (%25 küçük) */
+}
+
+/* Premium Gümüş Metalik Yazı - PC %20 büyütülmüş */
+.hero-brand-title {
+    font-size: 52px;
+    /* 43px * 1.20 = 51.6px (%20 büyük) */
+    font-weight: 800;
+    letter-spacing: 4px;
+    background: linear-gradient(180deg, #ffffff 0%, #e0e0e0 30%, #b0b0b0 50%, #e8e8e8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+/* Güçlendirilmiş Işıltılı Glow efekti */
+.hero-brand-title::after {
+    content: 'GİZLİ KUTU';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.35);
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.hero-brand-subtitle {
+    font-size: 41px;
+    /* 34px * 1.20 = 40.8px (%20 büyük) */
+    font-weight: 600;
+    letter-spacing: 7px;
+    background: linear-gradient(180deg, #ffffff 0%, #d0d0d0 40%, #e0e0e0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.hero-brand-subtitle::after {
+    content: 'ONLİNE';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    font-size: 41px;
+    font-weight: 600;
+    letter-spacing: 7px;
+    color: rgba(255, 255, 255, 0.3);
+    filter: blur(9px);
+    z-index: -1;
+}
+
+/* =====================================================
+   MOBİL ANASAYFA
 ===================================================== */
 @media (max-width: 520px) {
-
-    /* Slider tamamen gizle */
-    .slider,
-    #slider,
-    .sliderControls,
-    #slidesWrap {
-        display: none !important;
-    }
 
     /* Hero tek kolon */
     .hero {
         grid-template-columns: 1fr !important;
     }
 
-    /* smallCard mobilde tam genişlik */
-    .smallCard {
-        padding: 20px 16px;
+    /* Mobilde hero-brand-box - %6 büyütülmüş */
+    .hero-brand-box {
+        padding: 28px 16px;
+        min-height: 148px;
+        /* 140px * 1.06 = 148.4px (%6 büyük) */
+        border-bottom: none;
+        border-radius: var(--radius) var(--radius) 0 0;
+        margin-bottom: -1px;
     }
 
-    .smallCard h1 {
-        font-size: 1.4rem;
+    /* Mobil yazı boyutları - DEĞİŞTİRİLMEDİ */
+    .hero-brand-title {
+        font-size: 23px;
+        letter-spacing: 2px;
     }
-}
+
+    .hero-brand-title::after {
+        font-size: 23px;
+        letter-spacing: 2px;
+    }
+
+    .hero-brand-subtitle {
+        font-size: 17px;
+        letter-spacing: 3px;
+    }
+
+    .hero-brand-subtitle::after {
+        font-size: 17px;
+        letter-spacing: 3px;
+    }
+
+    /* smallCard mobilde */
+    .smallCard {
+        .smallCard {
+            padding: 20px 16px;
+            border-radius: 0 0 var(--radius) var(--radius);
+        }
+
+        .smallCard h1 {
+            font-size: 1.4rem;
+        }
+    }

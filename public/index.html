@@ -97,20 +97,10 @@
 
   <main class="container">
     <div class="hero">
-      <div class="slider" id="slider">
-
-        <!-- ✅ DEĞİŞTİ: Slide’lar JSON’dan buraya basılacak -->
-        <div id="slidesWrap">
-          <div class="slide active"><img src="./assets/slide-1.svg" alt="Slide 1"></div>
-          <div class="slide"><img src="./assets/slide-2.svg" alt="Slide 2"></div>
-          <div class="slide"><img src="./assets/slide-3.svg" alt="Slide 3"></div>
-        </div>
-
-        <div class="sliderControls">
-          <button class="btn ghost" id="prev">‹</button>
-          <div class="dots" id="dots"></div>
-          <button class="btn ghost" id="next">›</button>
-        </div>
+      <!-- Glitter arka plan + Premium yazı -->
+      <div class="hero-brand-box">
+        <div class="hero-brand-title">GİZLİ KUTU</div>
+        <div class="hero-brand-subtitle">ONLİNE</div>
       </div>
 
       <div class="smallCard">
@@ -258,7 +248,7 @@
 
     <div class="sectionTitle">
       <h3>Güven & Politika</h3>
-      <p>KVKK / Gizlilik / Sözleşmeler hazır</p>
+      <p>İletişim info@gizlikutu.online</p>
     </div>
     <div class="grid" style="grid-template-columns:repeat(3,1fr)">
       <a class="card" href="./kvkk.html">
@@ -299,102 +289,6 @@
   <script>
     GK.bindGlobalUI();
     document.getElementById("y").textContent = new Date().getFullYear();
-
-    // ✅ SLIDER.JSON (Firebase URL) ile sliderı kur
-    (async function initSliderFromJson() {
-      const sliderEl = document.getElementById("slider");
-      const wrap = document.getElementById("slidesWrap");
-      const dots = document.getElementById("dots");
-      const prevBtn = document.getElementById("prev");
-      const nextBtn = document.getElementById("next");
-      if (!sliderEl || !wrap || !dots || !prevBtn || !nextBtn) return;
-
-      let slides = [];
-      let idx = 0;
-      let timer = null;
-
-      function clearTimer() {
-        if (timer) { clearInterval(timer); timer = null; }
-      }
-      function startTimer() {
-        clearTimer();
-        timer = setInterval(() => go((idx + 1) % slides.length), 5000);
-      }
-
-      function buildDots() {
-        dots.innerHTML = "";
-        slides.forEach((_, i) => {
-          const d = document.createElement("div");
-          d.className = "dot" + (i === 0 ? " active" : "");
-          d.addEventListener("click", () => go(i, true));
-          dots.appendChild(d);
-        });
-      }
-
-      function go(i, userAction) {
-        if (!slides.length) return;
-        slides[idx].classList.remove("active");
-        dots.children[idx]?.classList.remove("active");
-
-        idx = i;
-
-        slides[idx].classList.add("active");
-        dots.children[idx]?.classList.add("active");
-
-        if (userAction) startTimer();
-      }
-
-      async function loadSliderJson() {
-        try {
-          const res = await fetch("./data/slider.json", { cache: "no-store" });
-          const arr = await res.json();
-
-          const active = (Array.isArray(arr) ? arr : [])
-            .filter(x => x && x.active !== false && x.url)
-            .map(x => String(x.url));
-
-          // slider.json boşsa: mevcut SVG slide’ları kalsın
-          if (!active.length) {
-            slides = [...wrap.querySelectorAll(".slide")];
-            buildDots();
-            prevBtn.onclick = () => go((idx - 1 + slides.length) % slides.length, true);
-            nextBtn.onclick = () => go((idx + 1) % slides.length, true);
-            if (slides.length) startTimer();
-            return;
-          }
-
-          // JSON’dan bas
-          wrap.innerHTML = active.map((u, i) => `
-            <div class="slide ${i === 0 ? "active" : ""}">
-              <img src="${u}" alt="Slider ${i + 1}" loading="lazy">
-            </div>
-          `).join("");
-
-          slides = [...wrap.querySelectorAll(".slide")];
-          idx = 0;
-
-          buildDots();
-
-          prevBtn.onclick = () => go((idx - 1 + slides.length) % slides.length, true);
-          nextBtn.onclick = () => go((idx + 1) % slides.length, true);
-
-          startTimer();
-        } catch (e) {
-          console.error("slider.json okunamadı:", e);
-          // hata olursa: SVG slide’lar kalsın
-          slides = [...wrap.querySelectorAll(".slide")];
-          if (!slides.length) return;
-          buildDots();
-          prevBtn.onclick = () => go((idx - 1 + slides.length) % slides.length, true);
-          nextBtn.onclick = () => go((idx + 1) % slides.length, true);
-          startTimer();
-        }
-      }
-
-      loadSliderJson();
-    })();
-
-
   </script>
 
   <!-- 🔥 EKLENDİ: Hamburger menü kategorilerini JSON’dan yükle -->
