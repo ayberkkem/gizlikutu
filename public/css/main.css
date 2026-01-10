@@ -370,7 +370,37 @@ main {
 
 @media(max-width:520px) {
   .grid {
-    grid-template-columns: 1fr
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Mobil için kart optimizasyonları - Trendyol tarzı */
+  .card .thumb {
+    height: 140px;
+  }
+
+  .card .body {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .card .title {
+    font-size: 13px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card .meta {
+    font-size: 11px;
+  }
+
+  .card .price {
+    font-size: 14px;
   }
 }
 
@@ -968,7 +998,37 @@ main {
 
 @media(max-width:520px) {
   .grid {
-    grid-template-columns: 1fr
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Mobil için kart optimizasyonları - Trendyol tarzı */
+  .card .thumb {
+    height: 140px;
+  }
+
+  .card .body {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .card .title {
+    font-size: 13px;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card .meta {
+    font-size: 11px;
+  }
+
+  .card .price {
+    font-size: 14px;
   }
 }
 
@@ -2257,5 +2317,81 @@ textarea {
   .lightbox-thumbs img {
     width: 50px;
     height: 50px;
+  }
+}
+
+/* =====================================================
+   TRENDYOL MOBİL UI STİLLERİ
+   Sadece 520px altı mobil için geçerli
+===================================================== */
+
+/* Mobil Üst Nav - PC'de gizli */
+.mobile-top-nav {
+  display: none;
+}
+
+@media (max-width: 520px) {
+
+  /* ===== MOBİL ÜST NAV BUTONLARI ===== */
+  .mobile-top-nav {
+    display: flex;
+    gap: 8px;
+    padding: 10px 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    background: transparent;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-top-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-top-nav a {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid var(--border);
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .mobile-top-nav a.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* ===== MOBİL TOOLBAR SADELEŞTİRME ===== */
+  .toolbar {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .toolbar>div {
+    flex: 1;
+    min-width: 45%;
+  }
+
+  /* Mobilde gizlenecek alanlar */
+  .toolbar .mobile-hide,
+  .toolbar #rating,
+  .toolbar [for="rating"],
+  .toolbar div:has(#rating) {
+    display: none !important;
+  }
+
+  /* Sıralama seçeneği - gereksiz seçenekleri JS ile gizleyeceğiz */
+
+  /* ===== MOBİL KATEGORİ SCROLL ===== */
+  .toolbar select#cat {
+    max-height: 200px;
+    overflow-y: auto;
   }
 }

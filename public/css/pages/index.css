@@ -218,3 +218,32 @@ details p {
     font-size: 0.9rem;
     color: var(--muted);
 }
+
+/* =====================================================
+   MOBİL ANASAYFA - SLIDER GİZLEME
+   PC slider'a dokunulmaz, sadece mobilde gizlenir
+===================================================== */
+@media (max-width: 520px) {
+
+    /* Slider tamamen gizle */
+    .slider,
+    #slider,
+    .sliderControls,
+    #slidesWrap {
+        display: none !important;
+    }
+
+    /* Hero tek kolon */
+    .hero {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* smallCard mobilde tam genişlik */
+    .smallCard {
+        padding: 20px 16px;
+    }
+
+    .smallCard h1 {
+        font-size: 1.4rem;
+    }
+}
