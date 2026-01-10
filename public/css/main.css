@@ -2407,31 +2407,54 @@ textarea {
   }
 
   /* ===== MOBİL TOOLBAR SADELEŞTİRME ===== */
+  /* ===== MOBİL TOOLBAR DİKEY DÜZEN ===== */
   .toolbar {
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 10px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 12px !important;
   }
 
   .toolbar>div {
-    flex: 1;
-    min-width: 45%;
+    width: 100% !important;
+    flex: none !important;
+    min-width: 100% !important;
+  }
+
+  /* Sıralama: Kategori → Sıralama → Filtreleri Sıfırla */
+  .toolbar div:has(#cat) {
+    order: 1 !important;
+  }
+
+  .toolbar div:has(#sort) {
+    order: 2 !important;
+  }
+
+  .toolbar #clearFilters {
+    order: 3 !important;
+    width: 100% !important;
+  }
+
+  .toolbar .spacer {
+    display: none !important;
   }
 
   /* Mobilde gizlenecek alanlar */
   .toolbar .mobile-hide,
   .toolbar #rating,
   .toolbar [for="rating"],
-  .toolbar div:has(#rating) {
+  .toolbar div:has(#rating),
+  .toolbar #price,
+  .toolbar [for="price"],
+  .toolbar div:has(#price) {
     display: none !important;
   }
 
-  /* Sıralama seçeneği - gereksiz seçenekleri JS ile gizleyeceğiz */
-
   /* ===== MOBİL KATEGORİ SCROLL ===== */
-  .toolbar select#cat {
-    max-height: 200px;
-    overflow-y: auto;
+  .toolbar select#cat,
+  .toolbar select#sort {
+    width: 100%;
+    padding: 12px;
   }
 }
 
