@@ -249,6 +249,7 @@ details p {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin-top: 24px;
     margin-bottom: 6px;
     position: relative;
 }
@@ -307,8 +308,12 @@ details p {
     /* Mobilde hero-brand-box - %6 büyütülmüş */
     .hero-brand-box {
         padding: 28px 16px;
-        min-height: 148px;
-        /* 140px * 1.06 = 148.4px (%6 büyük) */
+        min-height: 235px;
+        /* ✅ Kutu artık kırpılmaz */
+        max-height: 235px;
+        /* ✅ Mobilde şişme olmaz */
+        overflow: visible;
+        /* ✅ Üst taşma kesilmez */
         border-bottom: none;
         border-radius: var(--radius) var(--radius) 0 0;
         margin-bottom: -1px;
