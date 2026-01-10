@@ -351,3 +351,17 @@ details p {
             font-size: 1.4rem;
         }
     }
+}
+
+/* <-- @media (max-width: 520px) KAPANIŞI */
+
+
+/* =====================================================
+   💬 CANLI DESTEK - BAŞLIK VE İKONLAR BEYAZ
+===================================================== */
+.live-support .live-header span,
+.live-support .live-header button,
+#minimizeSupport,
+#closeSupport {
+    color: #ffffff !important;
+}
