@@ -35,22 +35,29 @@
   }
 
   async function loadProducts() {
-    const res = await fetch("./data/products.json", { cache: "no-store" });
-    const data = await res.json();
+    try {
+      const res = await fetch("./data/products.json", { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
 
-    // ✅ Her ürüne kesin bir kapak görseli üret: p.image
-    data.forEach((p) => {
-      p.image = normalizeProductImage(p);
+      // ✅ Her ürüne kesin bir kapak görseli üret: p.image
+      data.forEach((p) => {
+        p.image = normalizeProductImage(p);
 
-      // ✅ İstersen ek güvenlik: images boşsa ve image doluysa images[0] yap
-      // (Böylece ileride hep images[] ile de yürürsün)
-      if ((!Array.isArray(p.images) || p.images.length === 0) && typeof p.image === "string" && p.image) {
-        p.images = [p.image];
-      }
-    });
+        // ✅ İstersen ek güvenlik: images boşsa ve image doluysa images[0] yap
+        // (Böylece ileride hep images[] ile de yürürsün)
+        if ((!Array.isArray(p.images) || p.images.length === 0) && typeof p.image === "string" && p.image) {
+          p.images = [p.image];
+        }
+      });
 
-    state.products = data;
-    return data;
+      state.products = data;
+      return data;
+    } catch (err) {
+      console.error("loadProducts error:", err);
+      state.products = [];
+      return [];
+    }
   }
 
   function money(n) {

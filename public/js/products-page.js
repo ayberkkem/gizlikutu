@@ -15,8 +15,14 @@
   const products = await window.GK.loadProducts();
 
   async function loadCategories() {
-    const res = await fetch("./data/categories.json", { cache: "no-store" });
-    return await res.json();
+    try {
+      const res = await fetch("./data/categories.json", { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return await res.json();
+    } catch (err) {
+      console.error("loadCategories error:", err);
+      return [];
+    }
   }
 
   /* =========================
