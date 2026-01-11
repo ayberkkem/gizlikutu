@@ -8,6 +8,7 @@
   <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/pages/product.css">
+  <link rel="stylesheet" href="./css/category-nav.css">
 </head>
 
 <body>
@@ -57,6 +58,9 @@
       </div>
     </div>
   </header>
+
+  <!-- Kategori Navigasyon -->
+  <nav id="categoryNav" class="category-nav-wrapper"></nav>
 
   <main class="container">
     <div id="productWrap" class="card" style="padding:16px">
@@ -156,6 +160,7 @@
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
   <script src="./js/age-gate.js"></script>
+  <script src="./js/category-nav.js" defer></script>
 </body>
 
 </html>

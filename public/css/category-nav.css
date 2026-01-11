@@ -1,0 +1,240 @@
+/* =====================================
+   CATEGORY NAVIGATION BAR
+   Migros tarzı mobil + hover desktop
+===================================== */
+
+/* ============ WRAPPER ============ */
+.category-nav-wrapper {
+    width: 100%;
+    background: var(--card, #fff);
+    border-bottom: 1px solid var(--border, #e5e7eb);
+    padding: 10px 0;
+    position: relative;
+    z-index: 40;
+    /* Drawer overlay (z-index:60) altında */
+}
+
+/* Drawer açıkken category-nav'ı pasif yap */
+.drawerBackdrop.open~.category-nav-wrapper,
+.drawer.open~.category-nav-wrapper {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* ============ MOBILE (Migros Tarzı) ============ */
+.category-nav-wrapper.mobile-mode {
+    padding: 8px 0;
+}
+
+/* Chip container - yatay scroll */
+.cat-chips-container {
+    display: flex;
+    gap: 8px;
+    padding: 0 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.cat-chips-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Chip butonları */
+.cat-chip {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--text, #121212);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.cat-chip:hover,
+.cat-chip.active {
+    background: var(--accent, #e11d48);
+    border-color: var(--accent, #e11d48);
+    color: #fff;
+}
+
+/* Panel container */
+.cat-panel-container {
+    padding: 0 12px;
+}
+
+/* Panel */
+.cat-panel {
+    margin-top: 10px;
+    padding: 10px 0;
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Panel içi ürün linki */
+.cat-product-item {
+    display: block;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--text, #121212);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border, #f3f4f6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cat-product-item:last-of-type {
+    border-bottom: none;
+}
+
+.cat-product-item:hover {
+    background: var(--border, #f9fafb);
+}
+
+/* Tümünü Gör linki */
+.cat-view-all {
+    display: block;
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent, #e11d48);
+    text-decoration: none;
+    text-align: center;
+    border-top: 1px solid var(--border, #e5e7eb);
+    margin-top: 4px;
+}
+
+.cat-view-all:hover {
+    background: var(--border, #f9fafb);
+}
+
+/* ============ DESKTOP ============ */
+.category-nav-wrapper.desktop-mode {
+    padding: 10px 0;
+}
+
+.cat-nav-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    max-width: var(--container, 1180px);
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+/* Desktop kategori kutusu */
+.cat-nav-item {
+    position: relative;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text, #121212);
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+    user-select: none;
+}
+
+.cat-nav-item:hover {
+    border-color: var(--accent, #e11d48);
+}
+
+.cat-nav-label {
+    display: block;
+    white-space: nowrap;
+}
+
+/* Desktop dropdown */
+.cat-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 260px;
+    max-width: 320px;
+    background: #fff;
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    display: none;
+    padding: 8px 0;
+    margin-top: 6px;
+}
+
+.cat-dropdown.open {
+    display: block !important;
+}
+
+/* Dropdown içi ürün linki */
+.cat-dropdown-item {
+    display: block;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text, #121212);
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cat-dropdown-item:hover {
+    background: var(--border, #f3f4f6);
+}
+
+/* Dropdown Tümünü Gör */
+.cat-dropdown-all {
+    display: block;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent, #e11d48);
+    text-decoration: none;
+    text-align: center;
+    border-top: 1px solid var(--border, #e5e7eb);
+    margin-top: 4px;
+}
+
+.cat-dropdown-all:hover {
+    background: var(--border, #f9fafb);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+    .cat-chip {
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+
+    .cat-product-item {
+        padding: 11px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cat-chip {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+    .cat-product-item {
+        padding: 10px 10px;
+        font-size: 11px;
+    }
+
+    .cat-panel {
+        border-radius: 10px;
+    }
+}

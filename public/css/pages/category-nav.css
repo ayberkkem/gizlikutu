@@ -1,0 +1,122 @@
+/* =====================================
+   CATEGORY NAVIGATION BAR
+   Header altında yatay kategori menüsü
+===================================== */
+
+.category-nav-wrapper {
+  width: 100%;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+
+.category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* Kategori kutusu */
+.category-nav-item {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 160px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text);
+  transition: border-color 0.15s ease;
+}
+
+.category-nav-item:hover {
+  border-color: var(--accent);
+}
+
+/* Dropdown panel */
+.category-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  max-width: 280px;
+  background: var(--card, #fff);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 100;
+  display: none;
+  padding: 8px 0;
+  margin-top: 4px;
+}
+
+.category-dropdown.open {
+  display: block;
+}
+
+/* Ürün linki */
+.category-product-link {
+  display: block;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-product-link:hover {
+  background: var(--border);
+}
+
+/* Ürün yok mesajı */
+.category-no-product {
+  display: block;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+  .category-nav-item {
+    font-size: 11px;
+    padding: 5px 10px;
+    max-width: 140px;
+  }
+  
+  .category-dropdown {
+    min-width: 180px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 520px) {
+  .category-nav-wrapper {
+    padding: 8px 0;
+  }
+  
+  .category-nav {
+    gap: 6px;
+    padding: 0 8px;
+  }
+  
+  .category-nav-item {
+    font-size: 10px;
+    padding: 5px 8px;
+    max-width: 120px;
+  }
+  
+  /* Mobil dokunma alanı genişletme */
+  .category-product-link {
+    padding: 10px 12px;
+  }
+}
