@@ -6,7 +6,7 @@
 
   // ✅ Projende kesin olan bir placeholder koy.
   // Eğer /assets/placeholder.jpg sende varsa onu kullan.
-  const PLACEHOLDER = "/assets/placeholder.jpg";
+  const PLACEHOLDER = "./assets/placeholder.jpg";
 
   function isHttpUrl(s) {
     return typeof s === "string" && /^https?:\/\//i.test(s);

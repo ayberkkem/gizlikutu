@@ -1,7 +1,7 @@
 (function () {
   const { qs, money, toast, setCartBadge } = window.GK;
 
-  const PLACEHOLDER = "/assets/placeholder.jpg";
+  const PLACEHOLDER = "./assets/placeholder.jpg";
 
   // Mobil kontrolü
   function isMobile() {

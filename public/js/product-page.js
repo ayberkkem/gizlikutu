@@ -12,7 +12,7 @@
     "bebek-manken": "Bebek & Manken"
   };
 
-  const PLACEHOLDER = "/assets/placeholder.jpg";
+  const PLACEHOLDER = "./assets/placeholder.jpg";
 
   function pickImages(p) {
     if (Array.isArray(p.images) && p.images.length) {
@@ -101,7 +101,7 @@
   ========================== */
 
   // Platform detection
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     || window.innerWidth <= 768;
 
   // Create lightbox
@@ -226,10 +226,10 @@
       const rect = lbImageWrap.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = (e.clientY - rect.top) / rect.height;
-      
+
       const scrollX = (lbImageWrap.scrollWidth - rect.width) * x;
       const scrollY = (lbImageWrap.scrollHeight - rect.height) * y;
-      
+
       lbImageWrap.scrollLeft = scrollX;
       lbImageWrap.scrollTop = scrollY;
     };

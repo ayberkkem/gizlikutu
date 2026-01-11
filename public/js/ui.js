@@ -12,7 +12,7 @@
     "bebek-manken": "Bebek & Manken"
   };
 
-  const PLACEHOLDER = "/assets/placeholder.jpg";
+  const PLACEHOLDER = "./assets/placeholder.jpg";
 
   function pickImage(p) {
     if (Array.isArray(p.images) && p.images.length && typeof p.images[0] === "string") {
@@ -105,17 +105,17 @@
   ================================ */
   function bindCartButtons() {
     // Add to cart button click
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       // Sepete Ekle button
       if (e.target.classList.contains('add-to-cart-btn')) {
         e.preventDefault();
         e.stopPropagation();
-        
+
         const productData = JSON.parse(decodeURIComponent(e.target.dataset.product));
         window.GKStorage.addToCart(productData, 1);
         window.GK.setCartBadge();
         window.GK.toast('Sepete eklendi!');
-        
+
         // Replace button with counter
         const parentDiv = e.target.parentElement;
         const productId = productData.id;
@@ -133,18 +133,18 @@
       if (e.target.classList.contains('counter-minus')) {
         e.preventDefault();
         e.stopPropagation();
-        
+
         const counter = e.target.closest('.cart-counter');
         const productId = counter.dataset.productId;
         const productData = counter.dataset.product;
         const qtyEl = counter.querySelector('.counter-qty');
         let qty = parseInt(qtyEl.textContent) - 1;
-        
+
         if (qty <= 0) {
           // Remove from cart and show "Sepete Ekle" again
           window.GKStorage.removeItem(productId);
           window.GK.setCartBadge();
-          
+
           const parentDiv = counter.parentElement;
           parentDiv.innerHTML = `
             <button class="add-to-cart-btn" data-product="${productData}">
@@ -164,12 +164,12 @@
       if (e.target.classList.contains('counter-plus')) {
         e.preventDefault();
         e.stopPropagation();
-        
+
         const counter = e.target.closest('.cart-counter');
         const productId = counter.dataset.productId;
         const qtyEl = counter.querySelector('.counter-qty');
         let qty = parseInt(qtyEl.textContent) + 1;
-        
+
         window.GKStorage.updateQty(productId, qty);
         window.GK.setCartBadge();
         qtyEl.textContent = qty;

@@ -1,6 +1,6 @@
 (function () {
   const KEY_CART = "gizlikutu_cart_v1";
-  const PLACEHOLDER = "/assets/placeholder.jpg";
+  const PLACEHOLDER = "./assets/placeholder.jpg";
 
   function pickImage(p) {
     if (Array.isArray(p.images) && p.images.length && typeof p.images[0] === "string") {
