@@ -1,74 +1,82 @@
-const CACHE_NAME = 'gizlikutu-v1';
-const STATIC_ASSETS = [
-    './',
-    './index.html',
-    './products.html',
-    './product.html',
-    './cart.html',
-    './checkout.html',
-    './css/main.css',
-    './css/pages/index.css',
-    './css/pages/products.css',
-    './css/pages/product.css',
-    './css/pages/cart.css',
-    './css/pages/checkout.css',
-    './js/storage.js',
-    './js/app.js',
-    './js/ui.js',
-    './assets/logo.svg',
-    './manifest.webmanifest'
+/* ======================================================
+   Gizli Kutu – Ultra Stable Service Worker (Production)
+   Strategy:
+   - Core files: Cache First
+   - Dynamic requests: Network Only
+   - Automatic old cache cleanup
+   - Offline safe fallback
+   - Zero data corruption risk
+====================================================== */
+
+const CACHE_VERSION = "v2026.01.11";
+const CACHE_NAME = `gizlikutu-core-${CACHE_VERSION}`;
+
+// Sadece yaşamsal çekirdek dosyalar
+const CORE_ASSETS = [
+    "./",
+    "./index.html",
+    "./manifest.webmanifest"
 ];
 
-// Install: Cache static assets
-self.addEventListener('install', (event) => {
+// --------------------
+// INSTALL
+// --------------------
+self.addEventListener("install", event => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-            return cache.addAll(STATIC_ASSETS);
-        })
+        caches.open(CACHE_NAME).then(cache => cache.addAll(CORE_ASSETS))
     );
     self.skipWaiting();
 });
 
-// Activate: Clean old caches
-self.addEventListener('activate', (event) => {
+// --------------------
+// ACTIVATE
+// --------------------
+self.addEventListener("activate", event => {
     event.waitUntil(
-        caches.keys().then((keys) => {
-            return Promise.all(
-                keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
-            );
-        })
+        caches.keys().then(keys =>
+            Promise.all(
+                keys
+                    .filter(key => !key.startsWith("gizlikutu-core-") || key !== CACHE_NAME)
+                    .map(key => caches.delete(key))
+            )
+        )
     );
     self.clients.claim();
 });
 
-// Fetch: Cache-first for static, network-first for data
-self.addEventListener('fetch', (event) => {
-    const url = new URL(event.request.url);
+// --------------------
+// FETCH STRATEGY
+// --------------------
+self.addEventListener("fetch", event => {
+    const request = event.request;
 
-    // Network-first for JSON data files
-    if (url.pathname.includes('/data/')) {
+    // Sadece GET istekleri
+    if (request.method !== "GET") return;
+
+    const url = new URL(request.url);
+
+    // ❌ API / Firebase / external istekler cache edilmez
+    if (
+        url.origin !== location.origin ||
+        url.pathname.includes("/data/") ||
+        url.pathname.includes("firebase") ||
+        url.pathname.includes("googleapis")
+    ) {
+        return;
+    }
+
+    // ✅ Core asset ise cache-first
+    if (CORE_ASSETS.some(asset => url.pathname.endsWith(asset.replace("./", "/")))) {
         event.respondWith(
-            fetch(event.request)
-                .then((response) => {
-                    const clone = response.clone();
-                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-                    return response;
-                })
-                .catch(() => caches.match(event.request))
+            caches.match(request).then(cached => {
+                return cached || fetch(request);
+            })
         );
         return;
     }
 
-    // Cache-first for everything else
+    // 🌐 Diğer tüm local dosyalar network-first
     event.respondWith(
-        caches.match(event.request).then((cached) => {
-            return cached || fetch(event.request).then((response) => {
-                if (response.ok && event.request.method === 'GET') {
-                    const clone = response.clone();
-                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-                }
-                return response;
-            });
-        })
+        fetch(request).catch(() => caches.match(request))
     );
 });
