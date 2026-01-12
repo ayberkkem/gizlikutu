@@ -105,11 +105,71 @@
         name: i.title,
         category1: i.category || "Genel",
         itemType: "PHYSICAL",
-        price: ((Number(i.price) || 0) * (Number(i.qty) || 0)).toFixed(2)
+        price: ((Number(i.price) || 0) * (Number(i.qty) || 0)).toFixed(2),
+        qty: Number(i.qty) || 1,
+        image: i.image || ""
       })),
 
       createdAt: new Date().toISOString()
     };
+
+    /* ==========================
+       🔥 FIRESTORE SİPARİŞ KAYDI
+    ========================== */
+    try {
+      const { collection, addDoc, serverTimestamp } =
+        await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
+
+      const orderData = {
+        orderNo: payload.conversationId,
+
+        customer: {
+          name: `${firstName} ${surname}`,
+          phone: gsm,
+          email: payload.buyer.email || "",
+          note: String(formData.note || "").trim()
+        },
+
+        delivery: {
+          city: payload.shippingAddress.city,
+          district: payload.shippingAddress.district,
+          address: payload.shippingAddress.address,
+          type: "courier"
+        },
+
+        payment: {
+          method: String(formData.paymentMethod || "unknown"),
+          status: "pending",
+          subtotal: totals.subtotal,
+          shipping: totals.shipping,
+          total: totals.total
+        },
+
+        products: totals.cart.map((i) => ({
+          id: i.id,
+          title: i.title,
+          price: Number(i.price) || 0,
+          qty: Number(i.qty) || 1,
+          image: i.image || ""
+        })),
+
+        source: "web",
+        status: "new",
+        createdAt: serverTimestamp(),
+        userAgent: navigator.userAgent
+      };
+
+      await addDoc(collection(window.firestoreDB, "orders"), orderData);
+
+      console.log("✅ Sipariş Firestore'a kaydedildi");
+
+    } catch (err) {
+      console.error("❌ Firestore kayıt hatası:", err);
+      toast("Sipariş kaydedilirken bir hata oluştu. Lütfen tekrar dene.");
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Siparişi Tamamla";
+      return;
+    }
 
     /* ==========================
        🔮 CANLI ÖDEME (BACKEND)
@@ -134,7 +194,7 @@
     */
 
     /* ==========================
-       DEMO / SİMÜLASYON
+       DEMO / BAŞARILI AKIŞ
     ========================== */
     localStorage.setItem("gizlikutu_last_order_v1", JSON.stringify(payload));
 
