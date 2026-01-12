@@ -13,4 +13,8 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
-console.log("🔥 Firebase initialized");
+// 🔥 GLOBAL erişim (console ve diğer scriptler için)
+window.firebaseApp = app;
+window.firestoreDB = db;
+
+console.log("🔥 Firebase initialized & global ready");
