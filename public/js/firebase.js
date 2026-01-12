@@ -2,13 +2,15 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "BURAYA_API_KEY",
-  authDomain: "BURAYA_AUTH_DOMAIN",
-  projectId: "BURAYA_PROJECT_ID",
-  storageBucket: "BURAYA_STORAGE_BUCKET",
-  messagingSenderId: "BURAYA_SENDER_ID",
-  appId: "BURAYA_APP_ID"
+  apiKey: "AIzaSyDpsPiI_Wh6rgs0oFe8I5PLkyDeJf0nl9w",
+  authDomain: "gizli-kutu.firebaseapp.com",
+  projectId: "gizli-kutu",
+  storageBucket: "gizli-kutu.firebasestorage.app",
+  messagingSenderId: "908944115698",
+  appId: "1:908944115698:web:7570c67adfd8c71f268d6b"
 };
 
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+console.log("🔥 Firebase initialized");
