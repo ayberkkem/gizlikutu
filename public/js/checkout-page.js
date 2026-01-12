@@ -126,38 +126,41 @@
         customer: {
           name: `${firstName} ${surname}`,
           phone: gsm,
-          email: payload.buyer.email || "",
-          note: String(formData.note || "").trim()
+          email: payload.buyer.email || ""
         },
 
         delivery: {
           city: payload.shippingAddress.city,
           district: payload.shippingAddress.district,
           address: payload.shippingAddress.address,
-          type: "courier"
+          type: "cargo" // Default: kargo ile teslimat
         },
 
         payment: {
-          method: String(formData.paymentMethod || "unknown"),
-          status: "pending",
-          subtotal: totals.subtotal,
-          shipping: totals.shipping,
+          method: (() => {
+            // formData.payment alanını doğru şekilde map et
+            const raw = String(formData.payment || "").toLowerCase();
+            if (raw === "kapida" || raw === "cash" || raw === "cod") return "cash";
+            if (raw === "transfer" || raw === "havale" || raw === "eft") return "transfer";
+            if (raw === "card" || raw === "online" || raw === "credit") return "online";
+            return "online"; // Default: online ödeme
+          })(),
           total: totals.total
         },
 
+        note: String(formData.note || "").trim(),
+
         products: totals.cart.map((i) => ({
-          id: i.id,
           title: i.title,
-          price: Number(i.price) || 0,
           qty: Number(i.qty) || 1,
+          price: Number(i.price) || 0,
           image: i.image || ""
         })),
 
-        source: "web",
-        status: "new",
-        createdAt: serverTimestamp(),
-        userAgent: navigator.userAgent
+        createdAt: serverTimestamp()
       };
+
+      console.log("📋 Firestore'a yazılacak sipariş:", JSON.stringify(orderData, null, 2));
 
       await addDoc(collection(window.firestoreDB, "orders"), orderData);
 
