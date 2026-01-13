@@ -12,7 +12,7 @@
   function calcTotal() {
     const cart = window.GKStorage.readCart();
     const subtotal = cart.reduce((s, i) => s + (Number(i.price) || 0) * (Number(i.qty) || 0), 0);
-    const shipping = subtotal > 0 ? 79 : 0;
+    const shipping = 0;
     const total = subtotal + shipping;
 
     const elSub = qs("#sumSubtotal");
