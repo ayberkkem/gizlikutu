@@ -2,6 +2,11 @@
   const { qs, money, toast } = window.GK;
 
   /* ==========================
+     PAYTR CLOUD FUNCTION URL
+  ========================== */
+  const PAYTR_FUNCTION_URL = "https://us-central1-gizli-kutu.cloudfunctions.net/createPaytrPayment";
+
+  /* ==========================
      TOPLAM HESAPLAMA
   ========================== */
   function calcTotal() {
@@ -10,7 +15,6 @@
     const shipping = subtotal > 0 ? 79 : 0;
     const total = subtotal + shipping;
 
-    // Sayfada bu alanlar yoksa patlamasın
     const elSub = qs("#sumSubtotal");
     const elShip = qs("#sumShipping");
     const elTot = qs("#sumTotal");
@@ -40,6 +44,134 @@
   if (!form || !submitBtn) return;
 
   /* ==========================
+     PAYTR IFRAME MODAL (PC & Mobile/PWA Responsive)
+  ========================== */
+  function showPaytrModal(iframeUrl) {
+    // Mobil mi kontrol et
+    const isMobile = window.innerWidth <= 768;
+
+    const overlay = document.createElement("div");
+    overlay.id = "paytrOverlay";
+    overlay.style.cssText = `
+      position: fixed;
+      inset: 0;
+      background: ${isMobile ? '#fff' : 'rgba(0,0,0,0.85)'};
+      z-index: 9999;
+      display: flex;
+      align-items: ${isMobile ? 'stretch' : 'center'};
+      justify-content: center;
+      padding: ${isMobile ? '0' : '10px'};
+    `;
+
+    const modal = document.createElement("div");
+    modal.style.cssText = isMobile ? `
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    ` : `
+      background: #fff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 520px;
+      height: 90vh;
+      max-height: 700px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    `;
+
+    const header = document.createElement("div");
+    header.style.cssText = `
+      padding: ${isMobile ? '14px 16px' : '12px 16px'};
+      padding-top: ${isMobile ? 'max(14px, env(safe-area-inset-top))' : '12px'};
+      background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8a 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    `;
+    header.innerHTML = `
+      <span style="color:#fff;font-weight:600;font-size:${isMobile ? '16px' : '14px'}">💳 Güvenli Ödeme</span>
+      <button id="paytrCloseBtn" style="
+        width:${isMobile ? '36px' : '28px'};
+        height:${isMobile ? '36px' : '28px'};
+        border:none;
+        background:rgba(255,255,255,0.2);
+        border-radius:50%;
+        cursor:pointer;
+        color:#fff;
+        font-size:${isMobile ? '20px' : '16px'};
+        display:flex;
+        align-items:center;
+        justify-content:center;
+      ">✕</button>
+    `;
+
+    const iframe = document.createElement("iframe");
+    iframe.src = iframeUrl;
+    iframe.style.cssText = `
+      width: 100%;
+      height: calc(100% - ${isMobile ? '52px' : '48px'});
+      border: none;
+      background: #fff;
+    `;
+    iframe.setAttribute("frameborder", "0");
+    iframe.setAttribute("scrolling", "yes");
+    iframe.setAttribute("allow", "payment");
+
+    modal.appendChild(header);
+    modal.appendChild(iframe);
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+
+    // Body scroll'u kapat (mobilde önemli)
+    document.body.style.overflow = 'hidden';
+
+    // Kapatma butonu
+    document.getElementById("paytrCloseBtn").onclick = () => {
+      if (confirm("Ödemeyi iptal etmek istediğinize emin misiniz?")) {
+        overlay.remove();
+        document.body.style.overflow = '';
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Siparişi Tamamla";
+      }
+    };
+
+    console.log("✅ PayTR modal açıldı (", isMobile ? "Mobile/PWA" : "PC", ")");
+  }
+
+  /* ==========================
+     FIRESTORE SİPARİŞ KAYDET
+  ========================== */
+  async function saveOrderToFirestore(orderData) {
+    // Firebase hazır olana kadar bekle
+    let attempts = 0;
+    while (!window.firestoreDB && attempts < 20) {
+      await new Promise(r => setTimeout(r, 100));
+      attempts++;
+    }
+
+    if (!window.firestoreDB) {
+      console.error("❌ Firestore DB bulunamadı!");
+      return false;
+    }
+
+    try {
+      const { collection, addDoc, serverTimestamp } =
+        await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
+
+      orderData.createdAt = serverTimestamp();
+      await addDoc(collection(window.firestoreDB, "orders"), orderData);
+      console.log("✅ Sipariş Firestore'a kaydedildi:", orderData.orderNo);
+      return true;
+    } catch (err) {
+      console.error("❌ Firestore kayıt hatası:", err);
+      return false;
+    }
+  }
+
+  /* ==========================
      FORM SUBMIT
   ========================== */
   form.addEventListener("submit", async (e) => {
@@ -60,147 +192,135 @@
 
     const fullName = String(formData.fullName || "").trim();
     const nameParts = fullName.split(/\s+/).filter(Boolean);
-
     const firstName = nameParts[0] || "Müşteri";
     const surname = nameParts.slice(1).join(" ") || firstName;
 
     const phoneDigits = String(formData.phone || "").replace(/\D/g, "");
     const gsm = phoneDigits ? "+90" + phoneDigits : "";
 
-    /* ==========================
-       IYZICO READY PAYLOAD
-    ========================== */
-    const payload = {
-      conversationId: "GK_" + Date.now(),
-      locale: "tr",
-      price: totals.subtotal.toFixed(2),
-      paidPrice: totals.total.toFixed(2),
-      currency: "TRY",
+    // Ödeme yöntemi kontrolü - value="card" HTML'den
+    const paymentValue = String(formData.payment || "card");
+    const isCardPayment = paymentValue === "card";
 
-      buyer: {
-        name: firstName,
-        surname: surname,
-        email: String(formData.email || "").trim(),
-        gsmNumber: gsm
+    console.log("🔍 Form payment value:", paymentValue);
+    console.log("🔍 isCardPayment:", isCardPayment);
+
+    // Sipariş numarası oluştur (PayTR sadece alfanumerik kabul ediyor)
+    const orderNo = "GK" + Date.now();
+
+    // Sipariş verisi
+    const orderData = {
+      orderNo: orderNo,
+      customer: {
+        name: `${firstName} ${surname}`,
+        phone: gsm,
+        email: String(formData.email || "").trim()
       },
-
-      shippingAddress: {
+      delivery: {
         city: String(formData.city || "").trim(),
         district: String(formData.district || "").trim(),
         address: String(formData.address || "").trim(),
-        country: "Turkey",
-        zipCode: String(formData.zip || "00000").trim() || "00000"
+        type: "cargo"
       },
-
-      billingAddress: {
-        city: String(formData.city || "").trim(),
-        district: String(formData.district || "").trim(),
-        address: String(formData.address || "").trim(),
-        country: "Turkey",
-        zipCode: String(formData.zip || "00000").trim() || "00000"
+      payment: {
+        method: isCardPayment ? "online" : (paymentValue === "transfer" ? "transfer" : "cash"),
+        total: totals.total,
+        status: isCardPayment ? "pending" : "awaiting"
       },
-
-      basketItems: totals.cart.map((i) => ({
-        id: i.id,
-        name: i.title,
-        category1: i.category || "Genel",
-        itemType: "PHYSICAL",
-        price: ((Number(i.price) || 0) * (Number(i.qty) || 0)).toFixed(2),
+      note: String(formData.note || "").trim(),
+      products: totals.cart.map((i) => ({
+        title: i.title,
         qty: Number(i.qty) || 1,
+        price: Number(i.price) || 0,
         image: i.image || ""
-      })),
-
-      createdAt: new Date().toISOString()
+      }))
     };
 
     /* ==========================
-       🔥 FIRESTORE SİPARİŞ KAYDI
+       💳 KREDİ KARTI İLE ÖDEME (PAYTR)
     ========================== */
-    try {
-      const { collection, addDoc, serverTimestamp } =
-        await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
+    if (isCardPayment) {
+      console.log("💳 Kart ödemesi başlatılıyor...");
+      submitBtn.textContent = "Ödeme hazırlanıyor...";
 
-      const orderData = {
-        orderNo: payload.conversationId,
+      // Önce siparişi Firestore'a kaydet
+      const saved = await saveOrderToFirestore(orderData);
+      if (!saved) {
+        toast("Sipariş kaydedilemedi. Lütfen tekrar deneyin.");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Siparişi Tamamla";
+        return;
+      }
 
-        customer: {
-          name: `${firstName} ${surname}`,
-          phone: gsm,
-          email: payload.buyer.email || ""
-        },
+      // PayTR token al
+      submitBtn.textContent = "PayTR'ye bağlanılıyor...";
 
-        delivery: {
-          city: payload.shippingAddress.city,
-          district: payload.shippingAddress.district,
-          address: payload.shippingAddress.address,
-          type: "cargo" // Default: kargo ile teslimat
-        },
+      try {
+        const paytrPayload = {
+          orderNo: orderNo,
+          email: orderData.customer.email || "musteri@gizlikutu.online",
+          totalAmount: totals.total,
+          userName: `${firstName} ${surname}`,
+          userPhone: gsm || "05000000000",
+          userAddress: `${orderData.delivery.address}, ${orderData.delivery.district}, ${orderData.delivery.city}`,
+          userCity: orderData.delivery.city || "Istanbul",
+          basketItems: totals.cart.map((i) => ({
+            name: i.title || "Ürün",
+            price: Number(i.price) || 0,
+            qty: Number(i.qty) || 1
+          }))
+        };
 
-        payment: {
-          method: (() => {
-            // formData.payment alanını doğru şekilde map et
-            const raw = String(formData.payment || "").toLowerCase();
-            if (raw === "kapida" || raw === "cash" || raw === "cod") return "cash";
-            if (raw === "transfer" || raw === "havale" || raw === "eft") return "transfer";
-            if (raw === "card" || raw === "online" || raw === "credit") return "online";
-            return "online"; // Default: online ödeme
-          })(),
-          total: totals.total
-        },
+        console.log("📤 PayTR API'ye istek gönderiliyor:", paytrPayload);
 
-        note: String(formData.note || "").trim(),
+        const res = await fetch(PAYTR_FUNCTION_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(paytrPayload)
+        });
 
-        products: totals.cart.map((i) => ({
-          title: i.title,
-          qty: Number(i.qty) || 1,
-          price: Number(i.price) || 0,
-          image: i.image || ""
-        })),
+        console.log("📩 PayTR response status:", res.status);
 
-        createdAt: serverTimestamp()
-      };
+        const data = await res.json();
+        console.log("📩 PayTR response data:", data);
 
-      console.log("📋 Firestore'a yazılacak sipariş:", JSON.stringify(orderData, null, 2));
+        if (data.success && data.iframeUrl) {
+          console.log("✅ PayTR token alındı, iFrame açılıyor...");
 
-      await addDoc(collection(window.firestoreDB, "orders"), orderData);
+          // Sepeti temizle
+          window.GKStorage.clearCart();
 
-      console.log("✅ Sipariş Firestore'a kaydedildi");
+          // PayTR ödeme ekranını aç
+          showPaytrModal(data.iframeUrl);
 
-    } catch (err) {
-      console.error("❌ Firestore kayıt hatası:", err);
-      toast("Sipariş kaydedilirken bir hata oluştu. Lütfen tekrar dene.");
+          // RETURN - success.html'e gitme!
+          return;
+        } else {
+          throw new Error(data.error || "Ödeme sistemi yanıt vermedi");
+        }
+      } catch (err) {
+        console.error("❌ PayTR hatası:", err);
+        toast("Ödeme başlatılamadı: " + (err.message || "Bilinmeyen hata. Lütfen tekrar deneyin."));
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Siparişi Tamamla";
+        return;
+      }
+    }
+
+    /* ==========================
+       HAVALE/EFT & KAPIDA ÖDEME - MEVCUT AKIŞ
+    ========================== */
+    console.log("🏦 Havale/Kapıda ödeme işleniyor...");
+
+    const saved = await saveOrderToFirestore(orderData);
+    if (!saved) {
+      toast("Sipariş kaydedilemedi. Lütfen tekrar deneyin.");
       submitBtn.disabled = false;
       submitBtn.textContent = "Siparişi Tamamla";
       return;
     }
 
-    /* ==========================
-       🔮 CANLI ÖDEME (BACKEND)
-       ŞİMDİLİK KAPALI
-    ========================== */
-    /*
-    try {
-      const res = await fetch("/api/pay", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      const data = await res.json();
-      if (!data.success) throw new Error();
-    } catch {
-      toast("Ödeme sırasında bir hata oluştu.");
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Siparişi Tamamla";
-      return;
-    }
-    */
-
-    /* ==========================
-       BAŞARILI AKIŞ
-    ========================== */
-    localStorage.setItem("gizlikutu_last_order_v1", JSON.stringify(payload));
-
+    // Sepeti temizle ve başarı sayfasına yönlendir
     window.GKStorage.clearCart();
     window.location.href = "./success.html";
   });

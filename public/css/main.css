@@ -623,12 +623,6 @@ hr.sep {
   letter-spacing: 0.2px;
 }
 
-/* ✔ işaretini vurgula */
-.trustRow span::after {
-  content: " ✔";
-  color: var(--accent, #d4af37);
-  font-weight: 700;
-}
 
 :root {
   --bg: transparent;
@@ -1255,12 +1249,6 @@ hr.sep {
   letter-spacing: 0.2px;
 }
 
-/* ✔ işaretini vurgula */
-.trustRow span::after {
-  content: " ✔";
-  color: var(--accent, #d4af37);
-  font-weight: 700;
-}
 
 /* =====================================================
    PRODUCT CARD – PREMIUM GRID STYLE

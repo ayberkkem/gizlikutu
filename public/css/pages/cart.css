@@ -308,4 +308,54 @@ body {
         width: 100%;
         justify-content: space-between;
     }
+
+    /* Mobil: -1+ butonları %20 küçük */
+    .mobile-qty-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 15px;
+    }
+
+    .mobile-qty-num {
+        min-width: 22px;
+        font-size: 12px;
+    }
+
+    /* Mobil: Fiyat/Sepetim alanını sola yaklaştır */
+    .mobile-cart-bottom {
+        gap: 8px;
+    }
+
+    .mobile-cart-price {
+        font-size: 14px;
+        margin-left: 0;
+    }
+}
+
+/* =====================================================
+   GÜVEN ROZETLERİ - PC Yatay / Mobil Dikey
+===================================================== */
+.cart-trust-badges {
+    text-align: center;
+    padding: 16px 12px 8px;
+    font-size: 14px;
+    color: var(--text, #333);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+.cart-trust-badges span {
+    white-space: nowrap;
+}
+
+/* Mobil: Dikey yerleşim */
+@media (max-width: 520px) {
+    .cart-trust-badges {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 13px;
+        padding: 12px 8px 6px;
+    }
 }

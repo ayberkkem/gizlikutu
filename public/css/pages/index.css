@@ -105,11 +105,6 @@ body {
     color: var(--muted);
 }
 
-.trustRow span::before {
-    content: "✓ ";
-    color: var(--accent);
-}
-
 .sep {
     border: none;
     border-top: 1px solid var(--border);

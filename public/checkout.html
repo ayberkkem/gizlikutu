@@ -183,18 +183,16 @@
   <script src="./js/storage.js"></script>
   <script src="./js/app.js"></script>
 
+  <!-- Firebase MUST load first -->
+  <script type="module" src="./js/firebase.js"></script>
+
   <script>
     document.getElementById("drawer").innerHTML = `
       <div class="row" style="justify-content:space-between">
         <div class="brand"><img src="./assets/logo.jpg" alt=""><b>Gizli Kutu</b></div>
         <button class="iconbtn" onclick="document.getElementById('drawerBackdrop').click()">✕</button>
       </div>
-
-  
-      <!-- 🔥 EKLENDİ -->
       <div id="hamburgerCategories"></div>
-      <!-- 🔥 EK BİTTİ -->
-
       <h3>Sözleşmeler</h3>
       <a class="navlink" data-close-drawer href="./distance-sales.html">Mesafeli Satış</a>
       <a class="navlink" data-close-drawer href="./returns.html">İade</a>
@@ -203,14 +201,12 @@
     `;
   </script>
 
-  <script src="./js/checkout-page.js"></script>
-
   <script>
     GK.bindGlobalUI();
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 
-  <!-- 🔥 EKLENDİ: Hamburger menü kategorilerini JSON’dan yükle -->
+  <!-- Hamburger menü kategorileri -->
   <script>
     (async function () {
       try {
@@ -219,17 +215,16 @@
         const box = document.getElementById("hamburgerCategories");
         if (!box) return;
         box.innerHTML = categories.map(cat => `
-          <a class="navlink" data-close-drawer href="./products.html?cat=${cat.id}">
-            ${cat.label}
-          </a>
+          <a class="navlink" data-close-drawer href="./products.html?cat=${cat.id}">${cat.label}</a>
         `).join("");
       } catch (e) {
         console.error("Hamburger kategori yükleme hatası", e);
       }
     })();
   </script>
-  <!-- 🔥 EK BİTTİ -->
-  <script type="module" src="./js/firebase.js"></script>
+
+  <!-- Checkout logic - loads after DOM ready -->
+  <script src="./js/checkout-page.js"></script>
 
   <script src="./js/checkout-location.js"></script>
   <script src="./js/age-gate.js"></script>
