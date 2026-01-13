@@ -37,21 +37,103 @@
     // Click işlemi
     function handleClick() {
         if (deferredPrompt) {
-            // Chrome/Edge - native install prompt
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then(function (choiceResult) {
-                if (choiceResult.outcome === 'accepted') {
-                    hideIcon();
-                }
-                deferredPrompt = null;
+            // Chrome/Edge - önce onay sor
+            showConfirmDialog(function() {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then(function (choiceResult) {
+                    if (choiceResult.outcome === 'accepted') {
+                        hideIcon();
+                    }
+                    deferredPrompt = null;
+                });
             });
         } else if (isIOS || isSafari) {
-            // iOS/Safari - kullanıcıya rehber göster
-            showIOSGuide();
+            // iOS/Safari - önce onay sor, sonra rehber göster
+            showConfirmDialog(function() {
+                showIOSGuide();
+            });
         } else {
-            // Diğer tarayıcılar - genel rehber
-            alert('Uygulamayı yüklemek için tarayıcı menüsünden "Ana Ekrana Ekle" seçeneğini kullanın.');
+            // Diğer tarayıcılar - önce onay sor, sonra rehber göster
+            showConfirmDialog(function() {
+                showIOSGuide();
+            });
         }
+    }
+
+    // Onay dialogu göster
+    function showConfirmDialog(onConfirm) {
+        // Mevcut dialog varsa kaldır
+        const existingDialog = document.getElementById('pwaConfirmDialog');
+        if (existingDialog) existingDialog.remove();
+
+        const dialog = document.createElement('div');
+        dialog.id = 'pwaConfirmDialog';
+        dialog.style.cssText = `
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        `;
+        dialog.innerHTML = `
+            <div style="background:#fff; color:#333; border-radius:20px; padding:28px; max-width:320px; text-align:center;">
+                <img src="./assets/logo.jpg" style="width:60px; height:60px; border-radius:50%; margin-bottom:16px; object-fit:cover;">
+                <h3 style="margin:0 0 16px; font-size:18px; color:#333;">Uygulama İndirilsin mi?</h3>
+                <p style="margin:0 0 20px; font-size:14px; color:#666; line-height:1.5;">
+                    Gizli Kutu uygulamasını cihazınıza yüklemek ister misiniz?
+                </p>
+                <div style="display:flex; gap:12px;">
+                    <button id="pwaConfirmNo" style="
+                        flex:1;
+                        padding:14px;
+                        background:#f3f4f6;
+                        color:#333;
+                        border:none;
+                        border-radius:12px;
+                        font-size:15px;
+                        font-weight:600;
+                        cursor:pointer;
+                    ">Hayır</button>
+                    <button id="pwaConfirmYes" style="
+                        flex:1;
+                        padding:14px;
+                        background:linear-gradient(135deg, #9333ea 0%, #c026d3 100%);
+                        color:#fff;
+                        border:none;
+                        border-radius:12px;
+                        font-size:15px;
+                        font-weight:600;
+                        cursor:pointer;
+                    ">Evet</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(dialog);
+
+        // Evet butonu
+        document.getElementById('pwaConfirmYes').addEventListener('click', function () {
+            dialog.remove();
+            if (typeof onConfirm === 'function') {
+                onConfirm();
+            }
+        });
+
+        // Hayır butonu
+        document.getElementById('pwaConfirmNo').addEventListener('click', function () {
+            dialog.remove();
+        });
+
+        // Dialog dışına tıklama - kapat
+        dialog.addEventListener('click', function (e) {
+            if (e.target === dialog) dialog.remove();
+        });
     }
 
     // iOS için rehber modal

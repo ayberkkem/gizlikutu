@@ -672,5 +672,17 @@
     ],
     "description": "Güçlendirilmiş vibratör titreşim motoru 20 hız kademeli kumandalı mor; yüksek performanslı motoru, uzaktan kumanda kolaylığı ve çoklu hız seçenekleriyle kontrollü ve konforlu kullanım sunar. Sessiz çalışma, dayanıklı yapı ve ergonomik tasarımıyla uzun ömürlü ve pratik bir üründür.",
     "active": true
+  },
+  {
+    "id": "TEST-001",
+    "title": "Test Ürünü - Ödeme Testi",
+    "slug": "test-urunu-odeme-testi",
+    "category": "masturbatorler-erkek",
+    "price": 10,
+    "images": [
+      "https://firebasestorage.googleapis.com/v0/b/gizli-kutu.firebasestorage.app/o/products%2FMast%C3%BCrbat%C3%B6rler%20(Erkek)%2FTam%20Realistik%20Full%20Ger%C3%A7ek%C3%A7i%20Suni%20Vajina%20g%C3%B6rsel%201.jpg?alt=media&token=f28b8871-8d64-42b3-88f7-d521181f02eb"
+    ],
+    "description": "Bu ürün ödeme sistemi testi için oluşturulmuştur. Sadece test amaçlıdır.",
+    "active": true
   }
 ]
