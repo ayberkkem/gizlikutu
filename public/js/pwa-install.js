@@ -7,18 +7,32 @@
  * - WhatsApp balonunun dinamik olarak üstüne konumlanır
  */
 (function () {
+    const DEBUG = true; // Debug logları
+    function log(msg) {
+        if (DEBUG) console.log('[PWA]', msg);
+    }
+
+    log('Script loaded');
+
     // Uygulama zaten yüklüyse çık
     const isStandalone =
         window.matchMedia('(display-mode: standalone)').matches ||
         navigator.standalone === true;
 
-    if (isStandalone) return;
+    if (isStandalone) {
+        log('App is standalone, skipping widget');
+        return;
+    }
 
     // Oturum bazlı kapatma kontrolü
-    if (sessionStorage.getItem('pwaInstallDismissed') === '1') return;
+    if (sessionStorage.getItem('pwaInstallDismissed') === '1') {
+        log('Widget dismissed this session');
+        return;
+    }
 
     // iOS tespiti
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    log('iOS detected: ' + isIOS);
 
     let deferredPrompt = null;
     let widgetCreated = false;
@@ -26,7 +40,6 @@
 
     // WhatsApp balonunu bul
     function findWhatsAppBalloon() {
-        // Olası WhatsApp element selector'ları
         const selectors = [
             '#liveSupportMini',
             '.live-support-mini',
@@ -39,11 +52,15 @@
         ];
 
         for (const selector of selectors) {
-            const el = document.querySelector(selector);
-            if (el && el.offsetHeight > 0) {
-                return el;
-            }
+            try {
+                const el = document.querySelector(selector);
+                if (el && el.offsetHeight > 0) {
+                    log('WhatsApp detected: ' + selector);
+                    return el;
+                }
+            } catch (e) { }
         }
+        log('WhatsApp balloon not found, using fallback');
         return null;
     }
 
@@ -58,18 +75,21 @@
             const rect = whatsappBalloon.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
             const balloonBottom = viewportHeight - rect.top;
-
-            // WhatsApp balonunun üstüne 14px boşluk bırak
             bottomValue = balloonBottom + 14;
         }
 
         widgetElement.style.bottom = bottomValue + 'px';
+        log('Position calculated: bottom=' + bottomValue + 'px');
     }
 
     // Widget HTML oluştur
     function createWidget() {
-        if (widgetCreated) return;
+        if (widgetCreated) {
+            log('Widget already created');
+            return;
+        }
         widgetCreated = true;
+        log('Widget created');
 
         const widget = document.createElement('div');
         widget.id = 'pwaInstallWidget';
@@ -94,8 +114,10 @@
         document.body.appendChild(widget);
         widgetElement = widget;
 
-        // İlk pozisyon hesaplama (DOM yüklendikten sonra)
+        // İlk pozisyon hesaplama
         setTimeout(updateWidgetPosition, 100);
+        setTimeout(updateWidgetPosition, 500);
+        setTimeout(updateWidgetPosition, 1000);
 
         // Resize ve orientation change dinle
         window.addEventListener('resize', updateWidgetPosition);
@@ -105,6 +127,7 @@
 
         // Kapatma butonu
         document.getElementById('pwaInstallClose').addEventListener('click', function () {
+            log('Widget closed by user');
             sessionStorage.setItem('pwaInstallDismissed', '1');
             widget.style.display = 'none';
             window.removeEventListener('resize', updateWidgetPosition);
@@ -112,17 +135,22 @@
 
         // iOS ise rehber göster, buton gizle
         if (isIOS) {
+            log('iOS mode active');
             document.getElementById('pwaInstallBtn').style.display = 'none';
             document.getElementById('iosInstallHint').style.display = 'block';
         }
 
         // Android install butonu
         document.getElementById('pwaInstallBtn').addEventListener('click', async function () {
-            if (!deferredPrompt) return;
+            if (!deferredPrompt) {
+                log('No deferred prompt available');
+                return;
+            }
 
+            log('Showing install prompt');
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
-            console.log('PWA install outcome:', outcome);
+            log('Install outcome: ' + outcome);
 
             deferredPrompt = null;
             widget.style.display = 'none';
@@ -131,6 +159,7 @@
 
     // beforeinstallprompt yakala (Android/Chrome)
     window.addEventListener('beforeinstallprompt', function (e) {
+        log('beforeinstallprompt fired');
         e.preventDefault();
         deferredPrompt = e;
         createWidget();
@@ -138,11 +167,16 @@
 
     // iOS için widget'ı hemen göster
     if (isIOS) {
-        // Sayfa yüklendikten sonra göster
+        log('Initializing iOS widget');
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', createWidget);
         } else {
             createWidget();
         }
     }
+
+    // Eğer sayfa yüklendikten 3 saniye sonra hala beforeinstallprompt gelmemişse
+    // ve iOS değilse, widget'ı yine de gösterme (kullanıcı deneyimi için)
+    // Ancak bu durumda install butonu çalışmaz
+    log('PWA Install script fully initialized');
 })();
