@@ -15,7 +15,7 @@
     const elShip = qs("#sumShipping");
     const elTot = qs("#sumTotal");
     if (elSub) elSub.textContent = money(subtotal);
-    if (elShip) elShip.textContent = money(shipping);
+    if (elShip) elShip.textContent = "Kargo Bedava ✅";
     if (elTot) elTot.textContent = money(total);
 
     return { subtotal, shipping, total, cart };
@@ -197,7 +197,7 @@
     */
 
     /* ==========================
-       DEMO / BAŞARILI AKIŞ
+       BAŞARILI AKIŞ
     ========================== */
     localStorage.setItem("gizlikutu_last_order_v1", JSON.stringify(payload));
 

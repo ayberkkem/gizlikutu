@@ -49,10 +49,13 @@
 
     // Show counter if in cart, else show "Sepete Ekle" button
     const cartBtnHtml = cartQty > 0
-      ? `<div class="cart-counter" data-product-id="${p.id}" data-product="${productData}">
-           <button class="counter-btn counter-minus" data-action="minus">−</button>
-           <span class="counter-qty">${cartQty}</span>
-           <button class="counter-btn counter-plus" data-action="plus">+</button>
+      ? `<div class="cart-action-row">
+           <div class="cart-counter cart-counter-mini" data-product-id="${p.id}" data-product="${productData}">
+             <button class="counter-btn counter-minus" data-action="minus">−</button>
+             <span class="counter-qty">${cartQty}</span>
+             <button class="counter-btn counter-plus" data-action="plus">+</button>
+           </div>
+           <a href="./cart.html" class="cart-go-btn">Sepetim 🛒</a>
          </div>`
       : `<button class="add-to-cart-btn" data-product="${productData}">
            🛒 Sepete Ekle
@@ -116,14 +119,17 @@
         window.GK.setCartBadge();
         window.GK.toast('Sepete eklendi!');
 
-        // Replace button with counter
+        // Replace button with counter + Sepetim button
         const parentDiv = e.target.parentElement;
         const productId = productData.id;
         parentDiv.innerHTML = `
-          <div class="cart-counter" data-product-id="${productId}" data-product="${e.target.dataset.product}">
-            <button class="counter-btn counter-minus" data-action="minus">−</button>
-            <span class="counter-qty">1</span>
-            <button class="counter-btn counter-plus" data-action="plus">+</button>
+          <div class="cart-action-row">
+            <div class="cart-counter cart-counter-mini" data-product-id="${productId}" data-product="${e.target.dataset.product}">
+              <button class="counter-btn counter-minus" data-action="minus">−</button>
+              <span class="counter-qty">1</span>
+              <button class="counter-btn counter-plus" data-action="plus">+</button>
+            </div>
+            <a href="./cart.html" class="cart-go-btn">Sepetim 🛒</a>
           </div>
         `;
         return;

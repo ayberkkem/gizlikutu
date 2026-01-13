@@ -2213,6 +2213,80 @@ textarea {
 }
 
 /* ============================================
+   CART ACTION ROW - KOMPAKT TASARIM
+============================================ */
+.cart-action-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.cart-counter-mini {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 90px;
+}
+
+.cart-counter-mini .counter-btn {
+  width: 28px;
+  height: 32px;
+  font-size: 14px;
+}
+
+.cart-counter-mini .counter-qty {
+  min-width: 24px;
+  font-size: 13px;
+}
+
+.cart-go-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: var(--accent, #9333ea);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.cart-go-btn:hover {
+  background: #7c3aed;
+}
+
+@media (max-width: 400px) {
+  .cart-action-row {
+    gap: 6px;
+  }
+
+  .cart-counter-mini {
+    min-width: 80px;
+  }
+
+  .cart-counter-mini .counter-btn {
+    width: 24px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .cart-counter-mini .counter-qty {
+    min-width: 20px;
+    font-size: 12px;
+  }
+
+  .cart-go-btn {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+}
+
+/* ============================================
    LIVE SUPPORT MINIMAL (MADDE 8)
 ============================================ */
 
