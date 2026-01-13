@@ -26,7 +26,7 @@
         { id: 'masturbatorler-erkek', label: 'Mastürbatör' },
         { id: 'suni-vajina-govdeli-masturbatorler', label: 'Suni Vajina' },
         { id: 'sisme-bebek-realistik-mankenler', label: 'Gerçekçi Mankenler' },
-        { id: 'bdsm-fetis-urunler', label: 'BDSM' },
+        { id: 'bdsm-fetis-urunler', label: 'Çiftlere Özel' },
         { id: 'kayganlastirici-jeller-su-bazli', label: 'Kayganlaştırıcı' },
         { id: 'masaj-yaglari-uyaricilar', label: 'Masaj Yağı' },
         { id: 'penis-pompasi', label: 'Pompa' }
