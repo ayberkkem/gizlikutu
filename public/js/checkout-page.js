@@ -240,7 +240,6 @@
        💳 KREDİ KARTI İLE ÖDEME (PAYTR)
     ========================== */
     if (isCardPayment) {
-      console.log("💳 Kart ödemesi başlatılıyor...");
       submitBtn.textContent = "Ödeme hazırlanıyor...";
 
       // Önce siparişi Firestore'a kaydet
@@ -271,21 +270,26 @@
           }))
         };
 
-        console.log("📤 PayTR API'ye istek gönderiliyor:", paytrPayload);
-
         const res = await fetch(PAYTR_FUNCTION_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(paytrPayload)
         });
 
-        console.log("📩 PayTR response status:", res.status);
-
         const data = await res.json();
-        console.log("📩 PayTR response data:", data);
 
         if (data.success && data.iframeUrl) {
-          console.log("✅ PayTR token alındı, iFrame açılıyor...");
+          // Tracking için localStorage'a kaydet (success.html'de kullanılacak)
+          const trackingData = {
+            conversationId: orderNo,
+            paidPrice: totals.total,
+            basketItems: totals.cart.map((i) => ({
+              id: i.id,
+              name: i.title || "Ürün",
+              price: Number(i.price) || 0
+            }))
+          };
+          localStorage.setItem("gizlikutu_last_order_v1", JSON.stringify(trackingData));
 
           // Sepeti temizle
           window.GKStorage.clearCart();
@@ -299,7 +303,6 @@
           throw new Error(data.error || "Ödeme sistemi yanıt vermedi");
         }
       } catch (err) {
-        console.error("❌ PayTR hatası:", err);
         toast("Ödeme başlatılamadı: " + (err.message || "Bilinmeyen hata. Lütfen tekrar deneyin."));
         submitBtn.disabled = false;
         submitBtn.textContent = "Siparişi Tamamla";
@@ -310,7 +313,6 @@
     /* ==========================
        HAVALE/EFT & KAPIDA ÖDEME - MEVCUT AKIŞ
     ========================== */
-    console.log("🏦 Havale/Kapıda ödeme işleniyor...");
 
     const saved = await saveOrderToFirestore(orderData);
     if (!saved) {
@@ -319,6 +321,18 @@
       submitBtn.textContent = "Siparişi Tamamla";
       return;
     }
+
+    // Tracking için localStorage'a kaydet
+    const trackingData = {
+      conversationId: orderNo,
+      paidPrice: totals.total,
+      basketItems: totals.cart.map((i) => ({
+        id: i.id,
+        name: i.title || "Ürün",
+        price: Number(i.price) || 0
+      }))
+    };
+    localStorage.setItem("gizlikutu_last_order_v1", JSON.stringify(trackingData));
 
     // Sepeti temizle ve başarı sayfasına yönlendir
     window.GKStorage.clearCart();

@@ -2,14 +2,17 @@
   const { money } = window.GK;
 
   const CATEGORY_LABELS = {
-    "anal-urunler": "Anal Ürünler",
-    "vibratorler": "Vibratörler",
-    "masturbatorler": "Mastürbatörler",
-    "dildolar": "Dildolar",
-    "pompa-urunleri": "Pompa Ürünleri",
-    "bdsm-fantezi": "BDSM / Fantezi",
-    "kayganlastiricilar": "Kayganlaştırıcılar & Masaj Yağları",
-    "bebek-manken": "Bebek & Manken"
+    "klitoris-kadin-vibratorler": "Kadınlara Özel Vibratörler",
+    "masaj-yaglari-uyaricilar": "Masaj & Uyarıcı Ürünler",
+    "kayganlastirici-jeller-su-bazli": "Kayganlaştırıcılar (Su Bazlı)",
+    "titesimli-penis-dildo-vibratorler": "Titreşimli Oyuncaklar & Güçlü Vibratörler",
+    "anal-plug-anal-oyuncaklar": "Cesur Ürünler",
+    "gercekci-penis-dildolar-vantuzlu-realistik": "Realistik Dildolar & Sabitlenebilir Modeller",
+    "masturbatorler-erkek": "Erkeklere Özel Mastürbatörler",
+    "suni-vajina-govdeli-masturbatorler": "Realistik Deneyim Ürünleri",
+    "sisme-bebek-realistik-mankenler": "Gerçekçi Mankenler (Özel Seri)",
+    "bdsm-fetis-urunler": "Fantezi & Rol Oyunları",
+    "penis-pompasi": "Performans Destek Ürünleri"
   };
 
   const PLACEHOLDER = "./assets/placeholder.jpg";

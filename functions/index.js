@@ -21,8 +21,14 @@ exports.createPaytrPayment = functions
         secrets: ["PAYTR_MERCHANT_ID", "PAYTR_MERCHANT_KEY", "PAYTR_MERCHANT_SALT"],
     })
     .https.onRequest(async (req, res) => {
-        // CORS
-        res.set("Access-Control-Allow-Origin", "*");
+        // CORS - Production domain only
+        const allowedOrigins = ["https://gizlikutu.online", "https://www.gizlikutu.online"];
+        const origin = req.headers.origin;
+        if (allowedOrigins.includes(origin)) {
+            res.set("Access-Control-Allow-Origin", origin);
+        } else {
+            res.set("Access-Control-Allow-Origin", "https://gizlikutu.online");
+        }
         res.set("Access-Control-Allow-Methods", "POST, OPTIONS");
         res.set("Access-Control-Allow-Headers", "Content-Type");
 
@@ -72,7 +78,6 @@ exports.createPaytrPayment = functions
             const testMode = "0"; // 0 = Canlı, 1 = Test
             const noInstallment = "1"; // Taksit yok
             const maxInstallment = "0";
-            const paymentType = "card";
 
             // Basket JSON (Base64)
             const basketJson = basketItems.map((item) => [
@@ -83,7 +88,7 @@ exports.createPaytrPayment = functions
             const userBasket = Buffer.from(JSON.stringify(basketJson)).toString("base64");
 
             // Callback URL'leri
-            const baseUrl = "https://us-central1-gizli-kutu.cloudfunctions.net";
+            const merchantNotifyUrl = "https://us-central1-gizli-kutu.cloudfunctions.net/paytrCallback";
             const merchantOkUrl = "https://gizlikutu.online/success.html";
             const merchantFailUrl = "https://gizlikutu.online/checkout.html?error=payment";
 
@@ -110,6 +115,7 @@ exports.createPaytrPayment = functions
                 user_phone: userPhone || "05000000000",
                 merchant_ok_url: merchantOkUrl,
                 merchant_fail_url: merchantFailUrl,
+                merchant_notify_url: merchantNotifyUrl,
                 timeout_limit: "30",
                 currency: currency,
                 test_mode: testMode,
