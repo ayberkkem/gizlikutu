@@ -8,7 +8,7 @@
    - Zero data corruption risk
 ====================================================== */
 
-const CACHE_VERSION = "v2026.01.11";
+const CACHE_VERSION = "v2026.01.14";
 const CACHE_NAME = `gizlikutu-core-${CACHE_VERSION}`;
 
 // Sadece yaşamsal çekirdek dosyalar

@@ -71,7 +71,7 @@ exports.createPaytrPayment = functions
             }
 
             // PayTR parametreleri
-            const userIp = req.headers["x-forwarded-for"]?.split(",")[0] || req.ip || "127.0.0.1";
+            const userIp = req.headers["x-forwarded-for"]?.split(",")[0] || req.ip || "85.95.238.1";
             const merchantOid = orderNo;
             const paymentAmount = Math.round(totalAmount * 100); // TL -> Kuruş
             const currency = "TL";
