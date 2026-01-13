@@ -2,17 +2,17 @@
   const { money } = window.GK;
 
   const CATEGORY_LABELS = {
-    "klitoris-kadin-vibratorler": "Kadınlara Özel Vibratörler",
-    "masaj-yaglari-uyaricilar": "Masaj & Uyarıcı Ürünler",
-    "kayganlastirici-jeller-su-bazli": "Kayganlaştırıcılar (Su Bazlı)",
-    "titesimli-penis-dildo-vibratorler": "Titreşimli Oyuncaklar & Güçlü Vibratörler",
-    "anal-plug-anal-oyuncaklar": "Cesur Ürünler",
-    "gercekci-penis-dildolar-vantuzlu-realistik": "Realistik Dildolar & Sabitlenebilir Modeller",
-    "masturbatorler-erkek": "Erkeklere Özel Mastürbatörler",
-    "suni-vajina-govdeli-masturbatorler": "Realistik Deneyim Ürünleri",
-    "sisme-bebek-realistik-mankenler": "Gerçekçi Mankenler (Özel Seri)",
-    "bdsm-fetis-urunler": "Fantezi & Rol Oyunları",
-    "penis-pompasi": "Performans Destek Ürünleri"
+    "kadinlara-ozel-vibratorler": "Kadınlara Özel Vibratörler",
+    "masaj-ve-uyarici-urunler": "Masaj & Uyarıcı Ürünler",
+    "kayganlastiricilar-su-bazli": "Kayganlaştırıcılar (Su Bazlı)",
+    "titresimli-oyuncaklar-guclu-vibratorler": "Titreşimli Oyuncaklar & Güçlü Vibratörler",
+    "cesur-urunler": "Cesur Ürünler",
+    "realistik-dildolar-sabitlenebilir-modeller": "Realistik Dildolar & Sabitlenebilir Modeller",
+    "erkeklere-ozel-masturbatorler": "Erkeklere Özel Mastürbatörler",
+    "realistik-deneyim-urunleri": "Realistik Deneyim Ürünleri",
+    "gercekci-mankenler-ozel-seri": "Gerçekçi Mankenler (Özel Seri)",
+    "fantezi-ve-rol-oyunlari": "Fantezi & Rol Oyunları",
+    "performans-destek-urunleri": "Performans Destek Ürünleri"
   };
 
   const PLACEHOLDER = "./assets/placeholder.jpg";
