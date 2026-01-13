@@ -22,6 +22,33 @@
 </head>
 
 <body>
+  <!-- PWA Splash Screen Overlay (Android için tam ekran) -->
+  <div id="pwaSplashScreen" style="
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: url('./assets/splash.jpg') center center / cover no-repeat;
+    display: none;
+  "></div>
+  <script>
+    // Sadece PWA modunda (standalone) splash göster
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+      var splash = document.getElementById('pwaSplashScreen');
+      if (splash) {
+        splash.style.display = 'block';
+        // 1.5 saniye sonra fade-out başlat
+        setTimeout(function () {
+          splash.style.transition = 'opacity 0.5s ease';
+          splash.style.opacity = '0';
+          // 500ms sonra tamamen kaldır
+          setTimeout(function () {
+            splash.style.display = 'none';
+          }, 500);
+        }, 1500);
+      }
+    }
+  </script>
+
   <div class="drawerBackdrop" id="drawerBackdrop"></div>
   <aside class="drawer" id="drawer" aria-label="Menü">
     <div class="row" style="justify-content:space-between">
