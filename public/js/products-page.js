@@ -10,7 +10,7 @@
   ========================= */
   const url = new URL(window.location.href);
   const path = url.pathname.toLowerCase();
-  
+
   // Mapping filenames to category IDs
   const seoMap = {
     "vibrator.html": "kadinlara-ozel-vibratorler",
@@ -18,7 +18,12 @@
     "dildo.html": "realistik-dildolar-sabitlenebilir-modeller",
     "jel.html": "kayganlastiricilar-su-bazli",
     "fantezi.html": "fantezi-ve-rol-oyunlari",
-    "masaj.html": "masaj-ve-uyarici-urunler"
+    "masaj.html": "masaj-ve-uyarici-urunler",
+    "titresim.html": "titresimli-oyuncaklar-guclu-vibratorler",
+    "cesur.html": "cesur-urunler",
+    "realistik.html": "realistik-deneyim-urunleri",
+    "manken.html": "gercekci-mankenler-ozel-seri",
+    "performans.html": "performans-destek-urunleri"
   };
 
   let defaultCat = "all";
