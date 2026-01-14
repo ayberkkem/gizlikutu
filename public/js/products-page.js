@@ -5,9 +5,32 @@
   /* =========================
      URL PARAMS
   ========================= */
+  /* =========================
+     URL PARAMS & SEO MAPPING
+  ========================= */
   const url = new URL(window.location.href);
+  const path = url.pathname.toLowerCase();
+  
+  // Mapping filenames to category IDs
+  const seoMap = {
+    "vibrator.html": "kadinlara-ozel-vibratorler",
+    "masturbator.html": "erkeklere-ozel-masturbatorler",
+    "dildo.html": "realistik-dildolar-sabitlenebilir-modeller",
+    "jel.html": "kayganlastiricilar-su-bazli",
+    "fantezi.html": "fantezi-ve-rol-oyunlari",
+    "masaj.html": "masaj-ve-uyarici-urunler"
+  };
+
+  let defaultCat = "all";
+  for (const [key, val] of Object.entries(seoMap)) {
+    if (path.includes(key)) {
+      defaultCat = val;
+      break;
+    }
+  }
+
   const q0 = (url.searchParams.get("q") || "").trim();
-  const cat0 = (url.searchParams.get("cat") || "all").trim();
+  const cat0 = (url.searchParams.get("cat") || defaultCat).trim();
 
   /* =========================
      DATA LOAD
