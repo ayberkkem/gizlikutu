@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sıkça Sorulan Sorular (S.S.S) - Gizli Kutu</title>
+    <meta name="description"
+        content="Gizli paketleme, kargo süreci, ödeme seçenekleri ve iade koşulları hakkında en çok merak edilen soruların cevapları." />
+    <link rel="icon" href="./assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/category-nav.css">
+    <style>
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        details {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            cursor: pointer;
+        }
+
+        summary {
+            font-weight: 600;
+            color: #111827;
+        }
+
+        details[open] summary {
+            margin-bottom: 1rem;
+            color: #9333ea;
+        }
+
+        .faq-Section-Title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #111827;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="drawerBackdrop" id="drawerBackdrop"></div>
+    <aside class="drawer" id="drawer">
+        <div class="row" style="justify-content:space-between">
+            <div class="brand"><img src="./assets/logo.jpg" alt="Gizli Kutu"><b>Gizli Kutu</b></div>
+            <button class="iconbtn" id="closeDrawer"
+                onclick="document.getElementById('drawerBackdrop').click()">✕</button>
+        </div>
+        <h5>Kategoriler</h5>
+        <div id="hamburgerCategories"></div>
+        <h4>Kurumsal</h4><a class="navlink" href="./about.html">Hakkımızda</a><a class="navlink"
+            href="./contact.html">İletişim</a>
+        <h6>Sözleşmeler</h6><a class="navlink" href="./kvkk.html">KVKK</a><a class="navlink"
+            href="./privacy.html">Gizlilik</a>
+    </aside>
+
+    <header class="topbar">
+        <div class="container header">
+            <button class="iconbtn" id="menuBtn"
+                onclick="document.getElementById('drawer').classList.add('open');document.getElementById('drawerBackdrop').classList.add('visible')">☰</button>
+            <a class="brand" href="./index.html"><img src="./assets/logo.jpg" alt="Logo"><b>Gizli Kutu</b></a>
+            <div class="header-right" style="flex:1">
+                <nav class="desktop-header-nav">
+                    <a href="./index.html">Anasayfa</a>
+                    <a href="./products.html">Ürünler</a>
+                    <a href="./blog.html">Blog</a>
+                    <a href="./contact.html">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <nav id="categoryNav" class="category-nav-wrapper"></nav>
+
+    <main class="container faq-container">
+        <h1 class="faq-Section-Title">Sıkça Sorulan Sorular</h1>
+
+        <div class="sectionTitle">
+            <h3>Teslimat ve Gizlilik</h3>
+        </div>
+        <details open>
+            <summary>Kargoların içeriği dışarıdan belli oluyor mu?</summary>
+            <p>Hayır, kesinlikle belli olmaz. Tüm siparişleriniz logosuz, şeffaf olmayan ve sağlam paketlerde
+                gönderilir. Kargo etiketi üzerinde ürün içeriği yazmaz, sadece gönderici firma bilgileri yer alır.</p>
+        </details>
+        <details>
+            <summary>Hangi kargo firması ile çalışıyorsunuz?</summary>
+            <p>Türkiye geneline anlaşmalı olduğumuz kargo firmaları (Aras, Yurtiçi veya PTT) ile gönderim yapıyoruz.
+                Akhisar içi siparişlerde ise kendi motorlu kuryemiz ile 1 saatte teslimat sağlıyoruz.</p>
+        </details>
+        <details>
+            <summary>Kargom nerede? Nasıl takip edebilirim?</summary>
+            <p>Siparişiniz kargoya verildiğinde size SMS ile takip numarası iletilir. Bu numara ile kargo firmasının
+                sitesinden takip edebilirsiniz.</p>
+        </details>
+
+        <div class="sectionTitle" style="margin-top:2rem">
+            <h3>Ödeme Seçenekleri</h3>
+        </div>
+        <details>
+            <summary>Kapıda ödeme var mı?</summary>
+            <p>Kapıda ödeme seçeneğimiz sadece <strong>Akhisar içi motorlu kurye</strong> teslimatlarında geçerlidir.
+                Diğer illere gönderimlerde kredi kartı veya Havale/EFT ile ödeme kabul edilmektedir.</p>
+        </details>
+        <details>
+            <summary>Kredi kartı ekstrene ne yazıyor?</summary>
+            <p>Kredi kartı ile yapılan ödemelerde ekstrenizde firmamızın resmi ticari ünvanı (örneğin: GZ Teknoloji vb.)
+                yazar. "Sex Shop" veya cinsel ürün ifadesi asla geçmez.</p>
+        </details>
+
+        <div class="sectionTitle" style="margin-top:2rem">
+            <h3>İade ve Değişim</h3>
+        </div>
+        <details>
+            <summary>Ürünü iade edebilir miyim?</summary>
+            <p>Hijyen kuralları gereği, ambalajı açılmış ve kullanılmış cinsel sağlık ürünlerinin iadesi mümkün
+                değildir. Ancak ambalajı açılmamış veya kargoda hasar görmüş ürünlerde değişim yapılmaktadır.</p>
+        </details>
+
+    </main>
+
+    <a href="https://wa.me/905400443445" target="_blank" class="seo-whatsapp-btn" style="margin: 3rem auto;">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"
+                fill="currentColor" />
+        </svg>
+        Aklınıza Takılan Başka Sorular mı Var? WhatsApp'tan Yazın
+    </a>
+
+    <footer class="footer">
+        <div class="container">
+            © <span id="y"></span> Gizli Kutu • <a href="./sss.html">S.S.S</a> • <a href="./blog.html">Blog</a> • <a
+                href="./privacy.html">Gizlilik</a>
+        </div>
+    </footer>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/ui.js"></script>
+    <script>GK.bindGlobalUI(); document.getElementById("y").textContent = new Date().getFullYear();</script>
+    <script src="./js/category-nav.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gizli Kutu Blog | Cinsel Sağlık ve Ürün Rehberi</title>
+    <meta name="description"
+        content="Cinsel sağlık, ürün incelemeleri, vibratör seçim rehberleri ve fantezi önerileri. Gizli Kutu blog sayfası." />
+    <link rel="icon" href="./assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/category-nav.css">
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .blog-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #f3f4f6;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-date {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            color: #4b5563;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #9333ea;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="drawerBackdrop" id="drawerBackdrop"></div>
+    <aside class="drawer" id="drawer">
+        <div class="row" style="justify-content:space-between">
+            <div class="brand"><img src="./assets/logo.jpg" alt="Gizli Kutu"><b>Gizli Kutu</b></div>
+            <button class="iconbtn" id="closeDrawer"
+                onclick="document.getElementById('drawerBackdrop').click()">✕</button>
+        </div>
+        <h5>Kategoriler</h5>
+        <div id="hamburgerCategories"></div>
+        <h4>Kurumsal</h4><a class="navlink" href="./about.html">Hakkımızda</a><a class="navlink"
+            href="./contact.html">İletişim</a>
+    </aside>
+
+    <header class="topbar">
+        <div class="container header">
+            <button class="iconbtn" id="menuBtn"
+                onclick="document.getElementById('drawer').classList.add('open');document.getElementById('drawerBackdrop').classList.add('visible')">☰</button>
+            <a class="brand" href="./index.html"><img src="./assets/logo.jpg" alt="Logo"><b>Gizli Kutu</b></a>
+            <div class="header-right" style="flex:1">
+                <nav class="desktop-header-nav">
+                    <a href="./index.html">Anasayfa</a>
+                    <a href="./products.html">Ürünler</a>
+                    <a href="./blog.html" class="active">Blog</a>
+                    <a href="./contact.html">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <nav id="categoryNav" class="category-nav-wrapper"></nav>
+
+    <main class="container">
+        <div style="text-align:center; padding: 2rem 0;">
+            <h1 style="font-size:2.5rem; color:#111827; margin-bottom:1rem;">Blog & Rehberler</h1>
+            <p style="color:#6b7280; max-width:600px; margin:0 auto;">Cinsel sağlık, ürün kullanımı ve ipuçları hakkında
+                en güncel yazılar.</p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <article class="blog-card">
+                <!-- Placeholder image -->
+                <div class="blog-img" style="background:linear-gradient(45deg, #9333ea, #ec4899)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">15 Ocak 2026</div>
+                    <h2 class="blog-title"><a href="./blog-oyuncak-rehberi.html"
+                            style="text-decoration:none;color:inherit">Yeni Başlayanlar İçin Seks Oyuncağı Rehberi</a>
+                    </h2>
+                    <p class="blog-excerpt">İlk kez vibratör veya mastürbatör alacaklar için kapsamlı rehber. Hangi
+                        materyal daha iyi? Nasıl temizlenir?</p>
+                    <a href="./blog-oyuncak-rehberi.html" class="read-more">Devamını Oku →</a>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 (Dummy Link) -->
+            <article class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(45deg, #3b82f6, #06b6d4)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">10 Ocak 2026</div>
+                    <h2 class="blog-title">Kayganlaştırıcı Seçimi Nasıl Yapılır?</h2>
+                    <p class="blog-excerpt">Su bazlı, silikon bazlı veya aromalı? İhtiyacınıza en uygun
+                        kayganlaştırıcıyı seçmenin püf noktaları.</p>
+                    <span class="read-more" style="opacity:0.6">Yakında...</span>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 (Dummy Link) -->
+            <article class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(45deg, #f59e0b, #ef4444)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">5 Ocak 2026</div>
+                    <h2 class="blog-title">Erotik Masajın İncelikleri</h2>
+                    <p class="blog-excerpt">Partnerinizle bağınızı güçlendirecek ve heyecanı artıracak erotik masaj
+                        teknikleri ve yağ önerileri.</p>
+                    <span class="read-more" style="opacity:0.6">Yakında...</span>
+                </div>
+            </article>
+        </div>
+
+        <a href="https://wa.me/905400443445" target="_blank" class="seo-whatsapp-btn" style="margin: 3rem auto;">
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"
+                    fill="currentColor" />
+            </svg>
+            Ürünler Hakkında Destek Almak İçin WhatsApp'tan Ulaşın
+        </a>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            © <span id="y"></span> Gizli Kutu • <a href="./sss.html">S.S.S</a> • <a href="./blog.html">Blog</a> • <a
+                href="./privacy.html">Gizlilik</a>
+        </div>
+    </footer>
+
+    <script src="./js/app.js"></script>
+    <script src="./js/ui.js"></script>
+    <script>GK.bindGlobalUI(); document.getElementById("y").textContent = new Date().getFullYear();</script>
+    <script src="./js/category-nav.js" defer></script>
+</body>
+
+</html>

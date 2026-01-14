@@ -265,3 +265,36 @@ body {
     .seo-content-wrapper h3 { color: #e5e7eb; }
     .seo-content-wrapper p { color: #d1d5db; }
 }
+
+/* SEO WhatsApp Button */
+.seo-whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: all 0.2s ease;
+    width: fit-content;
+}
+.seo-whatsapp-btn:hover {
+    background-color: #20bd5a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+.seo-whatsapp-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+@media (max-width: 640px) {
+    .seo-whatsapp-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
