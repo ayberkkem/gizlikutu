@@ -2600,3 +2600,11 @@ textarea {
 .blur-reveal .product-image img {
   filter: blur(0) !important;
 }
+/* Blog Image Placeholder */
+.blog-img {
+    background-color: #e5e7eb;
+    min-height: 200px;
+    object-fit: cover;
+    display: block;
+    width: 100%;
+}
