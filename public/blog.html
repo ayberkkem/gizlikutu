@@ -10,19 +10,28 @@
     <link rel="icon" href="./assets/logo.jpg" type="image/jpeg">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/category-nav.css">
+    <link rel="stylesheet" href="./css/pages/index.css"> <!-- Import index.css for hero styles -->
     <style>
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
+            padding-bottom: 4rem;
         }
 
         .blog-card {
             border: 1px solid #e5e7eb;
             border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            /* Make whole card clickable style */
+            text-decoration: none;
+            /* Remove underline from link wrapping card */
+            color: inherit;
+            display: block;
+            /* Ensure anchor behaves like block */
         }
 
         .blog-card:hover {
@@ -66,6 +75,11 @@
             font-weight: 600;
             text-decoration: none;
         }
+
+        /* Hero override adjustments if needed */
+        .hero {
+            margin-bottom: 2rem;
+        }
     </style>
 </head>
 
@@ -76,6 +90,9 @@
             <div class="brand"><img src="./assets/logo.jpg" alt="Gizli Kutu"><b>Gizli Kutu</b></div>
             <button class="iconbtn" id="closeDrawer"
                 onclick="document.getElementById('drawerBackdrop').click()">✕</button>
+        </div>
+        <div style="padding: 1rem 0; text-align: center;">
+            <a class="btn primary" href="./products.html" style="width: 100%;">Keşfetmeye Başla</a>
         </div>
         <h5>Kategoriler</h5>
         <div id="hamburgerCategories"></div>
@@ -102,54 +119,165 @@
     <nav id="categoryNav" class="category-nav-wrapper"></nav>
 
     <main class="container">
-        <div style="text-align:center; padding: 2rem 0;">
-            <h1 style="font-size:2.5rem; color:#111827; margin-bottom:1rem;">Blog & Rehberler</h1>
-            <p style="color:#6b7280; max-width:600px; margin:0 auto;">Cinsel sağlık, ürün kullanımı ve ipuçları hakkında
-                en güncel yazılar.</p>
+        <!-- HERO SECTION (Copied from Index) -->
+        <div class="hero">
+            <div class="hero-brand-box">
+                <div class="hero-brand-title">GİZLİ KUTU</div>
+                <div class="hero-brand-subtitle">BLOG</div>
+            </div>
+
+            <div class="smallCard">
+                <div class="kicker">REHBERLER & İPUÇLARI</div>
+                <h1>Cinsel Sağlık ve<br>Ürün Rehberi</h1>
+                <p style="color:var(--muted);margin:0 0 12px">Doğru ürün seçimi, kullanım ipuçları ve fantezi dünyasına
+                    dair her şey.</p>
+
+                <hr class="sep">
+                <div class="notice">
+                    Bilgi. Güven. Deneyim.
+                </div>
+                <div class="ctaRow">
+                    <a class="btn primary" href="#blogGrid">Yazıları İncele</a>
+                </div>
+            </div>
         </div>
 
-        <div class="blog-grid">
-            <!-- Blog Post 1 -->
-            <article class="blog-card">
-                <!-- Placeholder image -->
-                <div class="blog-img" style="background:linear-gradient(45deg, #9333ea, #ec4899)"></div>
+        <div id="blogGrid" class="blog-grid">
+            <!-- 1. Vibratör Rehberi -->
+            <a href="./blog-vibrator-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #fce7f3, #db2777)"></div>
                 <div class="blog-content">
-                    <div class="blog-date">15 Ocak 2026</div>
-                    <h2 class="blog-title"><a href="./blog-oyuncak-rehberi.html"
-                            style="text-decoration:none;color:inherit">Yeni Başlayanlar İçin Seks Oyuncağı Rehberi</a>
-                    </h2>
-                    <p class="blog-excerpt">İlk kez vibratör veya mastürbatör alacaklar için kapsamlı rehber. Hangi
-                        materyal daha iyi? Nasıl temizlenir?</p>
-                    <a href="./blog-oyuncak-rehberi.html" class="read-more">Devamını Oku →</a>
+                    <div class="blog-date">Vibratörler</div>
+                    <h2 class="blog-title">Kadınlar İçin Vibratör Seçim Rehberi</h2>
+                    <p class="blog-excerpt">Klitoral mi, G-noktası mı? Hangi vibratör modeli sizin için uygun? İlk kez
+                        alacaklar için kapsamlı rehber.</p>
+                    <span class="read-more">Devamını Oku →</span>
                 </div>
-            </article>
+            </a>
 
-            <!-- Blog Post 2 (Dummy Link) -->
-            <article class="blog-card">
-                <div class="blog-img" style="background:linear-gradient(45deg, #3b82f6, #06b6d4)"></div>
+            <!-- 2. Masaj Rehberi -->
+            <a href="./blog-masaj-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #fef3c7, #d97706)"></div>
                 <div class="blog-content">
-                    <div class="blog-date">10 Ocak 2026</div>
-                    <h2 class="blog-title">Kayganlaştırıcı Seçimi Nasıl Yapılır?</h2>
-                    <p class="blog-excerpt">Su bazlı, silikon bazlı veya aromalı? İhtiyacınıza en uygun
-                        kayganlaştırıcıyı seçmenin püf noktaları.</p>
-                    <span class="read-more" style="opacity:0.6">Yakında...</span>
+                    <div class="blog-date">Masaj & Uyarıcı</div>
+                    <h2 class="blog-title">Erotik Masajın İncelikleri ve Yağ Seçimi</h2>
+                    <p class="blog-excerpt">Partnerinizle bağınızı güçlendirecek dokunuşlar ve doğru masaj yağı seçimi.
+                        Afrodizyak etkili yağlar.</p>
+                    <span class="read-more">Devamını Oku →</span>
                 </div>
-            </article>
+            </a>
 
-            <!-- Blog Post 3 (Dummy Link) -->
-            <article class="blog-card">
-                <div class="blog-img" style="background:linear-gradient(45deg, #f59e0b, #ef4444)"></div>
+            <!-- 3. Kayganlaştırıcı Rehberi -->
+            <a href="./blog-kayganlastirici-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #dbeafe, #2563eb)"></div>
                 <div class="blog-content">
-                    <div class="blog-date">5 Ocak 2026</div>
-                    <h2 class="blog-title">Erotik Masajın İncelikleri</h2>
-                    <p class="blog-excerpt">Partnerinizle bağınızı güçlendirecek ve heyecanı artıracak erotik masaj
-                        teknikleri ve yağ önerileri.</p>
-                    <span class="read-more" style="opacity:0.6">Yakında...</span>
+                    <div class="blog-date">Kayganlaştırıcılar</div>
+                    <h2 class="blog-title">Kayganlaştırıcı Çeşitleri: Hangisini Seçmelisiniz?</h2>
+                    <p class="blog-excerpt">Su bazlı, silikon bazlı, anal veya aromalı... Hangi kayganlaştırıcı hangi
+                        durumda kullanılır?</p>
+                    <span class="read-more">Devamını Oku →</span>
                 </div>
-            </article>
+            </a>
+
+            <!-- 4. Titreşim Rehberi -->
+            <a href="./blog-titresim-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #e0e7ff, #4f46e5)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Titreşimli Oyuncaklar</div>
+                    <h2 class="blog-title">Titreşim Gücü ve Modları Hakkında Her Şey</h2>
+                    <p class="blog-excerpt">Farklı titreşim desenleri ne işe yarar? Uzaktan kumandalı modellerin
+                        avantajları nelerdir?</p>
+                    <span class="read-more">Devamını Oku →</span>
+                </div>
+            </a>
+
+            <!-- 5. Cesur Ürünler Rehberi -->
+            <a href="./blog-cesur-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #eee, #111)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Cesur & BDSM</div>
+                    <h2 class="blog-title">BDSM'ye Giriş: Başlangıç İçin Öneriler</h2>
+                    <p class="blog-excerpt">Güvenli, rızaya dayalı ve heyecan verici bir deneyim için kelepçe, göz bandı
+                        ve diğer aksesuarların kullanımı.</p>
+                    <span class="read-more">Devamını Oku →</span>
+                </div>
+            </a>
+
+            <!-- 6. Dildo Rehberi -->
+            <a href="./blog-dildo-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #ffedd5, #ea580c)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Realistik Dildolar</div>
+                    <h2 class="blog-title">Dildo Seçerken Boyut ve Materyal Önemi</h2>
+                    <p class="blog-excerpt">Vantuzlu, kemerli veya cam dildolar. Kendiniz için en ideal boyutu ve dokuyu
+                        nasıl seçersiniz?</p>
+                    <span class="read-more">Devamını Oku →</span>
+                </div>
+            </a>
+
+            <!-- 7. Mastürbatör Rehberi -->
+            <a href="./blog-masturbator-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #ecfdf5, #059669)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Erkeklere Özel</div>
+                    <h2 class="blog-title">Erkek Mastürbatörleri: Manuelden Otomatiğe</h2>
+                    <p class="blog-excerpt">Yapay vajina ve mastürbatör çeşitleri arasındaki farklar. Hazzı artıran doku
+                        teknolojileri.</p>
+                    <span class="read-more">Devamını Oku →</span>
+                </div>
+            </a>
+
+            <!-- 8. Realistik Rehberi -->
+            <a href="./blog-realistik-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #fdf4ff, #c026d3)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Realistik Deneyim</div>
+                    <h2 class="blog-title">Gerçeğe En Yakın Deneyim: Cyberskin Nedir?</h2>
+                    <p class="blog-excerpt">Ten hissi veren materyaller ve bakımı. Gerçekçi vajina ve penis modelleri
+                        hakkında bilmeniz gerekenler.</p>
+                    <span class="read-more">Devamını Oku →</span>
+                </div>
+            </a>
+
+            <!-- 9. Manken Rehberi -->
+            <a href="./blog-manken-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #fff1f2, #be123c)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Gerçekçi Mankenler</div>
+                    <h2 class="blog-title">Şişme Bebek ve Silikon Manken Arasındaki Farklar</h2>
+                    <p class="blog-excerpt">Yüksek bütçeli TPE mankenler ile giriş seviyesi ürünler arasındaki farklar.
+                        Saklama ve temizlik ipuçları.</p>
+                    <span class="read-more">Devamını Oku →</span>
+                </div>
+            </a>
+
+            <!-- 10. Fantezi Rehberi -->
+            <a href="./blog-fantezi-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #7f1d1d, #000)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Fantezi Giyim</div>
+                    <h2 class="blog-title">Rol Oyunları İçin Kostüm Önerileri</h2>
+                    <p class="blog-excerpt">İlişkinize heyecan katacak kostümler ve vücut çorapları. Partnerinizle
+                        fantezi dünyasına adım atın.</p>
+                    <span class="read-more">Devamını Oku →</span>
+                </div>
+            </a>
+
+            <!-- 11. Performans Rehberi -->
+            <a href="./blog-performans-rehberi.html" class="blog-card">
+                <div class="blog-img" style="background:linear-gradient(135deg, #eff6ff, #1d4ed8)"></div>
+                <div class="blog-content">
+                    <div class="blog-date">Performans Destek</div>
+                    <h2 class="blog-title">Geciktirici Sprey ve Kremler Nasıl Kullanılır?</h2>
+                    <p class="blog-excerpt">Daha uzun süreli bir performans için geciktirici ürünlerin doğru kullanım
+                        zamanlaması ve dozajı.</p>
+                    <span class="read-more">Devamını Oku →</span>
+                </div>
+            </a>
+
         </div>
 
-        <a href="https://wa.me/905400443445" target="_blank" class="seo-whatsapp-btn" style="margin: 3rem auto;">
+        <a href="https://wa.me/905400443445" target="_blank" class="seo-whatsapp-btn" style="margin: 0 auto;">
             <svg viewBox="0 0 24 24">
                 <path
                     d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2z"
@@ -169,6 +297,21 @@
     <script src="./js/app.js"></script>
     <script src="./js/ui.js"></script>
     <script>GK.bindGlobalUI(); document.getElementById("y").textContent = new Date().getFullYear();</script>
+    <script>
+        (async function () {
+            try {
+                const res = await fetch("./data/categories.json", { cache: "no-store" });
+                const categories = await res.json();
+                const box = document.getElementById("hamburgerCategories");
+                if (!box) return;
+                box.innerHTML = categories.map(cat => `
+          <a class="navlink" data-close-drawer href="./products.html?cat=${cat.id}">
+            ${cat.label}
+          </a>
+        `).join("");
+            } catch (e) { console.error("Hamburger kategori yükleme hatası", e); }
+        })();
+    </script>
     <script src="./js/category-nav.js" defer></script>
 </body>
 
