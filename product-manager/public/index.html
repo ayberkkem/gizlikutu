@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gizli Kutu • Ürün & Kategori Yönetimi</title>
+
+    <style>
+        :root {
+            --bg: #0f1115;
+            --panel: #141824;
+            --panel2: #171b22;
+            --border: #23283a;
+            --text: #ffffff;
+            --muted: rgba(255, 255, 255, .65);
+            --brand: #2563eb;
+            --danger: #dc2626;
+            --ok: #16a34a;
+            --chip: #1f2937;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        header {
+            padding: 12px 14px;
+            background: var(--panel2);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: 0;
+            padding: 9px 14px;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            background: var(--brand);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .btn.secondary {
+            background: #374151;
+        }
+
+        .btn.danger {
+            background: var(--danger);
+        }
+
+        .btn.ok {
+            background: var(--ok);
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            display: inline-flex;
+            gap: 6px;
+            align-items: center;
+            padding: 6px 10px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .03);
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid var(--border);
+            background: var(--panel2);
+        }
+
+        .tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--muted);
+            border-bottom: 2px solid transparent;
+        }
+
+        .tab.active {
+            color: var(--brand);
+            border-bottom-color: var(--brand);
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 360px 1fr 400px;
+            height: calc(100vh - 110px);
+        }
+
+        .panel {
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 12px;
+            background: var(--panel);
+        }
+
+        .panel:last-child {
+            border-right: 0;
+        }
+
+        h3 {
+            margin: 0 0 10px;
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 700;
+            letter-spacing: .2px;
+        }
+
+        .search {
+            width: 100%;
+            padding: 10px 10px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .03);
+            color: #fff;
+            outline: none;
+        }
+
+        .search::placeholder {
+            color: rgba(255, 255, 255, .45);
+        }
+
+        .product {
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .02);
+            margin-bottom: 8px;
+        }
+
+        .product.active {
+            border-color: var(--brand);
+            background: rgba(37, 99, 235, .10);
+        }
+
+        .product .t {
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .product .m {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        .product .chips {
+            margin-top: 6px;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            font-size: 11px;
+            background: var(--chip);
+            border: 1px solid var(--border);
+            padding: 2px 6px;
+            border-radius: 999px;
+            color: rgba(255, 255, 255, .8);
+        }
+
+        .chip.off {
+            opacity: .55;
+            text-decoration: line-through;
+        }
+
+        .category-item {
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .02);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-item.active {
+            border-color: var(--ok);
+            background: rgba(22, 163, 74, .10);
+        }
+
+        .category-item .cid {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .category-item .clabel {
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .form {
+            display: grid;
+            gap: 10px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .03);
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px 10px;
+            outline: none;
+            font-size: 13px;
+        }
+
+        textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 10px;
+        }
+
+        .imgcard {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, .02);
+        }
+
+        .imgcard img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            display: block;
+            background: #0b0d11;
+        }
+
+        .imgbar {
+            display: flex;
+            gap: 6px;
+            padding: 6px;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .mini {
+            padding: 5px 7px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .03);
+            color: #fff;
+            cursor: pointer;
+            font-size: 11px;
+            line-height: 1;
+        }
+
+        .mini.danger {
+            border-color: rgba(220, 38, 38, .55);
+        }
+
+        .hint {
+            font-size: 12px;
+            color: rgba(255, 255, 255, .75);
+            line-height: 1.45;
+        }
+
+        .stickyTop {
+            position: sticky;
+            top: 0;
+            background: var(--panel);
+            padding-bottom: 10px;
+            z-index: 5;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 12px 0;
+        }
+
+        #categoryTab {
+            display: none;
+        }
+
+        #categoryTab.active {
+            display: block;
+        }
+
+        #productTab {
+            display: none;
+        }
+
+        #productTab.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="row">
+            <button class="btn ok" id="saveAllBtn">💾 KAYDET (products + categories)</button>
+            <button class="btn secondary" id="reloadBtn">🔄 Yeniden Yükle</button>
+        </div>
+        <span class="pill" id="status">Hazır</span>
+    </header>
+
+    <div class="tabs">
+        <div class="tab active" data-tab="product">📦 Ürünler</div>
+        <div class="tab" data-tab="category">📂 Kategoriler</div>
+    </div>
+
+    <!-- ==================== PRODUCTS TAB ==================== -->
+    <div id="productTab" class="active">
+        <main>
+            <!-- LEFT: PRODUCTS -->
+            <section class="panel" id="productsPanel">
+                <div class="stickyTop">
+                    <h3>Ürünler</h3>
+                    <input id="productSearch" class="search" placeholder="Ürün ara (başlık / id / kategori)" />
+                    <div style="margin-top:10px" class="hint" id="counts">0 ürün</div>
+                    <button class="btn ok" style="margin-top:10px;width:100%" id="newProductBtn">➕ Yeni Ürün
+                        Ekle</button>
+                    <div class="divider"></div>
+                </div>
+                <div id="productsList"></div>
+            </section>
+
+            <!-- MIDDLE: EDITOR -->
+            <section class="panel">
+                <h3>Ürün Düzenle</h3>
+
+                <div class="form" id="editor">
+                    <div class="field">
+                        <label>ID</label>
+                        <input id="f_id" disabled />
+                    </div>
+
+                    <div class="field">
+                        <label>Slug</label>
+                        <input id="f_slug" placeholder="Otomatik üretilebilir" />
+                    </div>
+
+                    <div class="field">
+                        <label>Başlık (title)</label>
+                        <input id="f_title" placeholder="Ürün başlığı" />
+                    </div>
+
+                    <div class="field">
+                        <label>Kategori</label>
+                        <select id="f_category"></select>
+                    </div>
+
+                    <div class="field">
+                        <label>Fiyat (TL)</label>
+                        <input id="f_price" type="number" min="0" step="1" placeholder="örn: 750" />
+                    </div>
+
+                    <div class="field">
+                        <label>Açıklama</label>
+                        <textarea id="f_desc" placeholder="Ürün açıklaması"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label>Aktif mi?</label>
+                        <div class="row">
+                            <input id="f_active" type="checkbox" />
+                            <span class="hint">Kapalıysa ürün görünmez</span>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <h3>Görseller</h3>
+
+                    <div class="field">
+                        <label>Elle URL Ekle</label>
+                        <div class="row" style="align-items:stretch">
+                            <input id="manualUrl" placeholder="https://..." style="flex:1" />
+                            <button class="btn" id="manualAddBtn" type="button">Ekle</button>
+                        </div>
+                    </div>
+
+                    <div id="imagesGrid" class="grid"></div>
+
+                    <div class="divider"></div>
+                    <button class="btn danger" id="deleteProductBtn" style="width:100%">🗑️ Bu Ürünü Sil</button>
+                </div>
+            </section>
+
+            <!-- RIGHT: EMPTY FOR NOW -->
+            <section class="panel">
+                <h3>Hızlı Bilgi</h3>
+                <div class="hint">
+                    1) Soldan ürün seç<br>
+                    2) Bilgileri düzenle<br>
+                    3) "💾 KAYDET" ile her şey güncellenir<br><br>
+                    Kategori eklemek için üst menüden "Kategoriler" sekmesine git.
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ==================== CATEGORIES TAB ==================== -->
+    <div id="categoryTab">
+        <main>
+            <section class="panel">
+                <div class="stickyTop">
+                    <h3>Kategoriler</h3>
+                    <button class="btn ok" style="width:100%" id="newCategoryBtn">➕ Yeni Kategori Ekle</button>
+                    <div class="divider"></div>
+                </div>
+                <div id="categoriesList"></div>
+            </section>
+
+            <section class="panel">
+                <h3>Kategori Düzenle</h3>
+
+                <div class="form" id="catEditor">
+                    <div class="field">
+                        <label>ID (slug)</label>
+                        <input id="c_id" placeholder="ornek-kategori" />
+                    </div>
+
+                    <div class="field">
+                        <label>Başlık (label)</label>
+                        <input id="c_label" placeholder="Örnek Kategori" />
+                    </div>
+
+                    <div class="divider"></div>
+                    <button class="btn danger" id="deleteCategoryBtn" style="width:100%">🗑️ Bu Kategoriyi Sil</button>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h3>Bilgi</h3>
+                <div class="hint">
+                    Kategori ID'si (slug) ürünlerin "category" alanında kullanılır.<br><br>
+                    Örnek: "vibrator-urunler"<br><br>
+                    "💾 KAYDET" ile hem ürünler hem kategoriler güncellenir.
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // ================ STATE ================
+            let products = [];
+            let categories = [];
+            let activeProduct = null;
+            let activeCategory = null;
+
+            // ================ DOM ================
+            const statusEl = document.getElementById("status");
+            const productsListEl = document.getElementById("productsList");
+            const productSearchEl = document.getElementById("productSearch");
+            const countsEl = document.getElementById("counts");
+            const categoriesListEl = document.getElementById("categoriesList");
+
+            const f_id = document.getElementById("f_id");
+            const f_slug = document.getElementById("f_slug");
+            const f_title = document.getElementById("f_title");
+            const f_category = document.getElementById("f_category");
+            const f_price = document.getElementById("f_price");
+            const f_desc = document.getElementById("f_desc");
+            const f_active = document.getElementById("f_active");
+            const manualUrl = document.getElementById("manualUrl");
+            const imagesGrid = document.getElementById("imagesGrid");
+
+            const c_id = document.getElementById("c_id");
+            const c_label = document.getElementById("c_label");
+
+            // ================ HELPERS ================
+            function toast(text) {
+                statusEl.textContent = text;
+            }
+
+            function slugify(s) {
+                return String(s || "")
+                    .toLowerCase()
+                    .trim()
+                    .replace(/ı/g, "i").replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ş/g, "s").replace(/ö/g, "o").replace(/ç/g, "c")
+                    .replace(/[^a-z0-9\s-]/g, "")
+                    .replace(/\s+/g, "-")
+                    .replace(/-+/g, "-");
+            }
+
+            function ensureImages(p) {
+                if (!Array.isArray(p.images)) p.images = [];
+            }
+
+            // ================ TABS ================
+            document.querySelectorAll(".tab").forEach(tab => {
+                tab.addEventListener("click", () => {
+                    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+                    tab.classList.add("active");
+
+                    const tabName = tab.dataset.tab;
+                    document.getElementById("productTab").classList.toggle("active", tabName === "product");
+                    document.getElementById("categoryTab").classList.toggle("active", tabName === "category");
+                });
+            });
+
+            // ================ CATEGORY SELECT ================
+            function populateCategorySelect() {
+                f_category.innerHTML = '<option value="">-- Kategori Seç --</option>';
+                categories.forEach(c => {
+                    const opt = document.createElement("option");
+                    opt.value = c.id;
+                    opt.textContent = c.label;
+                    f_category.appendChild(opt);
+                });
+            }
+
+            // ================ RENDER: PRODUCTS ================
+            function renderProducts() {
+                const q = (productSearchEl.value || "").trim().toLowerCase();
+                const items = products.filter(p => {
+                    const hay = `${p.title || ""} ${p.id || ""} ${p.category || ""}`.toLowerCase();
+                    return q ? hay.includes(q) : true;
+                });
+
+                countsEl.textContent = `${items.length} ürün (toplam ${products.length})`;
+
+                productsListEl.innerHTML = "";
+                items.forEach(p => {
+                    ensureImages(p);
+
+                    const div = document.createElement("div");
+                    div.className = "product" + (activeProduct === p ? " active" : "");
+
+                    const catLabel = categories.find(c => c.id === p.category)?.label || p.category || "-";
+
+                    div.innerHTML = `
+        <div class="t">${p.title || "(Başlık yok)"}</div>
+        <div class="m">ID: ${p.id || "-"} • ${catLabel} • ₺${Number(p.price || 0)}</div>
+        <div class="chips">
+          <span class="chip">${(p.images || []).length} görsel</span>
+          <span class="chip ${p.active === false ? "off" : ""}">${p.active === false ? "Pasif" : "Aktif"}</span>
+        </div>
+      `;
+                    div.onclick = () => {
+                        activeProduct = p;
+                        fillEditorFromProduct();
+                        renderProducts();
+                        renderImages();
+                    };
+                    productsListEl.appendChild(div);
+                });
+            }
+
+            // ================ RENDER: CATEGORIES ================
+            function renderCategories() {
+                categoriesListEl.innerHTML = "";
+                categories.forEach(c => {
+                    const div = document.createElement("div");
+                    div.className = "category-item" + (activeCategory === c ? " active" : "");
+                    div.innerHTML = `
+        <div>
+          <div class="clabel">${c.label}</div>
+          <div class="cid">${c.id}</div>
+        </div>
+      `;
+                    div.onclick = () => {
+                        activeCategory = c;
+                        fillCategoryEditor();
+                        renderCategories();
+                    };
+                    categoriesListEl.appendChild(div);
+                });
+            }
+
+            // ================ EDITOR: PRODUCT ================
+            function fillEditorFromProduct() {
+                if (!activeProduct) {
+                    f_id.value = "";
+                    f_slug.value = "";
+                    f_title.value = "";
+                    f_category.value = "";
+                    f_price.value = "";
+                    f_desc.value = "";
+                    f_active.checked = true;
+                    return;
+                }
+
+                ensureImages(activeProduct);
+
+                f_id.value = activeProduct.id || "";
+                f_slug.value = activeProduct.slug || "";
+                f_title.value = activeProduct.title || "";
+                f_category.value = activeProduct.category || "";
+                f_price.value = Number(activeProduct.price || 0);
+                f_desc.value = activeProduct.description || "";
+                f_active.checked = activeProduct.active !== false;
+            }
+
+            function saveEditorToProduct() {
+                if (!activeProduct) return;
+
+                activeProduct.slug = (f_slug.value || "").trim() || slugify(f_title.value);
+                activeProduct.title = (f_title.value || "").trim();
+                activeProduct.category = (f_category.value || "").trim();
+                activeProduct.price = Number(f_price.value || 0);
+                activeProduct.description = (f_desc.value || "").trim();
+                activeProduct.active = !!f_active.checked;
+
+                if (!f_slug.value.trim()) {
+                    const auto = slugify(activeProduct.title);
+                    activeProduct.slug = auto;
+                    f_slug.value = auto;
+                }
+
+                renderProducts();
+            }
+
+            [f_slug, f_title, f_category, f_price, f_desc].forEach(el => {
+                el.addEventListener("input", saveEditorToProduct);
+                el.addEventListener("change", saveEditorToProduct);
+            });
+            f_active.addEventListener("change", saveEditorToProduct);
+
+            // ================ EDITOR: CATEGORY ================
+            function fillCategoryEditor() {
+                if (!activeCategory) {
+                    c_id.value = "";
+                    c_label.value = "";
+                    return;
+                }
+                c_id.value = activeCategory.id || "";
+                c_label.value = activeCategory.label || "";
+            }
+
+            function saveCategoryEditor() {
+                if (!activeCategory) return;
+                activeCategory.id = (c_id.value || "").trim();
+                activeCategory.label = (c_label.value || "").trim();
+                renderCategories();
+                populateCategorySelect();
+            }
+
+            [c_id, c_label].forEach(el => {
+                el.addEventListener("input", saveCategoryEditor);
+            });
+
+            // ================ IMAGES ================
+            function renderImages() {
+                imagesGrid.innerHTML = "";
+                if (!activeProduct) return;
+
+                ensureImages(activeProduct);
+
+                if (activeProduct.images.length === 0) {
+                    imagesGrid.innerHTML = '<div class="hint">Henüz görsel yok</div>';
+                    return;
+                }
+
+                activeProduct.images.forEach((src, idx) => {
+                    const card = document.createElement("div");
+                    card.className = "imgcard";
+
+                    card.innerHTML = `
+        <img src="${src}" alt="img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%23333%22 width=%22100%22 height=%22100%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22>Hata</text></svg>'" />
+        <div class="imgbar">
+          <div style="display:flex; gap:4px;">
+            <button class="mini" data-up ${idx === 0 ? "disabled" : ""}>↑</button>
+            <button class="mini" data-down ${idx === activeProduct.images.length - 1 ? "disabled" : ""}>↓</button>
+          </div>
+          <button class="mini danger" data-del>Sil</button>
+        </div>
+      `;
+
+                    card.querySelector("[data-up]").onclick = () => {
+                        [activeProduct.images[idx - 1], activeProduct.images[idx]] = [activeProduct.images[idx], activeProduct.images[idx - 1]];
+                        renderImages();
+                        renderProducts();
+                    };
+
+                    card.querySelector("[data-down]").onclick = () => {
+                        [activeProduct.images[idx + 1], activeProduct.images[idx]] = [activeProduct.images[idx], activeProduct.images[idx + 1]];
+                        renderImages();
+                        renderProducts();
+                    };
+
+                    card.querySelector("[data-del]").onclick = () => {
+                        if (confirm("Bu görseli sil?")) {
+                            activeProduct.images.splice(idx, 1);
+                            renderImages();
+                            renderProducts();
+                        }
+                    };
+
+                    imagesGrid.appendChild(card);
+                });
+            }
+
+            document.getElementById("manualAddBtn").onclick = () => {
+                if (!activeProduct) {
+                    alert("Önce bir ürün seç!");
+                    return;
+                }
+                const url = manualUrl.value.trim();
+                if (!url) {
+                    alert("URL boş olamaz!");
+                    return;
+                }
+                ensureImages(activeProduct);
+                activeProduct.images.push(url);
+                manualUrl.value = "";
+                renderImages();
+                renderProducts();
+            };
+
+            // ================ ACTIONS ================
+            document.getElementById("newProductBtn").onclick = () => {
+                const newProduct = {
+                    id: "NEW_" + Date.now(),
+                    title: "Yeni Ürün",
+                    slug: "yeni-urun-" + Date.now(),
+                    category: "",
+                    price: 0,
+                    images: [],
+                    description: "",
+                    active: true
+                };
+                products.push(newProduct);
+                activeProduct = newProduct;
+                fillEditorFromProduct();
+                renderProducts();
+                renderImages();
+                toast("✅ Yeni ürün eklendi");
+            };
+
+            document.getElementById("deleteProductBtn").onclick = () => {
+                if (!activeProduct) {
+                    alert("Silmek için bir ürün seç!");
+                    return;
+                }
+                if (confirm(`"${activeProduct.title}" silinsin mi?`)) {
+                    products = products.filter(p => p !== activeProduct);
+                    activeProduct = null;
+                    fillEditorFromProduct();
+                    renderProducts();
+                    renderImages();
+                    toast("🗑️ Ürün silindi");
+                }
+            };
+
+            document.getElementById("newCategoryBtn").onclick = () => {
+                const newCat = {
+                    id: "yeni-kategori-" + Date.now(),
+                    label: "Yeni Kategori"
+                };
+                categories.push(newCat);
+                activeCategory = newCat;
+                fillCategoryEditor();
+                renderCategories();
+                populateCategorySelect();
+                toast("✅ Yeni kategori eklendi");
+            };
+
+            document.getElementById("deleteCategoryBtn").onclick = () => {
+                if (!activeCategory) {
+                    alert("Silmek için bir kategori seç!");
+                    return;
+                }
+                if (confirm(`"${activeCategory.label}" silinsin mi?`)) {
+                    categories = categories.filter(c => c !== activeCategory);
+                    activeCategory = null;
+                    fillCategoryEditor();
+                    renderCategories();
+                    populateCategorySelect();
+                    toast("🗑️ Kategori silindi");
+                }
+            };
+
+            // ================ API: LOAD ================
+            async function loadData() {
+                toast("Yükleniyor...");
+                try {
+                    const [prodRes, catRes] = await Promise.all([
+                        fetch("/api/products"),
+                        fetch("/api/categories")
+                    ]);
+                    products = await prodRes.json();
+                    categories = await catRes.json();
+
+                    activeProduct = null;
+                    activeCategory = null;
+
+                    populateCategorySelect();
+                    fillEditorFromProduct();
+                    fillCategoryEditor();
+                    renderProducts();
+                    renderCategories();
+                    renderImages();
+
+                    toast(`✅ Yüklendi: ${products.length} ürün, ${categories.length} kategori`);
+                } catch (err) {
+                    console.error(err);
+                    toast("❌ Yükleme hatası!");
+                }
+            }
+
+            // ================ API: SAVE ================
+            async function saveAll() {
+                toast("Kaydediliyor...");
+                try {
+                    await Promise.all([
+                        fetch("/api/products", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(products)
+                        }),
+                        fetch("/api/categories", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(categories)
+                        })
+                    ]);
+                    toast("✅ KAYIT BAŞARILI! products.json ve categories.json güncellendi.");
+                } catch (err) {
+                    console.error(err);
+                    toast("❌ Kayıt hatası!");
+                }
+            }
+
+            document.getElementById("saveAllBtn").onclick = saveAll;
+            document.getElementById("reloadBtn").onclick = loadData;
+
+            productSearchEl.addEventListener("input", renderProducts);
+
+            // ================ INIT ================
+            loadData();
+
+        });
+    </script>
+
+</body>
+
+</html>
