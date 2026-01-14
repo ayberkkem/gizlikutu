@@ -37,11 +37,20 @@
   /* ================================
      PRODUCT CARD (WITH ADD TO CART)
   ================================ */
+  const BLUR_KEYWORDS = ["gercek", "gercekci", "realistik", "dildo", "penis", "vajina"];
+
+  function shouldBlur(category) {
+    if (!category) return false;
+    const cat = category.toLowerCase();
+    return BLUR_KEYWORDS.some(kw => cat.includes(kw));
+  }
+
   function productCard(p) {
     const safeTitle = escapeHtml(p.title);
     const catLabel = CATEGORY_LABELS[p.category] || p.category;
     const imgSrc = pickImage(p);
     const cartQty = getCartQty(p.id);
+    const blurClass = shouldBlur(p.category) ? " blur-sensitive" : "";
     const productData = encodeURIComponent(JSON.stringify({
       id: p.id,
       title: p.title,
@@ -65,7 +74,7 @@
          </button>`;
 
     return `
-      <div class="card product-card" data-product-id="${p.id}">
+      <div class="card product-card${blurClass}" data-product-id="${p.id}">
         <a class="product-link" href="./product.html?id=${encodeURIComponent(p.id)}" aria-label="${safeTitle}">
           <!-- Görsel -->
           <div class="product-image">
@@ -183,6 +192,13 @@
         window.GK.setCartBadge();
         qtyEl.textContent = qty;
         return;
+      }
+
+      // Mobile tap to reveal blur
+      const card = e.target.closest('.blur-sensitive');
+      if (card && !card.classList.contains('blur-reveal')) {
+        e.preventDefault();
+        card.classList.add('blur-reveal');
       }
     });
   }
