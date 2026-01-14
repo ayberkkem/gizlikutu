@@ -23,7 +23,8 @@
     "cesur.html": "cesur-urunler",
     "realistik.html": "realistik-deneyim-urunleri",
     "manken.html": "gercekci-mankenler-ozel-seri",
-    "performans.html": "performans-destek-urunleri"
+    "performans.html": "performans-destek-urunleri",
+    "erotik-giyim.html": "fantezi-ve-rol-oyunlari"
   };
 
   let defaultCat = "all";
