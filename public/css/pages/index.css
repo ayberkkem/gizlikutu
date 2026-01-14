@@ -119,7 +119,8 @@ body {
 .qr-zone,
 .about-zone,
 .faq-zone,
-.security-zone {
+.security-zone,
+.seo-zone {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -359,4 +360,71 @@ details p {
 #minimizeSupport,
 #closeSupport {
     color: #ffffff !important;
+}
+
+/* SEO Content Styles */
+.seo-zone {
+    text-align: left;
+}
+
+.seo-zone h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text);
+    text-align: center;
+}
+
+.seo-zone h3 {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin: 24px 0 12px;
+}
+
+.seo-zone p {
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.city-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 28px 0;
+}
+
+.city-faq-item {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.city-faq-item h4 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.city-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.city-contact-list li {
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+
+.city-contact-list a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.city-contact-list a:hover {
+    text-decoration: underline;
 }

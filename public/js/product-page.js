@@ -44,6 +44,37 @@
   qs("#pPrice").textContent = money(p.price);
   qs("#pDesc").textContent = p.description || "";
 
+  // 1) SEO: Inject JSON-LD
+  const availability = "https://schema.org/InStock"; // Varsayılan stokta
+  const jsonLd = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": p.title,
+    "image": pickImages(p),
+    "description": p.description || p.title,
+    "sku": p.id,
+    "brand": {
+      "@type": "Brand",
+      "name": "Gizli Kutu"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": window.location.href,
+      "priceCurrency": "TRY",
+      "price": p.price,
+      "availability": availability,
+      "itemCondition": "https://schema.org/NewCondition"
+    }
+  };
+
+  let script = document.querySelector('script[type="application/ld+json"]');
+  if (!script) {
+    script = document.createElement('script');
+    script.type = 'application/ld+json';
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(jsonLd);
+
   /* ==========================
      IMAGE GALLERY
   ========================== */
