@@ -138,6 +138,14 @@ function processTemplate(cityName, isProvince = true, provinceName = "") {
     // Hero Title
     content = content.replace(/"hero-brand-title">.*?<\/div>/, `"hero-brand-title">${simpleName.toUpperCase()}<\/div>`);
 
+    // FORCE SPECIFIC TITLE FORMAT (User Request)
+    // Replaces the entire <title> tag found in the template with the requested format
+    content = content.replace(/<title>.*?<\/title>/i, `<title>${simpleName} Sex Shop | Gizli Paketleme ile Güvenli Alışveriş</title>`);
+
+    // Also update OpenGraph title to match
+    content = content.replace(/<meta property="og:title" content=".*?">/i, `<meta property="og:title" content="${simpleName} Sex Shop | Gizli Paketleme ile Güvenli Alışveriş">`);
+
+
 
     // 2. Delivery Logic for Non-Akhisar
     if (citySlug !== 'akhisar') {
@@ -162,11 +170,28 @@ function processTemplate(cityName, isProvince = true, provinceName = "") {
         content = content.replace(/Akhisar İçi 1 Saat Teslimat/g, "Hızlı ve Gizli Kargo");
         content = content.replace(/1 Saat Teslimat/g, "Hızlı Kargo");
         content = content.replace(/SADECE 1 SAAT/g, "EN KISA SÜREDE");
+
+        // REMOVE Motor Kurye references for non-Akhisar
         content = content.replace(/MOTORLU KURYE/g, "ÖZEL PAKETLEME");
+        content = content.replace(/Motor kurye ile hızlı teslimat sağlanan bölgeler/g, "Anlaşmalı kargo ile Türkiye'nin her yerine gönderim");
+        content = content.replace(/Sütçüler içi motor kurye ile 1 saat./g, "Aynı gün gizli kargo ile gönderim.");
+        content = content.replace(/.*motor kurye ile 1 saat.*/g, "Aynı gün gizli kargo ile gönderim.");
+
+        // REMOVE Kapıda Ödeme references for non-Akhisar
+        content = content.replace(/💵 Kapıda Ödeme ✅/g, ""); // Remove from trust row
+        content = content.replace(/<div>💵 Kapıda Ödeme<\/div>/g, ""); // Remove from hero features
+        content = content.replace(/Kapıda Ödeme & /g, ""); // Remove from sub-hero
+        content = content.replace(/kapıda ödeme,/g, ""); // Remove from text flow
+        content = content.replace(/Kapıda ödeme var mı\?<\/summary>\s*<p>.*?<\/p>/g, "Kapıda ödeme var mı?</summary><p>Şu an için sadece Havale/EFT ve Online Kredi Kartı ile ödeme kabul etmekteyiz.</p>"); // Replace FAQ
+        content = content.replace(/dilerseniz kapıda ödeme,/g, ""); // Remove from payment text
+
         content = content.replace(/1 Saatte Teslim/g, "Aynı Gün Kargo");
         content = content.replace(/<span>🚚 .*?<\/span>/, "<span>🚚 Aynı Gün Gizli Kargo ✅</span>");
-        content = content.replace(/Akhisar içi motor kurye ile 1 saat./g, "Siparişleriniz aynı gün kargoya verilir.");
+
+        // Remove Akhisar specific "KARGO YOK" text if it lingers
         content = content.replace(/Akhisar içi KARGO YOK!/g, "Anlaşmalı kargo ile gönderim.");
+        content = content.replace(/Sütçüler içi KARGO YOK!/g, "Tüm Türkiye'ye Kargo İmkanı"); // Dynamic name replacement might have created this
+        content = content.replace(new RegExp(`${simpleName} içi KARGO YOK!`, 'g'), "Tüm Türkiye'ye Kargo İmkanı");
     }
 
     content = content.replace(/akhisar-sex-shop\.html/g, `${citySlug}-sex-shop.html`);
