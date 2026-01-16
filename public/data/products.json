@@ -669,5 +669,17 @@
     ],
     "description": "Güçlendirilmiş vibratör titreşim motoru 20 hız kademeli kumandalı mor; yüksek performanslı motoru, uzaktan kumanda kolaylığı ve çoklu hız seçenekleriyle kontrollü ve konforlu kullanım sunar. Sessiz çalışma, dayanıklı yapı ve ergonomik tasarımıyla uzun ömürlü ve pratik bir üründür.",
     "active": true
+  },
+  {
+    "id": "TEST_PAYMENT_10TL",
+    "title": "Canlı Test",
+    "slug": "canli-test",
+    "category": "performans-destek-urunleri",
+    "price": 10,
+    "images": [
+      "https://firebasestorage.googleapis.com/v0/b/gizli-kutu.firebasestorage.app/o/products%2FMasaj%20Ya%C4%9Flar%C4%B1%20%26%20ve%20Uyar%C4%B1c%C4%B1lar%2FPink%20Lady%20Alkols%C3%BCz%20%C4%B0%C3%A7ecek%2030%20ml%203.jpg?alt=media&token=1d5b3385-316e-4fd3-8c2f-d4dea1d28e3e"
+    ],
+    "description": "Canlı Test",
+    "active": true
   }
 ]
