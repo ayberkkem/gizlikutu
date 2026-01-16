@@ -1,7 +1,8 @@
 :root {
   --bg: transparent;
   --text: #121212;
-  --muted: #6b7280;
+  --muted: #4b5563;
+  /* WCAG AA: Darker gray for better contrast */
   --border: rgba(229, 231, 235, 0.4);
   --card: transparent;
 
@@ -121,7 +122,7 @@ select {
 }
 
 .search svg {
-  opacity: .55
+  opacity: .75
 }
 
 .search input {
@@ -2600,11 +2601,12 @@ textarea {
 .blur-reveal .product-image img {
   filter: blur(0) !important;
 }
+
 /* Blog Image Placeholder */
 .blog-img {
-    background-color: #e5e7eb;
-    min-height: 200px;
-    object-fit: cover;
-    display: block;
-    width: 100%;
+  background-color: #e5e7eb;
+  min-height: 200px;
+  object-fit: cover;
+  display: block;
+  width: 100%;
 }
