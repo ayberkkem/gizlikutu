@@ -179,8 +179,11 @@ cities.forEach(city => {
     // Districts
     if (city.districts && city.districts.length > 0) {
         city.districts.forEach(dist => {
-            if (dist === "Merkez") return;
-            const distData = processTemplate(dist, false, city.name);
+            let effectiveDistName = dist;
+            if (dist === "Merkez") {
+                effectiveDistName = `${city.name} Merkez`;
+            }
+            const distData = processTemplate(effectiveDistName, false, city.name);
             fs.writeFileSync(path.join(outputDir, distData.filename), distData.content);
             generatedFiles.push(distData.filename);
         });
