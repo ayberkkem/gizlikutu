@@ -2,7 +2,7 @@
 
 /* Premium Background */
 body {
-    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-image: url('../../assets/backgrounds/premium-bg.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -88,7 +88,7 @@ body {
     gap: 24px;
     padding: 20px 24px;
     margin-bottom: 16px;
-    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-image: url('../../assets/backgrounds/premium-bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

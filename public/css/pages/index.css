@@ -2,7 +2,7 @@
 
 /* Premium Background */
 body {
-    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-image: url('../../assets/backgrounds/premium-bg.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -223,7 +223,7 @@ details p {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('../../assets/backgrounds/glitter-bg.png');
+    background-image: url('../../assets/backgrounds/glitter-bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

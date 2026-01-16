@@ -2,7 +2,7 @@
 
 /* Premium Background */
 body {
-    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-image: url('../../assets/backgrounds/premium-bg.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -31,7 +31,7 @@ body {
 
 /* Checkout Form - Premium Background */
 #checkoutForm {
-    background-image: url('../../assets/backgrounds/premium-bg.jpg.png');
+    background-image: url('../../assets/backgrounds/premium-bg.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
