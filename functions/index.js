@@ -1,7 +1,6 @@
 /**
  * Gizli Kutu - Firebase Cloud Functions
- * - Order Trigger (Twilio WhatsApp)
- * - PayTR Payment Integration
+ * - PayTR Payment Integration (WhatsApp temporarly disabled for smooth deployment)
  */
 
 const functions = require("firebase-functions/v1");
@@ -88,7 +87,8 @@ exports.createPaytrPayment = functions
             const userBasket = Buffer.from(JSON.stringify(basketJson)).toString("base64");
 
             // Callback URL'leri
-            const merchantNotifyUrl = "https://us-central1-gizli-kutu.cloudfunctions.net/paytrCallback";
+            // Vercel üzerinden proxy yaptığımız URL'yi kullanıyoruz
+            const merchantNotifyUrl = "https://gizlikutu.online/api/paytr/notify";
             const merchantOkUrl = "https://gizlikutu.online/success.html";
             const merchantFailUrl = "https://gizlikutu.online/checkout.html?error=payment";
 
@@ -155,11 +155,12 @@ exports.createPaytrPayment = functions
 /**
  * PayTR Callback Endpoint'i
  * Ödeme sonucu PayTR tarafından çağrılır
- * Başarılı ödemede: Firestore güncelle + WhatsApp gönder
+ * Başarılı ödemede: Firestore güncelle (WhatsApp şu an kapalı)
  */
 exports.paytrCallback = functions
     .runWith({
-        secrets: ["PAYTR_MERCHANT_KEY", "PAYTR_MERCHANT_SALT", "TWILIO_SID", "TWILIO_TOKEN", "TWILIO_FROM", "TWILIO_TO"],
+        // Twilio secrets removed to prevent deployment errors if they are missing
+        secrets: ["PAYTR_MERCHANT_KEY", "PAYTR_MERCHANT_SALT"],
     })
     .https.onRequest(async (req, res) => {
         const admin = require("firebase-admin");
@@ -198,8 +199,8 @@ exports.paytrCallback = functions
             const snapshot = await ordersRef.where("orderNo", "==", merchant_oid).limit(1).get();
 
             if (snapshot.empty) {
-                logger.error("❌ Sipariş bulunamadı", { merchant_oid });
-                res.send("OK"); // PayTR'ye yine OK dön
+                logger.info("❌ Sipariş bulunamadı (Idempotency için OK)", { merchant_oid });
+                res.send("OK");
                 return;
             }
 
@@ -216,59 +217,7 @@ exports.paytrCallback = functions
                     "payment.paytrStatus": "success",
                 });
 
-                // WhatsApp bildirimi gönder
-                try {
-                    const twilio = require("twilio");
-                    const sid = process.env.TWILIO_SID;
-                    const token = process.env.TWILIO_TOKEN;
-                    const from = process.env.TWILIO_FROM;
-                    const to = process.env.TWILIO_TO;
-
-                    if (sid && token && from && to) {
-                        const client = twilio(sid, token);
-
-                        const customerName = order.customer?.name || "-";
-                        const phone = order.customer?.phone || "-";
-                        const email = order.customer?.email || "-";
-                        const city = order.delivery?.city || "-";
-                        const district = order.delivery?.district || "-";
-                        const address = order.delivery?.address || "-";
-                        const note = order.note || "-";
-                        const total = order.payment?.total || 0;
-
-                        const productsText = (order.products || [])
-                            .map((p, i) => `${i + 1}) ${p.title} - Adet: ${p.qty} - ${p.price}₺`)
-                            .join("\n");
-
-                        const message = `
-💳 ONLINE ÖDEME BAŞARILI
-
-👤 Müşteri: ${customerName}
-📞 ${phone}
-📧 ${email}
-
-📍 TESLİMAT
-İl: ${city}
-İlçe: ${district}
-Adres: ${address}
-
-📝 Not: ${note}
-
-💰 Toplam: ${total} ₺
-🆔 Sipariş No: ${merchant_oid}
-
-📦 ÜRÜNLER
-${productsText}
-`;
-
-                        await client.messages.create({ from, to, body: message });
-                        logger.info("✅ WhatsApp gönderildi (ödeme başarılı)", { merchant_oid });
-                    } else {
-                        logger.warn("⚠️ Twilio credentials eksik, WhatsApp gönderilemedi");
-                    }
-                } catch (whatsappErr) {
-                    logger.error("❌ WhatsApp gönderim hatası:", whatsappErr);
-                }
+                // WhatsApp bildirimi buraya eklenebilir (Twilio secretler tanımlanınca)
 
             } else {
                 logger.warn("⚠️ PayTR ödeme başarısız", { merchant_oid, status });
@@ -290,144 +239,16 @@ ${productsText}
 
 /* =====================================================
    SİPARİŞ TETİKLEYİCİ
-   - Online ödeme: WhatsApp GÖNDERİLMEZ (paytrCallback'te gönderilir)
-   - Havale/EFT, Kapıda Ödeme: WhatsApp gönderilir
 ===================================================== */
-
 exports.onNewOrder = functions
-    .runWith({ secrets: ["TWILIO_SID", "TWILIO_TOKEN", "TWILIO_FROM", "TWILIO_TO"] })
+    // Twilio secrets removed
+    .runWith({ secrets: [] })
     .firestore
     .document("orders/{orderId}")
     .onCreate(async (snap, context) => {
-        const twilio = require("twilio");
-
-        try {
-            const order = snap.data();
-            if (!order) {
-                logger.error("❌ Order boş geldi");
-                return null;
-            }
-
-            logger.info("📦 Yeni sipariş oluşturuldu:", { orderNo: order.orderNo });
-
-            // -----------------------
-            // 💳 Ödeme Yöntemi Kontrolü
-            // -----------------------
-            const rawPayment =
-                order.payment?.method ||
-                order.payment?.type ||
-                order.payment?.paymentType ||
-                "";
-
-            const paymentKey = typeof rawPayment === "string" ? rawPayment.toLowerCase() : "";
-
-            // Online ödeme ise WhatsApp GÖNDERME - paytrCallback'te gönderilecek
-            if (paymentKey.includes("online") || paymentKey.includes("card") || paymentKey.includes("credit")) {
-                logger.info("📋 Online ödeme - WhatsApp ödeme başarılı olunca gönderilecek", { orderNo: order.orderNo });
-                return null;
-            }
-
-            // Havale/EFT veya Kapıda Ödeme ise WhatsApp gönder
-            const sid = process.env.TWILIO_SID;
-            const token = process.env.TWILIO_TOKEN;
-            const from = process.env.TWILIO_FROM;
-            const to = process.env.TWILIO_TO;
-
-            if (!sid || !token || !from || !to) {
-                logger.error("❌ Twilio secret bilgileri eksik!");
-                return null;
-            }
-
-            const client = twilio(sid, token);
-
-            // -----------------------
-            // 👤 Müşteri Bilgileri
-            // -----------------------
-            const customerName = order.customer?.name || "-";
-            const phone = order.customer?.phone || "-";
-            const email = order.customer?.email || "-";
-            const note = order.note || "-";
-
-            // -----------------------
-            // 📍 Teslimat Bilgileri
-            // -----------------------
-            const city = order.delivery?.city || "-";
-            const district = order.delivery?.district || "-";
-            const address = order.delivery?.address || "-";
-            const deliveryType = order.delivery?.type || "-";
-
-            // -----------------------
-            // 💳 Ödeme Yöntemi Text
-            // -----------------------
-            let paymentText = "Bilinmiyor";
-            if (paymentKey.includes("havale") || paymentKey.includes("eft") || paymentKey.includes("transfer")) {
-                paymentText = "Havale / EFT";
-            } else if (paymentKey.includes("kapida") || paymentKey.includes("cash") || paymentKey.includes("cod")) {
-                paymentText = "Kapıda Ödeme";
-            }
-
-            // -----------------------
-            // 💰 Sipariş Bilgileri
-            // -----------------------
-            const total = order.payment?.total || 0;
-            const orderNo = order.orderNo || context.params.orderId;
-
-            // -----------------------
-            // 📦 Ürünler
-            // -----------------------
-            const productsText = (order.products || [])
-                .map((p, i) => {
-                    return `
-${i + 1}) ${p.title}
-Adet: ${p.qty}
-Fiyat: ${p.price} ₺
-Görsel: ${p.image || p.imageUrl || "-"}
-`;
-                })
-                .join("\n----------------------\n");
-
-            // -----------------------
-            // 📩 WhatsApp Mesajı
-            // -----------------------
-            const message = `
-🛒 YENİ SİPARİŞ
-
-👤 Müşteri:
-${customerName}
-📞 ${phone}
-📧 ${email}
-
-📍 TESLİMAT BİLGİLERİ
-İl: ${city}
-İlçe: ${district}
-Adres: ${address}
-
-🚚 Teslimat Tipi: ${deliveryType}
-💳 Ödeme Yöntemi: ${paymentText}
-
-📝 Sipariş Notu:
-${note}
-
-💰 Toplam: ${total} ₺
-🆔 Sipariş No: ${orderNo}
-
-📦 ÜRÜNLER
-${productsText}
-`;
-
-            logger.info("📱 WhatsApp gönderiliyor (Havale/Kapıda)...");
-
-            const result = await client.messages.create({
-                from,
-                to,
-                body: message,
-            });
-
-            logger.info("✅ WhatsApp gönderildi:", result.sid);
-            return null;
-
-        } catch (err) {
-            logger.error("🔥 WhatsApp gönderim hatası:", err);
-            return null;
+        const order = snap.data();
+        if (order) {
+            logger.info("📦 Yeni sipariş:", { orderNo: order.orderNo });
         }
+        return null;
     });
