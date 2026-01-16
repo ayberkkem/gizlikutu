@@ -116,22 +116,28 @@ function processTemplate(cityName, isProvince = true, provinceName = "") {
     const citySlug = slugify(cityName);
     const simpleName = cityName;
 
-    // 1. Replacements
+    // 1. Precise Replacements
+    // Title & Meta
     content = content.replace(/Akhisar Sex Shop/g, `${simpleName} Sex Shop`);
     content = content.replace(/Seks Shop Akhisar/g, `Seks Shop ${simpleName}`);
-    content = content.replace(/Akhisar sex shop/g, `${simpleName.toLowerCase()} sex shop`);
-    content = content.replace(/seks shop Akhisar/g, `seks shop ${simpleName.toLowerCase()}`);
-    content = content.replace(/akhisar sex shop/g, `${simpleName.toLowerCase()} sex shop`);
-    content = content.replace(/manisa sex shop/g, `${(provinceName || simpleName).toLowerCase()} sex shop`);
+    content = content.replace(/Akhisar sex shop/g, `${simpleName} sex shop`); // Keep original casing or capitalize? Template uses lowercase in some content.
 
-    content = content.replace(/"addressLocality":"Akhisar"/g, `"addressLocality":"${simpleName}"`);
-    content = content.replace(/"addressRegion":"Manisa"/g, `"addressRegion":"${provinceName || simpleName}"`);
-
-    content = content.replace(/"hero-brand-title">AKHİSAR<\/div>/g, `"hero-brand-title">${simpleName.toUpperCase()}<\/div>`);
-    content = content.replace(/Akhisar\'ın/g, `${simpleName}'nın`);
-    content = content.replace(/Akhisar\'da/g, `${simpleName}'da`);
+    // General Content Replacements (Global and Case Insensitive for safety)
     content = content.replace(/Akhisar/g, simpleName);
     content = content.replace(/AKHİSAR/g, simpleName.toUpperCase());
+    content = content.replace(/akhisar/g, simpleName.toLowerCase());
+
+    // Specific Grammar Fixes (Simple approximation)
+    content = content.replace(new RegExp(`${simpleName}'ın`, 'g'), `${simpleName}'nın`);
+    content = content.replace(new RegExp(`${simpleName}'in`, 'g'), `${simpleName}'nin`);
+
+    // Schema & Metadata
+    content = content.replace(/"addressLocality":"(.*?)"/, `"addressLocality":"${simpleName}"`);
+    content = content.replace(/"addressRegion":"(.*?)"/, `"addressRegion":"${provinceName || simpleName}"`);
+
+    // Hero Title
+    content = content.replace(/"hero-brand-title">.*?<\/div>/, `"hero-brand-title">${simpleName.toUpperCase()}<\/div>`);
+
 
     // 2. Delivery Logic for Non-Akhisar
     if (citySlug !== 'akhisar') {
