@@ -147,11 +147,15 @@ function processTemplate(cityName, isProvince = true, provinceName = "") {
     content = content.replace(/<meta property="og:title" content=".*?">/i, `<meta property="og:title" content="${simpleName} Sex Shop | Gizli Paketleme ile Güvenli Alışveriş">`);
 
     // DYNAMIC MAP REPLACEMENT
-    // Replaces the Akhisar map iframe with a search query for the current city
+    // Replaces the map iframe with a Query-based embed. 
+    // This ensures "View Larger Map" opens the correct search query and the map is centered on the city name.
     if (citySlug !== 'akhisar') {
-        // We use the embed API with a search query for the city name to center the map correctly
-        const newMapSrc = `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d200000!2d35!3d39!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str&q=${encodeURIComponent(simpleName + ' Türkiye')}`;
-        // Adjust regex to match the src attribute of the iframe inside map-frame
+        const query = encodeURIComponent(`${simpleName}, Türkiye`);
+        // Using the older but robust maps.google.com embed which doesn't require specific lat/long hashes
+        // This guarantees that the "View Larger Map" link will simply search for the query provided.
+        const newMapSrc = `https://maps.google.com/maps?q=${query}&hl=tr&z=12&ie=UTF8&output=embed`;
+
+        // Replace the existing iframe src (which uses the complex pb= embed format)
         content = content.replace(/src="https:\/\/www\.google\.com\/maps\/embed\?pb=[^"]+"/, `src="${newMapSrc}"`);
     }
 
