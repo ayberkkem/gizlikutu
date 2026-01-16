@@ -1,0 +1,237 @@
+/* ========================================
+   BLOG BANNER - SEO Premium Section
+   WhatsApp QR üstüne eklenen blog promosyon alanı
+======================================== */
+
+.blog-banner-section {
+  position: relative;
+  max-width: 900px;
+  margin: 3rem auto 2rem;
+  padding: 0 1rem;
+}
+
+.blog-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 10px 40px rgba(147, 51, 234, 0.3);
+  border: 1px solid rgba(147, 51, 234, 0.3);
+  overflow: hidden;
+}
+
+/* Sol taraf - Duygusal metin */
+.blog-banner-left {
+  flex: 1;
+  text-align: left;
+  z-index: 2;
+}
+
+.blog-banner-tagline {
+  font-size: 0.85rem;
+  color: #a855f7;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blog-banner-tagline::before {
+  content: '💜';
+}
+
+.blog-banner-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.blog-banner-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.blog-banner-subtitle strong {
+  color: #f472b6;
+}
+
+/* Orta - Neon görsel */
+.blog-banner-image-wrapper {
+  flex-shrink: 0;
+  width: 200px;
+  height: 130px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.blog-banner-image-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(168, 85, 247, 0.7);
+}
+
+.blog-banner-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sağ taraf - Butonlar */
+.blog-banner-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.blog-banner-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.blog-banner-btn-blog {
+  background: linear-gradient(135deg, #9333ea 0%, #c026d3 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+}
+
+.blog-banner-btn-blog:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
+}
+
+.blog-banner-btn-blog svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.blog-banner-btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.blog-banner-btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+}
+
+.blog-banner-btn-whatsapp svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Glow efekti */
+.blog-banner-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, transparent 70%);
+  animation: blogBannerGlow 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes blogBannerGlow {
+  0% { opacity: 0.5; transform: translate(-10%, -10%); }
+  100% { opacity: 1; transform: translate(10%, 10%); }
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 768px) {
+  .blog-banner-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .blog-banner-left {
+    text-align: center;
+    order: 1;
+  }
+
+  .blog-banner-tagline {
+    justify-content: center;
+  }
+
+  .blog-banner-image-wrapper {
+    order: 2;
+    width: 100%;
+    max-width: 280px;
+    height: 120px;
+  }
+
+  .blog-banner-right {
+    order: 3;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .blog-banner-btn {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .blog-banner-title {
+    font-size: 1.2rem;
+  }
+
+  .blog-banner-subtitle {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-banner-section {
+    margin: 2rem auto 1.5rem;
+  }
+
+  .blog-banner-container {
+    padding: 1.2rem;
+    border-radius: 16px;
+  }
+
+  .blog-banner-image-wrapper {
+    height: 100px;
+  }
+
+  .blog-banner-right {
+    flex-direction: column;
+  }
+
+  .blog-banner-btn {
+    width: 100%;
+  }
+
+  .blog-banner-title {
+    font-size: 1.1rem;
+  }
+}
