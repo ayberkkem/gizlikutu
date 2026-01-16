@@ -17,6 +17,10 @@
         {
             "source": "/blog",
             "destination": "/blog.html"
+        },
+        {
+            "source": "/api/paytr/notify",
+            "destination": "https://us-central1-gizli-kutu.cloudfunctions.net/paytrCallback"
         }
     ]
 }
