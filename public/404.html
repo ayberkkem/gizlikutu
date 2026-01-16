@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sayfa Bulunamadı | Gizli Kutu</title>
+    <link rel="icon" href="./assets/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/pages/static.css">
+    <link rel="stylesheet" href="./css/category-nav.css">
+    <meta name="robots" content="noindex, follow">
+    <style>
+        .error-container {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .error-code {
+            font-size: 120px;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .error-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .error-desc {
+            color: var(--muted);
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn.primary {
+            display: inline-block;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="container header">
+            <a class="brand" href="./index.html"><img src="./assets/logo.jpg" alt="Gizli Kutu Logo"><b>Gizli
+                    Kutu</b></a>
+            <div class="header-right" style="flex:1;justify-content:flex-end">
+                <nav class="desktop-header-nav">
+                    <a href="./index.html">Anasayfa</a>
+                    <a href="./products.html">Popüler Ürünler</a>
+                    <a href="./about.html">Hakkımızda</a>
+                    <a href="./contact.html">İletişim</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <nav id="categoryNav" class="category-nav-wrapper"></nav>
+
+    <nav class="mobile-top-nav">
+        <a href="./index.html">Anasayfa</a>
+        <a href="./products.html">Popüler Ürünler</a>
+        <a href="./about.html">Hakkımızda</a>
+        <a href="./contact.html">İletişim</a>
+    </nav>
+
+    <main class="container error-container">
+        <div class="error-code">404</div>
+        <div class="error-title">Aradığınız Sayfa Bulunamadı</div>
+        <div class="error-desc">
+            Ulaşmaya çalıştığınız sayfa silinmiş, adı değiştirilmiş veya geçici olarak servis dışı kalmış olabilir.
+        </div>
+        <a href="./index.html" class="btn primary">Anasayfaya Dön</a>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><a href="./index.html">Ana sayfa</a></div>
+    </footer>
+
+    <script src="./js/category-nav.js" defer></script>
+</body>
+
+</html>
