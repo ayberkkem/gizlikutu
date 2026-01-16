@@ -138,12 +138,22 @@ function processTemplate(cityName, isProvince = true, provinceName = "") {
     // Hero Title
     content = content.replace(/"hero-brand-title">.*?<\/div>/, `"hero-brand-title">${simpleName.toUpperCase()}<\/div>`);
 
+
     // FORCE SPECIFIC TITLE FORMAT (User Request)
     // Replaces the entire <title> tag found in the template with the requested format
     content = content.replace(/<title>.*?<\/title>/i, `<title>${simpleName} Sex Shop | Gizli Paketleme ile Güvenli Alışveriş</title>`);
 
     // Also update OpenGraph title to match
     content = content.replace(/<meta property="og:title" content=".*?">/i, `<meta property="og:title" content="${simpleName} Sex Shop | Gizli Paketleme ile Güvenli Alışveriş">`);
+
+    // DYNAMIC MAP REPLACEMENT
+    // Replaces the Akhisar map iframe with a search query for the current city
+    if (citySlug !== 'akhisar') {
+        // We use the embed API with a search query for the city name to center the map correctly
+        const newMapSrc = `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d200000!2d35!3d39!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str&q=${encodeURIComponent(simpleName + ' Türkiye')}`;
+        // Adjust regex to match the src attribute of the iframe inside map-frame
+        content = content.replace(/src="https:\/\/www\.google\.com\/maps\/embed\?pb=[^"]+"/, `src="${newMapSrc}"`);
+    }
 
 
 
