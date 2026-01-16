@@ -4,73 +4,105 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Ankara Sex Shop | Seks Shop Ankara | Gizli Kutu</title>
+    <title>Ankara Sex Shop | Seks Shop Ankara | Erotik Shop | Gizli Kutu</title>
     <meta name="description"
-        content="Ankara sex shop, seks shop Ankara. %100 gizli paketleme, güvenli ödeme, hızlı teslimat. Gizli Kutu.">
-    <meta name="keywords" content="ankara sex shop, sex shop ankara, seks shop ankara, ankara erotik shop, ankara +18">
+        content="ankara sex shop, seks shop ankara, erotik shop ve yetişkin ürünleri. %100 gizli paketleme, kapıda ödeme, 1 saat teslimat. Gizli Kutu.">
+    <meta name="keywords"
+        content="ankara sex shop, sex shop akhisar, seks shop akhisar, seks akhisar, akhisar erotik shop, akhisar +18, akhisar yetişkin ürünleri, akhisar vibratör, akhisar fantezi, akhisar erkek, akhisar kadın, ankara sex shop">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://gizlikutu.online/ankara-sex-shop.html">
     <meta property="og:title" content="Ankara Sex Shop | Gizli Kutu">
     <meta property="og:url" content="https://gizlikutu.online/ankara-sex-shop.html">
     <meta property="og:image" content="https://gizlikutu.online/assets/logo.jpg">
+    <meta property="og:locale" content="tr_TR">
     <link rel="icon" href="./assets/logo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="./assets/logo.jpg">
     <meta name="theme-color" content="#9333ea">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/pages/index.css">
     <link rel="stylesheet" href="./css/pages/city-seo.css">
     <link rel="stylesheet" href="./css/category-nav.css">
     <script
-        type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Gizli Kutu - Ankara Sex Shop","telephone":"+905400443445","url":"https://gizlikutu.online/ankara-sex-shop.html"}</script>
+        type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Gizli Kutu - Ankara Sex Shop","telephone":"+905400443445","email":"info@gizlikutu.online","url":"https://gizlikutu.online/ankara-sex-shop.html","address":{"@type":"PostalAddress","addressLocality":"Ankara","addressRegion":"Ankara","addressCountry":"TR"}}</script>
 </head>
 
 <body>
+    <!-- +18 Yaş Doğrulama -->
     <div class="age-gate-overlay" id="ageGateOverlay">
         <div class="age-gate-box">
             <div class="icon">🔞</div>
             <h2>Yaş Doğrulama</h2>
-            <p>Bu site yetişkinlere yöneliktir. 18 yaşından büyük olmalısınız.</p>
-            <div class="age-gate-buttons"><button class="age-gate-btn yes" onclick="confirmAge()">18 Yaşından
-                    Büyüğüm</button><button class="age-gate-btn no" onclick="denyAge()">18 Yaşından Küçüğüm</button>
+            <p>Bu web sitesi yetişkinlere yönelik ürünler içermektedir. Siteye giriş için 18 yaşından büyük olmalısınız.
+            </p>
+            <div class="age-gate-buttons">
+                <button class="age-gate-btn yes" onclick="confirmAge()">18 Yaşından Büyüğüm</button>
+                <button class="age-gate-btn no" onclick="denyAge()">18 Yaşından Küçüğüm</button>
             </div>
         </div>
     </div>
+
+    <!-- Hamburger Drawer -->
     <div class="drawerBackdrop" id="drawerBackdrop"></div>
-    <aside class="drawer" id="drawer">
+    <aside class="drawer" id="drawer" aria-label="Menü">
         <div class="row" style="justify-content:space-between">
-            <div class="brand"><img src="./assets/logo.jpg" alt=""><b>Gizli Kutu</b></div><button class="iconbtn"
-                id="closeDrawer">✕</button>
+            <div class="brand"><img src="./assets/logo.jpg" alt="Gizli Kutu"><b>Gizli Kutu</b></div>
+            <button class="iconbtn" id="closeDrawer">✕</button>
         </div>
         <h5>Kategoriler</h5>
         <div id="hamburgerCategories"></div>
-        <h4>Kurumsal</h4><a class="navlink" href="./about.html">Hakkımızda</a><a class="navlink"
-            href="./contact.html">İletişim</a>
-        <h6>Sözleşmeler</h6><a class="navlink" href="./kvkk.html">KVKK</a><a class="navlink"
-            href="./privacy.html">Gizlilik</a><a class="navlink" href="./terms.html">Koşullar</a>
-        <div class="notice">WhatsApp: <a href="https://wa.me/905400443445">tıkla</a></div>
+        <h4>Kurumsal</h4>
+        <a class="navlink" data-close-drawer href="./about.html">Hakkımızda</a>
+        <a class="navlink" data-close-drawer href="./contact.html">İletişim</a>
+        <h6>Sözleşmeler</h6>
+        <a class="navlink" data-close-drawer href="./kvkk.html">KVKK</a>
+        <a class="navlink" data-close-drawer href="./privacy.html">Gizlilik Politikası</a>
+        <a class="navlink" data-close-drawer href="./terms.html">Kullanım Koşulları</a>
+        <a class="navlink" data-close-drawer href="./distance-sales.html">Mesafeli Satış</a>
+        <a class="navlink" data-close-drawer href="./returns.html">İade & Değişim</a>
+        <div class="notice">WhatsApp hızlı hat: <a href="https://wa.me/905400443445" target="_blank">tıkla</a></div>
     </aside>
+
+    <!-- Header -->
     <header class="topbar">
-        <div class="container header"><button class="iconbtn" id="menuBtn">☰</button><a class="brand"
-                href="./index.html"><img src="./assets/logo.jpg" alt=""><b>Gizli Kutu</b></a>
-            <div class="header-right" style="flex:1"><a class="iconbtn" href="https://wa.me/905400443445"
-                    target="_blank"><svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <div class="container header">
+            <button class="iconbtn" id="menuBtn" aria-label="Menü">☰</button>
+            <a class="brand" href="./index.html"><img src="./assets/logo.jpg" alt="Gizli Kutu"><b>Gizli Kutu</b></a>
+            <div class="header-right" style="flex:1">
+                <a class="iconbtn" href="https://wa.me/905400443445" target="_blank" title="WhatsApp">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                         <path
                             d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z"
                             stroke="#25D366" stroke-width="1.5" fill="#25D366" fill-opacity="0.1" />
                         <path
                             d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z"
                             fill="#25D366" />
-                    </svg></a><a class="iconbtn cartWrap" href="./cart.html">🛒</a>
-                <nav class="desktop-header-nav"><a href="./index.html">Anasayfa</a><a
-                        href="./products.html">Ürünler</a><a href="./about.html">Hakkımızda</a><a
-                        href="./contact.html">İletişim</a></nav>
+                    </svg>
+                </a>
+                <a class="iconbtn cartWrap" href="./cart.html">🛒<span class="badge" id="cartCount"
+                        style="display:none">0</span></a>
+                <nav class="desktop-header-nav">
+                    <a href="./index.html">Anasayfa</a>
+                    <a href="./products.html">Ürünler</a>
+                    <a href="./about.html">Hakkımızda</a>
+                    <a href="./contact.html">İletişim</a>
+                </nav>
             </div>
         </div>
     </header>
+
     <nav id="categoryNav" class="category-nav-wrapper"></nav>
-    <nav class="mobile-top-nav"><a href="./index.html">Anasayfa</a><a href="./products.html">Ürünler</a><a
-            href="./about.html">Hakkımızda</a><a href="./contact.html">İletişim</a></nav>
+    <nav class="mobile-top-nav">
+        <a href="./index.html">Anasayfa</a>
+        <a href="./products.html">Ürünler</a>
+        <a href="./about.html">Hakkımızda</a>
+        <a href="./contact.html">İletişim</a>
+    </nav>
+
     <main class="container">
+        <!-- Breadcrumb -->
         <nav class="city-breadcrumb"><a href="./index.html">Ana Sayfa</a> › <strong>Ankara Sex Shop</strong></nav>
+
+        <!-- Hero - index.html tarzı -->
         <div class="hero">
             <div class="hero-brand-box">
                 <div class="hero-brand-title">ANKARA</div>
@@ -80,47 +112,76 @@
                 <div class="kicker">GİZLİ KUTU</div>
                 <h1>Ankara Sex Shop | Kimse Bilmeden, Kendin İçin Alışveriş</h1>
                 <p style="color:var(--muted);margin:0 0 12px">Ankara'nın güvenilir online sex shop mağazası. %100 gizli
-                    paketleme, güvenli ödeme ve hızlı teslimat.</p>
+                    paketleme, kapıda ödeme ve 1 saat içinde teslimat.</p>
                 <hr class="sep">
                 <div class="notice">Gizli. Güvenli. Size Özel.</div>
-                <div class="ctaRow"><a class="btn primary" href="./products.html">Keşfetmeye Başla</a></div>
-                <div class="trustRow"><span>🔒 %100 Gizli Paketleme ✅</span><span>🚚 Hızlı Kargo ✅</span><span>💳
-                        Havale/EFT & Online Ödeme ✅</span><span>💬 WhatsApp: +90 540 044 3445 ✅</span></div>
+                <div class="ctaRow">
+                    <a class="btn primary" href="./products.html">Keşfetmeye Başla</a>
+                </div>
+                <div class="trustRow">
+                    <span>🔒 %100 Gizli Paketleme ✅</span>
+                    <span>🚚 Aynı Gün Gizli Kargo ✅</span>
+                    <span>💳 Güvenli Ödeme ✅</span>
+                    <span>💵 Kapıda Ödeme ✅</span>
+                    <span>💬 WhatsApp: +90 540 044 3445 ✅</span>
+                </div>
             </div>
         </div>
+
+        <!-- Home Hero -->
         <section class="home-hero">
             <h2>Ankara Sex Shop Online</h2>
-            <p class="hero-sub">Gizliliğin Adresi – Havale/EFT & Online Ödeme & Gizli Paketleme</p>
+            <p class="hero-sub">Gizliliğin Adresi – Kapıda Ödeme & Gizli Paketleme</p>
             <div class="hero-features">
                 <div>📦 Gizli Paketleme</div>
-                <div>💳 Havale/EFT & Online Ödeme</div>
-                <div>⚡ Aynı Gün Kargo</div>
-                <div>🚚 81 ile Gönderim</div>
-            </div><a href="./products.html" class="btn primary">Ürünleri Gör</a>
+                <div>💵 Kapıda Ödeme</div>
+                <div>⚡ Ankara İçi Aynı Gün Kargo</div>
+                <div>🚚 81 ile Kargo Gönderim</div>
+            </div>
+            <a href="./products.html" class="btn primary">Ürünleri Gör</a>
         </section>
+
+        <!-- 21 Mahalle Teslimat -->
+        
         <section class="delivery-zone">
-            <h2>ANKARA TESLİMAT BÖLGELERİ</h2>
-            <p>Siparişiniz Ankara'nın tüm ilçelerine <strong>aynı gün</strong> kargoya verilir.</p>
+            <h2>ANKARA HIZLI TESLİMAT</h2>
+            <p>Siparişiniz <strong>Ankara</strong> ve tüm ilçelerine <strong>aynı gün kargo</strong> ile gizli paket olarak gönderilir.</p>
             <div class="delivery-features">
-                <div>🚚 Hızlı Kargo</div>
-                <div>🕵️ Gizli Paketleme</div>
-                <div>🔒 Güvenli Altyapı</div>
+                <div>🚚 Aynı Gün Kargo</div>
+                <div>🕵️ %100 Gizli Paketleme</div>
+                <div>💳 Güvenli Ödeme</div>
             </div>
             <div class="neighborhoods">
-                <strong>Merkez İlçeler:</strong> Çankaya, Keçiören, Yenimahalle, Mamak, Altındağ, Etimesgut, Sincan,
-                Gölbaşı, Pursaklar<br>
-                <strong>Diğer İlçeler:</strong> Akyurt, Çubuk, Kahramankazan, Elmadağ, Polatlı, Beypazarı,
-                Şereflikoçhisar, Haymana<br>
-                <strong>81 ile Kargo İle Gönderim</strong>
+                <strong>Teslimat:</strong> Ankara genelindeki tüm adreslere, PTT Kargo veya Aras Kargo güvencesiyle teslimat yapılmaktadır.<br>
+                <strong>Şube Teslim:</strong> Dilerseniz kargonuzu en yakın kargo şubesinden kimliğinizle teslim alabilirsiniz.<br>
+                <strong>Ortalama Süre:</strong> 1-3 İş Günü
             </div>
         </section>
+
+        <!-- Harita -->
+        <section class="map-zone">
+            <h2>Ankara Teslimat Bölgemiz</h2>
+            <p>Motor kurye ile hızlı teslimat sağlanan bölgeler.</p>
+            <div class="map-frame">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24864!2d27.8388!3d38.9207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b9b789dd5a1c05%3A0x74e9b7e0a4b741f6!2sAnkara%2C%20Manisa!5e0!3m2!1str!2str"
+                    loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <!-- İletişim -->
         <section class="contact-zone">
             <h2>İletişim</h2>
-            <p>Sipariş ve bilgi için bizimle iletişime geçin.</p>
-            <div class="contact-links"><a href="https://wa.me/905400443445" target="_blank">WhatsApp</a><a
-                    href="https://t.me/gizlikutuonline" target="_blank">Telegram</a><a
-                    href="mailto:info@gizlikutu.online">E-Posta</a></div>
+            <p>Sipariş, teslimat ve bilgi için bizimle iletişime geçebilirsiniz.</p>
+            <div class="contact-links">
+                <a href="https://wa.me/905400443445" target="_blank">WhatsApp</a>
+                <a href="https://t.me/gizlikutuonline" target="_blank">Telegram</a>
+                <a href="mailto:info@gizlikutu.online">E-Posta</a>
+                <a href="https://www.instagram.com/gizlikutu.online" target="_blank">Instagram</a>
+            </div>
         </section>
+
+        <!-- Kategoriler -->
         <section class="city-section">
             <h2>Ürün Kategorileri</h2>
             <div class="city-category-grid">
@@ -150,6 +211,8 @@
                     </svg><strong>Masaj</strong></a>
             </div>
         </section>
+
+        <!-- Popüler Ürünler -->
         <section class="city-section">
             <h2>Popüler Ürünler</h2>
             <div class="city-products">
@@ -185,21 +248,29 @@
             <div style="text-align:center;margin-top:20px"><a href="./products.html" class="btn primary">Keşfetmeye
                     Başla →</a></div>
         </section>
+
+        <!-- SSS -->
         <section class="city-section">
             <h2>Sık Sorulan Sorular</h2>
             <details class="city-faq-item">
                 <summary>Ankara'da sex shop var mı?</summary>
-                <p>Evet, Gizli Kutu olarak Ankara'ya online hizmet veriyoruz. WhatsApp: +90 540 044 3445</p>
+                <p>Evet, Gizli Kutu olarak Ankara'a online hizmet veriyoruz. WhatsApp: +90 540 044 3445</p>
             </details>
             <details class="city-faq-item">
                 <summary>Siparişler gizli mi?</summary>
                 <p>Evet, tüm siparişler logosuz ambalajla gönderilir.</p>
             </details>
             <details class="city-faq-item">
-                <summary>Ödeme seçenekleri?</summary>
-                <p>Havale/EFT ve online (kredi kartı) ödeme seçenekleri mevcuttur.</p>
+                <summary>Teslimat süresi?</summary>
+                <p>Ankara içi motor kurye ile 1 saat. Türkiye geneli 1-3 iş günü.</p>
+            </details>
+            <details class="city-faq-item">
+                <summary>Kapıda ödeme var mı?</summary>
+                <p>Evet, nakit veya kredi kartı ile kapıda ödeme yapabilirsiniz.</p>
             </details>
         </section>
+
+        <!-- CTA -->
         <section class="city-cta-section">
             <h2>Hemen Sipariş Ver</h2>
             <p>Gizli paketleme ile ürünlerinizi alın.</p>
@@ -224,6 +295,7 @@
                     </svg> Instagram</a>
             </div>
         </section>
+
         <!-- Güven -->
         <section class="city-section" style="text-align:center">
             <h2 style="display:inline-block">Güvenli Alışverişin Adresi</h2>
@@ -239,10 +311,11 @@
         <section class="city-section city-seo-content">
             <div class="city-seo-container">
                 <h2>Ankara Sex Shop Ürünleri ve Hizmetleri</h2>
-                <p>Gizli Kutu olarak, <strong>Ankara</strong> ve çevresinde en kaliteli cinsel sağlık ve erotik ürünleri
-                    sizlere sunmaktan gurur duyuyoruz. Geniş ürün yelpazemiz, müşteri gizliliğine verdiğimiz önem ve
-                    hızlı teslimat seçeneklerimizle sektörde fark yaratıyoruz. Vibratörlerden geciktirici spreylere,
-                    fantezi iç giyimden bakım ürünlerine kadar aradığınız her şeyi sitemizde bulabilirsiniz.</p>
+                <p>Gizli Kutu olarak, <strong>Ankara</strong> ve çevresinde en kaliteli cinsel sağlık ve erotik
+                    ürünleri sizlere sunmaktan gurur duyuyoruz. Geniş ürün yelpazemiz, müşteri gizliliğine verdiğimiz
+                    önem ve hızlı teslimat seçeneklerimizle sektörde fark yaratıyoruz. Vibratörlerden geciktirici
+                    spreylere, fantezi iç giyimden bakım ürünlerine kadar aradığınız her şeyi sitemizde bulabilirsiniz.
+                </p>
 
                 <h3>Neden Gizli Kutu?</h3>
                 <p>Müşteri memnuniyeti ve gizlilik bizim için her şeyden önemlidir. Siparişleriniz, dışarıdan içeriği
@@ -250,10 +323,14 @@
                     olduğunu bilemez. "Gizli Kutu" güvencesiyle alışverişlerinizi güvenle yapabilirsiniz.</p>
 
                 <h3>Ankara İçin Teslimat Seçenekleri</h3>
-                <p>Ankara genelinde ve tüm ilçelerinden verdiğiniz siparişlerde, online kredi kartı ödemesi veya
-                    havale/EFT seçeneklerini kullanabilirsiniz. Kapıda ödeme seçeneğimiz bu bölge için aktif değildir.
-                    Siparişleriniz en kısa sürede hazırlanarak kargoya verilir ve adresinize tamamen gizli bir şekilde
-                    ulaştırılır.</p>
+                <p>Ankara içinde verdiğiniz siparişlerde, dilerseniz kapıda ödeme, dilerseniz online ödeme veya
+                    havale/EFT seçeneklerini kullanabilirsiniz. <strong>Ankara içi KARGO YOK!</strong> Siparişleriniz
+                    kargo beklemeden, <strong>ÖZEL PAKETLEME</strong> hizmetimiz ile <strong>EN KISA SÜREDE</strong>
+                    içinde dilerseniz kapınıza teslim edilir, dilerseniz seçtiğiniz özel bir noktaya (Örn: Belediye Önü,
+                    AVM Önü, Hilaliye Caddesi vb.) teslimat sağlanır. Teslimat adresini belirlemek, değiştirmek veya
+                    siparişinizin en hızlı şekilde size ulaşması için sipariş notu ekleyebilir ya da
+                    <strong>WhatsApp</strong>
+                    üzerinden bizlere <strong>7/24</strong> ulaşabilirsiniz.</p>
 
                 <div class="city-faq-grid">
                     <div class="city-faq-item">
@@ -263,8 +340,8 @@
                     </div>
                     <div class="city-faq-item">
                         <h4>Ödeme Seçenekleri Nelerdir?</h4>
-                        <p>Kredi kartı ile online ödeme veya havale/EFT seçeneklerimiz mevcuttur. Ödemeleriniz 256-bit
-                            SSL sertifikası ile korunmaktadır.</p>
+                        <p>Kredi kartı ile online ödeme, havale/EFT veya kapıda ödeme seçeneklerimiz mevcuttur.
+                            Ödemeleriniz 256-bit SSL sertifikası ile korunmaktadır.</p>
                     </div>
                     <div class="city-faq-item">
                         <h4>Hangi Ürünler Var?</h4>
@@ -310,24 +387,47 @@
             </a>
         </div>
     </main>
+
     <footer class="footer">
         <div class="container">© <span id="y"></span> Gizli Kutu • <a href="./privacy.html">Gizlilik</a> • <a
-                href="./kvkk.html">KVKK</a> • <a href="./contact.html">İletişim</a></div>
+                href="./kvkk.html">KVKK</a> • <a href="./terms.html">Koşullar</a> • <a
+                href="./contact.html">İletişim</a></div>
     </footer>
-    <a href="https://wa.me/905400443445" class="city-whatsapp-float" target="_blank"><svg viewBox="0 0 24 24"
-            fill="none">
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/905400443445" class="city-whatsapp-float" target="_blank" title="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none">
             <path
                 d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z"
                 fill="#fff" />
             <path
                 d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z"
                 fill="#25D366" />
-        </svg></a>
+        </svg>
+    </a>
+
     <script src="./js/storage.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/ui.js"></script>
-    <script>GK.bindGlobalUI(); document.getElementById("y").textContent = new Date().getFullYear(); function confirmAge() { sessionStorage.setItem('ageVerified', 'true'); document.getElementById('ageGateOverlay').classList.add('age-gate-hidden') } function denyAge() { window.location.href = 'https://www.google.com' } if (sessionStorage.getItem('ageVerified') === 'true') { document.getElementById('ageGateOverlay').classList.add('age-gate-hidden') }</script>
-    <script>(async function () { try { const r = await fetch("./data/categories.json", { cache: "no-store" }); const c = await r.json(); const b = document.getElementById("hamburgerCategories"); if (b) b.innerHTML = c.map(cat => `<a class="navlink" href="./products.html?cat=${cat.id}">${cat.label}</a>`).join("") } catch (e) { } })()</script>
+    <script>
+        GK.bindGlobalUI();
+        document.getElementById("y").textContent = new Date().getFullYear();
+        // Age Gate
+        function confirmAge() { sessionStorage.setItem('ageVerified', 'true'); document.getElementById('ageGateOverlay').classList.add('age-gate-hidden'); }
+        function denyAge() { window.location.href = 'https://www.google.com'; }
+        if (sessionStorage.getItem('ageVerified') === 'true') { document.getElementById('ageGateOverlay').classList.add('age-gate-hidden'); }
+    </script>
+    <script>
+        (async function () {
+            try {
+                const res = await fetch("./data/categories.json", { cache: "no-store" });
+                const categories = await res.json();
+                const box = document.getElementById("hamburgerCategories");
+                if (box) box.innerHTML = categories.map(cat => `<a class="navlink" data-close-drawer href="./products.html?cat=${cat.id}">${cat.label}</a>`).join("");
+            } catch (e) { console.error("Kategori yükleme hatası", e); }
+        })();
+    </script>
+    <script src="./js/age-gate.js"></script>
     <script src="./js/category-nav.js" defer></script>
 </body>
 
