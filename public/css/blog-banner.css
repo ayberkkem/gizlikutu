@@ -32,7 +32,8 @@
 
 .blog-banner-tagline {
   font-size: 0.85rem;
-  color: #a855f7;
+  color: #d8b4fe;
+  /* WCAG AA: Lighter purple for better contrast */
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -56,13 +57,16 @@
 
 .blog-banner-subtitle {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #e5e7eb;
+  /* WCAG AA: Higher contrast gray instead of transparent white */
   margin: 0;
   line-height: 1.5;
 }
 
 .blog-banner-subtitle strong {
-  color: #f472b6;
+  color: #fbcfe8;
+  /* WCAG AA: Brighter pink for better readability */
+  font-weight: 700;
 }
 
 /* Orta - Neon görsel */
@@ -158,8 +162,15 @@
 }
 
 @keyframes blogBannerGlow {
-  0% { opacity: 0.5; transform: translate(-10%, -10%); }
-  100% { opacity: 1; transform: translate(10%, 10%); }
+  0% {
+    opacity: 0.5;
+    transform: translate(-10%, -10%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(10%, 10%);
+  }
 }
 
 /* ========================================
