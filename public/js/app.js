@@ -36,7 +36,7 @@
 
   async function loadProducts() {
     try {
-      const res = await fetch("./data/products.json", { cache: "no-store" });
+      const res = await fetch(`./data/products.json?v=${Date.now()}`, { cache: "no-store" });
       if (!res.ok) throw new Error("HTTP " + res.status);
       const data = await res.json();
 
