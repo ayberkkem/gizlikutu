@@ -6,6 +6,108 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "redirects": [
+      {
+        "source": "/hakkimizda",
+        "destination": "/about.html",
+        "type": 301
+      },
+      {
+        "source": "/hakkimizda/",
+        "destination": "/about.html",
+        "type": 301
+      },
+      {
+        "source": "/iletisim",
+        "destination": "/contact.html",
+        "type": 301
+      },
+      {
+        "source": "/iletisim/",
+        "destination": "/contact.html",
+        "type": 301
+      },
+      {
+        "source": "/dildo-yapay-penis",
+        "destination": "/dildo.html",
+        "type": 301
+      },
+      {
+        "source": "/dildo-yapay-penis/",
+        "destination": "/dildo.html",
+        "type": 301
+      },
+      {
+        "source": "/vibrator-masturbator",
+        "destination": "/vibrator.html",
+        "type": 301
+      },
+      {
+        "source": "/vibrator-masturbator/",
+        "destination": "/vibrator.html",
+        "type": 301
+      },
+      {
+        "source": "/titresimli-yuzuk",
+        "destination": "/titresim.html",
+        "type": 301
+      },
+      {
+        "source": "/titresimli-yuzuk/",
+        "destination": "/titresim.html",
+        "type": 301
+      },
+      {
+        "source": "/kayganlastirici-jel",
+        "destination": "/jel.html",
+        "type": 301
+      },
+      {
+        "source": "/kayganlastirici-jel/",
+        "destination": "/jel.html",
+        "type": 301
+      },
+      {
+        "source": "/geciktirici",
+        "destination": "/performans.html",
+        "type": 301
+      },
+      {
+        "source": "/geciktirici/",
+        "destination": "/performans.html",
+        "type": 301
+      },
+      {
+        "source": "/kadin-fantazi-giyim",
+        "destination": "/fantezi.html",
+        "type": 301
+      },
+      {
+        "source": "/kadin-fantazi-giyim/",
+        "destination": "/fantezi.html",
+        "type": 301
+      },
+      {
+        "source": "/sisme-manken",
+        "destination": "/manken.html",
+        "type": 301
+      },
+      {
+        "source": "/sisme-manken/",
+        "destination": "/manken.html",
+        "type": 301
+      },
+      {
+        "source": "/blog",
+        "destination": "/blog.html",
+        "type": 301
+      },
+      {
+        "source": "/blog/",
+        "destination": "/blog.html",
+        "type": 301
+      }
+    ],
     "rewrites": [
       {
         "source": "**",
