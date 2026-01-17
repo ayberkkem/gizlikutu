@@ -182,10 +182,10 @@ exports.paytrCallback = functions
 
             logger.info("📩 PayTR callback geldi", { merchant_oid, status, total_amount });
 
-            // Hash doğrulama
-            const hashStr = `${merchant_oid}${merchantSalt}${status}${total_amount}`;
-            const expectedHash = crypto.createHmac("sha256", merchantKey)
-                .update(hashStr)
+            // Hash doğrulama (PayTR callback format: SHA256 concat, not HMAC)
+            const hashStr = merchant_oid + merchantSalt + status + total_amount;
+            const expectedHash = crypto.createHash("sha256")
+                .update(hashStr + merchantKey)
                 .digest("base64");
 
             if (hash !== expectedHash) {
