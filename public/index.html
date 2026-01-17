@@ -5,9 +5,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="google-site-verification" content="UZAgr_RUmZBxieQXpJWhWCHXLfg5R1FfGK0qBkvTwE4" />
-  <title>Gizli Kutu | Gizli Paketleme ile Güvenli Alýþveriþ</title>
+  <title>Gizli Kutu | Gizli Paketleme ile Gï¿½venli Alï¿½ï¿½veriï¿½</title>
   <meta name="description"
-    content="Gizli paketleme, güvenli ödeme ve hýzlý teslimat ile özel alýþveriþ deneyimi. Gizli Kutu ile güvenle alýþveriþ yapýn." />
+    content="Gizli paketleme, gï¿½venli ï¿½deme ve hï¿½zlï¿½ teslimat ile ï¿½zel alï¿½ï¿½veriï¿½ deneyimi. Gizli Kutu ile gï¿½venle alï¿½ï¿½veriï¿½ yapï¿½n." />
 
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/logo.webp" type="image/jpeg">
@@ -20,6 +20,8 @@
   <link rel="preconnect" href="https://www.google.com" crossorigin>
   <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
   <link rel="dns-prefetch" href="https://wa.me">
+  <!-- LCP Optimization: Preload critical background image -->
+  <link rel="preload" fetchpriority="high" as="image" href="./assets/backgrounds/premium-bg.webp" type="image/webp">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/pages/index.css">
   <link rel="stylesheet" href="./css/category-nav.css">
@@ -36,7 +38,7 @@
         "@id": "https://gizlikutu.online/#website",
         "url": "https://gizlikutu.online/",
         "name": "Gizli Kutu",
-        "description": "Gizli Paketleme ile Güvenli Alýþveriþ",
+        "description": "Gizli Paketleme ile Gï¿½venli Alï¿½ï¿½veriï¿½",
         "inLanguage": "tr-TR"
       },
       {
@@ -103,7 +105,7 @@
 </head>
 
 <body>
-  <!-- PWA Splash Screen Overlay (Android için tam ekran) -->
+  <!-- PWA Splash Screen Overlay (Android iï¿½in tam ekran) -->
   <div id="pwaSplashScreen" style="
     position: fixed;
     inset: 0;
@@ -112,16 +114,16 @@
     display: none;
   "></div>
   <script>
-    // Sadece PWA modunda (standalone) splash göster
+    // Sadece PWA modunda (standalone) splash gï¿½ster
     if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
       var splash = document.getElementById('pwaSplashScreen');
       if (splash) {
         splash.style.display = 'block';
-        // 1.5 saniye sonra fade-out baþlat
+        // 1.5 saniye sonra fade-out baï¿½lat
         setTimeout(function () {
           splash.style.transition = 'opacity 0.5s ease';
           splash.style.opacity = '0';
-          // 500ms sonra tamamen kaldýr
+          // 500ms sonra tamamen kaldï¿½r
           setTimeout(function () {
             splash.style.display = 'none';
           }, 500);
@@ -131,7 +133,7 @@
   </script>
 
   <div class="drawerBackdrop" id="drawerBackdrop"></div>
-  <aside class="drawer" id="drawer" aria-label="Menü">
+  <aside class="drawer" id="drawer" aria-label="Menï¿½">
     <div class="row" style="justify-content:space-between">
       <div class="brand"><img src="./assets/logo.webp" alt="Gizli Kutu"><b>Gizli Kutu</b></div>
       <button class="iconbtn" id="closeDrawer">?</button>
@@ -140,26 +142,26 @@
     <h5>Kategoriler</h5>
     <div id="hamburgerCategories"></div>
     <h4>Kurumsal</h4>
-    <a class="navlink" data-close-drawer href="./about.html">Hakkýmýzda</a>
-    <a class="navlink" data-close-drawer href="./contact.html">Ýletiþim</a>
+    <a class="navlink" data-close-drawer href="./about.html">Hakkï¿½mï¿½zda</a>
+    <a class="navlink" data-close-drawer href="./contact.html">ï¿½letiï¿½im</a>
     <a class="navlink" data-close-drawer href="./blog.html">Blog</a>
 
-    <h6>Sözleþmeler</h6>
+    <h6>Sï¿½zleï¿½meler</h6>
     <a class="navlink" data-close-drawer href="./kvkk.html">KVKK</a>
-    <a class="navlink" data-close-drawer href="./privacy.html">Gizlilik Politikasý</a>
-    <a class="navlink" data-close-drawer href="./terms.html">Kullaným Koþullarý</a>
-    <a class="navlink" data-close-drawer href="./distance-sales.html">Mesafeli Satýþ Sözleþmesi</a>
-    <a class="navlink" data-close-drawer href="./returns.html">Ýade & Deðiþim</a>
+    <a class="navlink" data-close-drawer href="./privacy.html">Gizlilik Politikasï¿½</a>
+    <a class="navlink" data-close-drawer href="./terms.html">Kullanï¿½m Koï¿½ullarï¿½</a>
+    <a class="navlink" data-close-drawer href="./distance-sales.html">Mesafeli Satï¿½ï¿½ Sï¿½zleï¿½mesi</a>
+    <a class="navlink" data-close-drawer href="./returns.html">ï¿½ade & Deï¿½iï¿½im</a>
 
     <div class="notice">
-      WhatsApp hýzlý hat: <a href="https://wa.me/905400443445" target="_blank" rel="noopener">týkla</a><br>
+      WhatsApp hï¿½zlï¿½ hat: <a href="https://wa.me/905400443445" target="_blank" rel="noopener">tï¿½kla</a><br>
 
     </div>
   </aside>
 
   <header class="topbar">
     <div class="container header">
-      <button class="iconbtn" id="menuBtn" aria-label="Menü">?</button>
+      <button class="iconbtn" id="menuBtn" aria-label="Menï¿½">?</button>
 
       <a class="brand" href="./index.html" aria-label="Gizli Kutu">
         <img src="./assets/logo.webp" alt="Gizli Kutu logo">
@@ -187,12 +189,12 @@
           </svg>
         </button>
 
-        <div class="search" id="searchBox" title="Ürün ara">
+        <div class="search" id="searchBox" title="ï¿½rï¿½n ara">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5" />
             <path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
           </svg>
-          <input id="globalSearch" placeholder="Ürün ara..." autocomplete="off" />
+          <input id="globalSearch" placeholder="ï¿½rï¿½n ara..." autocomplete="off" />
         </div>
 
         <a class="iconbtn cartWrap" href="./cart.html" aria-label="Sepet">
@@ -203,9 +205,9 @@
         <!-- PC Header Nav - Sadece Desktop -->
         <nav class="desktop-header-nav">
           <a href="./index.html">Anasayfa</a>
-          <a href="./products.html">Popüler Ürünler</a>
-          <a href="./about.html">Hakkýmýzda</a>
-          <a href="./contact.html">Ýletiþim</a>
+          <a href="./products.html">Popï¿½ler ï¿½rï¿½nler</a>
+          <a href="./about.html">Hakkï¿½mï¿½zda</a>
+          <a href="./contact.html">ï¿½letiï¿½im</a>
           <a href="./blog.html">Blog</a>
         </nav>
       </div>
@@ -215,43 +217,43 @@
   <!-- Kategori Navigasyon -->
   <nav id="categoryNav" class="category-nav-wrapper"></nav>
 
-  <!-- Mobil Üst Nav - Trendyol Tarzý (Sadece Mobilde Görünür) -->
+  <!-- Mobil ï¿½st Nav - Trendyol Tarzï¿½ (Sadece Mobilde Gï¿½rï¿½nï¿½r) -->
   <nav class="mobile-top-nav">
     <a href="./index.html" class="active">Anasayfa</a>
-    <a href="./products.html">Popüler Ürünler</a>
-    <a href="./about.html">Hakkýmýzda</a>
-    <a href="./contact.html">Ýletiþim</a>
+    <a href="./products.html">Popï¿½ler ï¿½rï¿½nler</a>
+    <a href="./about.html">Hakkï¿½mï¿½zda</a>
+    <a href="./contact.html">ï¿½letiï¿½im</a>
     <a href="./blog.html">Blog</a>
   </nav>
 
   <main class="container">
     <div class="hero">
-      <!-- Glitter arka plan + Premium yazý -->
+      <!-- Glitter arka plan + Premium yazï¿½ -->
       <div class="hero-brand-box">
-        <div class="hero-brand-title">GÝZLÝ KUTU</div>
-        <div class="hero-brand-subtitle">ONLÝNE</div>
+        <div class="hero-brand-title">Gï¿½ZLï¿½ KUTU</div>
+        <div class="hero-brand-subtitle">ONLï¿½NE</div>
       </div>
 
       <div class="smallCard">
-        <div class="kicker">HOÞGELDÝNÝZ</div>
-        <h1>Kimse Bilmeden, Kendin Ýçin Alýþveriþ<div class=""></div>
+        <div class="kicker">HOï¿½GELDï¿½Nï¿½Z</div>
+        <h1>Kimse Bilmeden, Kendin ï¿½ï¿½in Alï¿½ï¿½veriï¿½<div class=""></div>
         </h1>
-        <p style="color:var(--muted);margin:0 0 12px">Gizli paketleme, güvenli ödeme ve hýzlý teslimat ile rahat, özel
-          ve güven veren bir alýþveriþ deneyimi.</p>
+        <p style="color:var(--muted);margin:0 0 12px">Gizli paketleme, gï¿½venli ï¿½deme ve hï¿½zlï¿½ teslimat ile rahat, ï¿½zel
+          ve gï¿½ven veren bir alï¿½ï¿½veriï¿½ deneyimi.</p>
 
         <hr class="sep">
         <div class="notice">
-          Gizli. Güvenli. Size Özel.
+          Gizli. Gï¿½venli. Size ï¿½zel.
         </div>
         <div class="ctaRow">
-          <a class="btn primary" href="./products.html">Keþfetmeye Baþla</a>
+          <a class="btn primary" href="./products.html">Keï¿½fetmeye Baï¿½la</a>
         </div>
         <div class="trustRow">
-          <span>?? %100 Gizli Paketleme (Kimse ne aldýðýný anlamaz) ?</span>
-          <span>?? Hýzlý ve Özel Kargo ?</span>
-          <span>?? Güvenli Ödeme (SSL Korumalý) ?</span>
-          <span>?? WhatsApp Destek (Kadýn Danýþan Desteði - Çekinmeden Sor) ?</span>
-          <span>* Bu site, kendini rahat hissetmek isteyenler için kuruldu. </span>
+          <span>?? %100 Gizli Paketleme (Kimse ne aldï¿½ï¿½ï¿½nï¿½ anlamaz) ?</span>
+          <span>?? Hï¿½zlï¿½ ve ï¿½zel Kargo ?</span>
+          <span>?? Gï¿½venli ï¿½deme (SSL Korumalï¿½) ?</span>
+          <span>?? WhatsApp Destek (Kadï¿½n Danï¿½ï¿½an Desteï¿½i - ï¿½ekinmeden Sor) ?</span>
+          <span>* Bu site, kendini rahat hissetmek isteyenler iï¿½in kuruldu. </span>
         </div>
       </div>
     </div>
@@ -260,62 +262,62 @@
     <section class="home-hero">
       <h1>Gizli Kutu Online</h1>
       <p class="hero-sub">
-        Gizliliðin Adresi – Kapýda Ödeme &amp; Gizli Paketleme
+        Gizliliï¿½in Adresi ï¿½ Kapï¿½da ï¿½deme &amp; Gizli Paketleme
       </p>
 
       <div class="hero-features">
         <div>?? Gizli Paketleme</div>
-        <div>?? Kapýda Ödeme</div>
-        <div>? Akhisar Ýçi 1 Saatte Teslim </div>
-        <div>?? 81 ile Kargo Ýle Gönderim </div>
+        <div>?? Kapï¿½da ï¿½deme</div>
+        <div>? Akhisar ï¿½ï¿½i 1 Saatte Teslim </div>
+        <div>?? 81 ile Kargo ï¿½le Gï¿½nderim </div>
       </div>
 
-      <a href="./popular.html" class="btn primary">Ürünleri Gör</a>
+      <a href="./popular.html" class="btn primary">ï¿½rï¿½nleri Gï¿½r</a>
     </section>
     <!-- ======================================================
    HOME EXTENDED SECTIONS (ORDERED)
 ====================================================== -->
 
-    <!-- 2) 21 MAHALLE TESLÝMAT -->
+    <!-- 2) 21 MAHALLE TESLï¿½MAT -->
     <section class="delivery-zone">
-      <h2>AKHÝSAR'DA 21 MAHALLEYE 1 SAATTE TESLÝMAT</h2>
+      <h2>AKHï¿½SAR'DA 21 MAHALLEYE 1 SAATTE TESLï¿½MAT</h2>
       <p>
-        Sipariþiniz Akhisar merkez mahallelerine ortalama <strong>1 saat</strong> içinde teslim edilir.
+        Sipariï¿½iniz Akhisar merkez mahallelerine ortalama <strong>1 saat</strong> iï¿½inde teslim edilir.
       </p>
 
       <div class="delivery-features">
-        <div>??? Hýzlý Motor Kurye</div>
+        <div>??? Hï¿½zlï¿½ Motor Kurye</div>
         <div>??? Gizli Paketleme</div>
-        <div>?? Güvenli Altyapý</div>
+        <div>?? Gï¿½venli Altyapï¿½</div>
       </div>
 
       <div class="neighborhoods">
-        <strong>Merkez:</strong> Atatürk, Cumhuriyet, Efendi, Hacý Ýshak, Hashoca, Hürriyet, Ýnönü, Kethüda, Paþa,
-        Ragýpbey, Reþatbey, Seyitahmet, Þeyhisa, Ulucami<br>
-        <strong>Çevre:</strong> Kayalýoðlu, Dayýoðlu, Medar, Pýnarcýk, Kýzlaralaný, Yenidoðan, Çamönü<br>
+        <strong>Merkez:</strong> Atatï¿½rk, Cumhuriyet, Efendi, Hacï¿½ ï¿½shak, Hashoca, Hï¿½rriyet, ï¿½nï¿½nï¿½, Kethï¿½da, Paï¿½a,
+        Ragï¿½pbey, Reï¿½atbey, Seyitahmet, ï¿½eyhisa, Ulucami<br>
+        <strong>ï¿½evre:</strong> Kayalï¿½oï¿½lu, Dayï¿½oï¿½lu, Medar, Pï¿½narcï¿½k, Kï¿½zlaralanï¿½, Yenidoï¿½an, ï¿½amï¿½nï¿½<br>
 
-        <strong>81 ile Kargo Ýle Gönderim </strong>
+        <strong>81 ile Kargo ï¿½le Gï¿½nderim </strong>
       </div>
     </section>
 
-    <!-- 3) AKHÝSAR HARÝTA -->
+    <!-- 3) AKHï¿½SAR HARï¿½TA -->
     <section class="map-zone">
-      <h2>Akhisar Teslimat Bölgemiz</h2>
-      <p>Motor kurye ile hýzlý teslimat saðlanan bölgeler.</p>
+      <h2>Akhisar Teslimat Bï¿½lgemiz</h2>
+      <p>Motor kurye ile hï¿½zlï¿½ teslimat saï¿½lanan bï¿½lgeler.</p>
 
       <div class="map-frame">
-        <iframe title="Akhisar Teslimat Bölgesi Haritasý"
+        <iframe title="Akhisar Teslimat Bï¿½lgesi Haritasï¿½"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3108.079505943654!2d27.838798675961477!3d38.92073244419595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b9b789dd5a1c05%3A0x74e9b7e0a4b741f6!2sAkhisar%2C%20Manisa!5e0!3m2!1str!2str!4v1728742100000!5m2!1str!2str"
           loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
     </section>
 
-    <!-- 4) ÝLETÝÞÝM -->
+    <!-- 4) ï¿½LETï¿½ï¿½ï¿½M -->
     <section class="contact-zone">
-      <h2>Ýletiþim</h2>
+      <h2>ï¿½letiï¿½im</h2>
       <p>
-        Sipariþ, teslimat ve bilgi için bizimle dilediðiniz kanaldan iletiþime geçebilirsiniz.
+        Sipariï¿½, teslimat ve bilgi iï¿½in bizimle dilediï¿½iniz kanaldan iletiï¿½ime geï¿½ebilirsiniz.
       </p>
 
       <div class="contact-links">
@@ -328,43 +330,43 @@
 
     <!-- 4.5) SEO CONTENT -->
     <section class="seo-zone">
-      <h2>Gizli Kutu Sex Shop Ürünleri ve Hizmetleri</h2>
-      <p>Gizli Kutu olarak, <strong>Türkiye genelinde</strong> en kaliteli cinsel saðlýk ve erotik ürünleri sizlere
-        sunmaktan gurur duyuyoruz. Geniþ ürün yelpazemiz, müþteri gizliliðine verdiðimiz önem ve hýzlý teslimat
-        seçeneklerimizle sektörde fark yaratýyoruz. Vibratörlerden geciktirici spreylere, fantezi iç giyimden bakým
-        ürünlerine kadar aradýðýnýz her þeyi sitemizde bulabilirsiniz.</p>
+      <h2>Gizli Kutu Sex Shop ï¿½rï¿½nleri ve Hizmetleri</h2>
+      <p>Gizli Kutu olarak, <strong>Tï¿½rkiye genelinde</strong> en kaliteli cinsel saï¿½lï¿½k ve erotik ï¿½rï¿½nleri sizlere
+        sunmaktan gurur duyuyoruz. Geniï¿½ ï¿½rï¿½n yelpazemiz, mï¿½ï¿½teri gizliliï¿½ine verdiï¿½imiz ï¿½nem ve hï¿½zlï¿½ teslimat
+        seï¿½eneklerimizle sektï¿½rde fark yaratï¿½yoruz. Vibratï¿½rlerden geciktirici spreylere, fantezi iï¿½ giyimden bakï¿½m
+        ï¿½rï¿½nlerine kadar aradï¿½ï¿½ï¿½nï¿½z her ï¿½eyi sitemizde bulabilirsiniz.</p>
 
       <h3>Neden Gizli Kutu?</h3>
-      <p>Müþteri memnuniyeti ve gizlilik bizim için her þeyden önemlidir. Sipariþleriniz, dýþarýdan içeriði asla belli
-        olmayacak þekilde, özenle paketlenir. Kargo görevlisi dahil hiç kimse paketin içinde ne olduðunu bilemez. "Gizli
-        Kutu" güvencesiyle alýþveriþlerinizi güvenle yapabilirsiniz.</p>
+      <p>Mï¿½ï¿½teri memnuniyeti ve gizlilik bizim iï¿½in her ï¿½eyden ï¿½nemlidir. Sipariï¿½leriniz, dï¿½ï¿½arï¿½dan iï¿½eriï¿½i asla belli
+        olmayacak ï¿½ekilde, ï¿½zenle paketlenir. Kargo gï¿½revlisi dahil hiï¿½ kimse paketin iï¿½inde ne olduï¿½unu bilemez. "Gizli
+        Kutu" gï¿½vencesiyle alï¿½ï¿½veriï¿½lerinizi gï¿½venle yapabilirsiniz.</p>
 
-      <h3>Hýzlý ve Gizli Kargo Seçenekleri</h3>
-      <p>Türkiye'nin 81 iline verdiðiniz sipariþlerde, online kredi kartý ödemesi veya havale/EFT seçeneklerini
-        kullanabilirsiniz. Sipariþleriniz en kýsa sürede hazýrlanarak kargoya verilir ve adresinize tamamen gizli bir
-        þekilde ulaþtýrýlýr. Ýstanbul, Ankara, Ýzmir gibi büyük þehirlere genellikle 1-2 iþ günü içinde teslimat
-        saðlanmaktadýr.</p>
+      <h3>Hï¿½zlï¿½ ve Gizli Kargo Seï¿½enekleri</h3>
+      <p>Tï¿½rkiye'nin 81 iline verdiï¿½iniz sipariï¿½lerde, online kredi kartï¿½ ï¿½demesi veya havale/EFT seï¿½eneklerini
+        kullanabilirsiniz. Sipariï¿½leriniz en kï¿½sa sï¿½rede hazï¿½rlanarak kargoya verilir ve adresinize tamamen gizli bir
+        ï¿½ekilde ulaï¿½tï¿½rï¿½lï¿½r. ï¿½stanbul, Ankara, ï¿½zmir gibi bï¿½yï¿½k ï¿½ehirlere genellikle 1-2 iï¿½ gï¿½nï¿½ iï¿½inde teslimat
+        saï¿½lanmaktadï¿½r.</p>
 
       <div class="city-faq-grid">
         <div class="city-faq-item">
-          <h4>Paketleme Nasýl Yapýlýyor?</h4>
-          <p>Tüm sipariþleriniz tamamen kapalý, logosuz ve þeffaf olmayan kutularda gönderilir. Paket üzerinde ürün
-            içeriðine dair hiçbir ibare bulunmaz.</p>
+          <h4>Paketleme Nasï¿½l Yapï¿½lï¿½yor?</h4>
+          <p>Tï¿½m sipariï¿½leriniz tamamen kapalï¿½, logosuz ve ï¿½effaf olmayan kutularda gï¿½nderilir. Paket ï¿½zerinde ï¿½rï¿½n
+            iï¿½eriï¿½ine dair hiï¿½bir ibare bulunmaz.</p>
         </div>
         <div class="city-faq-item">
-          <h4>Ödeme Seçenekleri Nelerdir?</h4>
-          <p>Kredi kartý ile online ödeme veya havale/EFT seçeneklerimiz mevcuttur. Ödemeleriniz 256-bit SSL sertifikasý
-            ile korunmaktadýr.</p>
+          <h4>ï¿½deme Seï¿½enekleri Nelerdir?</h4>
+          <p>Kredi kartï¿½ ile online ï¿½deme veya havale/EFT seï¿½eneklerimiz mevcuttur. ï¿½demeleriniz 256-bit SSL sertifikasï¿½
+            ile korunmaktadï¿½r.</p>
         </div>
         <div class="city-faq-item">
-          <h4>Hangi Ürünler Var?</h4>
-          <p>Sitemizde cinsel oyuncaklar, iç giyim, kayganlaþtýrýcýlar, masaj yaðlarý ve daha birçok kategoride binlerce
-            ürün bulunmaktadýr.</p>
+          <h4>Hangi ï¿½rï¿½nler Var?</h4>
+          <p>Sitemizde cinsel oyuncaklar, iï¿½ giyim, kayganlaï¿½tï¿½rï¿½cï¿½lar, masaj yaï¿½larï¿½ ve daha birï¿½ok kategoride binlerce
+            ï¿½rï¿½n bulunmaktadï¿½r.</p>
         </div>
       </div>
 
-      <h3>Ýletiþim</h3>
-      <p>Her türlü soru ve görüþünüz için bize aþaðýdaki kanallardan ulaþabilirsiniz:</p>
+      <h3>ï¿½letiï¿½im</h3>
+      <p>Her tï¿½rlï¿½ soru ve gï¿½rï¿½ï¿½ï¿½nï¿½z iï¿½in bize aï¿½aï¿½ï¿½daki kanallardan ulaï¿½abilirsiniz:</p>
       <ul class="city-contact-list">
         <li><strong>Telefon / WhatsApp:</strong> 0540 044 34 45</li>
         <li><strong>Web:</strong> <a href="https://gizlikutu.online">gizlikutu.online</a></li>
@@ -373,35 +375,35 @@
       </ul>
     </section>
 
-    <!-- BLOG BANNER - SEO Ýçerik Promosyonu -->
-    <section class="blog-banner-section" aria-label="Blog Ýçerikleri">
+    <!-- BLOG BANNER - SEO ï¿½ï¿½erik Promosyonu -->
+    <section class="blog-banner-section" aria-label="Blog ï¿½ï¿½erikleri">
       <div class="blog-banner-container">
         <!-- Sol: Duygusal Metin -->
         <div class="blog-banner-left">
           <span class="blog-banner-tagline">Sadece Seninle</span>
-          <h3 class="blog-banner-title">Zevki Keþfetmenin Zamaný Geldi</h3>
+          <h3 class="blog-banner-title">Zevki Keï¿½fetmenin Zamanï¿½ Geldi</h3>
           <p class="blog-banner-subtitle">
-            <strong>Daha derin baðlar</strong>, daha yoðun anlar...
-            Uzman rehberlerimizle hayatýna renk kat.
+            <strong>Daha derin baï¿½lar</strong>, daha yoï¿½un anlar...
+            Uzman rehberlerimizle hayatï¿½na renk kat.
           </p>
         </div>
 
-        <!-- Orta: Neon Görsel -->
+        <!-- Orta: Neon Gï¿½rsel -->
         <a href="./blog.html" class="blog-banner-image-wrapper" title="Gizli Kutu Blog">
-          <img src="./assets/blog-banner-neon.webp" alt="Gizli Kutu Sex Shop Blog - Cinsel Saðlýk Rehberleri"
+          <img src="./assets/blog-banner-neon.webp" alt="Gizli Kutu Sex Shop Blog - Cinsel Saï¿½lï¿½k Rehberleri"
             loading="lazy">
         </a>
 
-        <!-- Sað: Butonlar -->
+        <!-- Saï¿½: Butonlar -->
         <div class="blog-banner-right">
           <a href="./blog.html" class="blog-banner-btn blog-banner-btn-blog">
             <svg viewBox="0 0 24 24">
               <path
                 d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
             </svg>
-            Ýpuçlarýný Keþfet
+            ï¿½puï¿½larï¿½nï¿½ Keï¿½fet
           </a>
-          <a href="https://wa.me/905400443445?text=Merhaba,%20blog%20içeriklerinizi%20okudum,%20danýþmanlýk%20almak%20istiyorum"
+          <a href="https://wa.me/905400443445?text=Merhaba,%20blog%20iï¿½eriklerinizi%20okudum,%20danï¿½ï¿½manlï¿½k%20almak%20istiyorum"
             target="_blank" class="blog-banner-btn blog-banner-btn-whatsapp">
             <svg viewBox="0 0 24 24" fill="none">
               <path
@@ -411,7 +413,7 @@
                 d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z"
                 fill="#25D366" />
             </svg>
-            Özel Danýþmanlýk
+            ï¿½zel Danï¿½ï¿½manlï¿½k
           </a>
         </div>
       </div>
@@ -419,26 +421,26 @@
 
     <!-- 5) WHATSAPP QR -->
     <section class="qr-zone">
-      <h2>WhatsApp ile Sipariþ</h2>
+      <h2>WhatsApp ile Sipariï¿½</h2>
 
       <img src="./assets/qr/whatsapp-qr.png" alt="WhatsApp QR" loading="lazy" width="260" height="260" />
 
       <a href="https://wa.me/905400443445" target="_blank" class="btn primary">
-        WhatsApp’a Git
+        WhatsAppï¿½a Git
       </a>
     </section>
 
-    <!-- 6) BÝZ KÝMÝZ -->
+    <!-- 6) Bï¿½Z Kï¿½Mï¿½Z -->
     <section class="about-zone">
       <h2>Biz Kimiz?</h2>
 
       <p>
-        Gizli Kutu Online, gizlilik prensibiyle çalýþan özel ürün maðazasýdýr.
-        Tüm sipariþler gizli paketleme ile gönderilir.
+        Gizli Kutu Online, gizlilik prensibiyle ï¿½alï¿½ï¿½an ï¿½zel ï¿½rï¿½n maï¿½azasï¿½dï¿½r.
+        Tï¿½m sipariï¿½ler gizli paketleme ile gï¿½nderilir.
       </p>
 
       <div class="about-features">
-        <div>?? SSL Güvenliði</div>
+        <div>?? SSL Gï¿½venliï¿½i</div>
         <div>?? Gizli Teslimat</div>
         <div>?? 7/24 Destek</div>
       </div>
@@ -446,52 +448,52 @@
 
     <!-- 7) SIK SORULAN SORULAR -->
     <section class="faq-zone">
-      <h2>Sýk Sorulan Sorular</h2>
+      <h2>Sï¿½k Sorulan Sorular</h2>
 
       <details>
-        <summary>Sipariþler gizli mi gönderiliyor?</summary>
-        <p>Evet. Tüm sipariþler logosuz paketlenir.</p>
+        <summary>Sipariï¿½ler gizli mi gï¿½nderiliyor?</summary>
+        <p>Evet. Tï¿½m sipariï¿½ler logosuz paketlenir.</p>
       </details>
 
       <details>
-        <summary>Kapýda ödeme yapabilir miyim?</summary>
-        <p>Akhisar içi motor kurye teslimatlarýnda mümkündür.</p>
+        <summary>Kapï¿½da ï¿½deme yapabilir miyim?</summary>
+        <p>Akhisar iï¿½i motor kurye teslimatlarï¿½nda mï¿½mkï¿½ndï¿½r.</p>
       </details>
 
       <details>
-        <summary>Ýade süreci nasýl iþler?</summary>
-        <p>Kullanýlmamýþ ürünler 7 gün içinde iade edilir.</p>
+        <summary>ï¿½ade sï¿½reci nasï¿½l iï¿½ler?</summary>
+        <p>Kullanï¿½lmamï¿½ï¿½ ï¿½rï¿½nler 7 gï¿½n iï¿½inde iade edilir.</p>
       </details>
     </section>
 
-    <!-- 8) SSL GÜVENLÝÐÝ -->
+    <!-- 8) SSL Gï¿½VENLï¿½ï¿½ï¿½ -->
     <section class="security-zone">
-      ?? %100 Gizlilik Garantisi • ?? Hýzlý Teslimat • ?? Güvenli Ödeme • ?? SSL Korumasý
+      ?? %100 Gizlilik Garantisi ï¿½ ?? Hï¿½zlï¿½ Teslimat ï¿½ ?? Gï¿½venli ï¿½deme ï¿½ ?? SSL Korumasï¿½
     </section>
 
     <hr class="sep">
 
     <div class="sectionTitle">
-      <h3>Güven & Politika</h3>
-      <p>Ýletiþim info@gizlikutu.online</p>
+      <h3>Gï¿½ven & Politika</h3>
+      <p>ï¿½letiï¿½im info@gizlikutu.online</p>
     </div>
     <div class="grid" style="grid-template-columns:repeat(3,1fr)">
       <a class="card" href="./kvkk.html">
         <div class="body">
           <div class="title">KVKK</div>
-          <div class="meta">Kiþisel veriler</div>
+          <div class="meta">Kiï¿½isel veriler</div>
         </div>
       </a>
       <a class="card" href="./privacy.html">
         <div class="body">
           <div class="title">Gizlilik</div>
-          <div class="meta">Çerezler & güvenlik</div>
+          <div class="meta">ï¿½erezler & gï¿½venlik</div>
         </div>
       </a>
       <a class="card" href="./distance-sales.html">
         <div class="body">
-          <div class="title">Mesafeli Satýþ</div>
-          <div class="meta">Satýþ þartlarý</div>
+          <div class="title">Mesafeli Satï¿½ï¿½</div>
+          <div class="meta">Satï¿½ï¿½ ï¿½artlarï¿½</div>
         </div>
       </a>
     </div>
@@ -499,11 +501,11 @@
 
   <footer class="footer">
     <div class="container">
-      © <span id="y"></span> Gizli Kutu •
-      <a href="./privacy.html">Gizlilik</a> •
-      <a href="./kvkk.html">KVKK</a> •
-      <a href="./terms.html">Koþullar</a> •
-      <a href="./contact.html">Ýletiþim</a>
+      ï¿½ <span id="y"></span> Gizli Kutu ï¿½
+      <a href="./privacy.html">Gizlilik</a> ï¿½
+      <a href="./kvkk.html">KVKK</a> ï¿½
+      <a href="./terms.html">Koï¿½ullar</a> ï¿½
+      <a href="./contact.html">ï¿½letiï¿½im</a>
     </div>
   </footer>
 
@@ -516,7 +518,7 @@
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 
-  <!-- ?? EKLENDÝ: Hamburger menü kategorilerini JSON’dan yükle -->
+  <!-- ?? EKLENDï¿½: Hamburger menï¿½ kategorilerini JSONï¿½dan yï¿½kle -->
   <script>
     (async function () {
       try {
@@ -530,7 +532,7 @@
           </a>
         `).join("");
       } catch (e) {
-        console.error("Hamburger kategori yükleme hatasý", e);
+        console.error("Hamburger kategori yï¿½kleme hatasï¿½", e);
       }
     })();
   </script>
@@ -552,12 +554,12 @@
   </script>
 
 
-  <!-- ?? Canlý Destek -->
+  <!-- ?? Canlï¿½ Destek -->
   <div class="live-support" id="liveSupport">
     <div class="live-header">
-      <span>?? Canlý Destek</span>
+      <span>?? Canlï¿½ Destek</span>
       <div style="display:flex;gap:4px">
-        <button id="minimizeSupport" title="Küçült">-</button>
+        <button id="minimizeSupport" title="Kï¿½ï¿½ï¿½lt">-</button>
         <button id="closeSupport" title="Kapat">?</button>
       </div>
     </div>
@@ -565,17 +567,17 @@
     <div class="live-body">
       <div class="live-welcome">
         Merhaba ??<br>
-        Size nasýl yardýmcý olabiliriz?
+        Size nasï¿½l yardï¿½mcï¿½ olabiliriz?
       </div>
 
-      <textarea id="supportMsg" placeholder="Mesajýnýzý yazýn..."></textarea>
+      <textarea id="supportMsg" placeholder="Mesajï¿½nï¿½zï¿½ yazï¿½n..."></textarea>
 
-      <button id="sendSupport">WhatsApp'tan Gönder</button>
+      <button id="sendSupport">WhatsApp'tan Gï¿½nder</button>
     </div>
   </div>
 
   <!-- Minimized floating WhatsApp logo -->
-  <div class="live-support-mini" id="liveSupportMini" title="Canlý Destek">
+  <div class="live-support-mini" id="liveSupportMini" title="Canlï¿½ Destek">
     <svg viewBox="0 0 24 24" fill="none">
       <path
         d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z"
@@ -619,12 +621,12 @@
       sendBtn.onclick = () => {
         const msg = textarea.value.trim();
         if (!msg) {
-          alert("Lütfen mesajýnýzý yazýn ??");
+          alert("Lï¿½tfen mesajï¿½nï¿½zï¿½ yazï¿½n ??");
           return;
         }
 
         const text = encodeURIComponent(
-          "?? Gizli Kutu Canlý Destek Mesajý:\n\n" + msg
+          "?? Gizli Kutu Canlï¿½ Destek Mesajï¿½:\n\n" + msg
         );
 
         window.open(`https://wa.me/${phone}?text=${text}`, "_blank");

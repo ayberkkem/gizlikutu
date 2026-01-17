@@ -4,10 +4,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gizli Kutu | Ürünler</title>
+  <title>Gizli Kutu | ï¿½rï¿½nler</title>
   <meta name="description"
-    content="Gizli Kutu ürünlerini keþfedin. Güvenli alýþveriþ, gizli paketleme ve hýzlý teslimat ile size özel ürünler." />
+    content="Gizli Kutu ï¿½rï¿½nlerini keï¿½fedin. Gï¿½venli alï¿½ï¿½veriï¿½, gizli paketleme ve hï¿½zlï¿½ teslimat ile size ï¿½zel ï¿½rï¿½nler." />
   <link rel="icon" href="./assets/logo.webp" type="image/jpeg">
+  <!-- LCP Optimization: Preload critical background image -->
+  <link rel="preload" fetchpriority="high" as="image" href="./assets/backgrounds/premium-bg.webp" type="image/webp">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/pages/products.css">
   <link rel="stylesheet" href="./css/category-nav.css">
@@ -21,8 +23,8 @@
   <!-- Drawer Backdrop -->
   <div class="drawerBackdrop" id="drawerBackdrop"></div>
 
-  <!-- Hamburger Menü -->
-  <aside class="drawer" id="drawer" aria-label="Menü">
+  <!-- Hamburger Menï¿½ -->
+  <aside class="drawer" id="drawer" aria-label="Menï¿½">
     <div class="row" style="justify-content:space-between">
       <div class="brand">
         <img src="./assets/logo.webp" alt="Gizli Kutu">
@@ -35,24 +37,24 @@
     <div id="hamburgerCategories"></div>
 
     <h4>Kurumsal</h4>
-    <a class="navlink" data-close-drawer href="./about.html">Hakkýmýzda</a>
-    <a class="navlink" data-close-drawer href="./contact.html">Ýletiþim</a>
+    <a class="navlink" data-close-drawer href="./about.html">Hakkï¿½mï¿½zda</a>
+    <a class="navlink" data-close-drawer href="./contact.html">ï¿½letiï¿½im</a>
 
-    <h6>Sözleþmeler</h6>
+    <h6>Sï¿½zleï¿½meler</h6>
     <a class="navlink" data-close-drawer href="./kvkk.html">KVKK</a>
     <a class="navlink" data-close-drawer href="./privacy.html">Gizlilik</a>
-    <a class="navlink" data-close-drawer href="./terms.html">Koþullar</a>
+    <a class="navlink" data-close-drawer href="./terms.html">Koï¿½ullar</a>
 
     <div class="notice">
-      WhatsApp hýzlý hat:
-      <a href="https://wa.me/905400443445" target="_blank" rel="noopener">týkla</a>
+      WhatsApp hï¿½zlï¿½ hat:
+      <a href="https://wa.me/905400443445" target="_blank" rel="noopener">tï¿½kla</a>
     </div>
   </aside>
 
   <!-- Header -->
   <header class="topbar">
     <div class="container header">
-      <button class="iconbtn" id="menuBtn" aria-label="Menü">?</button>
+      <button class="iconbtn" id="menuBtn" aria-label="Menï¿½">?</button>
 
       <a class="brand" href="./index.html">
         <img src="./assets/logo.webp" alt="Gizli Kutu logo">
@@ -60,7 +62,7 @@
       </a>
 
       <div class="header-right" style="flex:1">
-        <!-- WhatsApp (YEÞÝL LOGO) -->
+        <!-- WhatsApp (YEï¿½ï¿½L LOGO) -->
         <a class="iconbtn" aria-label="WhatsApp" href="https://wa.me/905400443445" target="_blank" rel="noopener">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
             <path
@@ -81,7 +83,7 @@
         </button>
 
         <div class="search" id="searchBox">
-          <input id="globalSearch" placeholder="Ürün ara..." autocomplete="off" />
+          <input id="globalSearch" placeholder="ï¿½rï¿½n ara..." autocomplete="off" />
         </div>
 
         <a class="iconbtn cartWrap" href="./cart.html">
@@ -91,9 +93,9 @@
         <!-- PC Header Nav - Sadece Desktop -->
         <nav class="desktop-header-nav">
           <a href="./index.html">Anasayfa</a>
-          <a href="./products.html">Popüler Ürünler</a>
-          <a href="./about.html">Hakkýmýzda</a>
-          <a href="./contact.html">Ýletiþim</a>
+          <a href="./products.html">Popï¿½ler ï¿½rï¿½nler</a>
+          <a href="./about.html">Hakkï¿½mï¿½zda</a>
+          <a href="./contact.html">ï¿½letiï¿½im</a>
         </nav>
       </div>
     </div>
@@ -102,12 +104,12 @@
   <!-- Kategori Navigasyon -->
   <nav id="categoryNav" class="category-nav-wrapper"></nav>
 
-  <!-- Mobil Üst Nav - Trendyol Tarzý (Sadece Mobilde Görünür) -->
+  <!-- Mobil ï¿½st Nav - Trendyol Tarzï¿½ (Sadece Mobilde Gï¿½rï¿½nï¿½r) -->
   <nav class="mobile-top-nav">
     <a href="./index.html">Anasayfa</a>
-    <a href="./products.html" class="active">Popüler Ürünler</a>
-    <a href="./about.html">Hakkýmýzda</a>
-    <a href="./contact.html">Ýletiþim</a>
+    <a href="./products.html" class="active">Popï¿½ler ï¿½rï¿½nler</a>
+    <a href="./about.html">Hakkï¿½mï¿½zda</a>
+    <a href="./contact.html">ï¿½letiï¿½im</a>
   </nav>
 
   <!-- Main -->
@@ -117,8 +119,8 @@
     <div class="products-hero">
       <!-- SOL BLOK: Metin + Tikler -->
       <div class="products-hero-left">
-        <h1 class="products-hero-title">Gizli Alýþveriþin Güvenli Adresi</h1>
-        <p class="products-hero-desc">Gizli paketleme, güvenli ödeme ve hýzlý teslimat ile özel alýþveriþ deneyimi.</p>
+        <h1 class="products-hero-title">Gizli Alï¿½ï¿½veriï¿½in Gï¿½venli Adresi</h1>
+        <p class="products-hero-desc">Gizli paketleme, gï¿½venli ï¿½deme ve hï¿½zlï¿½ teslimat ile ï¿½zel alï¿½ï¿½veriï¿½ deneyimi.</p>
         <div class="products-hero-checks">
           <span><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd"
@@ -129,20 +131,20 @@
               <path fill-rule="evenodd"
                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                 clip-rule="evenodd" />
-            </svg> Hýzlý Kargo</span>
+            </svg> Hï¿½zlï¿½ Kargo</span>
           <span><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd"
                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                 clip-rule="evenodd" />
-            </svg> Güvenli Ödeme</span>
+            </svg> Gï¿½venli ï¿½deme</span>
           <span><svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd"
                 d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                 clip-rule="evenodd" />
-            </svg> Akhisar içi 1 Saat Teslim</span>
+            </svg> Akhisar iï¿½i 1 Saat Teslim</span>
         </div>
       </div>
-      <!-- SAÐ BLOK: Butonlar -->
+      <!-- SAï¿½ BLOK: Butonlar -->
       <div class="products-hero-right">
         <a class="btn products-hero-btn products-hero-btn-whatsapp" href="https://wa.me/905400443445" target="_blank"
           rel="noopener">
@@ -154,14 +156,14 @@
               d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z"
               fill="#25D366" />
           </svg>
-          Hemen Sipariþ Ver
+          Hemen Sipariï¿½ Ver
         </a>
-        <a class="btn primary products-hero-btn" href="#productsGrid">Güvenli Alýþveriþe Baþla</a>
+        <a class="btn primary products-hero-btn" href="#productsGrid">Gï¿½venli Alï¿½ï¿½veriï¿½e Baï¿½la</a>
       </div>
     </div>
 
     <div class="sectionTitle" style="margin-top:0;">
-      <p id="resultCount">0 ürün bulundu</p>
+      <p id="resultCount">0 ï¿½rï¿½n bulundu</p>
     </div>
 
 
@@ -169,22 +171,22 @@
     <div class="toolbar">
       <div class="mobile-hide">
         <label>Arama</label><br>
-        <input id="q" placeholder="Ürün ara..." />
+        <input id="q" placeholder="ï¿½rï¿½n ara..." />
       </div>
 
       <div>
         <label>Kategori</label><br>
         <select id="cat">
-          <option value="all">Tümü</option>
+          <option value="all">Tï¿½mï¿½</option>
         </select>
       </div>
 
       <div>
         <label>Fiyat</label><br>
         <select id="price">
-          <option value="all">Tümü</option>
-          <option value="0-750">0 – 750</option>
-          <option value="751-1500">751 – 1500</option>
+          <option value="all">Tï¿½mï¿½</option>
+          <option value="0-750">0 ï¿½ 750</option>
+          <option value="751-1500">751 ï¿½ 1500</option>
           <option value="1501-999999">1500+</option>
         </select>
       </div>
@@ -199,9 +201,9 @@
       </div>
 
       <div>
-        <label>Sýralama</label><br>
+        <label>Sï¿½ralama</label><br>
         <select id="sort">
-          <option value="popular">Popüler</option>
+          <option value="popular">Popï¿½ler</option>
           <option value="priceAsc">Fiyat ^</option>
           <option value="priceDesc">Fiyat v</option>
           <option value="ratingDesc">Puan v</option>
@@ -210,7 +212,7 @@
       </div>
 
       <div class="spacer"></div>
-      <button class="btn" id="clearFilters">Filtreleri Sýfýrla</button>
+      <button class="btn" id="clearFilters">Filtreleri Sï¿½fï¿½rla</button>
     </div>
 
     <div style="height:14px"></div>
@@ -219,33 +221,33 @@
   </main>
 
   
-    <!-- BLOG BANNER - SEO Ýçerik Promosyonu -->
-    <section class="blog-banner-section" aria-label="Blog Ýçerikleri">
+    <!-- BLOG BANNER - SEO ï¿½ï¿½erik Promosyonu -->
+    <section class="blog-banner-section" aria-label="Blog ï¿½ï¿½erikleri">
       <div class="blog-banner-container">
         <!-- Sol: Duygusal Metin -->
         <div class="blog-banner-left">
           <span class="blog-banner-tagline">Sadece Seninle</span>
-          <h3 class="blog-banner-title">Zevki Keþfetmenin Zamaný Geldi</h3>
+          <h3 class="blog-banner-title">Zevki Keï¿½fetmenin Zamanï¿½ Geldi</h3>
           <p class="blog-banner-subtitle">
-            <strong>Daha derin baðlar</strong>, daha yoðun anlar... 
-            Uzman rehberlerimizle hayatýna renk kat.
+            <strong>Daha derin baï¿½lar</strong>, daha yoï¿½un anlar... 
+            Uzman rehberlerimizle hayatï¿½na renk kat.
           </p>
         </div>
 
-        <!-- Orta: Neon Görsel -->
+        <!-- Orta: Neon Gï¿½rsel -->
         <a href="./blog.html" class="blog-banner-image-wrapper" title="Gizli Kutu Blog">
-          <img src="./assets/blog-banner-neon.webp" alt="Gizli Kutu Sex Shop Blog - Cinsel Saðlýk Rehberleri" loading="lazy">
+          <img src="./assets/blog-banner-neon.webp" alt="Gizli Kutu Sex Shop Blog - Cinsel Saï¿½lï¿½k Rehberleri" loading="lazy">
         </a>
 
-        <!-- Sað: Butonlar -->
+        <!-- Saï¿½: Butonlar -->
         <div class="blog-banner-right">
           <a href="./blog.html" class="blog-banner-btn blog-banner-btn-blog">
             <svg viewBox="0 0 24 24"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-            Ýpuçlarýný Keþfet
+            ï¿½puï¿½larï¿½nï¿½ Keï¿½fet
           </a>
-          <a href="https://wa.me/905400443445?text=Merhaba,%20blog%20içeriklerinizi%20okudum,%20danýþmanlýk%20almak%20istiyorum" target="_blank" class="blog-banner-btn blog-banner-btn-whatsapp">
+          <a href="https://wa.me/905400443445?text=Merhaba,%20blog%20iï¿½eriklerinizi%20okudum,%20danï¿½ï¿½manlï¿½k%20almak%20istiyorum" target="_blank" class="blog-banner-btn blog-banner-btn-whatsapp">
             <svg viewBox="0 0 24 24" fill="none"><path d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z" fill="#fff"/><path d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z" fill="#25D366"/></svg>
-            Özel Danýþmanlýk
+            ï¿½zel Danï¿½ï¿½manlï¿½k
           </a>
         </div>
       </div>
@@ -254,13 +256,13 @@
 
   <footer class="footer">
     <div class="container">
-      © <span id="y"></span> Gizli Kutu •
-      <a href="./privacy.html">Gizlilik</a> •
+      ï¿½ <span id="y"></span> Gizli Kutu ï¿½
+      <a href="./privacy.html">Gizlilik</a> ï¿½
       <a href="./kvkk.html">KVKK</a>
     </div>
   </footer>
 
-  <!-- SCRIPTS (TEK VE DOÐRU SIRA) -->
+  <!-- SCRIPTS (TEK VE DOï¿½RU SIRA) -->
   <script src="./js/storage.js"></script>
   <script src="./js/app.js"></script>
   <script src="./js/ui.js"></script>
@@ -287,7 +289,7 @@
       </a>
     `).join("");
       } catch (e) {
-        console.error("Hamburger kategori yükleme hatasý", e);
+        console.error("Hamburger kategori yï¿½kleme hatasï¿½", e);
       }
     })();
   </script>
@@ -305,14 +307,14 @@
     })();
   </script>
 
-  <!-- Mobil Sýralama Sadeleþtirme -->
+  <!-- Mobil Sï¿½ralama Sadeleï¿½tirme -->
   <script>
     (function () {
-      // Mobil kontrolü (520px altý)
+      // Mobil kontrolï¿½ (520px altï¿½)
       if (window.innerWidth <= 520) {
         const sortSelect = document.getElementById('sort');
         if (sortSelect) {
-          // Sadece fiyat sýralamasý kalacak
+          // Sadece fiyat sï¿½ralamasï¿½ kalacak
           const allowedValues = ['priceAsc', 'priceDesc'];
           const options = sortSelect.querySelectorAll('option');
           options.forEach(opt => {
@@ -320,7 +322,7 @@
               opt.style.display = 'none';
             }
           });
-          // Varsayýlan olarak priceAsc seç
+          // Varsayï¿½lan olarak priceAsc seï¿½
           sortSelect.value = 'priceAsc';
         }
       }

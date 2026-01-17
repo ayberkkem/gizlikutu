@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gizli Kutu | Sepet</title>
   <link rel="icon" href="./assets/logo.webp" type="image/jpeg">
+  <!-- LCP Optimization: Preload critical background image -->
+  <link rel="preload" fetchpriority="high" as="image" href="./assets/backgrounds/premium-bg.webp" type="image/webp">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/pages/cart.css">
   <link rel="stylesheet" href="./css/category-nav.css">
@@ -13,7 +15,7 @@
   <link rel="stylesheet" href="./css/pwa-install-icon.css">
   <link rel="canonical" href="https://gizlikutu.online/cart.html">
   <meta name="description"
-    content="Sepetinizdeki ürünleri inceleyin, güvenli ödeme ile alýþveriþinizi tamamlayýn. %100 gizli paketleme ve hýzlý teslimat.">
+    content="Sepetinizdeki ï¿½rï¿½nleri inceleyin, gï¿½venli ï¿½deme ile alï¿½ï¿½veriï¿½inizi tamamlayï¿½n. %100 gizli paketleme ve hï¿½zlï¿½ teslimat.">
 </head>
 
 <body>
@@ -45,16 +47,16 @@
         <div class="search" id="searchBox"><svg width="18" height="18" viewBox="0 0 24 24" fill="none">
             <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5" />
             <path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-          </svg><input id="globalSearch" placeholder="Ürün ara..." /></div>
+          </svg><input id="globalSearch" placeholder="ï¿½rï¿½n ara..." /></div>
         <a class="iconbtn cartWrap" href="./cart.html">??<span class="badge" id="cartCount"
             style="display:none">0</span></a>
 
         <!-- PC Header Nav - Sadece Desktop -->
         <nav class="desktop-header-nav">
           <a href="./index.html">Anasayfa</a>
-          <a href="./products.html">Popüler Ürünler</a>
-          <a href="./about.html">Hakkýmýzda</a>
-          <a href="./contact.html">Ýletiþim</a>
+          <a href="./products.html">Popï¿½ler ï¿½rï¿½nler</a>
+          <a href="./about.html">Hakkï¿½mï¿½zda</a>
+          <a href="./contact.html">ï¿½letiï¿½im</a>
         </nav>
       </div>
     </div>
@@ -63,25 +65,25 @@
   <!-- Kategori Navigasyon -->
   <nav id="categoryNav" class="category-nav-wrapper"></nav>
 
-  <!-- Mobil Üst Nav - Trendyol Tarzý (Sadece Mobilde Görünür) -->
+  <!-- Mobil ï¿½st Nav - Trendyol Tarzï¿½ (Sadece Mobilde Gï¿½rï¿½nï¿½r) -->
   <nav class="mobile-top-nav">
     <a href="./index.html">Anasayfa</a>
-    <a href="./products.html">Popüler Ürünler</a>
-    <a href="./about.html">Hakkýmýzda</a>
-    <a href="./contact.html">Ýletiþim</a>
+    <a href="./products.html">Popï¿½ler ï¿½rï¿½nler</a>
+    <a href="./about.html">Hakkï¿½mï¿½zda</a>
+    <a href="./contact.html">ï¿½letiï¿½im</a>
   </nav>
 
   <main class="container">
     <div class="sectionTitle">
       <h1>Sepetim</h1>
-      <p><a href="./products.html" style="text-decoration:underline">Alýþveriþe devam</a></p>
+      <p><a href="./products.html" style="text-decoration:underline">Alï¿½ï¿½veriï¿½e devam</a></p>
     </div>
 
     <table class="table">
       <thead>
         <tr>
           <th></th>
-          <th>Ürün</th>
+          <th>ï¿½rï¿½n</th>
           <th>Fiyat</th>
           <th>Adet</th>
           <th></th>
@@ -95,47 +97,47 @@
       <div class="row">
         <div style="color:var(--muted)">Toplam:</div>
         <div class="price" id="cartTotal" style="font-size:20px"></div>
-        <a class="btn primary" href="./checkout.html">Ödemeye Geç</a>
+        <a class="btn primary" href="./checkout.html">ï¿½demeye Geï¿½</a>
       </div>
     </div>
   </main>
 
-  <!-- Güvenlik/Güven Rozetleri -->
+  <!-- Gï¿½venlik/Gï¿½ven Rozetleri -->
   <div class="cart-trust-badges">
     <span>?? %100 Gizli Paketleme ?</span>
-    <span>?? Güvenli Ödeme ?</span>
-    <span>?? Hýzlý Kargo ?</span>
+    <span>?? Gï¿½venli ï¿½deme ?</span>
+    <span>?? Hï¿½zlï¿½ Kargo ?</span>
     <span>?? WhatsApp Destek ?</span>
   </div>
 
   
-    <!-- BLOG BANNER - SEO Ýçerik Promosyonu -->
-    <section class="blog-banner-section" aria-label="Blog Ýçerikleri">
+    <!-- BLOG BANNER - SEO ï¿½ï¿½erik Promosyonu -->
+    <section class="blog-banner-section" aria-label="Blog ï¿½ï¿½erikleri">
       <div class="blog-banner-container">
         <!-- Sol: Duygusal Metin -->
         <div class="blog-banner-left">
           <span class="blog-banner-tagline">Sadece Seninle</span>
-          <h3 class="blog-banner-title">Zevki Keþfetmenin Zamaný Geldi</h3>
+          <h3 class="blog-banner-title">Zevki Keï¿½fetmenin Zamanï¿½ Geldi</h3>
           <p class="blog-banner-subtitle">
-            <strong>Daha derin baðlar</strong>, daha yoðun anlar... 
-            Uzman rehberlerimizle hayatýna renk kat.
+            <strong>Daha derin baï¿½lar</strong>, daha yoï¿½un anlar... 
+            Uzman rehberlerimizle hayatï¿½na renk kat.
           </p>
         </div>
 
-        <!-- Orta: Neon Görsel -->
+        <!-- Orta: Neon Gï¿½rsel -->
         <a href="./blog.html" class="blog-banner-image-wrapper" title="Gizli Kutu Blog">
-          <img src="./assets/blog-banner-neon.webp" alt="Gizli Kutu Sex Shop Blog - Cinsel Saðlýk Rehberleri" loading="lazy">
+          <img src="./assets/blog-banner-neon.webp" alt="Gizli Kutu Sex Shop Blog - Cinsel Saï¿½lï¿½k Rehberleri" loading="lazy">
         </a>
 
-        <!-- Sað: Butonlar -->
+        <!-- Saï¿½: Butonlar -->
         <div class="blog-banner-right">
           <a href="./blog.html" class="blog-banner-btn blog-banner-btn-blog">
             <svg viewBox="0 0 24 24"><path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-            Ýpuçlarýný Keþfet
+            ï¿½puï¿½larï¿½nï¿½ Keï¿½fet
           </a>
-          <a href="https://wa.me/905400443445?text=Merhaba,%20blog%20içeriklerinizi%20okudum,%20danýþmanlýk%20almak%20istiyorum" target="_blank" class="blog-banner-btn blog-banner-btn-whatsapp">
+          <a href="https://wa.me/905400443445?text=Merhaba,%20blog%20iï¿½eriklerinizi%20okudum,%20danï¿½ï¿½manlï¿½k%20almak%20istiyorum" target="_blank" class="blog-banner-btn blog-banner-btn-whatsapp">
             <svg viewBox="0 0 24 24" fill="none"><path d="M20 11.6c0 4.6-3.8 8.4-8.4 8.4-1.5 0-2.9-.4-4.2-1.1L4 20l1.2-3.3c-.8-1.3-1.2-2.8-1.2-4.4C4 7 7.8 3.2 12.4 3.2 16.9 3.2 20.7 7 20.7 11.6Z" fill="#fff"/><path d="M9.2 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.3l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.1.4 0 .6.4.7 1.2 1.5 2 2 .2.1.4.1.6 0l.5-.3c.2-.1.4-.1.5 0l1.7.7c.2.1.3.3.3.5v.5c0 .2 0 .4-.4.6-.4.2-1.2.4-2.1.1-1-.3-2.2-1-3.2-2s-1.7-2.2-2-3.2c-.3-.9-.1-1.7.1-2.1Z" fill="#25D366"/></svg>
-            Özel Danýþmanlýk
+            ï¿½zel Danï¿½ï¿½manlï¿½k
           </a>
         </div>
       </div>
@@ -143,7 +145,7 @@
 
 
   <footer class="footer">
-    <div class="container">© <span id="y"></span> Gizli Kutu</div>
+    <div class="container">ï¿½ <span id="y"></span> Gizli Kutu</div>
   </footer>
 
   <script src="./js/storage.js"></script>
@@ -157,14 +159,14 @@
       </div>
 
      
-      <!-- ?? EKLENDÝ: Otomatik kategori alaný -->
+      <!-- ?? EKLENDï¿½: Otomatik kategori alanï¿½ -->
       <div id="hamburgerCategories"></div>
-      <!-- ?? EK BÝTTÝ -->
+      <!-- ?? EK Bï¿½TTï¿½ -->
 
-      <h3>Sözleþmeler</h3>
+      <h3>Sï¿½zleï¿½meler</h3>
       <a class="navlink" data-close-drawer href="./privacy.html">Gizlilik</a>
-      <a class="navlink" data-close-drawer href="./distance-sales.html">Mesafeli Satýþ</a>
-      <a class="navlink" data-close-drawer href="./returns.html">Ýade</a>
+      <a class="navlink" data-close-drawer href="./distance-sales.html">Mesafeli Satï¿½ï¿½</a>
+      <a class="navlink" data-close-drawer href="./returns.html">ï¿½ade</a>
     `;
   </script>
 
@@ -175,7 +177,7 @@
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 
-  <!-- ?? EKLENDÝ: Hamburger menü kategorilerini JSON’dan yükle -->
+  <!-- ?? EKLENDï¿½: Hamburger menï¿½ kategorilerini JSONï¿½dan yï¿½kle -->
   <script>
     (async function () {
       try {
@@ -189,11 +191,11 @@
           </a>
         `).join("");
       } catch (e) {
-        console.error("Hamburger kategori yükleme hatasý", e);
+        console.error("Hamburger kategori yï¿½kleme hatasï¿½", e);
       }
     })();
   </script>
-  <!-- ?? EK BÝTTÝ -->
+  <!-- ?? EK Bï¿½TTï¿½ -->
   <script src="./js/category-nav.js" defer></script>
 
   <!-- PWA Install Icon -->
