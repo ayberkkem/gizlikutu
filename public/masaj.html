@@ -239,9 +239,9 @@
   <script>(async function () { try { const res = await fetch("./data/categories.json", { cache: "no-store" }); const categories = await res.json(); const box = document.getElementById("hamburgerCategories"); if (!box) return; box.innerHTML = categories.map(cat => `<a class="navlink" data-close-drawer href="./products.html?cat=${cat.id}">${cat.label}</a>`).join(""); } catch (e) { console.error("Hamburger kategori yükleme hatası", e); } })();</script>
   <script>(function () { const toggleBtn = document.getElementById('searchToggle'); const searchBox = document.getElementById('searchBox'); if (toggleBtn && searchBox) { toggleBtn.addEventListener('click', function () { searchBox.classList.toggle('search-open'); }); } })();</script>
   <script>(function () { if (window.innerWidth <= 520) { const sortSelect = document.getElementById('sort'); if (sortSelect) { const allowedValues = ['priceAsc', 'priceDesc']; const options = sortSelect.querySelectorAll('option'); options.forEach(opt => { if (!allowedValues.includes(opt.value)) { opt.style.display = 'none'; } }); sortSelect.value = 'priceAsc'; } } })();</script>
-  <script src="./js/age-gate.js"></script>
+  <script src="./js/age-gate.js" defer></script>
   <script src="./js/category-nav.js" defer></script>
-  <script src="./js/pwa-install-icon.js"></script>
+  <script src="./js/pwa-install-icon.js" defer></script>
 </body>
 
 </html>
