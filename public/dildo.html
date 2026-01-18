@@ -265,34 +265,52 @@
     <!-- Blog Banner -->
     <style>
       @keyframes neonPulse {
-        0%, 100% { 
-          box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
-          filter: brightness(1);
-        }
-        50% { 
-          box-shadow: 0 0 20px #ff66ff, 0 0 40px #ff66ff, 0 0 60px #ff66ff, 0 0 80px #ff66ff;
-          filter: brightness(1.2);
-        }
+        0%, 100% { box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
+        50% { box-shadow: 0 0 20px #ff66ff, 0 0 40px #ff66ff, 0 0 60px #ff66ff; filter: brightness(1.15); }
       }
-      .blog-banner-neon {
-        animation: neonPulse 2s ease-in-out infinite;
+      @keyframes textGlow {
+        0%, 100% { text-shadow: 0 0 8px #ff00ff, 0 0 15px #ff00ff; opacity: 0.9; }
+        50% { text-shadow: 0 0 15px #ff66ff, 0 0 30px #ff66ff; opacity: 1; }
+      }
+      .blog-banner-neon { animation: neonPulse 2s ease-in-out infinite; }
+      .blog-banner-text { 
+        animation: textGlow 2s ease-in-out infinite;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        color: #ff66ff;
+        letter-spacing: 1px;
       }
     </style>
-    <section class="blog-banner-section" style="
-      width: 100%;
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 15px;
-      box-sizing: border-box;
-    ">
-      <a href="./blog.html" title="Blog'a Git" style="display:block;">
+    <section class="blog-banner-section" style="width:100%;max-width:1100px;margin:30px auto;padding:0 15px;box-sizing:border-box;">
+      <a href="./blog.html" title="Sex Shop Blog - Cinsel Sağlık Rehberi" style="display:block;text-decoration:none;">
         <div class="blog-banner-neon" style="
+          position: relative;
           width: 100%;
-          height: 250px;
-          background: url('./assets/blog-banner-neon.jpg') center center / contain no-repeat;
+          height: 180px;
+          background: linear-gradient(90deg, #1a1a1a 0%, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a 100%), 
+                      url('./assets/blog-banner-neon.jpg') center center / contain no-repeat;
           background-color: #1a1a1a;
           border-radius: 16px;
-        "></div>
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          overflow: hidden;
+        ">
+          <!-- Sol - SEO Keywords -->
+          <div style="flex:0 0 22%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center;">
+            <span class="blog-banner-text" style="font-size:11px;margin-bottom:6px;">🔥 CİNSEL SAĞLIK</span>
+            <span class="blog-banner-text" style="font-size:14px;margin-bottom:4px;">REHBERİ</span>
+            <span class="blog-banner-text" style="font-size:10px;opacity:0.8;">Uzman Bilgileri</span>
+          </div>
+          <!-- Orta Boşluk -->
+          <div style="flex:1;"></div>
+          <!-- Sağ - CTA + SEO -->
+          <div style="flex:0 0 22%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center;">
+            <span class="blog-banner-text" style="font-size:11px;margin-bottom:6px;">💡 ÜCRETSİZ</span>
+            <span class="blog-banner-text" style="font-size:14px;margin-bottom:4px;">BİLGİ & İPUCU</span>
+            <span class="blog-banner-text" style="font-size:12px;">TIKLA OKU ➜</span>
+          </div>
+        </div>
       </a>
     </section>
 
