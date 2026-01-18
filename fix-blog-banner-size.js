@@ -1,6 +1,7 @@
 /**
- * fix-blog-banner-size.js
- * Updates blog banner dimensions to 851x315px in all HTML files
+ * fix-blog-banner-size-v2.js
+ * Updates blog banner dimensions to 1021x189px in all HTML files
+ * (Width +20%, Height -40%)
  */
 
 const fs = require('fs');
@@ -25,18 +26,17 @@ function fixBannerSize(filePath) {
     const fileName = path.basename(filePath);
     let content = fs.readFileSync(filePath, 'utf8');
 
-    // Skip if no banner
     if (!content.includes('blog-banner-neon.jpg')) {
         return 'no-banner';
     }
 
-    // Old style pattern - replace with fixed dimensions
-    const oldPattern = /<img src="\.\/assets\/blog-banner-neon\.jpg"[^>]*style="[^"]*"[^>]*\/>/gi;
+    // Match existing banner img tag
+    const oldPattern = /<img src="\.\/assets\/blog-banner-neon\.jpg"[^>]*\/>/gi;
 
-    // New optimized img tag with fixed dimensions
+    // New img tag with updated dimensions: 1021x189px
     const newImgTag = `<img src="./assets/blog-banner-neon.jpg" alt="Gizli Kutu Blog" loading="lazy" 
-             width="851" height="315" 
-             style="max-width:100%;width:851px;height:auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.3);" />`;
+             width="1021" height="189" 
+             style="max-width:100%;width:1021px;height:auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.3);object-fit:cover;" />`;
 
     if (content.match(oldPattern)) {
         content = content.replace(oldPattern, newImgTag);
@@ -45,11 +45,11 @@ function fixBannerSize(filePath) {
         return 'fixed';
     }
 
-    console.log(`⚠️  Pattern not found but has banner: ${fileName}`);
+    console.log(`⚠️  Pattern not found: ${fileName}`);
     return 'no-match';
 }
 
-console.log('🚀 Fixing blog banner size to 851x315px...\n');
+console.log('🚀 Fixing blog banner size to 1021x189px (Width +20%, Height -40%)...\n');
 
 const htmlFiles = getHtmlFiles(PUBLIC_DIR);
 let fixed = 0, noBanner = 0, noMatch = 0;
