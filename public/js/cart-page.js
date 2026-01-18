@@ -91,7 +91,7 @@
                     </svg>
                   </div>
                   <div class="mobile-cart-title">${i.title}</div>
-                  <div class="mobile-cart-shipping">Kargo Bedava ✅</div>
+                  <div class="mobile-cart-shipping">500₺+ Kargo Bedava 🚚</div>
                   <div class="mobile-cart-bottom">
                     <div class="mobile-cart-qty">
                       <button class="mobile-qty-btn" data-dec="${i.id}">−</button>
@@ -126,7 +126,7 @@
             <td>
               <div style="font-weight:650">${i.title}</div>
               <div class="muted" style="color:var(--muted);font-size:13px">
-                Kargo Bedava ✅
+                500₺+ Kargo Bedava 🚚
               </div>
             </td>
             <td class="price">${money(i.price)}</td>

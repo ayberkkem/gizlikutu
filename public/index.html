@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="canonical" href="https://gizlikutu.online/">
+  <link rel="canonical" href="https://gizlikutu.online/">
   <meta name="google-site-verification" content="UZAgr_RUmZBxieQXpJWhWCHXLfg5R1FfGK0qBkvTwE4" />
   <title>Gizli Kutu | Gizli Paketleme ile Güvenli Alışveriş</title>
   <meta name="description"
@@ -367,19 +367,39 @@
       </ul>
     </section>
 
-    
+
     <!-- Blog Banner -->
     <style>
       @keyframes neonPulse {
-        0%, 100% { box-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff; }
-        50% { box-shadow: 0 0 25px #ff66ff, 0 0 50px #ff66ff; filter: brightness(1.1); }
+
+        0%,
+        100% {
+          box-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff;
+        }
+
+        50% {
+          box-shadow: 0 0 25px #ff66ff, 0 0 50px #ff66ff;
+          filter: brightness(1.1);
+        }
       }
+
       @keyframes textGlow {
-        0%, 100% { text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-        50% { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px #ff66ff; }
+
+        0%,
+        100% {
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        50% {
+          text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px #ff66ff;
+        }
       }
-      .blog-banner-neon { animation: neonPulse 2s ease-in-out infinite; }
-      .blog-banner-text { 
+
+      .blog-banner-neon {
+        animation: neonPulse 2s ease-in-out infinite;
+      }
+
+      .blog-banner-text {
         animation: textGlow 2s ease-in-out infinite;
         font-family: Arial, sans-serif;
         font-weight: bold;
@@ -387,7 +407,8 @@
         text-transform: uppercase;
       }
     </style>
-    <section class="blog-banner-section" style="width:100%;max-width:1100px;margin:30px auto;padding:0 15px;box-sizing:border-box;">
+    <section class="blog-banner-section"
+      style="width:100%;max-width:1100px;margin:30px auto;padding:0 15px;box-sizing:border-box;">
       <a href="./blog.html" title="Sex Shop Blog - Cinsel Sağlık Rehberi" style="display:block;text-decoration:none;">
         <div class="blog-banner-neon" style="
           position: relative;
@@ -403,14 +424,16 @@
           overflow: hidden;
         ">
           <!-- Sol Metin - Daha ortada -->
-          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:15px 30px;background:rgba(0,0,0,0.6);border-radius:10px;">
+          <div
+            style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:15px 30px;background:rgba(0,0,0,0.6);border-radius:10px;">
             <span class="blog-banner-text" style="font-size:14px;margin-bottom:5px;">🔥 CİNSEL SAĞLIK</span>
             <span class="blog-banner-text" style="font-size:20px;letter-spacing:2px;">REHBERİ</span>
           </div>
           <!-- Orta Boşluk - Görsel için -->
           <div style="flex:0 0 300px;"></div>
           <!-- Sağ Metin - Daha ortada -->
-          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:15px 30px;background:rgba(0,0,0,0.6);border-radius:10px;">
+          <div
+            style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:15px 30px;background:rgba(0,0,0,0.6);border-radius:10px;">
             <span class="blog-banner-text" style="font-size:14px;margin-bottom:5px;">💡 ÜCRETSİZ İPUÇLARI</span>
             <span class="blog-banner-text" style="font-size:20px;letter-spacing:2px;">TIKLA OKU ➜</span>
           </div>
@@ -418,7 +441,7 @@
       </a>
     </section>
 
-<!-- 5) WHATSAPP QR -->
+    <!-- 5) WHATSAPP QR -->
     <section class="qr-zone">
       <h2>WhatsApp ile Sipariş</h2>
 
@@ -648,6 +671,9 @@
 
   <!-- PWA Install Icon -->
   <script src="./js/pwa-install-icon.js"></script>
+
+  <!-- Hero Sales Elements: Ticker, Visitor Counter, FOMO, Top 5 -->
+  <script src="./js/hero-sales.js"></script>
 
 </body>
 

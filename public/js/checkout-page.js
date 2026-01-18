@@ -19,7 +19,7 @@
     const elShip = qs("#sumShipping");
     const elTot = qs("#sumTotal");
     if (elSub) elSub.textContent = money(subtotal);
-    if (elShip) elShip.textContent = "Kargo Bedava ✅";
+    if (elShip) elShip.textContent = "500₺+ Kargo Bedava 🚚";
     if (elTot) elTot.textContent = money(total);
 
     return { subtotal, shipping, total, cart };
