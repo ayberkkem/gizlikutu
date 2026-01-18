@@ -1,12 +1,13 @@
 (function () {
   const KEY = "gk_age_ok_v1";
 
+  // sessionStorage kullanarak her yeni tarayıcı oturumunda (ilk girişte) sor
   function hasConsent() {
-    return localStorage.getItem(KEY) === "1";
+    return sessionStorage.getItem(KEY) === "1";
   }
 
   function setConsent() {
-    localStorage.setItem(KEY, "1");
+    sessionStorage.setItem(KEY, "1");
   }
 
   function lockScroll(lock) {

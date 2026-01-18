@@ -425,10 +425,7 @@
     <script>
         GK.bindGlobalUI();
         document.getElementById("y").textContent = new Date().getFullYear();
-        // Age Gate
-        function confirmAge() { sessionStorage.setItem('ageVerified', 'true'); document.getElementById('ageGateOverlay').classList.add('age-gate-hidden'); }
-        function denyAge() { window.location.href = 'https://www.google.com'; }
-        if (sessionStorage.getItem('ageVerified') === 'true') { document.getElementById('ageGateOverlay').classList.add('age-gate-hidden'); }
+        
     </script>
     <script>
         (async function () {

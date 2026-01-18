@@ -105,19 +105,7 @@
 </head>
 
 <body>
-    <!-- +18 Yaş Doğrulama -->
-    <div class="age-gate-overlay" id="ageGateOverlay">
-        <div class="age-gate-box">
-            <div class="icon">🔞</div>
-            <h2>Yaş Doğrulama</h2>
-            <p>Bu web sitesi yetişkinlere yönelik ürünler içermektedir. Siteye giriş için 18 yaşından büyük olmalısınız.
-            </p>
-            <div class="age-gate-buttons">
-                <button class="age-gate-btn yes" onclick="confirmAge()">18 Yaşından Büyüğüm</button>
-                <button class="age-gate-btn no" onclick="denyAge()">18 Yaşından Küçüğüm</button>
-            </div>
-        </div>
-    </div>
+    
 
     <!-- Hamburger Drawer -->
     <div class="drawerBackdrop" id="drawerBackdrop"></div>
@@ -489,10 +477,7 @@ Aynı gün gizli kargo ile gönderim.
     <script>
         GK.bindGlobalUI();
         document.getElementById("y").textContent = new Date().getFullYear();
-        // Age Gate
-        function confirmAge() { sessionStorage.setItem('ageVerified', 'true'); document.getElementById('ageGateOverlay').classList.add('age-gate-hidden'); }
-        function denyAge() { window.location.href = 'https://www.google.com'; }
-        if (sessionStorage.getItem('ageVerified') === 'true') { document.getElementById('ageGateOverlay').classList.add('age-gate-hidden'); }
+        
     </script>
     <script>
         (async function () {
