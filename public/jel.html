@@ -287,20 +287,20 @@
     <!-- Blog Banner -->
     <style>
       @keyframes neonPulse {
-        0%, 100% { box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
-        50% { box-shadow: 0 0 20px #ff66ff, 0 0 40px #ff66ff, 0 0 60px #ff66ff; filter: brightness(1.15); }
+        0%, 100% { box-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff; }
+        50% { box-shadow: 0 0 25px #ff66ff, 0 0 50px #ff66ff; filter: brightness(1.1); }
       }
       @keyframes textGlow {
-        0%, 100% { text-shadow: 0 0 8px #ff00ff, 0 0 15px #ff00ff; opacity: 0.9; }
-        50% { text-shadow: 0 0 15px #ff66ff, 0 0 30px #ff66ff; opacity: 1; }
+        0%, 100% { text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+        50% { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px #ff66ff; }
       }
       .blog-banner-neon { animation: neonPulse 2s ease-in-out infinite; }
       .blog-banner-text { 
         animation: textGlow 2s ease-in-out infinite;
         font-family: Arial, sans-serif;
         font-weight: bold;
-        color: #ff66ff;
-        letter-spacing: 1px;
+        color: #ffffff;
+        text-transform: uppercase;
       }
     </style>
     <section class="blog-banner-section" style="width:100%;max-width:1100px;margin:30px auto;padding:0 15px;box-sizing:border-box;">
@@ -309,28 +309,26 @@
           position: relative;
           width: 100%;
           height: 180px;
-          background: linear-gradient(90deg, #1a1a1a 0%, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a 100%), 
-                      url('./assets/blog-banner-neon.jpg') center center / contain no-repeat;
+          background: url('./assets/blog-banner-neon.jpg') center center / contain no-repeat;
           background-color: #1a1a1a;
           border-radius: 16px;
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: center;
+          gap: 40px;
           overflow: hidden;
         ">
-          <!-- Sol - SEO Keywords -->
-          <div style="flex:0 0 22%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center;">
-            <span class="blog-banner-text" style="font-size:11px;margin-bottom:6px;">🔥 CİNSEL SAĞLIK</span>
-            <span class="blog-banner-text" style="font-size:14px;margin-bottom:4px;">REHBERİ</span>
-            <span class="blog-banner-text" style="font-size:10px;opacity:0.8;">Uzman Bilgileri</span>
+          <!-- Sol Metin - Daha ortada -->
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:15px 30px;background:rgba(0,0,0,0.6);border-radius:10px;">
+            <span class="blog-banner-text" style="font-size:14px;margin-bottom:5px;">🔥 CİNSEL SAĞLIK</span>
+            <span class="blog-banner-text" style="font-size:20px;letter-spacing:2px;">REHBERİ</span>
           </div>
-          <!-- Orta Boşluk -->
-          <div style="flex:1;"></div>
-          <!-- Sağ - CTA + SEO -->
-          <div style="flex:0 0 22%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center;">
-            <span class="blog-banner-text" style="font-size:11px;margin-bottom:6px;">💡 ÜCRETSİZ</span>
-            <span class="blog-banner-text" style="font-size:14px;margin-bottom:4px;">BİLGİ & İPUCU</span>
-            <span class="blog-banner-text" style="font-size:12px;">TIKLA OKU ➜</span>
+          <!-- Orta Boşluk - Görsel için -->
+          <div style="flex:0 0 300px;"></div>
+          <!-- Sağ Metin - Daha ortada -->
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:15px 30px;background:rgba(0,0,0,0.6);border-radius:10px;">
+            <span class="blog-banner-text" style="font-size:14px;margin-bottom:5px;">💡 ÜCRETSİZ İPUÇLARI</span>
+            <span class="blog-banner-text" style="font-size:20px;letter-spacing:2px;">TIKLA OKU ➜</span>
           </div>
         </div>
       </a>
