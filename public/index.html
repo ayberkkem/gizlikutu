@@ -369,20 +369,35 @@
 
     
     <!-- Blog Banner -->
+    <style>
+      @keyframes neonPulse {
+        0%, 100% { 
+          box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
+          filter: brightness(1);
+        }
+        50% { 
+          box-shadow: 0 0 20px #ff66ff, 0 0 40px #ff66ff, 0 0 60px #ff66ff, 0 0 80px #ff66ff;
+          filter: brightness(1.2);
+        }
+      }
+      .blog-banner-neon {
+        animation: neonPulse 2s ease-in-out infinite;
+      }
+    </style>
     <section class="blog-banner-section" style="
       width: 100%;
-      max-width: 1200px;
+      max-width: 900px;
       margin: 30px auto;
       padding: 0 15px;
       box-sizing: border-box;
     ">
       <a href="./blog.html" title="Blog'a Git" style="display:block;">
-        <div style="
+        <div class="blog-banner-neon" style="
           width: 100%;
-          height: 150px;
-          background: url('./assets/blog-banner-neon.jpg') center center / cover no-repeat;
+          height: 250px;
+          background: url('./assets/blog-banner-neon.jpg') center center / contain no-repeat;
+          background-color: #1a1a1a;
           border-radius: 16px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         "></div>
       </a>
     </section>
