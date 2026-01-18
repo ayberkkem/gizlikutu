@@ -1,7 +1,6 @@
 /**
- * fix-blog-banner-size-v2.js
- * Updates blog banner dimensions to 1021x189px in all HTML files
- * (Width +20%, Height -40%)
+ * fix-blog-banner-youtube-style.js
+ * Updates blog banner to YouTube channel banner style - full width
  */
 
 const fs = require('fs');
@@ -22,7 +21,7 @@ function getHtmlFiles(dir) {
     return files;
 }
 
-function fixBannerSize(filePath) {
+function fixBannerStyle(filePath) {
     const fileName = path.basename(filePath);
     let content = fs.readFileSync(filePath, 'utf8');
 
@@ -30,16 +29,31 @@ function fixBannerSize(filePath) {
         return 'no-banner';
     }
 
-    // Match existing banner img tag
-    const oldPattern = /<img src="\.\/assets\/blog-banner-neon\.jpg"[^>]*\/>/gi;
+    // Match existing banner section
+    const oldSectionPattern = /<!-- Blog Banner -->[\s\S]*?<section class="blog-banner-section"[^>]*>[\s\S]*?<\/section>/gi;
 
-    // New img tag with updated dimensions: 1021x189px
-    const newImgTag = `<img src="./assets/blog-banner-neon.jpg" alt="Gizli Kutu Blog" loading="lazy" 
-             width="1021" height="189" 
-             style="max-width:100%;width:1021px;height:auto;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.3);object-fit:cover;" />`;
+    // New YouTube-style banner - full width, rounded corners, centered
+    const newBannerSection = `<!-- Blog Banner -->
+    <section class="blog-banner-section" style="
+      width: 100%;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 15px;
+      box-sizing: border-box;
+    ">
+      <a href="./blog.html" title="Blog'a Git" style="display:block;">
+        <div style="
+          width: 100%;
+          height: 150px;
+          background: url('./assets/blog-banner-neon.jpg') center center / cover no-repeat;
+          border-radius: 16px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        "></div>
+      </a>
+    </section>`;
 
-    if (content.match(oldPattern)) {
-        content = content.replace(oldPattern, newImgTag);
+    if (content.match(oldSectionPattern)) {
+        content = content.replace(oldSectionPattern, newBannerSection);
         fs.writeFileSync(filePath, content, 'utf8');
         console.log(`✅ Fixed: ${fileName}`);
         return 'fixed';
@@ -49,13 +63,13 @@ function fixBannerSize(filePath) {
     return 'no-match';
 }
 
-console.log('🚀 Fixing blog banner size to 1021x189px (Width +20%, Height -40%)...\n');
+console.log('🚀 Converting to YouTube-style full-width banner...\n');
 
 const htmlFiles = getHtmlFiles(PUBLIC_DIR);
 let fixed = 0, noBanner = 0, noMatch = 0;
 
 for (const file of htmlFiles) {
-    const result = fixBannerSize(file);
+    const result = fixBannerStyle(file);
     if (result === 'fixed') fixed++;
     else if (result === 'no-banner') noBanner++;
     else if (result === 'no-match') noMatch++;
