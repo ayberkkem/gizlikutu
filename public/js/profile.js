@@ -223,9 +223,19 @@ function loadCartPreview() {
 
     container.style.display = 'block';
 
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    if (countEl) countEl.textContent = cart.length;
+    // 1) Sepeti oku (Global Storage veya Direct LS)
+    let cart = [];
+    if (window.GKStorage && window.GKStorage.readCart) {
+        cart = window.GKStorage.readCart();
+    } else {
+        cart = JSON.parse(localStorage.getItem('gizlikutu_cart_v1') || '[]');
+    }
 
+    // 2) Toplam Ürün Sayısını Hesapla (item.qty üzerinden)
+    const totalQty = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+    if (countEl) countEl.textContent = totalQty;
+
+    // 3) Sepet Boşsa
     if (cart.length === 0) {
         list.innerHTML = `
             <div style="text-align:center; padding: 20px; color:#666;">
@@ -244,16 +254,24 @@ function loadCartPreview() {
     let total = 0;
 
     cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
+        // Miktar (storage.js 'qty' kullanıyor, ama eski için 'quantity' fallback)
+        const q = item.qty || item.quantity || 1;
+
+        const itemTotal = item.price * q;
         total += itemTotal;
-        const img = (item.images && item.images[0]) || item.image || './assets/placeholder.jpg';
+
+        // Görsel Seçimi (storage.js mantığına benzer, ama item içinde zaten image string olabilir)
+        // item.images array veya item.image string
+        let img = './assets/placeholder.jpg';
+        if (item.images && item.images.length > 0) img = item.images[0];
+        else if (item.image) img = item.image;
 
         html += `
             <div style="display:flex; align-items:center; gap:15px; padding:10px 0; border-bottom:1px solid rgba(0,0,0,0.05);">
                 <img src="${img}" style="width:50px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #ddd;">
                 <div style="flex:1">
                     <div style="font-weight:500; font-size:14px; color:#333; margin-bottom:2px">${item.title}</div>
-                    <div style="font-size:12px; color:#666;">${item.quantity} adet x ${money(item.price)}</div>
+                    <div style="font-size:12px; color:#666;">${q} adet x ${money(item.price)}</div>
                 </div>
                 <div style="font-weight:bold; color:#333; font-size:14px;">
                     ${money(itemTotal)}
