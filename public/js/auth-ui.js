@@ -391,6 +391,8 @@ function bindEvents() {
 
       if (err.code === 'auth/configuration-not-found' || err.code === 'auth/operation-not-allowed') {
         msg = "Google girişi henüz aktif edilmemiştir. Lütfen şimdilik E-posta ile üye olunuz.";
+      } else if (err.code === 'auth/unauthorized-domain') {
+        msg = "Bu alan adı (gizlikutu.online) henüz yetkilendirilmemiş. Lütfen yönetici panelinden domain ekleyin.";
       } else if (err.code === 'auth/popup-closed-by-user') {
         return;
       }
