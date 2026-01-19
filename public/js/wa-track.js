@@ -17,7 +17,7 @@
 
     links.forEach(a => {
       a.addEventListener("click", () => {
-        // ✅ Pixel (Lead daha mantıklı — Purchase sadece ödeme sonrası success’te)
+        // ✅ Pixel (Lead daha mantıklı — Purchase sadece öÖdeme sonrası success’te)
         safeFbq("Lead", { content_name: "WhatsApp Support" });
 
         // ✅ GA4

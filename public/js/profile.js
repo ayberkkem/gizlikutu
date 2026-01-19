@@ -57,7 +57,7 @@ async function loadOrders(uid) {
         if (snapshot.empty) {
             container.innerHTML = `
                 <div style="text-align:center; padding: 30px 20px;">
-                    <p style="color:#444; font-size:16px; margin-bottom:20px; font-weight:500;">Henüz Hiç Siparişiniz Bulunmamaktadır</p>
+                    <p style="color:#444; font-size:16px; margin-bottom:20px; font-weight:500;">Henüz Hiç Siparişşiniz Bulunmamaktadır</p>
                     <a href="./products.html" style="
                         display: inline-block;
                         background: #dc2626; 
@@ -69,7 +69,7 @@ async function loadOrders(uid) {
                         box-shadow: 0 10px 20px -5px rgba(220, 38, 38, 0.4);
                         transition: transform 0.2s;
                     " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        Hemen Sipariş Ver
+                        Hemen Siparişş Ver
                     </a>
                 </div>
             `;
@@ -115,7 +115,7 @@ async function loadOrders(uid) {
         console.error(err);
         container.innerHTML = `
             <div style="text-align:center; padding: 30px 20px;">
-                <p style="color:#444; font-size:16px; margin-bottom:20px; font-weight:500;">Henüz Hiç Siparişiniz Bulunmamaktadır</p>
+                <p style="color:#444; font-size:16px; margin-bottom:20px; font-weight:500;">Henüz Hiç Siparişşiniz Bulunmamaktadır</p>
                 <a href="./products.html" style="
                     display: inline-block;
                     background: #dc2626; 
@@ -127,7 +127,7 @@ async function loadOrders(uid) {
                     box-shadow: 0 10px 20px -5px rgba(220, 38, 38, 0.4);
                     transition: transform 0.2s;
                 " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    Hemen Sipariş Ver
+                    Hemen Siparişş Ver
                 </a>
             </div>
         `;

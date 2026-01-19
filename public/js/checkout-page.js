@@ -92,7 +92,7 @@
       align-items: center;
     `;
     header.innerHTML = `
-      <span style="color:#fff;font-weight:600;font-size:${isMobile ? '16px' : '14px'}">💳 Güvenli Ödeme</span>
+      <span style="color:#fff;font-weight:600;font-size:${isMobile ? '16px' : '14px'}">💳 Güvenli ÖÖdeme</span>
       <button id="paytrCloseBtn" style="
         width:${isMobile ? '36px' : '28px'};
         height:${isMobile ? '36px' : '28px'};
@@ -130,11 +130,11 @@
 
     // Kapatma butonu
     document.getElementById("paytrCloseBtn").onclick = () => {
-      if (confirm("Ödemeyi iptal etmek istediğinize emin misiniz?")) {
+      if (confirm("ÖÖdemeyi iptal etmek istediğinize emin misiniz?")) {
         overlay.remove();
         document.body.style.overflow = '';
         submitBtn.disabled = false;
-        submitBtn.textContent = "Siparişi Tamamla";
+        submitBtn.textContent = "Siparişşi Tamamla";
       }
     };
 
@@ -163,7 +163,7 @@
 
       orderData.createdAt = serverTimestamp();
       await addDoc(collection(window.firestoreDB, "orders"), orderData);
-      console.log("✅ Sipariş Firestore'a kaydedildi:", orderData.orderNo);
+      console.log("✅ Siparişş Firestore'a kaydedildi:", orderData.orderNo);
       return true;
     } catch (err) {
       console.error("❌ Firestore kayıt hatası:", err);
@@ -184,7 +184,7 @@
     if (agreeEl && !agreeEl.checked) {
       toast("Devam etmek için sözleşmeleri onaylamalısın.");
       submitBtn.disabled = false;
-      submitBtn.textContent = "Siparişi Tamamla";
+      submitBtn.textContent = "Siparişşi Tamamla";
       return;
     }
 
@@ -198,17 +198,17 @@
     const phoneDigits = String(formData.phone || "").replace(/\D/g, "");
     const gsm = phoneDigits ? "+90" + phoneDigits : "";
 
-    // Ödeme yöntemi kontrolü - value="card" HTML'den
+    // ÖÖdeme yöntemi kontrolü - value="card" HTML'den
     const paymentValue = String(formData.payment || "card");
     const isCardPayment = paymentValue === "card";
 
     console.log("🔍 Form payment value:", paymentValue);
     console.log("🔍 isCardPayment:", isCardPayment);
 
-    // Sipariş numarası oluştur (PayTR sadece alfanumerik kabul ediyor)
+    // Siparişş numarası oluştur (PayTR sadece alfanumerik kabul ediyor)
     const orderNo = "GK" + Date.now();
 
-    // Sipariş verisi
+    // Siparişş verisi
     const orderData = {
       orderNo: orderNo,
       customer: {
@@ -240,14 +240,14 @@
        💳 KREDİ KARTI İLE ÖDEME (PAYTR)
     ========================== */
     if (isCardPayment) {
-      submitBtn.textContent = "Ödeme hazırlanıyor...";
+      submitBtn.textContent = "ÖÖdeme hazırlanıyor...";
 
       // Önce siparişi Firestore'a kaydet
       const saved = await saveOrderToFirestore(orderData);
       if (!saved) {
-        toast("Sipariş kaydedilemedi. Lütfen tekrar deneyin.");
+        toast("Siparişş kaydedilemedi. Lütfen tekrar deneyin.");
         submitBtn.disabled = false;
-        submitBtn.textContent = "Siparişi Tamamla";
+        submitBtn.textContent = "Siparişşi Tamamla";
         return;
       }
 
@@ -294,18 +294,18 @@
           // Sepeti temizle
           window.GKStorage.clearCart();
 
-          // PayTR ödeme ekranını aç
+          // PayTR öÖdeme ekranını aç
           showPaytrModal(data.iframeUrl);
 
           // RETURN - success.html'e gitme!
           return;
         } else {
-          throw new Error(data.error || "Ödeme sistemi yanıt vermedi");
+          throw new Error(data.error || "ÖÖdeme sistemi yanıt vermedi");
         }
       } catch (err) {
-        toast("Ödeme başlatılamadı: " + (err.message || "Bilinmeyen hata. Lütfen tekrar deneyin."));
+        toast("ÖÖdeme başlatılamadı: " + (err.message || "Bilinmeyen hata. Lütfen tekrar deneyin."));
         submitBtn.disabled = false;
-        submitBtn.textContent = "Siparişi Tamamla";
+        submitBtn.textContent = "Siparişşi Tamamla";
         return;
       }
     }
@@ -316,9 +316,9 @@
 
     const saved = await saveOrderToFirestore(orderData);
     if (!saved) {
-      toast("Sipariş kaydedilemedi. Lütfen tekrar deneyin.");
+      toast("Siparişş kaydedilemedi. Lütfen tekrar deneyin.");
       submitBtn.disabled = false;
-      submitBtn.textContent = "Siparişi Tamamla";
+      submitBtn.textContent = "Siparişşi Tamamla";
       return;
     }
 
