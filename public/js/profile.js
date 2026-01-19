@@ -256,25 +256,41 @@ function loadCartPreview() {
     cart.forEach(item => {
         // Miktar (storage.js 'qty' kullanıyor, ama eski için 'quantity' fallback)
         const q = item.qty || item.quantity || 1;
-
         const itemTotal = item.price * q;
         total += itemTotal;
 
-        // Görsel Seçimi (storage.js mantığına benzer, ama item içinde zaten image string olabilir)
-        // item.images array veya item.image string
         let img = './assets/placeholder.jpg';
         if (item.images && item.images.length > 0) img = item.images[0];
         else if (item.image) img = item.image;
 
         html += `
-            <div style="display:flex; align-items:center; gap:15px; padding:10px 0; border-bottom:1px solid rgba(0,0,0,0.05);">
-                <img src="${img}" style="width:50px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #ddd;">
+            <div style="display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid rgba(0,0,0,0.05); position:relative;">
+                <img src="${img}" style="width:60px; height:60px; object-fit:cover; border-radius:8px; border:1px solid #eee;">
+                
                 <div style="flex:1">
-                    <div style="font-weight:500; font-size:14px; color:#333; margin-bottom:2px">${item.title}</div>
-                    <div style="font-size:12px; color:#666;">${q} adet x ${money(item.price)}</div>
-                </div>
-                <div style="font-weight:bold; color:#333; font-size:14px;">
-                    ${money(itemTotal)}
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                        <div style="font-weight:600; font-size:14px; color:#1f2937; line-height:1.2; padding-right:20px;">
+                            ${item.title}
+                        </div>
+                        <button onclick="removeProfileCartItem('${item.id}')" 
+                                style="background:none; border:none; cursor:pointer; color:#ef4444; font-size:11px; display:flex; align-items:center; gap:2px; padding:2px 5px; border-radius:4px;">
+                            🗑️ Sil
+                        </button>
+                    </div>
+
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div style="display:flex; align-items:center; border:1px solid #e5e7eb; border-radius:6px; overflow:hidden;">
+                            <button onclick="updateProfileCartQty('${item.id}', ${q}, -1)" 
+                                    style="width:28px; height:28px; border:none; background:#f9fafb; font-weight:bold; color:#374151; cursor:pointer;">-</button>
+                            <span style="width:32px; text-align:center; font-size:13px; font-weight:500;">${q}</span>
+                            <button onclick="updateProfileCartQty('${item.id}', ${q}, 1)" 
+                                    style="width:28px; height:28px; border:none; background:#f9fafb; font-weight:bold; color:#374151; cursor:pointer;">+</button>
+                        </div>
+
+                        <div style="font-weight:700; color:#111827; font-size:15px;">
+                            ${money(itemTotal)}
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
@@ -283,3 +299,38 @@ function loadCartPreview() {
     list.innerHTML = html;
     if (totalEl) totalEl.textContent = money(total);
 }
+
+// Helper Functions
+window.updateProfileCartQty = function (id, currentQty, change) {
+    if (!window.GKStorage) return;
+    const newQty = currentQty + change;
+    if (newQty < 1) return;
+    window.GKStorage.updateQty(id, newQty);
+    loadCartPreview();
+    // Header'daki sepet sayısını güncelle (Live update)
+    const event = new Event('storage');
+    window.dispatchEvent(event);
+
+    // Header cart badge güncelleme (Basit DOM manipülasyonu)
+    const cartCountEl = document.getElementById('cartCount'); // Header'daki element ID'si
+    if (cartCountEl && window.GKStorage.cartCount) {
+        const count = window.GKStorage.cartCount();
+        cartCountEl.textContent = count;
+        cartCountEl.style.display = count > 0 ? 'flex' : 'none';
+    }
+};
+
+window.removeProfileCartItem = function (id) {
+    if (!window.GKStorage) return;
+    if (!confirm('Bu ürünü sepetten silmek istiyor musunuz?')) return;
+    window.GKStorage.removeItem(id);
+    loadCartPreview();
+
+    // Header cart badge güncelleme
+    const cartCountEl = document.getElementById('cartCount');
+    if (cartCountEl && window.GKStorage.cartCount) {
+        const count = window.GKStorage.cartCount();
+        cartCountEl.textContent = count;
+        cartCountEl.style.display = count > 0 ? 'flex' : 'none';
+    }
+};
