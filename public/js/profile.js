@@ -55,7 +55,24 @@ async function loadOrders(uid) {
         const snapshot = await getDocs(q);
 
         if (snapshot.empty) {
-            container.innerHTML = '<div style="text-align:center; color:#888;">Henüz bir siparişiniz bulunmuyor.</div>';
+            container.innerHTML = `
+                <div style="text-align:center; padding: 30px 20px;">
+                    <p style="color:#444; font-size:16px; margin-bottom:20px; font-weight:500;">Henüz Hiç Siparişiniz Bulunmamaktadır</p>
+                    <a href="./products.html" style="
+                        display: inline-block;
+                        background: #dc2626; 
+                        color: white; 
+                        padding: 12px 30px; 
+                        border-radius: 12px; 
+                        text-decoration: none; 
+                        font-weight: bold;
+                        box-shadow: 0 10px 20px -5px rgba(220, 38, 38, 0.4);
+                        transition: transform 0.2s;
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        Hemen Sipariş Ver
+                    </a>
+                </div>
+            `;
             return;
         }
 
@@ -95,8 +112,25 @@ async function loadOrders(uid) {
         container.innerHTML = html;
 
     } catch (err) {
-        console.error(err); // Index hatası olabilir, console'a bas
-        container.innerHTML = '<div style="text-align:center; color:#ff4d4d;">Siparişler yüklenemedi. (Henüz index oluşmamış olabilir veya hiç sipariş yok)</div>';
+        console.error(err);
+        container.innerHTML = `
+            <div style="text-align:center; padding: 30px 20px;">
+                <p style="color:#444; font-size:16px; margin-bottom:20px; font-weight:500;">Henüz Hiç Siparişiniz Bulunmamaktadır</p>
+                <a href="./products.html" style="
+                    display: inline-block;
+                    background: #dc2626; 
+                    color: white; 
+                    padding: 12px 30px; 
+                    border-radius: 12px; 
+                    text-decoration: none; 
+                    font-weight: bold;
+                    box-shadow: 0 10px 20px -5px rgba(220, 38, 38, 0.4);
+                    transition: transform 0.2s;
+                " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    Hemen Sipariş Ver
+                </a>
+            </div>
+        `;
     }
 }
 
