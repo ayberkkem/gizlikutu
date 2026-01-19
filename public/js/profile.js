@@ -265,15 +265,17 @@ function loadCartPreview() {
 
         html += `
             <div style="display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid rgba(0,0,0,0.05); position:relative;">
-                <img src="${img}" style="width:60px; height:60px; object-fit:cover; border-radius:8px; border:1px solid #eee;">
+                <a href="./product.html?id=${item.id}" style="display:block; flex-shrink:0;">
+                    <img src="${img}" style="width:60px; height:60px; object-fit:cover; border-radius:8px; border:1px solid #eee;">
+                </a>
                 
                 <div style="flex:1">
                     <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
-                        <div style="font-weight:600; font-size:14px; color:#1f2937; line-height:1.2; padding-right:20px;">
+                        <a href="./product.html?id=${item.id}" style="font-weight:600; font-size:14px; color:#1f2937; line-height:1.2; padding-right:20px; text-decoration:none; flex:1">
                             ${item.title}
-                        </div>
+                        </a>
                         <button onclick="removeProfileCartItem('${item.id}')" 
-                                style="background:none; border:none; cursor:pointer; color:#ef4444; font-size:11px; display:flex; align-items:center; gap:2px; padding:2px 5px; border-radius:4px;">
+                                style="background:none; border:none; cursor:pointer; color:#ef4444; font-size:11px; display:flex; align-items:center; gap:2px; padding:2px 5px; border-radius:4px; flex-shrink:0;">
                             🗑️ Sil
                         </button>
                     </div>
