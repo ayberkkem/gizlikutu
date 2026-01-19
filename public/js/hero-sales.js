@@ -35,7 +35,7 @@
           white-space: nowrap;
         }
         .ticker-text {
-          color: #ffffff;
+          color: #ffffff !important;
           font-size: 12px;
           font-weight: 600;
           padding: 0 50px;
@@ -81,7 +81,7 @@
           align-items: center;
           gap: 5px;
           background: rgba(0,0,0,0.6);
-          color: #fff;
+          color: #ffffff !important;
           font-size: 11px;
           padding: 4px 10px;
           border-radius: 15px;
@@ -270,7 +270,7 @@
         }
         .top5-label {
           font-size: 11px;
-          color: #ffffff;
+          color: #ffffff !important;
           font-weight: 700;
           white-space: nowrap;
         }
