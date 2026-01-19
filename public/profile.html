@@ -59,6 +59,7 @@
         }
 
         /* Section Styles */
+        .cart-section,
         .orders-section,
         .history-section,
         .top5-section {
@@ -248,6 +249,26 @@
             </div>
             <button id="logoutBtn" class="logout-btn">Çıkış Yap ➜</button>
         </div>
+
+        <!-- 0. Sepetim (YENİ) -->
+        <section class="cart-section" id="cartSection" style="display:none">
+            <div class="section-title">
+                🛒 Sepetim
+                <span id="profileCartCount"
+                    style="background:#dc2626; color:white; padding:2px 8px; border-radius:10px; font-size:12px; margin-left:auto">0</span>
+            </div>
+            <div id="profileCartList" class="order-item" style="display:block">
+                <!-- Sepet içeriği JS ile buraya gelecek -->
+            </div>
+            <div id="profileCartActions"
+                style="display:flex; justify-content:space-between; align-items:center; margin-top:15px; border-top:1px solid rgba(0,0,0,0.05); padding-top:15px">
+                <div style="font-size:16px; font-weight:bold; color:#333">
+                    Toplam: <span id="profileCartTotal" style="color:#2563eb">0 TL</span>
+                </div>
+                <a href="./checkout.html" class="btn primary" style="padding:10px 20px; font-size:14px">Ödemeye Geç
+                    ➜</a>
+            </div>
+        </section>
 
         <!-- 1. Siparişşlerim -->
         <section class="orders-section">

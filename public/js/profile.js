@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadOrders(user.uid);
         loadTop5();
         loadHistory();
+        loadCartPreview();
     });
 
     // Logout
@@ -206,4 +207,61 @@ function renderProductGrid(container, products) {
     }).join('');
 
     container.innerHTML = html;
+}
+
+/* =========================================
+   5. LOAD CART PREVIEW
+   ========================================= */
+function loadCartPreview() {
+    const list = document.querySelector('#profileCartList');
+    const container = document.querySelector('#cartSection');
+    const totalEl = document.querySelector('#profileCartTotal');
+    const countEl = document.querySelector('#profileCartCount');
+    const actions = document.querySelector('#profileCartActions');
+
+    if (!container) return;
+
+    container.style.display = 'block';
+
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    if (countEl) countEl.textContent = cart.length;
+
+    if (cart.length === 0) {
+        list.innerHTML = `
+            <div style="text-align:center; padding: 20px; color:#666;">
+                Sepetinizde ürün bulunmamaktadır.
+                <br><br>
+                <a href="./products.html" class="btn primary" style="padding:8px 16px; font-size:13px;">Alışverişe Başla</a>
+            </div>
+        `;
+        if (actions) actions.style.display = 'none';
+        return;
+    }
+
+    if (actions) actions.style.display = 'flex';
+
+    let html = '';
+    let total = 0;
+
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        const img = (item.images && item.images[0]) || item.image || './assets/placeholder.jpg';
+
+        html += `
+            <div style="display:flex; align-items:center; gap:15px; padding:10px 0; border-bottom:1px solid rgba(0,0,0,0.05);">
+                <img src="${img}" style="width:50px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #ddd;">
+                <div style="flex:1">
+                    <div style="font-weight:500; font-size:14px; color:#333; margin-bottom:2px">${item.title}</div>
+                    <div style="font-size:12px; color:#666;">${item.quantity} adet x ${money(item.price)}</div>
+                </div>
+                <div style="font-weight:bold; color:#333; font-size:14px;">
+                    ${money(itemTotal)}
+                </div>
+            </div>
+        `;
+    });
+
+    list.innerHTML = html;
+    if (totalEl) totalEl.textContent = money(total);
 }
