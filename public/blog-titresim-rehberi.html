@@ -198,6 +198,37 @@ nav.desktop-header-nav a[href="./contact.html"],
 </style>
 </head>
 <body>
+<script>
+// Hamburger menü toggle fonksiyonu - inline tanım
+window.toggleSidebar = function() {
+    var d = document.getElementById("drawer");
+    var b = document.getElementById("drawerBackdrop");
+    if (d && b) {
+        d.classList.toggle("open");
+        b.classList.toggle("open");
+    }
+};
+// Backdrop tıklamasıyla kapat
+document.addEventListener("DOMContentLoaded", function() {
+    var backdrop = document.getElementById("drawerBackdrop");
+    var closeBtn = document.getElementById("closeDrawer");
+    if (backdrop) {
+        backdrop.addEventListener("click", function() {
+            var d = document.getElementById("drawer");
+            var b = document.getElementById("drawerBackdrop");
+            if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
+        });
+    }
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function() {
+            var d = document.getElementById("drawer");
+            var b = document.getElementById("drawerBackdrop");
+            if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
+        });
+    }
+});
+</script>
+
   <div class="drawerBackdrop" id="drawerBackdrop"></div>
   <aside class="drawer" id="drawer">
     <div class="row" style="justify-content:space-between">
@@ -205,7 +236,7 @@ nav.desktop-header-nav a[href="./contact.html"],
       <button class="iconbtn" id="closeDrawer" onclick="document.getElementById('drawerBackdrop').click()">✕</button>
     </div>
     <h5>Kategoriler</h5><div id="hamburgerCategories"></div>
-    <h4>Kurumsal</h4><a class="navlink" href="./contact.html">letişim</a>
+    <h4>Kurumsal</h4>
   </aside>
 
   

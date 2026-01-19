@@ -112,7 +112,26 @@
   function bindGlobalUI() {
     // Hamburger Menü (Class Selector Düzeltmesi)
     const menuBtns = qsa(".menuBtn");
-    menuBtns.forEach(btn => btn.addEventListener("click", window.toggleSidebar));
+    menuBtns.forEach(btn => {
+      // Remove any existing listener to prevent duplicates
+      btn.removeEventListener("click", window.toggleSidebar);
+      // Add fresh event listener
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof window.toggleSidebar === 'function') {
+          window.toggleSidebar();
+        }
+      });
+      // Backup: Also set onclick directly
+      btn.onclick = function (e) {
+        e.preventDefault();
+        if (typeof window.toggleSidebar === 'function') {
+          window.toggleSidebar();
+        }
+        return false;
+      };
+    });
 
     const backdrop = qs("#drawerBackdrop");
     if (backdrop) backdrop.addEventListener("click", closeDrawer);

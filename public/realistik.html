@@ -158,6 +158,37 @@ nav.desktop-header-nav a[href="./contact.html"],
 </head>
 
 <body>
+<script>
+// Hamburger menü toggle fonksiyonu - inline tanım
+window.toggleSidebar = function() {
+    var d = document.getElementById("drawer");
+    var b = document.getElementById("drawerBackdrop");
+    if (d && b) {
+        d.classList.toggle("open");
+        b.classList.toggle("open");
+    }
+};
+// Backdrop tıklamasıyla kapat
+document.addEventListener("DOMContentLoaded", function() {
+    var backdrop = document.getElementById("drawerBackdrop");
+    var closeBtn = document.getElementById("closeDrawer");
+    if (backdrop) {
+        backdrop.addEventListener("click", function() {
+            var d = document.getElementById("drawer");
+            var b = document.getElementById("drawerBackdrop");
+            if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
+        });
+    }
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function() {
+            var d = document.getElementById("drawer");
+            var b = document.getElementById("drawerBackdrop");
+            if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
+        });
+    }
+});
+</script>
+
   <div class="drawerBackdrop" id="drawerBackdrop"></div>
   <aside class="drawer" id="drawer" aria-label="MenÃ¼">
     <div class="row" style="justify-content:space-between">
@@ -166,8 +197,7 @@ nav.desktop-header-nav a[href="./contact.html"],
     </div>
     <h5>Kategoriler</h5>
     <div id="hamburgerCategories"></div>
-    <h4>Kurumsal</h4><a class="navlink" data-close-drawer href="./about.html">HakkÄ±mÄ±zda</a><a class="navlink"
-      data-close-drawer href="./contact.html">Ä°letiÅŸim</a>
+    <h4>Kurumsal</h4>
     <h6>SÃ¶zleÅŸmeler</h6><a class="navlink" data-close-drawer href="./kvkk.html">KVKK</a><a class="navlink"
       data-close-drawer href="./privacy.html">Gizlilik</a><a class="navlink" data-close-drawer
       href="./terms.html">KoÅŸullar</a>
@@ -239,7 +269,7 @@ nav.desktop-header-nav a[href="./contact.html"],
 </header>
   <nav id="categoryNav" class="category-nav-wrapper"></nav>
   <nav class="mobile-top-nav"><a href="./index.html">Anasayfa</a><a href="./products.html" class="active">PopÃ¼ler
-      ÃœrÃ¼nler</a><a href="./about.html">HakkÄ±mÄ±zda</a><a href="./contact.html">Ä°letiÅŸim</a></nav>
+      ÃœrÃ¼nler</a></nav>
   <main class="container">
     <div class="products-hero">
       <div class="products-hero-left">
@@ -406,6 +436,4 @@ nav.desktop-header-nav a[href="./contact.html"],
 </body>
 
 </html>
-
-
 

@@ -158,6 +158,37 @@ nav.desktop-header-nav a[href="./contact.html"],
 </head>
 
 <body>
+<script>
+// Hamburger menü toggle fonksiyonu - inline tanım
+window.toggleSidebar = function() {
+    var d = document.getElementById("drawer");
+    var b = document.getElementById("drawerBackdrop");
+    if (d && b) {
+        d.classList.toggle("open");
+        b.classList.toggle("open");
+    }
+};
+// Backdrop tıklamasıyla kapat
+document.addEventListener("DOMContentLoaded", function() {
+    var backdrop = document.getElementById("drawerBackdrop");
+    var closeBtn = document.getElementById("closeDrawer");
+    if (backdrop) {
+        backdrop.addEventListener("click", function() {
+            var d = document.getElementById("drawer");
+            var b = document.getElementById("drawerBackdrop");
+            if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
+        });
+    }
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function() {
+            var d = document.getElementById("drawer");
+            var b = document.getElementById("drawerBackdrop");
+            if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
+        });
+    }
+});
+</script>
+
 
   <div class="drawerBackdrop" id="drawerBackdrop"></div>
 
@@ -174,8 +205,8 @@ nav.desktop-header-nav a[href="./contact.html"],
     <div id="hamburgerCategories"></div>
 
     <h4>Kurumsal</h4>
-    <a class="navlink" data-close-drawer href="./about.html">HakkÄ±mÄ±zda</a>
-    <a class="navlink" data-close-drawer href="./contact.html">Ä°letiÅŸim</a>
+    
+    
 
     <h6>SÃ¶zleÅŸmeler</h6>
     <a class="navlink" data-close-drawer href="./kvkk.html">KVKK</a>
@@ -192,7 +223,6 @@ nav.desktop-header-nav a[href="./contact.html"],
     </div>
   </aside>
 
-  
   <header id="mainHeader">
     <div class="container">
       <div class="header-row" style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 0;">
@@ -258,8 +288,8 @@ nav.desktop-header-nav a[href="./contact.html"],
   <nav class="mobile-top-nav">
     <a href="./index.html">Anasayfa</a>
     <a href="./products.html" class="active">PopÃ¼ler ÃœrÃ¼nler</a>
-    <a href="./about.html">HakkÄ±mÄ±zda</a>
-    <a href="./contact.html">Ä°letiÅŸim</a>
+    
+    
   </nav>
 
   <main class="container">
@@ -499,7 +529,6 @@ nav.desktop-header-nav a[href="./contact.html"],
   <script src="./js/category-nav.js" defer></script>
   <script src="./js/pwa-install-icon.js"></script>
 
-
     <!-- Floating WhatsApp Button (Centered Right) -->
     <a href="https://wa.me/905400443445" target="_blank" aria-label="WhatsApp Destek" 
        style="position:fixed; top:50%; right:10px; transform:translateY(-50%); width:60px; height:60px; background:#25D366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.3); z-index:9999; text-decoration:none;">
@@ -513,6 +542,4 @@ nav.desktop-header-nav a[href="./contact.html"],
 </body>
 
 </html>
-
-
 

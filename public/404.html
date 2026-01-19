@@ -159,6 +159,37 @@ nav.desktop-header-nav a[href="./contact.html"],
 </head>
 
 <body>
+<script>
+// Hamburger menü toggle fonksiyonu - inline tanım
+window.toggleSidebar = function() {
+    var d = document.getElementById("drawer");
+    var b = document.getElementById("drawerBackdrop");
+    if (d && b) {
+        d.classList.toggle("open");
+        b.classList.toggle("open");
+    }
+};
+// Backdrop tıklamasıyla kapat
+document.addEventListener("DOMContentLoaded", function() {
+    var backdrop = document.getElementById("drawerBackdrop");
+    var closeBtn = document.getElementById("closeDrawer");
+    if (backdrop) {
+        backdrop.addEventListener("click", function() {
+            var d = document.getElementById("drawer");
+            var b = document.getElementById("drawerBackdrop");
+            if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
+        });
+    }
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function() {
+            var d = document.getElementById("drawer");
+            var b = document.getElementById("drawerBackdrop");
+            if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
+        });
+    }
+});
+</script>
+
     
   <header id="mainHeader">
     <div class="container">
