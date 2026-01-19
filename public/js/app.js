@@ -99,6 +99,16 @@
     if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
   }
 
+  // toggleSidebar - Global (HTML onclick için)
+  window.toggleSidebar = function () {
+    const d = document.getElementById("drawer");
+    const b = document.getElementById("drawerBackdrop");
+    if (d && b) {
+      d.classList.toggle("open");
+      b.classList.toggle("open");
+    }
+  };
+
   function bindGlobalUI() {
     // Hamburger Menü (Class Selector Düzeltmesi)
     const menuBtns = qsa(".menuBtn");
@@ -141,17 +151,7 @@
     });
   }
 
-  // Global Scope'a aç (HTML onclick="toggleSidebar()" için)
-  window.toggleSidebar = function () {
-    const d = document.getElementById("drawer");
-    const b = document.getElementById("drawerBackdrop");
-    if (d && b) {
-      d.classList.toggle("open");
-      b.classList.toggle("open");
-    }
-  };
-
-  // DOM Yüklendikten sonra çalıştır (Garanti olsun)
+  // DOM Yüklendikten sonra çalıştır
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', bindGlobalUI);
   } else {
