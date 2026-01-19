@@ -4,12 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const banner = document.createElement('div');
     banner.id = 'cargo-timer-banner';
     // Arkaplanı premium yap (Sitedeki mor tema)
-    // Yazı okunabilirliği için gradient overlay ekliyoruz
     banner.style.cssText = `
         background: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.85)), url('./assets/premium-bg.jpg');
         background-size: cover;
         background-position: center;
-        color: #fff;
+        color: #ffffff !important; /* TÜM YAZILAR BEYAZ */
         text-align: center;
         padding: 10px 10px;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -58,18 +57,18 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isNextDay) {
             banner.innerHTML = `
                 <span>🌙</span>
-                <span style="opacity:0.9">Bugünkü kargolar çıktı.</span>
-                <span style="color:#fbbf24; font-weight:bold">Yarınki Kargo</span>
-                <span>için:</span>
-                <span style="font-family:monospace; font-weight:bold; font-size:1.1em; color:#fff; background:rgba(255,255,255,0.1); padding:2px 6px; border-radius:4px; letter-spacing:1px; border:1px solid rgba(255,255,255,0.2)">${h}:${m}:${s}</span>
+                <span style="opacity:0.9; color:#ffffff !important;">Bugünkü kargolar çıktı.</span>
+                <span style="color:#ffffff !important; font-weight:bold">Yarınki Kargo</span>
+                <span style="color:#ffffff !important;">için:</span>
+                <span style="font-family:monospace; font-weight:bold; font-size:1.1em; color:#ffffff !important; background:rgba(255,255,255,0.2); padding:2px 6px; border-radius:4px; letter-spacing:1px; border:1px solid rgba(255,255,255,0.3)">${h}:${m}:${s}</span>
              `;
         } else {
-            // 18:00 Öncesi (ACİLİYET)
+            // 18:00 Öncesi (ACİLİYET) - HER ŞEY BEYAZ
             banner.innerHTML = `
                 <span style="font-size:1.2em">🚀</span>
-                <span style="font-weight:700; color:#4ade80; text-transform:uppercase; letter-spacing:0.5px">AYNI GÜN KARGO FIRSATI!</span>
-                <span style="font-family:monospace; font-weight:bold; font-size:1.3em; background:#ef4444; color:white; padding:2px 8px; border-radius:6px; margin:0 4px; letter-spacing:1px; box-shadow:0 2px 5px rgba(239, 68, 68, 0.4)">${h}:${m}:${s}</span>
-                <span>içinde sipariş verirsen <strong style="text-decoration:underline;text-underline-offset:3px; color:#fff">BUGÜN</strong> yola çıkar.</span>
+                <span style="font-weight:700; color:#ffffff !important; text-transform:uppercase; letter-spacing:0.5px">AYNI GÜN KARGO FIRSATI!</span>
+                <span style="font-family:monospace; font-weight:bold; font-size:1.3em; background:#ef4444; color:#ffffff !important; padding:2px 8px; border-radius:6px; margin:0 4px; letter-spacing:1px; box-shadow:0 2px 5px rgba(239, 68, 68, 0.4)">${h}:${m}:${s}</span>
+                <span style="color:#ffffff !important">içinde sipariş verirsen <strong style="text-decoration:underline;text-underline-offset:3px; color:#ffffff !important">BUGÜN</strong> yola çıkar.</span>
              `;
         }
 
