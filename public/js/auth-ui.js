@@ -165,10 +165,6 @@ const AUTH_HTML = `
 
         <div class="divider"><span>VEYA</span></div>
 
-        <button class="auth-btn social-btn facebook" id="btnFbLogin">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.88c0-2.474 1.276-4.66 4.358-4.66 1.476 0 2.246.11 2.617.159v3.012h-1.796c-1.2 0-1.527.57-1.527 1.405v1.964h3.368l-.427 3.667h-2.941v7.98H9.101z"/></svg>
-           Facebook İle Giriş Yap
-        </button>
         <button class="auth-btn social-btn" id="btnGoogleLogin">
           <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
           Google İle Giriş Yap
@@ -197,10 +193,6 @@ const AUTH_HTML = `
 
         <div class="divider"><span>VEYA</span></div>
 
-        <button class="auth-btn social-btn facebook" id="btnFbSignup">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.88c0-2.474 1.276-4.66 4.358-4.66 1.476 0 2.246.11 2.617.159v3.012h-1.796c-1.2 0-1.527.57-1.527 1.405v1.964h3.368l-.427 3.667h-2.941v7.98H9.101z"/></svg>
-           Facebook İle Giriş Yap
-        </button>
         <button class="auth-btn social-btn" id="btnGoogleSignup">
           <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
           Google İle Giriş Yap
@@ -398,7 +390,7 @@ function bindEvents() {
       let msg = "Giriş hatası: " + err.message;
 
       if (err.code === 'auth/configuration-not-found' || err.code === 'auth/operation-not-allowed') {
-        msg = "Google/Facebook girişi henüz aktif edilmemiştir. Lütfen şimdilik E-posta ile üye olunuz.";
+        msg = "Google girişi henüz aktif edilmemiştir. Lütfen şimdilik E-posta ile üye olunuz.";
       } else if (err.code === 'auth/popup-closed-by-user') {
         return;
       }
@@ -408,8 +400,6 @@ function bindEvents() {
 
   document.getElementById('btnGoogleLogin').onclick = () => handleSocial(googleProvider);
   document.getElementById('btnGoogleSignup').onclick = () => handleSocial(googleProvider);
-  document.getElementById('btnFbLogin').onclick = () => handleSocial(facebookProvider);
-  document.getElementById('btnFbSignup').onclick = () => handleSocial(facebookProvider);
 }
 
 /* =========================================
