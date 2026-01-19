@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gizli Kutu | Profilim</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="./assets/logo.webp" type="image/jpeg">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/category-nav.css">
+
+    <style>
+        /* Profil Sayfası Özel Stiller */
+        .profile-header {
+            background: linear-gradient(135deg, #2d1f3d 0%, #1a1a1a 100%);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .user-info h2 {
+            margin: 0;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .user-info p {
+            margin: 5px 0 0;
+            color: #999;
+        }
+
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .logout-btn:hover {
+            background: #ff4d4d;
+            border-color: #ff4d4d;
+        }
+
+        /* Section Styles */
+        .orders-section,
+        .history-section,
+        .top5-section {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        /* Order List */
+        .order-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .order-header {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .order-id {
+            font-family: monospace;
+            color: #8b5cf6;
+            font-size: 14px;
+        }
+
+        .order-date {
+            color: #888;
+            font-size: 12px;
+        }
+
+        .order-total {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4ade80;
+        }
+
+        .order-status {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: #333;
+            color: #ccc;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .order-status.paid {
+            background: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+        }
+
+        .order-products {
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 10px;
+            padding-top: 10px;
+            font-size: 13px;
+            color: #ddd;
+        }
+
+        /* Product Grid (History & Recommended) */
+        .p-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
+        }
+
+        .p-card {
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .p-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .p-img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+        }
+
+        .p-info {
+            padding: 10px;
+        }
+
+        .p-title {
+            font-size: 12px;
+            height: 32px;
+            overflow: hidden;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .p-price {
+            font-size: 13px;
+            font-weight: bold;
+            color: #8b5cf6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="drawerBackdrop" id="drawerBackdrop"></div>
+    <aside class="drawer" id="drawer"></aside>
+
+    <header class="topbar">
+        <div class="container header">
+            <button class="iconbtn" id="menuBtn">☰</button>
+            <a class="brand" href="./index.html">
+                <img src="./assets/logo.webp" alt="Gizli Kutu">
+                <b>Gizli Kutu</b>
+            </a>
+
+            <div class="header-right" style="flex:1">
+                <!-- Standart Header -->
+                <a class="iconbtn" href="https://wa.me/905400443445"><img src="./assets/whatsapp.svg" width="22"></a>
+                <button class="iconbtn searchToggleBtn" id="searchToggle">🔍</button>
+                <div class="search" id="searchBox"><input id="globalSearch" placeholder="Ürün ara..." /></div>
+                <a class="iconbtn cartWrap" href="./cart.html">🛒<span class="badge" id="cartCount"
+                        style="display:none">0</span></a>
+
+                <nav class="desktop-header-nav">
+                    <a href="./index.html">Anasayfa</a>
+                    <a href="./products.html">Popüler Ürünler</a>
+                    <a href="./about.html">Hakkımızda</a>
+                    <a href="./contact.html">İletişim</a>
+                    <a href="./blog.html">Blog</a>
+                    <!-- Auth Linkleri JS ile buraya gelecek -->
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <nav id="categoryNav" class="category-nav-wrapper"></nav>
+
+    <main class="container" style="margin-top:20px; min-height: 60vh;">
+
+        <!-- Üst Bilgi -->
+        <div class="profile-header">
+            <div class="user-info">
+                <h2 id="userName">Yükleniyor...</h2>
+                <p id="userEmail">...</p>
+            </div>
+            <button id="logoutBtn" class="logout-btn">Çıkış Yap ➜</button>
+        </div>
+
+        <!-- 1. Siparişlerim -->
+        <section class="orders-section">
+            <div class="section-title">📦 Siparişlerim</div>
+            <div id="ordersList">
+                <div style="text-align:center; padding: 20px; color: #666;">Yükleniyor...</div>
+            </div>
+        </section>
+
+        <!-- 2. Top 5 Tercih Edilen -->
+        <section class="top5-section">
+            <div class="section-title">🏆 Kullanıcıların Tercih Ettiği Top 5</div>
+            <div class="p-grid" id="top5List"></div>
+        </section>
+
+        <!-- 3. Son Ziyaret Edilenler -->
+        <section class="history-section">
+            <div class="section-title">🕒 Son Ziyaret Ettikleriniz</div>
+            <div class="p-grid" id="historyList">
+                <div style="text-align:center; width:100%; color:#666;">Henüz bir ürün görüntülemediniz.</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">© <span id="y"></span> Gizli Kutu</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/storage.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/category-nav.js" defer></script>
+
+    <!-- Firebase & Auth -->
+    <script type="module" src="./js/firebase.js"></script>
+    <script type="module" src="./js/auth-ui.js"></script>
+
+    <!-- Profile Page Logic -->
+    <script type="module" src="./js/profile.js"></script>
+
+    <script>
+        GK.bindGlobalUI();
+        document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

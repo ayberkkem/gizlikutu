@@ -1,0 +1,175 @@
+
+import {
+    signOut,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import {
+    collection, query, where, getDocs, orderBy
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { auth, db } from "./firebase.js";
+
+const { money, qs } = window.GK || { money: v => v + ' TL', qs: s => document.querySelector(s) };
+
+/* =========================================
+   1. INIT & AUTH CHECK
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+            window.location.href = './index.html';
+            return;
+        }
+
+        // UI Update
+        qs('#userName').textContent = user.displayName || user.email.split('@')[0];
+        qs('#userEmail').textContent = user.email;
+
+        // Load Data
+        loadOrders(user.uid);
+        loadTop5();
+        loadHistory();
+    });
+
+    // Logout
+    qs('#logoutBtn').addEventListener('click', async () => {
+        await signOut(auth);
+        window.location.href = './index.html';
+    });
+});
+
+/* =========================================
+   2. LOAD ORDERS
+   ========================================= */
+async function loadOrders(uid) {
+    const container = qs('#ordersList');
+    container.innerHTML = '<div style="text-align:center; color:#888;">Yükleniyor...</div>';
+
+    try {
+        // Firestore query: orders where userId == uid
+        const q = query(
+            collection(db, "orders"),
+            where("userId", "==", uid),
+            orderBy("createdAt", "desc")
+        );
+
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+            container.innerHTML = '<div style="text-align:center; color:#888;">Henüz bir siparişiniz bulunmuyor.</div>';
+            return;
+        }
+
+        let html = '';
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            const date = new Date(data.createdAt).toLocaleDateString('tr-TR');
+            const statusClass = data.status === 'paid' ? 'paid' : '';
+            const statusText = data.status === 'paid' ? 'ÖDEME YAPILDI' : 'ÖDEME BEKLENİYOR';
+
+            // Ürünleri listele
+            let productsHtml = '';
+            if (data.cartItems && Array.isArray(data.cartItems)) {
+                productsHtml = data.cartItems.map(p => `
+           <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
+              <span>${p.quantity}x ${p.title}</span>
+              <span>${money(p.price * p.quantity)}</span>
+           </div>
+         `).join('');
+            }
+
+            html += `
+        <div class="order-item">
+          <div class="order-header">
+            <div class="order-id">#${doc.id.slice(0, 8)}...</div>
+            <div class="order-date">${date}</div>
+          </div>
+          <div class="order-status ${statusClass}">${statusText}</div>
+          <div class="order-total">${money(data.totalPrice || 0)}</div>
+          <div class="order-products">
+             ${productsHtml}
+          </div>
+        </div>
+      `;
+        });
+
+        container.innerHTML = html;
+
+    } catch (err) {
+        console.error(err); // Index hatası olabilir, console'a bas
+        container.innerHTML = '<div style="text-align:center; color:#ff4d4d;">Siparişler yüklenemedi. (Henüz index oluşmamış olabilir veya hiç sipariş yok)</div>';
+    }
+}
+
+/* =========================================
+   3. LOAD TOP 5 PRODUCTS
+   ========================================= */
+async function loadTop5() {
+    const container = qs('#top5List');
+
+    try {
+        const res = await fetch('./data/products.json');
+        const products = await res.json();
+
+        // Rastgele 5 ürün seç (gerçek bir algoritma yerine shuffle)
+        const shuffled = products
+            .filter(p => p.active && p.price > 100)
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 5);
+
+        renderProductGrid(container, shuffled);
+
+    } catch (e) {
+        container.innerHTML = '';
+    }
+}
+
+/* =========================================
+   4. LOAD VISIT HISTORY
+   ========================================= */
+async function loadHistory() {
+    const container = qs('#historyList');
+
+    // LocalStorage'daki array: ["prod-id-1", "prod-id-2"]
+    const historyIds = JSON.parse(localStorage.getItem('gk_viewded_products') || '[]');
+
+    if (historyIds.length === 0) {
+        return;
+    }
+
+    try {
+        const res = await fetch('./data/products.json');
+        const allProducts = await res.json();
+
+        // ID'lere göre filtrele
+        const historyProducts = historyIds
+            .map(id => allProducts.find(p => p.id === id))
+            .filter(p => p); // undefined olanları at
+
+        if (historyProducts.length > 0) {
+            renderProductGrid(container, historyProducts.slice(0, 10)); // Son 10
+        }
+
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+/* =========================================
+   HELPER: RENDER GRID
+   ========================================= */
+function renderProductGrid(container, products) {
+    const html = products.map(p => {
+        const img = (p.images && p.images[0]) || p.image || './assets/placeholder.jpg';
+        return `
+      <a href="./product.html?slug=${p.slug || p.id}" class="p-card">
+        <img src="${img}" class="p-img" loading="lazy" alt="${p.title}">
+        <div class="p-info">
+          <div class="p-title">${p.title}</div>
+          <div class="p-price">${money(p.price)}</div>
+        </div>
+      </a>
+    `;
+    }).join('');
+
+    container.innerHTML = html;
+}
