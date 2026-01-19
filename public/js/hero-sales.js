@@ -41,7 +41,7 @@
           padding: 0 50px;
           letter-spacing: 1px;
         }
-        .ticker-text .highlight { color: #ff66ff; font-weight: 700; }
+        .ticker-text .highlight { color: #ffcc00; font-weight: 700; }
         @keyframes tickerScroll {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -270,7 +270,7 @@
         }
         .top5-label {
           font-size: 11px;
-          color: #ff66ff;
+          color: #ffffff;
           font-weight: 700;
           white-space: nowrap;
         }
