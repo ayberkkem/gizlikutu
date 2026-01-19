@@ -209,9 +209,21 @@
     <div class="drawerBackdrop" id="drawerBackdrop"></div>
     <aside class="drawer" id="drawer"></aside>
 
-    <header class="topbar">
-        <div class="container header">
-            <button class="iconbtn" id="menuBtn">☰</button>
+    
+  <header id="mainHeader">
+    <div class="container">
+      <div class="header-row" style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 0;">
+        
+        
+        <a class="brand" href="./index.html">
+                <img src="./assets/logo.webp" alt="Gizli Kutu">
+                <b>Gizli Kutu</b>
+            </a>
+
+            <div class="header-right" style="flex:1">
+                <!-- Standart Header -->
+                <a class="iconbtn" href="https://wa.me/905400443445"><img src="./assets/whatsapp.svg" width="22"></a>
+        <button class="iconbtn" id="menuBtn">☰</button>
             <a class="brand" href="./index.html">
                 <img src="./assets/logo.webp" alt="Gizli Kutu">
                 <b>Gizli Kutu</b>
@@ -221,10 +233,8 @@
                 <!-- Standart Header -->
                 <a class="iconbtn" href="https://wa.me/905400443445"><img src="./assets/whatsapp.svg" width="22"></a>
                 <button class="iconbtn searchToggleBtn" id="searchToggle">🔍</button>
-                <div class="search" id="searchBox"><input id="globalSearch" placeholder="Ürün ara..." /></div>
-                
-
-                <nav class="desktop-header-nav">
+        <div class="search" style="flex:1; max-width:600px; margin:0 1.5rem;" id="searchBox"><input id="globalSearch" placeholder="Ürün ara..." /></div>
+        <nav class="desktop-header-nav">
                     <a href="./index.html">Anasayfa</a>
                     <a href="./products.html">Popüler Ürünler</a>
                     <a href="./about.html">Hakkımızda</a>
@@ -234,9 +244,9 @@
                 </nav>
         <a class="iconbtn cartWrap" href="./cart.html">🛒<span class="badge" id="cartCount"
                         style="display:none">0</span></a>
-            </div>
-        </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
     <nav id="categoryNav" class="category-nav-wrapper"></nav>
 
