@@ -76,12 +76,15 @@
     counter.id = 'visitorCounter';
     counter.innerHTML = `
       <style>
+        #visitorCounter,
+        #visitorCounter * {
+          color: #ffffff !important;
+        }
         #visitorCounter {
           display: inline-flex;
           align-items: center;
           gap: 5px;
-          background: rgba(0,0,0,0.6);
-          color: #ffffff !important;
+          background: rgba(0,0,0,0.7);
           font-size: 11px;
           padding: 4px 10px;
           border-radius: 15px;
@@ -91,9 +94,13 @@
         #visitorCounter .dot {
           width: 6px;
           height: 6px;
-          background: #4ade80;
+          background: #4ade80 !important;
           border-radius: 50%;
           animation: visitorPulse 1.5s infinite;
+        }
+        #visitorNum {
+          color: #ffffff !important;
+          font-weight: 700;
         }
         @keyframes visitorPulse {
           0%, 100% { opacity: 1; }
@@ -102,7 +109,7 @@
       </style>
       <span class="dot"></span>
       <span id="visitorNum">${count}</span> kişi görüntülüyor
-    `;
+      `;
 
     // Insert after kicker text
     kicker.appendChild(counter);
@@ -125,57 +132,57 @@
     const fomoContainer = document.createElement('div');
     fomoContainer.id = 'fomoNotification';
     fomoContainer.innerHTML = `
-      <style>
-        #fomoNotification {
-          position: fixed;
-          bottom: 100px;
-          left: 15px;
-          background: #fff;
-          border-radius: 12px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-          padding: 10px 14px;
-          z-index: 9996;
-          display: none;
-          align-items: center;
-          gap: 10px;
-          max-width: 280px;
-          animation: slideIn 0.3s ease;
-        }
-        @media (min-width: 769px) {
-          #fomoNotification { bottom: 50px; }
-        }
-        @keyframes slideIn {
-          from { transform: translateX(-100%); opacity: 0; }
+      < style >
+      #fomoNotification {
+      position: fixed;
+      bottom: 100px;
+      left: 15px;
+      background: #fff;
+      border - radius: 12px;
+      box - shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      padding: 10px 14px;
+      z - index: 9996;
+      display: none;
+      align - items: center;
+      gap: 10px;
+      max - width: 280px;
+      animation: slideIn 0.3s ease;
+    }
+    @media(min - width: 769px) {
+      #fomoNotification { bottom: 50px; }
+    }
+    @keyframes slideIn {
+          from { transform: translateX(-100 %); opacity: 0; }
           to { transform: translateX(0); opacity: 1; }
-        }
-        .fomo-img {
-          width: 45px;
-          height: 45px;
-          border-radius: 8px;
-          object-fit: cover;
-          filter: blur(3px);
-          cursor: pointer;
-          transition: filter 0.3s;
-        }
-        .fomo-img:hover { filter: blur(1px); }
-        .fomo-text {
-          font-size: 12px;
-          color: #333;
-          line-height: 1.4;
-        }
-        .fomo-name { font-weight: 700; color: #8b5cf6; }
-        .fomo-time { font-size: 10px; color: #999; }
-        .fomo-close {
-          position: absolute;
-          top: 5px;
-          right: 8px;
-          font-size: 14px;
-          color: #999;
-          cursor: pointer;
-          background: none;
-          border: none;
-        }
-      </style>
+    }
+        .fomo - img {
+      width: 45px;
+      height: 45px;
+      border - radius: 8px;
+      object - fit: cover;
+      filter: blur(3px);
+      cursor: pointer;
+      transition: filter 0.3s;
+    }
+        .fomo - img:hover { filter: blur(1px); }
+        .fomo - text {
+      font - size: 12px;
+      color: #333;
+      line - height: 1.4;
+    }
+        .fomo - name { font - weight: 700; color: #8b5cf6; }
+        .fomo - time { font - size: 10px; color: #999; }
+        .fomo - close {
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      font - size: 14px;
+      color: #999;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+      </style >
       <a id="fomoLink" href="#"><img class="fomo-img" id="fomoImage" src="" alt="Ürün"></a>
       <div class="fomo-text">
         <div><span class="fomo-name" id="fomoUser">A**** Y****</span> satın aldı!</div>
@@ -256,48 +263,48 @@
     const sliderContainer = document.createElement('div');
     sliderContainer.id = 'top5Slider';
     sliderContainer.innerHTML = `
-      <style>
-        #top5Slider {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          margin-top: 15px;
-          padding: 8px 15px;
-          background: rgba(0,0,0,0.5);
-          border-radius: 25px;
-          backdrop-filter: blur(5px);
-        }
-        .top5-label {
-          font-size: 11px;
-          color: #ffffff !important;
-          font-weight: 700;
-          white-space: nowrap;
-        }
-        .top5-items {
-          display: flex;
-          gap: 8px;
-        }
-        .top5-item {
-          width: 42px;
-          height: 42px;
-          border-radius: 10px;
-          overflow: hidden;
-          border: 2px solid transparent;
-          transition: all 0.3s;
-        }
-        .top5-item.active { border-color: #ff66ff; transform: scale(1.1); }
-        .top5-item img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        @media (max-width: 768px) {
-          #top5Slider { padding: 6px 12px; margin-top: 12px; }
-          .top5-item { width: 36px; height: 36px; }
-          .top5-label { font-size: 10px; }
-        }
-      </style>
+      < style >
+      #top5Slider {
+      display: flex;
+      align - items: center;
+      justify - content: center;
+      gap: 10px;
+      margin - top: 15px;
+      padding: 8px 15px;
+      background: rgba(0, 0, 0, 0.5);
+      border - radius: 25px;
+      backdrop - filter: blur(5px);
+    }
+        .top5 - label {
+      font - size: 11px;
+      color: #ffffff!important;
+      font - weight: 700;
+      white - space: nowrap;
+    }
+        .top5 - items {
+      display: flex;
+      gap: 8px;
+    }
+        .top5 - item {
+      width: 42px;
+      height: 42px;
+      border - radius: 10px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+        .top5 - item.active { border - color: #ff66ff; transform: scale(1.1); }
+        .top5 - item img {
+      width: 100 %;
+      height: 100 %;
+      object - fit: cover;
+    }
+    @media(max - width: 768px) {
+      #top5Slider { padding: 6px 12px; margin - top: 12px; }
+          .top5 - item { width: 36px; height: 36px; }
+          .top5 - label { font - size: 10px; }
+    }
+      </style >
       <div class="top5-label">🏆 EN ÇOK TERCİH EDİLEN</div>
       <div class="top5-items" id="top5Items"></div>
     `;
@@ -347,7 +354,7 @@
       item.className = 'top5-item' + (i === 0 ? ' active' : '');
       item.href = './product.html?slug=' + p.slug;
       item.title = p.title;
-      item.innerHTML = `<img src="${p.images[0]}" alt="${p.title}" loading="lazy">`;
+      item.innerHTML = `< img src = "${p.images[0]}" alt = "${p.title}" loading = "lazy" > `;
       container.appendChild(item);
     });
 
