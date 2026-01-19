@@ -100,9 +100,11 @@
   }
 
   function bindGlobalUI() {
-    const menuBtn = qs("#menuBtn");
+    // Hamburger Menü (Class Selector Düzeltmesi)
+    const menuBtns = qsa(".menuBtn");
+    menuBtns.forEach(btn => btn.addEventListener("click", window.toggleSidebar));
+
     const backdrop = qs("#drawerBackdrop");
-    if (menuBtn) menuBtn.addEventListener("click", openDrawer);
     if (backdrop) backdrop.addEventListener("click", closeDrawer);
 
     const closeBtn = qs("#closeDrawer");
@@ -122,6 +124,38 @@
 
     setCartBadge();
     window.addEventListener("storage", setCartBadge);
+
+    // --- CRITICAL HEADER FIX ---
+    // Hakkımızda ve İletişim butonlarını kalıcı olarak sil ve menüyü tazele.
+    const navs = document.querySelectorAll("nav.desktop-header-nav");
+    navs.forEach(nav => {
+      nav.innerHTML = `
+            <a href="./index.html">Anasayfa</a>
+            <a href="./products.html">Popüler Ürünler</a>
+            <a href="./cities.html">Hizmet Bölgelerimiz</a>
+            <a href="./blog.html">Blog</a>
+          `;
+      nav.style.display = 'flex';
+      nav.style.gap = '15px';
+      nav.style.alignItems = 'center';
+    });
+  }
+
+  // Global Scope'a aç (HTML onclick="toggleSidebar()" için)
+  window.toggleSidebar = function () {
+    const d = document.getElementById("drawer");
+    const b = document.getElementById("drawerBackdrop");
+    if (d && b) {
+      d.classList.toggle("open");
+      b.classList.toggle("open");
+    }
+  };
+
+  // DOM Yüklendikten sonra çalıştır (Garanti olsun)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindGlobalUI);
+  } else {
+    bindGlobalUI();
   }
 
   window.GK = { state, loadProducts, money, qs, qsa, toast, setCartBadge, bindGlobalUI };
