@@ -40,6 +40,39 @@
 
     gtag('config', 'G-6FSVNXZPN9');
   </script>
+
+<style>
+/* HEADER LOGO & WHATSAPP OVERLAP FIX */
+.header-row .logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important; 
+    margin-right: 15px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+}
+.header-row .logo span {
+    line-height: normal !important;
+    display: inline-block !important;
+}
+/* WhatsApp Ikonunu biraz sağa at */
+.header-row a[href*="wa.me"] svg, 
+.header-row .text-success svg {
+    margin-left: 10px !important;
+}
+/* Arama çubuğu genişlik ayarı (Mobilde yer açmak için) */
+@media (max-width: 600px) {
+    .header-row {
+        gap: 5px !important;
+    }
+    .header-row .logo span {
+        font-size: 15px !important; /* Yazıyı biraz küçült */
+    }
+    .header-search {
+        max-width: 140px !important;
+    }
+}
+</style>
 </head>
 
 <body>
