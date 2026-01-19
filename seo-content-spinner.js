@@ -18,7 +18,7 @@ function getAllFiles(dirPath, arrayOfFiles) {
 const files = getAllFiles(publicDir).filter(f => f.endsWith('.html'));
 
 // ==========================================
-// 1. NON-AKHİSAR (KARGO) ŞABLONLARI (FİRMA ÇEŞİTLİLİĞİ İLE - GÜVENLİ SÜRELER)
+// 1. NON-AKHİSAR (KARGO) ŞABLONLARI (GENİŞLETİLMİŞ LİSTE: ARAS, YURTİÇİ, PTT, UPS, MNG, DHL, SÜRAT)
 // ==========================================
 const cargoDeliveryTemplates = [
     (city) => `
@@ -89,6 +89,34 @@ const cargoDeliveryTemplates = [
             <strong>Süreç:</strong> MNG Kargo ile 1-3 iş günü içinde kapınızda.<br>
             <strong>Paketleme:</strong> Dışarıdan asla belli olmaz.<br>
             <strong>Opsiyon:</strong> İsterseniz size en yakın MNG şubesinden teslim alabilirsiniz.
+        </div>
+    `,
+    (city) => `
+        <h2>${city} DHL İLE PREMİUM LOJİSTİK</h2>
+        <p>Gizli Kutu, <strong>${city}</strong> gönderimlerinde profesyonel <strong>DHL</strong> lojistik altyapısını kullanmayı tercih eder.</p>
+        <div class="delivery-features">
+            <div>🌍 DHL Kalitesi</div>
+            <div>📦 Sağlam Paket</div>
+            <div>💳 Güvenli Ödeme</div>
+        </div>
+        <div class="neighborhoods">
+            <strong>Hız:</strong> DHL güvencesi ile ${city} bölgesine sorunsuz teslimat.<br>
+            <strong>Gizlilik:</strong> Uluslararası standartlarda, içeriği belli olmayan paketleme.<br>
+            <strong>Süre:</strong> 1-3 iş günü içinde elinizde.
+        </div>
+    `,
+    (city) => `
+        <h2>${city} SÜRAT KARGO İLE EKONOMİK TESLİMAT</h2>
+        <p><strong>${city}</strong> siparişlerinizde <strong>Sürat Kargo</strong>'nun geniş dağıtım ağını kullanıyoruz.</p>
+        <div class="delivery-features">
+            <div>🚀 Sürat Kargo</div>
+            <div>🕵️ Gizli Kutu</div>
+            <div>✅ Hızlı Teslimat</div>
+        </div>
+        <div class="neighborhoods">
+            <strong>Dağıtım:</strong> Sürat Kargo ile ${city} merkez ve ilçelerine güvenli ulaşım.<br>
+            <strong>Bilgilendirme:</strong> Kargonuz yola çıktığı an SMS ile bilgi verilir.<br>
+            <strong>Teslimat:</strong> Ortalama 1-3 iş günü.
         </div>
     `
 ];
@@ -171,4 +199,4 @@ files.forEach(file => {
     }
 });
 
-console.log(`Content spinned (SAFE DURATION & CARGO NAMES) for ${count} files.`);
+console.log(`Content spinned with EXPANDED CARGO (DHL, SURAT added) for ${count} files.`);
