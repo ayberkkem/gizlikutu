@@ -1,17 +1,17 @@
 
 import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signInWithPopup,
-    signOut,
-    onAuthStateChanged,
-    updateProfile,
-    sendPasswordResetEmail
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+  updateProfile,
+  sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
-    doc,
-    setDoc,
-    getDoc
+  doc,
+  setDoc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { auth, db, googleProvider, facebookProvider } from "./firebase.js";
 
@@ -219,61 +219,61 @@ const AUTH_HTML = `
    ========================================= */
 
 function initAuthUI() {
-    // Inject CSS
-    const styleSheet = document.createElement("style");
-    styleSheet.textContent = AUTH_STYLES;
-    document.head.appendChild(styleSheet);
+  // Inject CSS
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = AUTH_STYLES;
+  document.head.appendChild(styleSheet);
 
-    // Inject HTML
-    document.body.insertAdjacentHTML("beforeend", AUTH_HTML);
-    bindEvents();
-    checkAuthState();
+  // Inject HTML
+  document.body.insertAdjacentHTML("beforeend", AUTH_HTML);
+  bindEvents();
+  checkAuthState();
 }
 
 function toggleModal(show, view = 'login') {
-    const backdrop = document.getElementById('authBackdrop');
-    if (show) {
-        backdrop.classList.add('active');
-        switchView(view);
-    } else {
-        backdrop.classList.remove('active');
-    }
+  const backdrop = document.getElementById('authBackdrop');
+  if (show) {
+    backdrop.classList.add('active');
+    switchView(view);
+  } else {
+    backdrop.classList.remove('active');
+  }
 }
 
 function switchView(target) {
-    // Hide all content
-    document.querySelectorAll('.auth-content').forEach(c => c.classList.remove('active'));
+  // Hide all content
+  document.querySelectorAll('.auth-content').forEach(c => c.classList.remove('active'));
 
-    // Show target content
-    const content = document.getElementById(`auth-${target}`);
-    if (content) content.classList.add('active');
+  // Show target content
+  const content = document.getElementById(`auth-${target}`);
+  if (content) content.classList.add('active');
 
-    // Handle Tabs Visibility
-    const tabs = document.getElementById('authTabs');
-    if (target === 'reset') {
-        tabs.classList.add('hidden');
-    } else {
-        tabs.classList.remove('hidden');
-        // Update active tab
-        document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
-        const tab = document.querySelector(`.auth-tab[data-target="${target}"]`);
-        if (tab) tab.classList.add('active');
-    }
+  // Handle Tabs Visibility
+  const tabs = document.getElementById('authTabs');
+  if (target === 'reset') {
+    tabs.classList.add('hidden');
+  } else {
+    tabs.classList.remove('hidden');
+    // Update active tab
+    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+    const tab = document.querySelector(`.auth-tab[data-target="${target}"]`);
+    if (tab) tab.classList.add('active');
+  }
 
-    // Clear errors
-    document.querySelectorAll('.error-msg').forEach(e => e.style.display = 'none');
-    document.querySelectorAll('.success-msg').forEach(e => e.style.display = 'none');
+  // Clear errors
+  document.querySelectorAll('.error-msg').forEach(e => e.style.display = 'none');
+  document.querySelectorAll('.success-msg').forEach(e => e.style.display = 'none');
 }
 
 function showMsg(target, msg, type = 'error') {
-    const el = document.getElementById(target + (type === 'error' ? 'Error' : 'Success'));
-    el.textContent = msg;
-    el.style.display = 'block';
-    if (type === 'success') {
-        // Hide error just in case
-        const errEl = document.getElementById(target + 'Error');
-        if (errEl) errEl.style.display = 'none';
-    }
+  const el = document.getElementById(target + (type === 'error' ? 'Error' : 'Success'));
+  el.textContent = msg;
+  el.style.display = 'block';
+  if (type === 'success') {
+    // Hide error just in case
+    const errEl = document.getElementById(target + 'Error');
+    if (errEl) errEl.style.display = 'none';
+  }
 }
 
 /* =========================================
@@ -281,179 +281,176 @@ function showMsg(target, msg, type = 'error') {
    ========================================= */
 
 function bindEvents() {
-    // Close Modal
-    document.getElementById('authClose').onclick = () => toggleModal(false);
-    document.getElementById('authBackdrop').onclick = (e) => {
-        if (e.target === document.getElementById('authBackdrop')) toggleModal(false);
-    };
+  // Close Modal
+  document.getElementById('authClose').onclick = () => toggleModal(false);
+  document.getElementById('authBackdrop').onclick = (e) => {
+    if (e.target === document.getElementById('authBackdrop')) toggleModal(false);
+  };
 
-    // Switch Tabs (Login/Signup)
-    document.querySelectorAll('.auth-tab').forEach(tab => {
-        tab.onclick = () => switchView(tab.dataset.target);
-    });
+  // Switch Tabs (Login/Signup)
+  document.querySelectorAll('.auth-tab').forEach(tab => {
+    tab.onclick = () => switchView(tab.dataset.target);
+  });
 
-    // Forgot Password Link
-    document.getElementById('forgotPassLink').onclick = () => switchView('reset');
+  // Forgot Password Link
+  document.getElementById('forgotPassLink').onclick = () => switchView('reset');
 
-    // Back to Login Link
-    document.getElementById('backToLogin').onclick = () => switchView('login');
-
-
-    // --- LOGIN FORM ---
-    document.getElementById('loginForm').onsubmit = async (e) => {
-        e.preventDefault();
-        const email = e.target[0].value;
-        const pass = e.target[1].value;
-
-        try {
-            await signInWithEmailAndPassword(auth, email, pass);
-            toggleModal(false);
-            window.location.reload();
-        } catch (err) {
-            showMsg('login', 'Giriş yapılamadı: ' + err.message);
-        }
-    };
-
-    // --- SIGNUP FORM ---
-    document.getElementById('signupForm').onsubmit = async (e) => {
-        e.preventDefault();
-        const name = document.getElementById('suName').value;
-        const phone = document.getElementById('suPhone').value;
-        const email = document.getElementById('suEmail').value;
-        const pass = document.getElementById('suPass').value;
-
-        // Validation
-        if (pass.length < 6) return showMsg('signup', 'Şifre en az 6 karakter olmalı.');
-        if (!/[A-Z]/.test(pass)) return showMsg('signup', 'Şifre en az 1 büyük harf içermeli.');
-
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
-            const user = userCredential.user;
-
-            // Update Profile
-            await updateProfile(user, { displayName: name });
-
-            // Save additional data
-            await setDoc(doc(db, "users", user.uid), {
-                firstName: name,
-                email: email,
-                phone: phone,
-                createdAt: new Date().toISOString()
-            });
-
-            toggleModal(false);
-            window.location.reload();
-        } catch (err) {
-            showMsg('signup', 'Kayıt olunamadı: ' + err.message);
-        }
-    };
-
-    // --- RESET PASSWORD FORM ---
-    document.getElementById('resetForm').onsubmit = async (e) => {
-        e.preventDefault();
-        const email = document.getElementById('resetEmail').value;
-
-        try {
-            await sendPasswordResetEmail(auth, email);
-            showMsg('reset', 'Şifre sıfırlama linki e-posta adresinize gönderildi.', 'success');
-        } catch (err) {
-            showMsg('reset', 'Hata: ' + err.message);
-        }
-    };
+  // Back to Login Link
+  document.getElementById('backToLogin').onclick = () => switchView('login');
 
 
-    // --- SOCIAL LOGIN ---
-    const handleSocial = async (provider) => {
-        try {
-            const result = await signInWithPopup(auth, provider);
+  // --- LOGIN FORM ---
+  document.getElementById('loginForm').onsubmit = async (e) => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const pass = e.target[1].value;
 
-            // Eğer yeni kullanıcıysa, DB'ye kaydetmeye çalış (opsiyonel, user.uid ile overwrite etmez)
-            // Ancak displayName vs provider'dan gelir.
-            const user = result.user;
-            await setDoc(doc(db, "users", user.uid), {
-                firstName: user.displayName || 'Kullanıcı',
-                email: user.email,
-                // Phone provider'dan gelmeyebilir, boş bırakabiliriz
-                lastLogin: new Date().toISOString()
-            }, { merge: true });
+    try {
+      await signInWithEmailAndPassword(auth, email, pass);
+      toggleModal(false);
+      window.location.reload();
+    } catch (err) {
+      showMsg('login', 'Giriş yapılamadı: ' + err.message);
+    }
+  };
 
-            toggleModal(false);
-            window.location.reload();
-        } catch (err) {
-            alert("Hata: " + err.message);
-        }
-    };
+  // --- SIGNUP FORM ---
+  document.getElementById('signupForm').onsubmit = async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('suName').value;
+    const phone = document.getElementById('suPhone').value;
+    const email = document.getElementById('suEmail').value;
+    const pass = document.getElementById('suPass').value;
 
-    document.getElementById('btnGoogleLogin').onclick = () => handleSocial(googleProvider);
-    document.getElementById('btnGoogleSignup').onclick = () => handleSocial(googleProvider);
-    document.getElementById('btnFbLogin').onclick = () => handleSocial(facebookProvider);
-    document.getElementById('btnFbSignup').onclick = () => handleSocial(facebookProvider);
+    // Validation
+    if (pass.length < 6) return showMsg('signup', 'Şifre en az 6 karakter olmalı.');
+    if (!/[A-Z]/.test(pass)) return showMsg('signup', 'Şifre en az 1 büyük harf içermeli.');
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
+      const user = userCredential.user;
+
+      // Update Profile
+      await updateProfile(user, { displayName: name });
+
+      // Save additional data
+      await setDoc(doc(db, "users", user.uid), {
+        firstName: name,
+        email: email,
+        phone: phone,
+        createdAt: new Date().toISOString()
+      });
+
+      toggleModal(false);
+      window.location.reload();
+    } catch (err) {
+      showMsg('signup', 'Kayıt olunamadı: ' + err.message);
+    }
+  };
+
+  // --- RESET PASSWORD FORM ---
+  document.getElementById('resetForm').onsubmit = async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('resetEmail').value;
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      showMsg('reset', 'Şifre sıfırlama linki e-posta adresinize gönderildi.', 'success');
+    } catch (err) {
+      showMsg('reset', 'Hata: ' + err.message);
+    }
+  };
+
+
+  // --- SOCIAL LOGIN ---
+  const handleSocial = async (provider) => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+
+      // Eğer yeni kullanıcıysa, DB'ye kaydetmeye çalış (opsiyonel, user.uid ile overwrite etmez)
+      // Ancak displayName vs provider'dan gelir.
+      const user = result.user;
+      await setDoc(doc(db, "users", user.uid), {
+        firstName: user.displayName || 'Kullanıcı',
+        email: user.email,
+        // Phone provider'dan gelmeyebilir, boş bırakabiliriz
+        lastLogin: new Date().toISOString()
+      }, { merge: true });
+
+      toggleModal(false);
+      window.location.reload();
+    } catch (err) {
+      alert("Hata: " + err.message);
+    }
+  };
+
+  document.getElementById('btnGoogleLogin').onclick = () => handleSocial(googleProvider);
+  document.getElementById('btnGoogleSignup').onclick = () => handleSocial(googleProvider);
+  document.getElementById('btnFbLogin').onclick = () => handleSocial(facebookProvider);
+  document.getElementById('btnFbSignup').onclick = () => handleSocial(facebookProvider);
 }
 
 /* =========================================
    4. AUTH STATE & HEADER UI
    ========================================= */
 function checkAuthState() {
-    onAuthStateChanged(auth, async (user) => {
-        updateHeaderUI(user);
+  onAuthStateChanged(auth, async (user) => {
+    updateHeaderUI(user);
 
-        // Eğer profil sayfasındaysak ve user yoksa anasayfaya at
-        if (!user && window.location.pathname.includes('profile.html')) {
-            window.location.href = './index.html';
-        }
-    });
+    // Eğer profil sayfasındaysak ve user yoksa anasayfaya at
+    if (!user && window.location.pathname.includes('profile.html')) {
+      window.location.href = './index.html';
+    }
+  });
 }
 
 function updateHeaderUI(user) {
-    // Desktop Header Bul
-    const nav = document.querySelector('.desktop-header-nav') || document.querySelector('.header-right nav');
+  // Desktop Header Bul
+  const nav = document.querySelector('.desktop-header-nav') || document.querySelector('.header-right nav');
 
-    // Varsa eski butonları temizle (tekrar eklenmesin diye)
-    document.querySelectorAll('.auth-nav-item').forEach(e => e.remove());
+  // Varsa eski butonları temizle (tekrar eklenmesin diye)
+  document.querySelectorAll('.auth-nav-item').forEach(e => e.remove());
 
-    if (!nav) return; // Header yoksa çık
+  if (!nav) return; // Header yoksa çık
 
-    if (user) {
-        // --- GİRİŞ YAPILMIŞ ---
-        const profileLink = document.createElement('a');
-        profileLink.className = 'auth-nav-item';
-        profileLink.href = './profile.html';
-        profileLink.innerHTML = `👤 Profilim`;
-        profileLink.style.fontWeight = 'bold';
-        profileLink.style.color = '#4ade80'; // Yeşil
+  if (user) {
+    // --- GİRİŞ YAPILMIŞ ---
+    const profileLink = document.createElement('a');
+    profileLink.className = 'auth-nav-item';
+    profileLink.href = './profile.html';
+    profileLink.innerHTML = `👤 Profilim`;
+    profileLink.style.fontWeight = 'bold';
+    profileLink.style.color = '#4ade80'; // Yeşil
 
-        // Blog'dan sonra ekle
-        nav.appendChild(profileLink);
+    // Blog'dan sonra ekle
+    nav.appendChild(profileLink);
 
-    } else {
-        // --- GİRİŞ YAPILMAMIŞ ---
-        // Giriş Yap Butonu
-        const loginBtn = document.createElement('a');
-        loginBtn.className = 'auth-nav-item';
-        loginBtn.href = '#';
-        loginBtn.textContent = 'Giriş Yap';
-        loginBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'login'); };
+  } else {
+    // --- GİRİŞ YAPILMAMIŞ ---
 
-        // Üye Ol Butonu
-        const signupBtn = document.createElement('a');
-        signupBtn.className = 'auth-nav-item btn-signup-header'; // Özel class
-        signupBtn.href = '#';
-        signupBtn.textContent = 'Üye Ol';
-        signupBtn.style.background = '#8b5cf6';
-        signupBtn.style.color = 'white';
-        signupBtn.style.padding = '5px 12px';
-        signupBtn.style.borderRadius = '12px';
-        signupBtn.style.marginLeft = '10px';
-        signupBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'signup'); };
+    // Üye Ol Butonu
+    const signupBtn = document.createElement('a');
+    signupBtn.className = 'auth-nav-item';
+    signupBtn.href = '#';
+    signupBtn.textContent = 'Üye Ol';
+    signupBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'signup'); };
 
-        nav.appendChild(loginBtn);
-        nav.appendChild(signupBtn);
-    }
+    // Giriş Yap Butonu
+    const loginBtn = document.createElement('a');
+    loginBtn.className = 'auth-nav-item';
+    loginBtn.href = '#';
+    loginBtn.textContent = 'Giriş Yap';
+    loginBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'login'); };
+
+    // Üye Ol solda, Giriş Yap sağda olacak şekilde ekle
+    nav.appendChild(signupBtn);
+    nav.appendChild(loginBtn);
+  }
 }
 
 // Başlat
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAuthUI);
+  document.addEventListener('DOMContentLoaded', initAuthUI);
 } else {
-    initAuthUI();
+  initAuthUI();
 }
