@@ -394,7 +394,15 @@ function bindEvents() {
       toggleModal(false);
       window.location.reload();
     } catch (err) {
-      alert("Hata: " + err.message);
+      console.error("Auth Error:", err);
+      let msg = "Giriş hatası: " + err.message;
+
+      if (err.code === 'auth/configuration-not-found' || err.code === 'auth/operation-not-allowed') {
+        msg = "Google/Facebook girişi henüz aktif edilmemiştir. Lütfen şimdilik E-posta ile üye olunuz.";
+      } else if (err.code === 'auth/popup-closed-by-user') {
+        return;
+      }
+      alert(msg);
     }
   };
 
