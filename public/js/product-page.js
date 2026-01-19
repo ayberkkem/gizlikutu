@@ -29,9 +29,16 @@
 
   const url = new URL(window.location.href);
   const id = url.searchParams.get("id");
+  const slug = url.searchParams.get("slug");
 
   const products = await window.GK.loadProducts();
-  const p = products.find(x => x.id === id);
+  let p = null;
+
+  if (id) {
+    p = products.find(x => x.id === id);
+  } else if (slug) {
+    p = products.find(x => x.slug === slug);
+  }
 
   const wrap = qs("#productWrap");
   if (!p) {
