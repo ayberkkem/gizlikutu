@@ -330,6 +330,78 @@ exports.onNewOrder = functions
         }
 
         // Havale/EFT veya Kapıda Ödeme için hemen bildirim gönder
-        await sendWhatsAppNotification(order, "new");
+        const result = await sendWhatsAppNotification(order, "new");
+        logger.info("📲 WhatsApp sonucu:", { orderNo: order.orderNo, sent: result });
         return null;
+    });
+
+/* =====================================================
+   WHATSAPP TEST ENDPOINT (Geliştirme için)
+===================================================== */
+exports.testWhatsApp = functions
+    .runWith({
+        secrets: ["TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN", "TWILIO_WHATSAPP_FROM", "MY_WHATSAPP_NUMBER"],
+    })
+    .https.onRequest(async (req, res) => {
+        // CORS
+        res.set("Access-Control-Allow-Origin", "*");
+        res.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        if (req.method === "OPTIONS") {
+            res.status(204).send("");
+            return;
+        }
+
+        logger.info("🧪 WhatsApp test başlatıldı");
+
+        // Secrets kontrol
+        const accountSid = process.env.TWILIO_ACCOUNT_SID;
+        const authToken = process.env.TWILIO_AUTH_TOKEN;
+        const fromNumber = process.env.TWILIO_WHATSAPP_FROM;
+        const toNumber = process.env.MY_WHATSAPP_NUMBER;
+
+        logger.info("🔑 Secrets kontrol:", {
+            hasSid: !!accountSid,
+            hasToken: !!authToken,
+            from: fromNumber,
+            to: toNumber,
+        });
+
+        if (!accountSid || !authToken || !fromNumber || !toNumber) {
+            res.status(500).json({
+                success: false,
+                error: "Twilio credentials eksik",
+                details: {
+                    hasSid: !!accountSid,
+                    hasToken: !!authToken,
+                    hasFrom: !!fromNumber,
+                    hasTo: !!toNumber,
+                },
+            });
+            return;
+        }
+
+        try {
+            const twilio = require("twilio");
+            const client = twilio(accountSid, authToken);
+
+            const message = await client.messages.create({
+                body: "🧪 *TEST* - Gizli Kutu WhatsApp bildirimi çalışıyor!",
+                from: fromNumber,
+                to: toNumber,
+            });
+
+            logger.info("✅ Test mesajı gönderildi", { sid: message.sid });
+            res.json({
+                success: true,
+                messageSid: message.sid,
+                status: message.status,
+            });
+        } catch (err) {
+            logger.error("❌ Test hatası:", err);
+            res.status(500).json({
+                success: false,
+                error: err.message,
+                code: err.code,
+            });
+        }
     });
