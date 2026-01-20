@@ -231,14 +231,13 @@ details p {
     border-radius: var(--radius);
     padding: 50px 24px;
     text-align: center;
-    min-height: 195px;
-    /* 260px * 0.75 = 195px (%25 küçük) */
+    min-height: 160px;
+    /* 260px * 0.60 = 160px (%40 küçük) */
 }
 
-/* Premium Gümüş Metalik Yazı - PC %20 büyütülmüş */
+/* Premium Gümüş Metalik Yazı - PC Default Size */
 .hero-brand-title {
-    font-size: 52px;
-    /* 43px * 1.20 = 51.6px (%20 büyük) */
+    font-size: 42px;
     font-weight: 800;
     letter-spacing: 4px;
     background: linear-gradient(180deg, #ffffff 0%, #e0e0e0 30%, #b0b0b0 50%, #e8e8e8 100%);
@@ -257,7 +256,7 @@ details p {
     left: 0;
     top: 0;
     width: 100%;
-    font-size: 52px;
+    font-size: 42px;
     font-weight: 800;
     letter-spacing: 4px;
     color: rgba(255, 255, 255, 0.35);
@@ -266,8 +265,7 @@ details p {
 }
 
 .hero-brand-subtitle {
-    font-size: 41px;
-    /* 34px * 1.20 = 40.8px (%20 büyük) */
+    font-size: 32px;
     font-weight: 600;
     letter-spacing: 7px;
     background: linear-gradient(180deg, #ffffff 0%, #d0d0d0 40%, #e0e0e0 100%);
@@ -283,7 +281,7 @@ details p {
     left: 0;
     top: 0;
     width: 100%;
-    font-size: 41px;
+    font-size: 32px;
     font-weight: 600;
     letter-spacing: 7px;
     color: rgba(255, 255, 255, 0.3);

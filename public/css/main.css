@@ -55,6 +55,115 @@ select {
   padding: 0 16px
 }
 
+/* Header Container - Sol Boşluğu Azalt */
+#mainHeader .container {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* ============================================
+   KOMPAKT MİNİMAL HEADER STİLLERİ
+   ============================================ */
+
+/* Header ana wrapper */
+#mainHeader {
+  padding: 4px 0;
+}
+
+/* Header row - elemanlar arası boşluk */
+#mainHeader .header-row {
+  gap: 6px;
+  padding: 2px 0;
+  transform: scale(0.9);
+  transform-origin: left center;
+}
+
+/* Logo küçültme */
+#mainHeader .logo img {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+#mainHeader .logo span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Hamburger menü butonu */
+#mainHeader .menuBtn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+}
+
+#mainHeader .menuBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* WhatsApp ikonu küçültme */
+#mainHeader a[href*="wa.me"] svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Arama kutusu küçültme */
+#mainHeader .search {
+  padding: 6px 10px;
+  min-width: 120px;
+  max-width: 200px;
+}
+
+#mainHeader .search input {
+  font-size: 12px;
+}
+
+#mainHeader .search svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Desktop navigasyon linkleri */
+.desktop-header-nav {
+  gap: 4px !important;
+}
+
+.desktop-header-nav a {
+  font-size: 11px !important;
+  padding: 4px 8px !important;
+  white-space: nowrap;
+  border-radius: 6px;
+}
+
+.desktop-header-nav a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Auth butonları (Üye Ol, Giriş Yap) */
+#mainHeader .btn,
+#mainHeader a.btn,
+#mainHeader button.btn {
+  padding: 4px 8px !important;
+  font-size: 10px !important;
+  height: 26px !important;
+  line-height: 1 !important;
+  border-radius: 6px !important;
+}
+
+/* Sepet ikonu */
+#mainHeader .cartWrap {
+  font-size: 16px;
+}
+
+/* Sepet badge */
+#mainHeader .badge {
+  min-width: 14px;
+  height: 14px;
+  font-size: 9px;
+  transform: translate(10px, -10px);
+}
+
 .topbar {
   position: sticky;
   top: 0;
