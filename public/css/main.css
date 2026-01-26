@@ -1855,7 +1855,7 @@ button.primary {
 /* PWA body ayarları */
 html,
 body {
-  overscroll-behavior: none;
+  /* overscroll-behavior: none removed to allow natural scroll initiation */
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
@@ -1869,10 +1869,12 @@ body {
 }
 
 /* Yatay scroll engelle */
-html,
+html {
+  overflow-x: hidden;
+}
 body {
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Görseller taşmasın */
