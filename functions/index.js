@@ -8,6 +8,27 @@ const functions = require("firebase-functions/v1");
 const logger = require("firebase-functions/logger");
 const crypto = require("crypto");
 
+// Lazy initialization
+let admin = null;
+let db = null;
+
+function getAdmin() {
+    if (!admin) {
+        admin = require("firebase-admin");
+        if (!admin.apps.length) {
+            admin.initializeApp();
+        }
+    }
+    return admin;
+}
+
+function getDb() {
+    if (!db) {
+        db = getAdmin().firestore();
+    }
+    return db;
+}
+
 /* =====================================================
    TWILIO WHATSAPP BİLDİRİM FONKSİYONU
 ===================================================== */
@@ -25,43 +46,67 @@ async function sendWhatsAppNotification(order, orderType = "new") {
         const toNumber = process.env.MY_WHATSAPP_NUMBER;
 
         if (!accountSid || !authToken || !fromNumber || !toNumber) {
-            logger.warn("⚠️ Twilio credentials eksik, WhatsApp bildirimi atlandı");
-            return false;
+            const missing = [];
+            if (!accountSid) missing.push("TWILIO_ACCOUNT_SID");
+            if (!authToken) missing.push("TWILIO_AUTH_TOKEN");
+            if (!fromNumber) missing.push("TWILIO_WHATSAPP_FROM");
+            if (!toNumber) missing.push("MY_WHATSAPP_NUMBER");
+
+            logger.warn("⚠️ Twilio credentials eksik:", missing.join(", "));
+            return { success: false, error: "Missing credentials: " + missing.join(", ") };
         }
 
         const twilio = require("twilio");
         const client = twilio(accountSid, authToken);
 
         // Ödeme yöntemi belirleme
-        const paymentMethod = order.payment?.method === "online" ? "💳 Kredi Kartı" :
-            order.payment?.method === "transfer" ? "🏦 Havale/EFT" : "💵 Kapıda Ödeme";
+        const paymentMethodText = order.payment?.method === "online" ? "Kredi Kartı" :
+            order.payment?.method === "transfer" ? "Havale / EFT" : "Kapıda Ödeme";
 
-        // Ürün listesi
+        // Teslimat tipi
+        const deliveryType = order.delivery?.type === "cargo" ? "cargo" : order.delivery?.type || "cargo";
+
+        // Ürün listesi detaylı
         const productList = (order.products || [])
-            .map(p => `• ${p.title} x${p.qty}`)
-            .join("\n");
+            .map((p, idx) => {
+                return `${idx + 1}) ${p.title}\nAdet: ${p.qty}\nFiyat: ${p.price} ₺\nGörsel: ${p.image || "-"}`;
+            })
+            .join("\n\n");
 
-        // Mesaj şablonu
+        // Mesaj şablonu - Tam detaylı format
         let message = "";
         if (orderType === "paid") {
             message = `✅ *ÖDEME ALINDI*\n\n` +
-                `📦 Sipariş: ${order.orderNo}\n` +
-                `👤 ${order.customer?.name}\n` +
-                `📱 ${order.customer?.phone}\n` +
-                `💰 ${order.payment?.total} TL\n` +
-                `${paymentMethod}\n\n` +
-                `📍 ${order.delivery?.district}, ${order.delivery?.city}\n\n` +
-                `${productList}`;
+                `👤 *Müşteri:*\n` +
+                `${order.customer?.name || "-"}\n` +
+                `📞 ${order.customer?.phone || "-"}\n` +
+                `📧 ${order.customer?.email || "-"}\n\n` +
+                `📍 *TESLİMAT BİLGİLERİ*\n` +
+                `İl: ${order.delivery?.city || "-"}\n` +
+                `İlçe: ${order.delivery?.district || "-"}\n` +
+                `Adres: ${order.delivery?.address || "-"}\n\n` +
+                `🚚 Teslimat Tipi: ${deliveryType}\n` +
+                `💳 Ödeme Yöntemi: ${paymentMethodText}\n\n` +
+                `📝 Sipariş Notu:\n${order.note || "-"}\n\n` +
+                `💰 Toplam: ${order.payment?.total} ₺\n` +
+                `🆔 Sipariş No: ${order.orderNo}\n\n` +
+                `📦 *ÜRÜNLER*\n\n${productList}`;
         } else {
             message = `🛒 *YENİ SİPARİŞ*\n\n` +
-                `📦 Sipariş: ${order.orderNo}\n` +
-                `👤 ${order.customer?.name}\n` +
-                `📱 ${order.customer?.phone}\n` +
-                `💰 ${order.payment?.total} TL\n` +
-                `${paymentMethod}\n\n` +
-                `📍 ${order.delivery?.address}\n` +
-                `${order.delivery?.district}, ${order.delivery?.city}\n\n` +
-                `${productList}`;
+                `👤 *Müşteri:*\n` +
+                `${order.customer?.name || "-"}\n` +
+                `📞 ${order.customer?.phone || "-"}\n` +
+                `📧 ${order.customer?.email || "-"}\n\n` +
+                `📍 *TESLİMAT BİLGİLERİ*\n` +
+                `İl: ${order.delivery?.city || "-"}\n` +
+                `İlçe: ${order.delivery?.district || "-"}\n` +
+                `Adres: ${order.delivery?.address || "-"}\n\n` +
+                `🚚 Teslimat Tipi: ${deliveryType}\n` +
+                `💳 Ödeme Yöntemi: ${paymentMethodText}\n\n` +
+                `📝 Sipariş Notu:\n${order.note || "-"}\n\n` +
+                `💰 Toplam: ${order.payment?.total} ₺\n` +
+                `🆔 Sipariş No: ${order.orderNo}\n\n` +
+                `📦 *ÜRÜNLER*\n\n${productList}`;
         }
 
         await client.messages.create({
@@ -71,10 +116,10 @@ async function sendWhatsAppNotification(order, orderType = "new") {
         });
 
         logger.info("✅ WhatsApp bildirimi gönderildi", { orderNo: order.orderNo, type: orderType });
-        return true;
+        return { success: true, message: "Sent" };
     } catch (err) {
         logger.error("❌ WhatsApp bildirim hatası:", err);
-        return false;
+        return { success: false, error: err.message };
     }
 }
 
@@ -127,12 +172,12 @@ exports.createPaytrPayment = functions
             const {
                 orderNo,
                 email,
-                totalAmount, // Kuruş cinsinden (örn: 150.00 TL = 15000)
+                totalAmount,
                 userName,
                 userPhone,
                 userAddress,
                 userCity,
-                basketItems, // [{name, price, qty}]
+                basketItems,
             } = body;
 
             if (!orderNo || !email || !totalAmount || !basketItems) {
@@ -143,22 +188,21 @@ exports.createPaytrPayment = functions
             // PayTR parametreleri
             const userIp = req.headers["x-forwarded-for"]?.split(",")[0] || req.ip || "85.95.238.1";
             const merchantOid = orderNo;
-            const paymentAmount = Math.round(totalAmount * 100); // TL -> Kuruş
+            const paymentAmount = Math.round(totalAmount * 100);
             const currency = "TL";
-            const testMode = "0"; // 0 = Canlı, 1 = Test
-            const noInstallment = "1"; // Taksit yok
+            const testMode = "0";
+            const noInstallment = "1";
             const maxInstallment = "0";
 
             // Basket JSON (Base64)
             const basketJson = basketItems.map((item) => [
                 item.name || "Ürün",
-                (Math.round((item.price || 0) * 100)).toString(), // Kuruş
+                (Math.round((item.price || 0) * 100)).toString(),
                 (item.qty || 1).toString(),
             ]);
             const userBasket = Buffer.from(JSON.stringify(basketJson)).toString("base64");
 
             // Callback URL'leri
-            // Vercel üzerinden proxy yaptığımız URL'yi kullanıyoruz
             const merchantNotifyUrl = "https://gizlikutu.online/api/paytr/notify";
             const merchantOkUrl = "https://gizlikutu.online/success.html";
             const merchantFailUrl = "https://gizlikutu.online/checkout.html?error=payment";
@@ -226,19 +270,12 @@ exports.createPaytrPayment = functions
 /**
  * PayTR Callback Endpoint'i
  * Ödeme sonucu PayTR tarafından çağrılır
- * Başarılı ödemede: Firestore güncelle + WhatsApp bildirimi
  */
 exports.paytrCallback = functions
     .runWith({
         secrets: ["PAYTR_MERCHANT_KEY", "PAYTR_MERCHANT_SALT", "TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN", "TWILIO_WHATSAPP_FROM", "MY_WHATSAPP_NUMBER"],
     })
     .https.onRequest(async (req, res) => {
-        const admin = require("firebase-admin");
-        if (!admin.apps.length) {
-            admin.initializeApp();
-        }
-        const db = admin.firestore();
-
         try {
             const merchantKey = process.env.PAYTR_MERCHANT_KEY;
             const merchantSalt = process.env.PAYTR_MERCHANT_SALT;
@@ -252,7 +289,7 @@ exports.paytrCallback = functions
 
             logger.info("📩 PayTR callback geldi", { merchant_oid, status, total_amount });
 
-            // Hash doğrulama (PayTR callback format: SHA256 concat, not HMAC)
+            // Hash doğrulama
             const hashStr = merchant_oid + merchantSalt + status + total_amount;
             const expectedHash = crypto.createHash("sha256")
                 .update(hashStr + merchantKey)
@@ -264,12 +301,12 @@ exports.paytrCallback = functions
                 return;
             }
 
-            // Firestore'da siparişi bul (orderNo ile)
-            const ordersRef = db.collection("orders");
+            // Firestore'da siparişi bul
+            const ordersRef = getDb().collection("orders");
             const snapshot = await ordersRef.where("orderNo", "==", merchant_oid).limit(1).get();
 
             if (snapshot.empty) {
-                logger.info("❌ Sipariş bulunamadı (Idempotency için OK)", { merchant_oid });
+                logger.info("❌ Sipariş bulunamadı", { merchant_oid });
                 res.send("OK");
                 return;
             }
@@ -280,27 +317,22 @@ exports.paytrCallback = functions
             if (status === "success") {
                 logger.info("✅ PayTR ödeme başarılı", { merchant_oid, total_amount });
 
-                // Firestore'da durumu güncelle
                 await orderDoc.ref.update({
                     "payment.status": "paid",
-                    "payment.paidAt": admin.firestore.FieldValue.serverTimestamp(),
+                    "payment.paidAt": getAdmin().firestore.FieldValue.serverTimestamp(),
                     "payment.paytrStatus": "success",
                 });
 
-                // WhatsApp bildirimi gönder
                 await sendWhatsAppNotification(order, "paid");
-
             } else {
                 logger.warn("⚠️ PayTR ödeme başarısız", { merchant_oid, status });
 
-                // Firestore'da durumu güncelle
                 await orderDoc.ref.update({
                     "payment.status": "failed",
                     "payment.paytrStatus": status,
                 });
             }
 
-            // PayTR'ye OK yanıtı dön
             res.send("OK");
         } catch (err) {
             logger.error("🔥 PayTR callback hatası:", err);
@@ -332,6 +364,19 @@ exports.onNewOrder = functions
         // Havale/EFT veya Kapıda Ödeme için hemen bildirim gönder
         const result = await sendWhatsAppNotification(order, "new");
         logger.info("📲 WhatsApp sonucu:", { orderNo: order.orderNo, sent: result });
+
+        // Debug için firestore'a yaz
+        try {
+            await snap.ref.set({
+                debug: {
+                    whatsappAttemptAt: new Date().toISOString(),
+                    whatsappResult: result
+                }
+            }, { merge: true });
+        } catch (e) {
+            logger.error("Debug update hatası", e);
+        }
+
         return null;
     });
 
@@ -353,7 +398,6 @@ exports.testWhatsApp = functions
 
         logger.info("🧪 WhatsApp test başlatıldı");
 
-        // Secrets kontrol
         const accountSid = process.env.TWILIO_ACCOUNT_SID;
         const authToken = process.env.TWILIO_AUTH_TOKEN;
         const fromNumber = process.env.TWILIO_WHATSAPP_FROM;

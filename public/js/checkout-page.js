@@ -236,6 +236,8 @@
       }))
     };
 
+    console.log("🔥 Order Payload:", JSON.stringify(orderData, null, 2));
+
     /* ==========================
        💳 KREDİ KARTI İLE ÖDEME (PAYTR)
     ========================== */

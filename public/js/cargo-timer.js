@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         border-bottom: 2px solid rgba(74, 222, 128, 0.3); /* Hafif Yeşil Çizgi */
         box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         position: relative;
-        z-index: 9999;
+        z-index: 40;
         text-shadow: 0 1px 2px rgba(0,0,0,1);
     `;
 
