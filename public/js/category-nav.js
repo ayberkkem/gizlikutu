@@ -134,12 +134,12 @@
                 if (catProducts.length > 0) {
                     for (var j = 0; j < Math.min(catProducts.length, maxProducts); j++) {
                         var p = catProducts[j];
-                        panelHtml += '<a class="cat-product-item" href="./products.html?cat=' + catId + '">' + p.title + '</a>';
+                        panelHtml += '<a class="cat-product-item" href="/products?cat=' + catId + '">' + p.title + '</a>';
                     }
                 }
 
                 // Tümünü Gör linki (her zaman göster)
-                panelHtml += '<a class="cat-view-all" href="./products.html?cat=' + catId + '">Tümünü Gör →</a>';
+                panelHtml += '<a class="cat-view-all" href="/products?cat=' + catId + '">Tümünü Gör →</a>';
                 panelHtml += '</div>';
 
                 panelContainer.innerHTML = panelHtml;
@@ -163,10 +163,10 @@
             if (catProducts.length > 0) {
                 for (var j = 0; j < Math.min(catProducts.length, maxProducts); j++) {
                     var p = catProducts[j];
-                    dropdownHtml += '<a class="cat-dropdown-item" href="./products.html?cat=' + cat.id + '">' + p.title + '</a>';
+                    dropdownHtml += '<a class="cat-dropdown-item" href="/products?cat=' + cat.id + '">' + p.title + '</a>';
                 }
             }
-            dropdownHtml += '<a class="cat-dropdown-all" href="./products.html?cat=' + cat.id + '">Tümünü Gör →</a>';
+            dropdownHtml += '<a class="cat-dropdown-all" href="/products?cat=' + cat.id + '">Tümünü Gör →</a>';
 
             html += '<div class="cat-nav-item" data-cat="' + cat.id + '">';
             html += '<span class="cat-nav-label">' + cat.label + '</span>';
@@ -199,7 +199,7 @@
             // Dblclick → kategori sayfası
             item.addEventListener('dblclick', function () {
                 var catId = item.getAttribute('data-cat');
-                window.location.href = './products.html?cat=' + catId;
+                window.location.href = '/products?cat=' + catId;
             });
         });
 

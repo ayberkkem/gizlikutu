@@ -4,19 +4,19 @@
     "rewrites": [
         {
             "source": "/hakkimizda",
-            "destination": "/about.html"
+            "destination": "/about"
         },
         {
             "source": "/iletisim",
-            "destination": "/contact.html"
+            "destination": "/contact"
         },
         {
             "source": "/urunler",
-            "destination": "/products.html"
+            "destination": "/products"
         },
         {
             "source": "/blog",
-            "destination": "/blog.html"
+            "destination": "/blog"
         },
         {
             "source": "/api/paytr/notify",

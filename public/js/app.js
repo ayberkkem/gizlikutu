@@ -144,7 +144,7 @@
       searchInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
           const q = searchInput.value.trim();
-          window.location.href = `./products.html?q=${encodeURIComponent(q)}`;
+          window.location.href = `/products?q=${encodeURIComponent(q)}`;
         }
       });
     }
@@ -159,10 +159,10 @@
     const navs = document.querySelectorAll("nav.desktop-header-nav");
     navs.forEach(nav => {
       nav.innerHTML = `
-            <a href="./index.html">Anasayfa</a>
-            <a href="./products.html">Popüler Ürünler</a>
-            <a href="./cities.html">Hizmet Bölgelerimiz</a>
-            <a href="./blog.html">Blog</a>
+            <a href="/">Anasayfa</a>
+            <a href="/products">Popüler Ürünler</a>
+            <a href="/cities">Hizmet Bölgelerimiz</a>
+            <a href="/blog">Blog</a>
           `;
       nav.style.display = 'flex';
       nav.style.gap = '15px';

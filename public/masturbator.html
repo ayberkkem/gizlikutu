@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="./css/pages/products.css">
   <link rel="stylesheet" href="./css/category-nav.css">
   <link rel="stylesheet" href="./css/pwa-install-icon.css">
-    <link rel="canonical" href="https://gizlikutu.online/masturbator.html">
+    <link rel="canonical" href="https://gizlikutu.online/masturbator">
 
   <!-- Schema.org Structured Data - Auto Generated -->
   <script type="application/ld+json">
@@ -160,8 +160,8 @@
 
 <style>
 /* Header'dan Hakkımızda ve İletişim butonlarını gizle */
-nav.desktop-header-nav a[href="./about.html"],
-nav.desktop-header-nav a[href="./contact.html"],
+nav.desktop-header-nav a[href="/about"],
+nav.desktop-header-nav a[href="/contact"],
 .desktop-header-nav a[href*="about"],
 .desktop-header-nav a[href*="contact"] {
   display: none !important;
@@ -223,9 +223,9 @@ document.addEventListener("DOMContentLoaded", function() {
     
 
     <h6>Sözleşmeler</h6>
-    <a class="navlink" data-close-drawer href="./kvkk.html">KVKK</a>
-    <a class="navlink" data-close-drawer href="./privacy.html">Gizlilik</a>
-    <a class="navlink" data-close-drawer href="./terms.html">Koşullar</a>
+    <a class="navlink" data-close-drawer href="/kvkk">KVKK</a>
+    <a class="navlink" data-close-drawer href="/privacy">Gizlilik</a>
+    <a class="navlink" data-close-drawer href="/terms">Koşullar</a>
 
     <div class="notice">
       WhatsApp hızlı hat:
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </button>
 
         <!-- 2. LOGO -->
-        <a class="logo" href="./index.html" style="display:flex; align-items:center; gap:8px; text-decoration:none;">
+        <a class="logo" href="/" style="display:flex; align-items:center; gap:8px; text-decoration:none;">
           <img src="./assets/logo.jpg" alt="Logo" style="width:32px; height:32px; border-radius:6px;">
           <span style="font-weight:800; font-size:18px; letter-spacing:-0.5px; color:#111;">Gizli Kutu</span>
         </a>
@@ -284,14 +284,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
         <!-- 6. NAVİGASYON (Masaüstü) -->
         <nav class="desktop-header-nav">
-          <a href="./index.html">Anasayfa</a>
-          <a href="./products.html">Popüler Ürünler</a>
-          <a href="./cities.html">Hizmet Bölgelerimiz</a>
-          <a href="./blog.html">Blog</a>
+          <a href="/">Anasayfa</a>
+          <a href="/products">Popüler Ürünler</a>
+          <a href="/cities">Hizmet Bölgelerimiz</a>
+          <a href="/blog">Blog</a>
         </nav>
 
         <!-- 7. SEPET (En Sağda) -->
-        <a class="iconbtn cartWrap" href="./cart.html">
+        <a class="iconbtn cartWrap" href="/cart">
             🛒<span class="badge" id="cartCount" style="display:none">0</span>
         </a>
 
@@ -304,8 +304,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   <!-- Mobil Üst Nav -->
   <nav class="mobile-top-nav">
-    <a href="./index.html">Anasayfa</a>
-    <a href="./products.html" class="active">Popüler Ürünler</a>
+    <a href="/">Anasayfa</a>
+    <a href="/products" class="active">Popüler Ürünler</a>
     
     
   </nav>
@@ -446,7 +446,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     </style>
     <section class="blog-banner-section" style="width:100%;max-width:1100px;margin:30px auto;padding:0 15px;box-sizing:border-box;">
-      <a href="./blog.html" title="Sex Shop Blog - Cinsel Sağlık Rehberi" style="display:block;text-decoration:none;">
+      <a href="/blog" title="Sex Shop Blog - Cinsel Sağlık Rehberi" style="display:block;text-decoration:none;">
         <div class="blog-banner-neon" style="
           position: relative;
           width: 100%;
@@ -481,8 +481,8 @@ document.addEventListener("DOMContentLoaded", function() {
   <footer class="footer">
     <div class="container">
       © <span id="y"></span> Gizli Kutu •
-      <a href="./privacy.html">Gizlilik</a> •
-      <a href="./kvkk.html">KVKK</a>
+      <a href="/privacy">Gizlilik</a> •
+      <a href="/kvkk">KVKK</a>
     </div>
   </footer>
 
@@ -504,12 +504,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const box = document.getElementById("hamburgerCategories");
         if (!box) return;
 
-        box.innerHTML = categories.map(cat => `
-      <a class="navlink" data-close-drawer
-         href="./products.html?cat=${cat.id}">
-        ${cat.label}
-      </a>
-    `).join("");
+        box.innerHTML = categories.filter(cat => cat && cat.id).map(cat => `<a class="navlink" data-close-drawer href="/products?cat=${encodeURIComponent(cat.id)}">${cat.label || cat.id}</a>`).join("");
       } catch (e) {
         console.error("Hamburger kategori yükleme hatası", e);
       }

@@ -53,112 +53,69 @@
         ]
       }
     ],
+    "cleanUrls": true,
+    "trailingSlash": false,
     "redirects": [
       {
-        "source": "/hakkimizda",
-        "destination": "/about.html",
+        "source": "/index.html",
+        "destination": "/",
         "type": 301
       },
       {
-        "source": "/hakkimizda/",
-        "destination": "/about.html",
+        "source": "/hakkimizda",
+        "destination": "/about",
         "type": 301
       },
       {
         "source": "/iletisim",
-        "destination": "/contact.html",
-        "type": 301
-      },
-      {
-        "source": "/iletisim/",
-        "destination": "/contact.html",
+        "destination": "/contact",
         "type": 301
       },
       {
         "source": "/dildo-yapay-penis",
-        "destination": "/dildo.html",
-        "type": 301
-      },
-      {
-        "source": "/dildo-yapay-penis/",
-        "destination": "/dildo.html",
+        "destination": "/dildo",
         "type": 301
       },
       {
         "source": "/vibrator-masturbator",
-        "destination": "/vibrator.html",
-        "type": 301
-      },
-      {
-        "source": "/vibrator-masturbator/",
-        "destination": "/vibrator.html",
+        "destination": "/vibrator",
         "type": 301
       },
       {
         "source": "/titresimli-yuzuk",
-        "destination": "/titresim.html",
-        "type": 301
-      },
-      {
-        "source": "/titresimli-yuzuk/",
-        "destination": "/titresim.html",
+        "destination": "/titresim",
         "type": 301
       },
       {
         "source": "/kayganlastirici-jel",
-        "destination": "/jel.html",
-        "type": 301
-      },
-      {
-        "source": "/kayganlastirici-jel/",
-        "destination": "/jel.html",
+        "destination": "/jel",
         "type": 301
       },
       {
         "source": "/geciktirici",
-        "destination": "/performans.html",
-        "type": 301
-      },
-      {
-        "source": "/geciktirici/",
-        "destination": "/performans.html",
+        "destination": "/performans",
         "type": 301
       },
       {
         "source": "/kadin-fantazi-giyim",
-        "destination": "/fantezi.html",
-        "type": 301
-      },
-      {
-        "source": "/kadin-fantazi-giyim/",
-        "destination": "/fantezi.html",
+        "destination": "/fantezi",
         "type": 301
       },
       {
         "source": "/sisme-manken",
-        "destination": "/manken.html",
-        "type": 301
-      },
-      {
-        "source": "/sisme-manken/",
-        "destination": "/manken.html",
+        "destination": "/manken",
         "type": 301
       },
       {
         "source": "/blog",
-        "destination": "/blog.html",
-        "type": 301
-      },
-      {
-        "source": "/blog/",
-        "destination": "/blog.html",
+        "destination": "/blog",
         "type": 301
       }
     ],
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/api/paytr/notify",
+        "destination": "https://us-central1-gizli-kutu.cloudfunctions.net/paytrCallback"
       }
     ]
   },

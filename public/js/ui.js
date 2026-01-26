@@ -75,7 +75,7 @@
 
     return `
       <div class="card product-card${blurClass}" data-product-id="${p.id}">
-        <a class="product-link" href="./product.html?id=${encodeURIComponent(p.id)}" aria-label="${safeTitle}">
+        <a class="product-link" href="/product?id=${encodeURIComponent(p.id)}" aria-label="${safeTitle}">
           <!-- Görsel -->
           <div class="product-image">
             <img

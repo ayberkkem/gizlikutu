@@ -11,141 +11,155 @@
   <title>Gizli Kutu | Ürünler</title>
   <meta name="description"
     content="Gizli Kutu ürünlerini keşfedin. Güvenli alışveriş, gizli paketleme ve hızlı teslimat ile size özel ürünler." />
-  
+
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/pages/products.css">
   <link rel="stylesheet" href="./css/category-nav.css">
   <link rel="stylesheet" href="./css/pwa-install-icon.css">
-  <link rel="canonical" href="https://gizlikutu.online/products.html">
+  <link rel="canonical" href="https://gizlikutu.online/products">
 
-<style>
-/* HEADER LOGO & WHATSAPP OVERLAP FIX */
-.header-row .logo {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important; 
-    margin-right: 15px !important;
-    white-space: nowrap !important;
-    flex-shrink: 0 !important;
-}
-.header-row .logo span {
-    line-height: normal !important;
-    display: inline-block !important;
-}
-/* WhatsApp Ikonunu biraz sağa at */
-.header-row a[href*="wa.me"] svg, 
-.header-row .text-success svg {
-    margin-left: 10px !important;
-}
-/* Arama çubuğu genişlik ayarı (Mobilde yer açmak için) */
-@media (max-width: 600px) {
-    .header-row {
-        gap: 5px !important;
+  <style>
+    /* HEADER LOGO & WHATSAPP OVERLAP FIX */
+    .header-row .logo {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      margin-right: 15px !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
     }
+
     .header-row .logo span {
-        font-size: 15px !important; /* Yazıyı biraz küçült */
+      line-height: normal !important;
+      display: inline-block !important;
     }
-    .header-search {
+
+    /* WhatsApp Ikonunu biraz sağa at */
+    .header-row a[href*="wa.me"] svg,
+    .header-row .text-success svg {
+      margin-left: 10px !important;
+    }
+
+    /* Arama çubuğu genişlik ayarı (Mobilde yer açmak için) */
+    @media (max-width: 600px) {
+      .header-row {
+        gap: 5px !important;
+      }
+
+      .header-row .logo span {
+        font-size: 15px !important;
+        /* Yazıyı biraz küçült */
+      }
+
+      .header-search {
         max-width: 140px !important;
+      }
     }
-}
-</style>
+  </style>
 
-<style>
-/* --- COMPACT HEADER FIX --- */
-/* 1. Header Genel Boşluk */
-#mainHeader .header-row {
-    padding: 4px 0 !important; /* Dikey boşluğu ciddi oranda azalt */
-    gap: 5px !important; /* Elemanlar arası boşluğu sıkıştır */
-    flex-wrap: nowrap !important; /* Asla alt satıra geçmesin */
-}
+  <style>
+    /* --- COMPACT HEADER FIX --- */
+    /* 1. Header Genel Boşluk */
+    #mainHeader .header-row {
+      padding: 4px 0 !important;
+      /* Dikey boşluğu ciddi oranda azalt */
+      gap: 5px !important;
+      /* Elemanlar arası boşluğu sıkıştır */
+      flex-wrap: nowrap !important;
+      /* Asla alt satıra geçmesin */
+    }
 
-/* 2. Logo Küçültme */
-#mainHeader .logo img {
-    height: 26px !important; 
-    width: 26px !important;
-    border-radius: 4px !important;
-}
-#mainHeader .logo span {
-    font-size: 14px !important; /* Yazıyı küçült */
-    font-weight: 700 !important;
-}
+    /* 2. Logo Küçültme */
+    #mainHeader .logo img {
+      height: 26px !important;
+      width: 26px !important;
+      border-radius: 4px !important;
+    }
 
-/* 3. WhatsApp İkon Küçültme */
-#mainHeader .text-success svg {
-    width: 20px !important;
-    height: 20px !important;
-    margin-left: 5px !important;
-}
+    #mainHeader .logo span {
+      font-size: 14px !important;
+      /* Yazıyı küçült */
+      font-weight: 700 !important;
+    }
 
-/* 4. Arama Çubuğu İnceltme */
-#mainHeader input[type="search"] {
-    height: 32px !important;
-    font-size: 12px !important;
-    padding: 0 10px !important;
-}
+    /* 3. WhatsApp İkon Küçültme */
+    #mainHeader .text-success svg {
+      width: 20px !important;
+      height: 20px !important;
+      margin-left: 5px !important;
+    }
 
-/* 5. Butonları Küçültme (Navigasyon) */
-#mainHeader a.btn, 
-#mainHeader button.btn {
-    padding: 0 8px !important; /* İç boşluğu azalt */
-    font-size: 11px !important;   /* Yazıyı küçült */
-    height: 28px !important;      /* Yüksekliği sabitle */
-    line-height: 28px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    white-space: nowrap !important;
-}
+    /* 4. Arama Çubuğu İnceltme */
+    #mainHeader input[type="search"] {
+      height: 32px !important;
+      font-size: 12px !important;
+      padding: 0 10px !important;
+    }
 
-/* 6. Sepet İkonu Ayarı */
-#mainHeader .position-relative svg {
-    width: 18px !important;
-    height: 18px !important;
-}
-</style>
+    /* 5. Butonları Küçültme (Navigasyon) */
+    #mainHeader a.btn,
+    #mainHeader button.btn {
+      padding: 0 8px !important;
+      /* İç boşluğu azalt */
+      font-size: 11px !important;
+      /* Yazıyı küçült */
+      height: 28px !important;
+      /* Yüksekliği sabitle */
+      line-height: 28px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+    }
 
-<style>
-/* Header'dan Hakkımızda ve İletişim butonlarını gizle */
-nav.desktop-header-nav a[href="./about.html"],
-nav.desktop-header-nav a[href="./contact.html"],
-.desktop-header-nav a[href*="about"],
-.desktop-header-nav a[href*="contact"] {
-  display: none !important;
-}
-</style>
+    /* 6. Sepet İkonu Ayarı */
+    #mainHeader .position-relative svg {
+      width: 18px !important;
+      height: 18px !important;
+    }
+  </style>
+
+  <style>
+    /* Header'dan Hakkımızda ve İletişim butonlarını gizle */
+    nav.desktop-header-nav a[href="/about"],
+    nav.desktop-header-nav a[href="/contact"],
+    .desktop-header-nav a[href*="about"],
+    .desktop-header-nav a[href*="contact"] {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body>
-<script>
-// Hamburger menü toggle fonksiyonu - inline tanım
-window.toggleSidebar = function() {
-    var d = document.getElementById("drawer");
-    var b = document.getElementById("drawerBackdrop");
-    if (d && b) {
+  <script>
+    // Hamburger menü toggle fonksiyonu - inline tanım
+    window.toggleSidebar = function () {
+      var d = document.getElementById("drawer");
+      var b = document.getElementById("drawerBackdrop");
+      if (d && b) {
         d.classList.toggle("open");
         b.classList.toggle("open");
-    }
-};
-// Backdrop tıklamasıyla kapat
-document.addEventListener("DOMContentLoaded", function() {
-    var backdrop = document.getElementById("drawerBackdrop");
-    var closeBtn = document.getElementById("closeDrawer");
-    if (backdrop) {
-        backdrop.addEventListener("click", function() {
-            var d = document.getElementById("drawer");
-            var b = document.getElementById("drawerBackdrop");
-            if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
+      }
+    };
+    // Backdrop tıklamasıyla kapat
+    document.addEventListener("DOMContentLoaded", function () {
+      var backdrop = document.getElementById("drawerBackdrop");
+      var closeBtn = document.getElementById("closeDrawer");
+      if (backdrop) {
+        backdrop.addEventListener("click", function () {
+          var d = document.getElementById("drawer");
+          var b = document.getElementById("drawerBackdrop");
+          if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
         });
-    }
-    if (closeBtn) {
-        closeBtn.addEventListener("click", function() {
-            var d = document.getElementById("drawer");
-            var b = document.getElementById("drawerBackdrop");
-            if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
+      }
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+          var d = document.getElementById("drawer");
+          var b = document.getElementById("drawerBackdrop");
+          if (d && b) { d.classList.remove("open"); b.classList.remove("open"); }
         });
-    }
-});
-</script>
+      }
+    });
+  </script>
 
 
   <!-- Drawer Backdrop -->
@@ -165,30 +179,34 @@ document.addEventListener("DOMContentLoaded", function() {
     <div id="hamburgerCategories"></div>
 
     <h4>Kurumsal</h4>
-    
-    
+
+
 
     <h6>Sözleşmeler</h6>
-    <a class="navlink" data-close-drawer href="./kvkk.html">KVKK</a>
-    <a class="navlink" data-close-drawer href="./privacy.html">Gizlilik</a>
-    <a class="navlink" data-close-drawer href="./terms.html">Koşullar</a>
+    <a class="navlink" data-close-drawer href="/kvkk">KVKK</a>
+    <a class="navlink" data-close-drawer href="/privacy">Gizlilik</a>
+    <a class="navlink" data-close-drawer href="/terms">Koşullar</a>
 
     <div class="notice">
       WhatsApp hızlı hat:
-      <a href="https://wa.me/905400443445" target="_blank" aria-label="WhatsApp" style="display:inline-flex; align-items:center; justify-content:center; margin:0 5px; text-decoration:none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#25D366" viewBox="0 0 16 16" style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));">
-                <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-            </svg>
-        </a>
+      <a href="https://wa.me/905400443445" target="_blank" aria-label="WhatsApp"
+        style="display:inline-flex; align-items:center; justify-content:center; margin:0 5px; text-decoration:none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#25D366" viewBox="0 0 16 16"
+          style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));">
+          <path
+            d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        </svg>
+      </a>
     </div>
   </aside>
 
   <!-- Header -->
-  
+
   <header id="mainHeader">
     <div class="container">
-      <div class="header-row" style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 0;">
-        
+      <div class="header-row"
+        style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 0;">
+
         <!-- 1. MOBİL MENÜ BUTONU (Solda) -->
         <button class="iconbtn menuBtn" onclick="toggleSidebar()" aria-label="Menü">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -199,16 +217,19 @@ document.addEventListener("DOMContentLoaded", function() {
         </button>
 
         <!-- 2. LOGO -->
-        <a class="logo" href="./index.html" style="display:flex; align-items:center; gap:8px; text-decoration:none;">
+        <a class="logo" href="/" style="display:flex; align-items:center; gap:8px; text-decoration:none;">
           <img src="./assets/logo.jpg" alt="Logo" style="width:32px; height:32px; border-radius:6px;">
           <span style="font-weight:800; font-size:18px; letter-spacing:-0.5px; color:#111;">Gizli Kutu</span>
         </a>
 
         <!-- 3. WHATSAPP (Yeşil Orijinal) -->
-        <a href="https://wa.me/905400443445" target="_blank" aria-label="WhatsApp" style="display:inline-flex; align-items:center; justify-content:center; margin:0 5px; text-decoration:none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#25D366" viewBox="0 0 16 16" style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));">
-                <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-            </svg>
+        <a href="https://wa.me/905400443445" target="_blank" aria-label="WhatsApp"
+          style="display:inline-flex; align-items:center; justify-content:center; margin:0 5px; text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#25D366" viewBox="0 0 16 16"
+            style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));">
+            <path
+              d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+          </svg>
         </a>
 
         <!-- 4. MOBİL ARAMA TOGGLE (Sadece Mobilde Görünür css ile kontrol ediliyor) -->
@@ -221,39 +242,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
         <!-- 5. ARAMA KUTUSU (Ortada, Geniş) -->
         <div class="search" id="searchBox" style="flex:1; max-width:600px; margin:0 1.5rem;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5" />
-                <path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-            <input id="globalSearch" placeholder="Ürün ara..." />
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#111827" stroke-width="1.5" />
+            <path d="M16.2 16.2 21 21" stroke="#111827" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <input id="globalSearch" placeholder="Ürün ara..." />
         </div>
 
         <!-- 6. NAVİGASYON (Masaüstü) -->
         <nav class="desktop-header-nav">
-          <a href="./index.html">Anasayfa</a>
-          <a href="./products.html">Popüler Ürünler</a>
-          <a href="./cities.html">Hizmet Bölgelerimiz</a>
-          <a href="./blog.html">Blog</a>
+          <a href="/">Anasayfa</a>
+          <a href="/products">Popüler Ürünler</a>
+          <a href="/cities">Hizmet Bölgelerimiz</a>
+          <a href="/blog">Blog</a>
         </nav>
 
         <!-- 7. SEPET (En Sağda) -->
-        <a class="iconbtn cartWrap" href="./cart.html">
-            🛒<span class="badge" id="cartCount" style="display:none">0</span>
+        <a class="iconbtn cartWrap" href="/cart">
+          🛒<span class="badge" id="cartCount" style="display:none">0</span>
         </a>
 
       </div>
     </div>
-</header>
+  </header>
 
   <!-- Kategori Navigasyon -->
   <nav id="categoryNav" class="category-nav-wrapper"></nav>
 
   <!-- Mobil Üst Nav - Trendyol Tarzı (Sadece Mobilde Görünür) -->
   <nav class="mobile-top-nav">
-    <a href="./index.html">Anasayfa</a>
-    <a href="./products.html" class="active">Popüler Ürünler</a>
-    
-    
+    <a href="/">Anasayfa</a>
+    <a href="/products" class="active">Popüler Ürünler</a>
+
+
   </nav>
 
   <!-- Main -->
@@ -290,10 +311,13 @@ document.addEventListener("DOMContentLoaded", function() {
       </div>
       <!-- SAĞ BLOK: Butonlar -->
       <div class="products-hero-right">
-        <a href="https://wa.me/905400443445" target="_blank" aria-label="WhatsApp" style="display:inline-flex; align-items:center; justify-content:center; margin:0 5px; text-decoration:none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#25D366" viewBox="0 0 16 16" style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));">
-                <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-            </svg>
+        <a href="https://wa.me/905400443445" target="_blank" aria-label="WhatsApp"
+          style="display:inline-flex; align-items:center; justify-content:center; margin:0 5px; text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#25D366" viewBox="0 0 16 16"
+            style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));">
+            <path
+              d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+          </svg>
         </a>
         <a class="btn primary products-hero-btn" href="#productsGrid">Güvenli Alışverişe Başla</a>
       </div>
@@ -397,7 +421,7 @@ document.addEventListener("DOMContentLoaded", function() {
     </style>
     <section class="blog-banner-section"
       style="width:100%;max-width:1100px;margin:30px auto;padding:0 15px;box-sizing:border-box;">
-      <a href="./blog.html" title="Sex Shop Blog - Cinsel Sağlık Rehberi" style="display:block;text-decoration:none;">
+      <a href="/blog" title="Sex Shop Blog - Cinsel Sağlık Rehberi" style="display:block;text-decoration:none;">
         <div class="blog-banner-neon" style="
           position: relative;
           width: 100%;
@@ -434,8 +458,8 @@ document.addEventListener("DOMContentLoaded", function() {
   <footer class="footer">
     <div class="container">
       © <span id="y"></span> Gizli Kutu •
-      <a href="./privacy.html">Gizlilik</a> •
-      <a href="./kvkk.html">KVKK</a>
+      <a href="/privacy">Gizlilik</a> •
+      <a href="/kvkk">KVKK</a>
     </div>
   </footer>
 
@@ -459,12 +483,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const box = document.getElementById("hamburgerCategories");
         if (!box) return;
 
-        box.innerHTML = categories.map(cat => `
-      <a class="navlink" data-close-drawer
-         href="./products.html?cat=${cat.id}">
-        ${cat.label}
-      </a>
-    `).join("");
+        box.innerHTML = categories.filter(cat => cat && cat.id).map(cat => `<a class="navlink" data-close-drawer href="/products?cat=${encodeURIComponent(cat.id)}">${cat.label || cat.id}</a>`).join("");
       } catch (e) {
         console.error("Hamburger kategori yükleme hatası", e);
       }
@@ -517,13 +536,14 @@ document.addEventListener("DOMContentLoaded", function() {
   <script type="module" src="./js/firebase.js"></script>
   <script type="module" src="./js/auth-ui.js"></script>
 
-    <!-- Floating WhatsApp Button (Centered Right) -->
-    <a href="https://wa.me/905400443445" target="_blank" aria-label="WhatsApp Destek" 
-       style="position:fixed; top:50%; right:10px; transform:translateY(-50%); width:60px; height:60px; background:#25D366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.3); z-index:9999; text-decoration:none;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-    </a>
+  <!-- Floating WhatsApp Button (Centered Right) -->
+  <a href="https://wa.me/905400443445" target="_blank" aria-label="WhatsApp Destek"
+    style="position:fixed; top:50%; right:10px; transform:translateY(-50%); width:60px; height:60px; background:#25D366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.3); z-index:9999; text-decoration:none;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
+      <path
+        d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+    </svg>
+  </a>
 
   <!-- Cargo Countdown Timer -->
   <script src="./js/cargo-timer.js"></script>

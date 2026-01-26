@@ -8,14 +8,13 @@
    - Zero data corruption risk
 ====================================================== */
 
-const CACHE_VERSION = "v2026.01.16";
+const CACHE_VERSION = "v2026.01.26-seo";
 const CACHE_NAME = `gizlikutu-core-${CACHE_VERSION}`;
 
 // Sadece yaşamsal çekirdek dosyalar
 const CORE_ASSETS = [
-    "./",
-    "./index.html",
-    "./manifest.webmanifest"
+    "/",
+    "/manifest.webmanifest"
 ];
 
 // --------------------
@@ -75,7 +74,8 @@ self.addEventListener("fetch", event => {
     }
 
     // ✅ Core asset ise cache-first
-    if (CORE_ASSETS.some(asset => url.pathname.endsWith(asset.replace("./", "/")))) {
+    const isCore = CORE_ASSETS.some(asset => url.pathname === asset);
+    if (isCore) {
         event.respondWith(
             caches.match(request).then(cached => {
                 return cached || fetch(request);
@@ -84,8 +84,16 @@ self.addEventListener("fetch", event => {
         return;
     }
 
-    // 🌐 Diğer tüm local dosyalar network-first
+    // 🌐 Diğer tüm local dosyalar (Clean URL desteği ile)
     event.respondWith(
-        fetch(request).catch(() => caches.match(request))
+        fetch(request).catch(async () => {
+            const cached = await caches.match(request);
+            if (cached) return cached;
+
+            // Eğer clean URL ise .html halini ara
+            if (!url.pathname.includes('.')) {
+                return caches.match(url.pathname + ".html");
+            }
+        })
     );
 });
