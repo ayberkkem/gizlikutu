@@ -11,20 +11,20 @@
   const url = new URL(window.location.href);
   const path = url.pathname.toLowerCase();
 
-  // Mapping filenames to category IDs
+  // Mapping clean URLs to category IDs
   const seoMap = {
-    "vibrator.html": "kadinlara-ozel-vibratorler",
-    "masturbator.html": "erkeklere-ozel-masturbatorler",
-    "dildo.html": "realistik-dildolar-sabitlenebilir-modeller",
-    "jel.html": "kayganlastiricilar-su-bazli",
-    "fantezi.html": "fantezi-ve-rol-oyunlari",
-    "masaj.html": "masaj-ve-uyarici-urunler",
-    "titresim.html": "titresimli-oyuncaklar-guclu-vibratorler",
-    "cesur.html": "cesur-urunler",
-    "realistik.html": "realistik-deneyim-urunleri",
-    "manken.html": "gercekci-mankenler-ozel-seri",
-    "performans.html": "performans-destek-urunleri",
-    "erotik-giyim.html": "fantezi-ve-rol-oyunlari"
+    "vibrator": "kadinlara-ozel-vibratorler",
+    "masturbator": "erkeklere-ozel-masturbatorler",
+    "dildo": "realistik-dildolar-sabitlenebilir-modeller",
+    "jel": "kayganlastiricilar-su-bazli",
+    "fantezi": "fantezi-ve-rol-oyunlari",
+    "masaj": "masaj-ve-uyarici-urunler",
+    "titresim": "titresimli-oyuncaklar-guclu-vibratorler",
+    "cesur": "cesur-urunler",
+    "realistik": "realistik-deneyim-urunleri",
+    "manken": "gercekci-mankenler-ozel-seri",
+    "performans": "performans-destek-urunleri",
+    "erotik-giyim": "fantezi-ve-rol-oyunlari"
   };
 
   let defaultCat = "all";

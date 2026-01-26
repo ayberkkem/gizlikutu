@@ -8,7 +8,7 @@
    - Zero data corruption risk
 ====================================================== */
 
-const CACHE_VERSION = "v2026.01.26-seo";
+const CACHE_VERSION = "v2026.01.26-vercel-seo";
 const CACHE_NAME = `gizlikutu-core-${CACHE_VERSION}`;
 
 // Sadece yaşamsal çekirdek dosyalar
@@ -62,6 +62,11 @@ self.addEventListener("fetch", event => {
     if (request.method !== "GET") return;
 
     const url = new URL(request.url);
+
+    // Normalize /index.html to /
+    if (url.pathname === "/index.html") {
+        url.pathname = "/";
+    }
 
     // ❌ API / Firebase / external istekler cache edilmez
     if (

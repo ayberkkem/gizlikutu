@@ -212,6 +212,10 @@ function processTemplate(cityName, isProvince = true, provinceName = "") {
     // SEO Fix: Eğer içerikte .html uzantılı linkler kaldıysa (template'den gelen), onları da temizle
     content = content.replace(/href="\/([^"]+)\.html"/g, 'href="/$1"');
 
+    // Force clean URL in canonical tag
+    const cleanCanonical = `https://gizlikutu.online/${citySlug}-sex-shop`;
+    content = content.replace(/<link rel="canonical" href="[^"]+">/, `<link rel="canonical" href="${cleanCanonical}">`);
+
     return { filename: `${citySlug}-sex-shop.html`, content: content };
 }
 
@@ -223,16 +227,14 @@ cities.forEach(city => {
     fs.writeFileSync(path.join(outputDir, provinceData.filename), provinceData.content);
     generatedFiles.push(provinceData.filename);
 
-    // Districts
+    // Districts - ONLY AKHISAR
     if (city.districts && city.districts.length > 0) {
         city.districts.forEach(dist => {
-            let effectiveDistName = dist;
-            if (dist === "Merkez") {
-                effectiveDistName = `${city.name} Merkez`;
+            if (dist === "Akhisar") {
+                const distData = processTemplate(dist, false, city.name);
+                fs.writeFileSync(path.join(outputDir, distData.filename), distData.content);
+                generatedFiles.push(distData.filename);
             }
-            const distData = processTemplate(effectiveDistName, false, city.name);
-            fs.writeFileSync(path.join(outputDir, distData.filename), distData.content);
-            generatedFiles.push(distData.filename);
         });
     }
 });

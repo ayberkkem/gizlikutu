@@ -1,6 +1,4888 @@
 {
     "cleanUrls": true,
     "trailingSlash": false,
+    "redirects": [
+        {
+            "source": "/index.html",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/index",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/products.html",
+            "destination": "/products",
+            "permanent": true
+        },
+        {
+            "source": "/product.html",
+            "destination": "/product",
+            "permanent": true
+        },
+        {
+            "source": "/aladag-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ceyhan-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cukurova-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/feke-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/imamoglu-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karaisali-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karatas-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kozan-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pozanti-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/saimbeyli-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/saricam-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/seyhan-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tufanbeyli-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yumurtalik-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yuregir-sex-shop",
+            "destination": "/adana-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/besni-sex-shop",
+            "destination": "/adiyaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/celikhan-sex-shop",
+            "destination": "/adiyaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gerger-sex-shop",
+            "destination": "/adiyaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/golbasi-sex-shop",
+            "destination": "/adiyaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kahta-sex-shop",
+            "destination": "/adiyaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/adiyaman-merkez-sex-shop",
+            "destination": "/adiyaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/samsat-sex-shop",
+            "destination": "/adiyaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sincik-sex-shop",
+            "destination": "/adiyaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tut-sex-shop",
+            "destination": "/adiyaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/basmakci-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bayat-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bolvadin-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cay-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cobanlar-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dazkiri-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dinar-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/emirdag-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/evciler-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hocalar-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ihsaniye-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/iscehisar-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kiziloren-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/afyonkarahisar-merkez-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sandikli-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sinanpasa-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sultandagi-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/suhut-sex-shop",
+            "destination": "/afyonkarahisar-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/diyadin-sex-shop",
+            "destination": "/agri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dogubayazit-sex-shop",
+            "destination": "/agri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eleskirt-sex-shop",
+            "destination": "/agri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hamur-sex-shop",
+            "destination": "/agri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/agri-merkez-sex-shop",
+            "destination": "/agri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/patnos-sex-shop",
+            "destination": "/agri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/taslicay-sex-shop",
+            "destination": "/agri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tutak-sex-shop",
+            "destination": "/agri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/goynucek-sex-shop",
+            "destination": "/amasya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gumushacikoy-sex-shop",
+            "destination": "/amasya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hamamozu-sex-shop",
+            "destination": "/amasya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/amasya-merkez-sex-shop",
+            "destination": "/amasya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/merzifon-sex-shop",
+            "destination": "/amasya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/suluova-sex-shop",
+            "destination": "/amasya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tasova-sex-shop",
+            "destination": "/amasya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akyurt-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/altindag-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ayas-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bala-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/beypazari-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/camlidere-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cankaya-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cubuk-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/elmadag-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/etimesgut-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/evren-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/golbasi-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gudul-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/haymana-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kahramankazan-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kalecik-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kecioren-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kizilcahamam-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mamak-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/nallihan-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/polatli-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pursaklar-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sincan-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sereflikochisar-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenimahalle-sex-shop",
+            "destination": "/ankara-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akseki-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aksu-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/alanya-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/demre-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dosemealti-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/elmali-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/finike-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gazipasa-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gundogmus-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ibradi-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kas-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kemer-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kepez-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/konyaalti-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/korkuteli-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kumluca-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/manavgat-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/muratpasa-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/serik-sex-shop",
+            "destination": "/antalya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ardanuc-sex-shop",
+            "destination": "/artvin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/arhavi-sex-shop",
+            "destination": "/artvin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/borcka-sex-shop",
+            "destination": "/artvin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hopa-sex-shop",
+            "destination": "/artvin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kemalpasa-sex-shop",
+            "destination": "/artvin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/artvin-merkez-sex-shop",
+            "destination": "/artvin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/murgul-sex-shop",
+            "destination": "/artvin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/savsat-sex-shop",
+            "destination": "/artvin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yusufeli-sex-shop",
+            "destination": "/artvin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bozdogan-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/buharkent-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cine-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/didim-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/efeler-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/germencik-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/incirliova-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karacasu-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karpuzlu-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kocarli-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kosk-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kusadasi-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kuyucak-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/nazilli-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/soke-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sultanhisar-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenipazar-sex-shop",
+            "destination": "/aydin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/altieylul-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ayvalik-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/balya-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bandirma-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bigadic-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/burhaniye-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dursunbey-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/edremit-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/erdek-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gomec-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gonen-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/havran-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ivrindi-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karesi-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kepsut-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/manyas-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/marmara-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/savastepe-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sindirgi-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/susurluk-sex-shop",
+            "destination": "/balikesir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bozuyuk-sex-shop",
+            "destination": "/bilecik-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/golpazari-sex-shop",
+            "destination": "/bilecik-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/inhisar-sex-shop",
+            "destination": "/bilecik-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bilecik-merkez-sex-shop",
+            "destination": "/bilecik-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/osmaneli-sex-shop",
+            "destination": "/bilecik-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pazaryeri-sex-shop",
+            "destination": "/bilecik-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sogut-sex-shop",
+            "destination": "/bilecik-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenipazar-sex-shop",
+            "destination": "/bilecik-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/adakli-sex-shop",
+            "destination": "/bingol-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/genc-sex-shop",
+            "destination": "/bingol-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karliova-sex-shop",
+            "destination": "/bingol-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kigi-sex-shop",
+            "destination": "/bingol-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bingol-merkez-sex-shop",
+            "destination": "/bingol-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/solhan-sex-shop",
+            "destination": "/bingol-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yayladere-sex-shop",
+            "destination": "/bingol-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yedisu-sex-shop",
+            "destination": "/bingol-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/adilcevaz-sex-shop",
+            "destination": "/bitlis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ahlat-sex-shop",
+            "destination": "/bitlis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/guroymak-sex-shop",
+            "destination": "/bitlis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hizan-sex-shop",
+            "destination": "/bitlis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bitlis-merkez-sex-shop",
+            "destination": "/bitlis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mutki-sex-shop",
+            "destination": "/bitlis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tatvan-sex-shop",
+            "destination": "/bitlis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dortdivan-sex-shop",
+            "destination": "/bolu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gerede-sex-shop",
+            "destination": "/bolu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/goynuk-sex-shop",
+            "destination": "/bolu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kibriscik-sex-shop",
+            "destination": "/bolu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mengen-sex-shop",
+            "destination": "/bolu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bolu-merkez-sex-shop",
+            "destination": "/bolu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mudurnu-sex-shop",
+            "destination": "/bolu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/seben-sex-shop",
+            "destination": "/bolu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenicaga-sex-shop",
+            "destination": "/bolu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aglasun-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/altinyayla-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bucak-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cavdir-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/celtikci-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/golhisar-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karamanli-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kemer-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/burdur-merkez-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tefenni-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yesilova-sex-shop",
+            "destination": "/burdur-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/buyukorhan-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gemlik-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gursu-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/harmancik-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/inegol-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/iznik-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karacabey-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/keles-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kestel-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mudanya-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mustafakemalpasa-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/nilufer-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/orhaneli-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/orhangazi-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/osmangazi-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenisehir-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yildirim-sex-shop",
+            "destination": "/bursa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ayvacik-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bayramic-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/biga-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bozcaada-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/can-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eceabat-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ezine-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gelibolu-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gokceada-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/lapseki-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/canakkale-merkez-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenice-sex-shop",
+            "destination": "/canakkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/atkaracalar-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bayramoren-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cerkes-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eldivan-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ilgaz-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kizilirmak-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/korgun-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kursunlu-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cankiri-merkez-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/orta-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sabanozu-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yaprakli-sex-shop",
+            "destination": "/cankiri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/alaca-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bayat-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bogazkale-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dodurga-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/iskilip-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kargi-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/lacin-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mecitozu-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/corum-merkez-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/oguzlar-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ortakoy-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/osmancik-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sungurlu-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ugurludag-sex-shop",
+            "destination": "/corum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/acipayam-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/babadag-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/baklan-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bekilli-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/beyagac-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bozkurt-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/buldan-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cal-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cameli-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cardak-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/civril-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/guney-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/honaz-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kale-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/merkezefendi-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pamukkale-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/saraykoy-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/serinhisar-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tavas-sex-shop",
+            "destination": "/denizli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/baglar-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bismil-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cermik-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cinar-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cungus-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dicle-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/egil-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ergani-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hani-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hazro-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kayapinar-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kocakoy-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kulp-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/lice-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/silvan-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sur-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenisehir-sex-shop",
+            "destination": "/diyarbakir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/enez-sex-shop",
+            "destination": "/edirne-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/havsa-sex-shop",
+            "destination": "/edirne-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ipsala-sex-shop",
+            "destination": "/edirne-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kesan-sex-shop",
+            "destination": "/edirne-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/lalapasa-sex-shop",
+            "destination": "/edirne-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/meric-sex-shop",
+            "destination": "/edirne-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/edirne-merkez-sex-shop",
+            "destination": "/edirne-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/suloglu-sex-shop",
+            "destination": "/edirne-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/uzunkopru-sex-shop",
+            "destination": "/edirne-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/agin-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/alacakaya-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aricak-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/baskil-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karakocan-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/keban-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kovancilar-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/maden-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/elazig-merkez-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/palu-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sivrice-sex-shop",
+            "destination": "/elazig-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cayirli-sex-shop",
+            "destination": "/erzincan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ilic-sex-shop",
+            "destination": "/erzincan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kemah-sex-shop",
+            "destination": "/erzincan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kemaliye-sex-shop",
+            "destination": "/erzincan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/erzincan-merkez-sex-shop",
+            "destination": "/erzincan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/otlukbeli-sex-shop",
+            "destination": "/erzincan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/refahiye-sex-shop",
+            "destination": "/erzincan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tercan-sex-shop",
+            "destination": "/erzincan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/uzumlu-sex-shop",
+            "destination": "/erzincan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/askale-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aziziye-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cat-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hinis-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/horasan-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ispir-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karacoban-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karayazi-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/koprukoy-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/narman-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/oltu-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/olur-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/palandoken-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pasinler-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pazaryolu-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/senkaya-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tekman-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tortum-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/uzundere-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yakutiye-sex-shop",
+            "destination": "/erzurum-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/alpu-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/beylikova-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cifteler-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gunyuzu-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/han-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/inonu-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mahmudiye-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mihalgazi-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mihaliccik-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/odunpazari-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/saricakaya-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/seyitgazi-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sivrihisar-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tepebasi-sex-shop",
+            "destination": "/eskisehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/araban-sex-shop",
+            "destination": "/gaziantep-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/islahiye-sex-shop",
+            "destination": "/gaziantep-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karkamis-sex-shop",
+            "destination": "/gaziantep-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/nizip-sex-shop",
+            "destination": "/gaziantep-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/nurdagi-sex-shop",
+            "destination": "/gaziantep-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/oguzeli-sex-shop",
+            "destination": "/gaziantep-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sahinbey-sex-shop",
+            "destination": "/gaziantep-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sehitkamil-sex-shop",
+            "destination": "/gaziantep-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yavuzeli-sex-shop",
+            "destination": "/gaziantep-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/alucra-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bulancak-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/camoluk-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/canakci-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dereli-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dogankent-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/espiye-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eynesil-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gorele-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/guce-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kesap-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/giresun-merkez-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/piraziz-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sebinkarahisar-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tirebolu-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yaglidere-sex-shop",
+            "destination": "/giresun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kelkit-sex-shop",
+            "destination": "/gumushane-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kose-sex-shop",
+            "destination": "/gumushane-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kurtun-sex-shop",
+            "destination": "/gumushane-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gumushane-merkez-sex-shop",
+            "destination": "/gumushane-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/siran-sex-shop",
+            "destination": "/gumushane-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/torul-sex-shop",
+            "destination": "/gumushane-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cukurca-sex-shop",
+            "destination": "/hakkari-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/derecik-sex-shop",
+            "destination": "/hakkari-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hakkari-merkez-sex-shop",
+            "destination": "/hakkari-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/semdinli-sex-shop",
+            "destination": "/hakkari-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yuksekova-sex-shop",
+            "destination": "/hakkari-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/altinozu-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/antakya-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/arsuz-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/belen-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/defne-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dortyol-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/erzin-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hassa-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/iskenderun-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kirikhan-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kumlu-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/payas-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/reyhanli-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/samandag-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yayladagi-sex-shop",
+            "destination": "/hatay-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aksu-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/atabey-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/egirdir-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gelendost-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gonen-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/keciborlu-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/isparta-merkez-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/senirkent-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sutculer-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sarkikaraagac-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/uluborlu-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yalvac-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenisarbademli-sex-shop",
+            "destination": "/isparta-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akdeniz-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/anamur-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aydincik-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bozyazi-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/camliyayla-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/erdemli-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gulnar-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mezitli-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mut-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/silifke-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tarsus-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/toroslar-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenisehir-sex-shop",
+            "destination": "/mersin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/adalar-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/arnavutkoy-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/atasehir-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/avcilar-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bagcilar-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bahcelievler-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bakirkoy-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/basaksehir-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bayrampasa-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/besiktas-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/beykoz-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/beylikduzu-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/beyoglu-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/buyukcekmece-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/catalca-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cekmekoy-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/esenler-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/esenyurt-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eyupsultan-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/fatih-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gaziosmanpasa-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gungoren-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kadikoy-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kagithane-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kartal-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kucukcekmece-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/maltepe-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pendik-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sancaktepe-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sariyer-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/silivri-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sultanbeyli-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sultangazi-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sile-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sisli-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tuzla-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/umraniye-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/uskudar-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/zeytinburnu-sex-shop",
+            "destination": "/istanbul-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aliaga-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/balcova-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bayindir-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bayrakli-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bergama-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/beydag-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bornova-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/buca-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cesme-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cigli-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dikili-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/foca-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gaziemir-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/guzelbahce-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karabaglar-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karaburun-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karsiyaka-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kemalpasa-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kinik-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kiraz-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/konak-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/menderes-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/menemen-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/narlidere-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/odemis-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/seferihisar-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/selcuk-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tire-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/torbali-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/urla-sex-shop",
+            "destination": "/izmir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akyaka-sex-shop",
+            "destination": "/kars-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/arpacay-sex-shop",
+            "destination": "/kars-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/digor-sex-shop",
+            "destination": "/kars-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kagizman-sex-shop",
+            "destination": "/kars-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kars-merkez-sex-shop",
+            "destination": "/kars-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sarikamis-sex-shop",
+            "destination": "/kars-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/selim-sex-shop",
+            "destination": "/kars-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/susuz-sex-shop",
+            "destination": "/kars-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/abana-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/agli-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/arac-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/azdavay-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bozkurt-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cide-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/catalzeytin-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/daday-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/devrekani-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/doganyurt-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hanonu-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ihsangazi-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/inebolu-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kure-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kastamonu-merkez-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pinarbasi-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/seydiler-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/senpazar-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/taskopru-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tosya-sex-shop",
+            "destination": "/kastamonu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akkisla-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bunyan-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/develi-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/felahiye-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hacilar-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/incesu-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kocasinan-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/melikgazi-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ozvatan-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pinarbasi-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sarioglan-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sariz-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/talas-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tomarza-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yahyali-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yesilhisar-sex-shop",
+            "destination": "/kayseri-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/babaeski-sex-shop",
+            "destination": "/kirklareli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/demirkoy-sex-shop",
+            "destination": "/kirklareli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kofcaz-sex-shop",
+            "destination": "/kirklareli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/luleburgaz-sex-shop",
+            "destination": "/kirklareli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kirklareli-merkez-sex-shop",
+            "destination": "/kirklareli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pehlivankoy-sex-shop",
+            "destination": "/kirklareli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pinarhisar-sex-shop",
+            "destination": "/kirklareli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/vize-sex-shop",
+            "destination": "/kirklareli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akcakent-sex-shop",
+            "destination": "/kirsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akpinar-sex-shop",
+            "destination": "/kirsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/boztepe-sex-shop",
+            "destination": "/kirsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cicekdagi-sex-shop",
+            "destination": "/kirsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kaman-sex-shop",
+            "destination": "/kirsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kirsehir-merkez-sex-shop",
+            "destination": "/kirsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mucur-sex-shop",
+            "destination": "/kirsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/basiskele-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cayirova-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/darica-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/derince-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dilovasi-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gebze-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/golcuk-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/izmit-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kandira-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karamursel-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kartepe-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/korfez-sex-shop",
+            "destination": "/kocaeli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ahirli-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akoren-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aksehir-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/altinekin-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/beysehir-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bozkir-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cihanbeyli-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/celtik-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cumra-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/derbent-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/derebucak-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/doganhisar-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/emirgazi-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eregli-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/guneysinir-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hadim-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/halkapinar-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/huyuk-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ilgin-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kadinhani-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karapinar-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karatay-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kulu-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/meram-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sarayonu-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/selcuklu-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/seydisehir-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/taskent-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tuzlukcu-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yalihuyuk-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yunak-sex-shop",
+            "destination": "/konya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/altintas-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aslanapa-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cavdarhisar-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/domanic-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dumlupinar-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/emet-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gediz-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hisarcik-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kutahya-merkez-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pazarlar-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/simav-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/saphane-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tavsanli-sex-shop",
+            "destination": "/kutahya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akcadag-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/arapgir-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/arguvan-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/battalgazi-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/darende-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dogansehir-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/doganyol-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hekimhan-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kale-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kuluncak-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/puturge-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yazihan-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yesilyurt-sex-shop",
+            "destination": "/malatya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ahmetli-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/alasehir-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/demirci-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/golmarmara-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gordes-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kirkagac-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/koprubasi-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kula-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/salihli-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sarigol-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/saruhanli-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/selendi-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/soma-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sehzadeler-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/turgutlu-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yunusemre-sex-shop",
+            "destination": "/manisa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/afsin-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/andirin-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/caglayancerit-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dulkadiroglu-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ekinozu-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/elbistan-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/goksun-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/nurhak-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/onikisubat-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pazarcik-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/turkoglu-sex-shop",
+            "destination": "/kahramanmaras-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/artuklu-sex-shop",
+            "destination": "/mardin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dargecit-sex-shop",
+            "destination": "/mardin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/derik-sex-shop",
+            "destination": "/mardin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kiziltepe-sex-shop",
+            "destination": "/mardin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mazidagi-sex-shop",
+            "destination": "/mardin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/midyat-sex-shop",
+            "destination": "/mardin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/nusaybin-sex-shop",
+            "destination": "/mardin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/omerli-sex-shop",
+            "destination": "/mardin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/savur-sex-shop",
+            "destination": "/mardin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yesilli-sex-shop",
+            "destination": "/mardin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bodrum-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dalaman-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/datca-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/fethiye-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kavaklidere-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/koycegiz-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/marmaris-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mentese-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/milas-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ortaca-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/seydikemer-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ula-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yatagan-sex-shop",
+            "destination": "/mugla-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bulanik-sex-shop",
+            "destination": "/mus-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/haskoy-sex-shop",
+            "destination": "/mus-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/korkut-sex-shop",
+            "destination": "/mus-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/malazgirt-sex-shop",
+            "destination": "/mus-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mus-merkez-sex-shop",
+            "destination": "/mus-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/varto-sex-shop",
+            "destination": "/mus-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/acigol-sex-shop",
+            "destination": "/nevsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/avanos-sex-shop",
+            "destination": "/nevsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/derinkuyu-sex-shop",
+            "destination": "/nevsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gulsehir-sex-shop",
+            "destination": "/nevsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hacibektas-sex-shop",
+            "destination": "/nevsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kozakli-sex-shop",
+            "destination": "/nevsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/nevsehir-merkez-sex-shop",
+            "destination": "/nevsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/urgup-sex-shop",
+            "destination": "/nevsehir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/altunhisar-sex-shop",
+            "destination": "/nigde-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bor-sex-shop",
+            "destination": "/nigde-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/camardi-sex-shop",
+            "destination": "/nigde-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ciftlik-sex-shop",
+            "destination": "/nigde-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/nigde-merkez-sex-shop",
+            "destination": "/nigde-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ulukisla-sex-shop",
+            "destination": "/nigde-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akkus-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/altinordu-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aybasti-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/camas-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/catalpinar-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/caybasi-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/fatsa-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/golkoy-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gulyali-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gurgentepe-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ikizce-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kabaduz-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kabatas-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/korgan-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kumru-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mesudiye-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/persembe-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ulubey-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/unye-sex-shop",
+            "destination": "/ordu-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ardesen-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/camlihemsin-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cayeli-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/derepazari-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/findikli-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/guneysu-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hemsin-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ikizdere-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/iyidere-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kalkandere-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/rize-merkez-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pazar-sex-shop",
+            "destination": "/rize-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/adapazari-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akyazi-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/arifiye-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/erenler-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ferizli-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/geyve-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hendek-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karapurcek-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karasu-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kaynarca-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kocaali-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pamukova-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sapanca-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/serdivan-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sogutlu-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tarakli-sex-shop",
+            "destination": "/sakarya-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/19-mayis-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/alacam-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/asarcik-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/atakum-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ayvacik-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bafra-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/canik-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/carsamba-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/havza-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ilkadim-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kavak-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ladik-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/salipazari-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tekkekoy-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/terme-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/vezirkopru-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yakakent-sex-shop",
+            "destination": "/samsun-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/baykan-sex-shop",
+            "destination": "/siirt-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eruh-sex-shop",
+            "destination": "/siirt-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kurtalan-sex-shop",
+            "destination": "/siirt-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/siirt-merkez-sex-shop",
+            "destination": "/siirt-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pervari-sex-shop",
+            "destination": "/siirt-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sirvan-sex-shop",
+            "destination": "/siirt-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tillo-sex-shop",
+            "destination": "/siirt-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ayancik-sex-shop",
+            "destination": "/sinop-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/boyabat-sex-shop",
+            "destination": "/sinop-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dikmen-sex-shop",
+            "destination": "/sinop-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/duragan-sex-shop",
+            "destination": "/sinop-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/erfelek-sex-shop",
+            "destination": "/sinop-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gerze-sex-shop",
+            "destination": "/sinop-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sinop-merkez-sex-shop",
+            "destination": "/sinop-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sarayduzu-sex-shop",
+            "destination": "/sinop-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/turkeli-sex-shop",
+            "destination": "/sinop-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akincilar-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/altinyayla-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/divrigi-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dogansar-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gemerek-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/golova-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gurun-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hafik-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/imranli-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kangal-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/koyulhisar-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sivas-merkez-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/susehri-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sarkisla-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ulas-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yildizeli-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/zara-sex-shop",
+            "destination": "/sivas-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cerkezkoy-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/corlu-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ergene-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hayrabolu-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kapakli-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/malkara-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/marmaraereglisi-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/muratli-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/saray-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/suleymanpasa-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sarkoy-sex-shop",
+            "destination": "/tekirdag-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/almus-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/artova-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/basciftlik-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/erbaa-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tokat-merkez-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/niksar-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pazar-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/resadiye-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sulusaray-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/turhal-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yesilyurt-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/zile-sex-shop",
+            "destination": "/tokat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akcaabat-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/arakli-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/arsin-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/besikduzu-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/carsibasi-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/caykara-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/dernekpazari-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/duzkoy-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hayrat-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/koprubasi-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/macka-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/of-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ortahisar-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/surmene-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/salpazari-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tonya-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/vakfikebir-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yomra-sex-shop",
+            "destination": "/trabzon-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cemisgezek-sex-shop",
+            "destination": "/tunceli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hozat-sex-shop",
+            "destination": "/tunceli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/mazgirt-sex-shop",
+            "destination": "/tunceli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tunceli-merkez-sex-shop",
+            "destination": "/tunceli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/nazimiye-sex-shop",
+            "destination": "/tunceli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ovacik-sex-shop",
+            "destination": "/tunceli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pertek-sex-shop",
+            "destination": "/tunceli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/pulumur-sex-shop",
+            "destination": "/tunceli-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akcale-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/birecik-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bozova-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ceylanpinar-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eyyubiye-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/halfeti-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/haliliye-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/harran-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hilvan-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karakopru-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/siverek-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/suruc-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/viransehir-sex-shop",
+            "destination": "/sanliurfa-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/banaz-sex-shop",
+            "destination": "/usak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/esme-sex-shop",
+            "destination": "/usak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karahalli-sex-shop",
+            "destination": "/usak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/usak-merkez-sex-shop",
+            "destination": "/usak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sivasli-sex-shop",
+            "destination": "/usak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ulubey-sex-shop",
+            "destination": "/usak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bahcesaray-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/baskale-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/caldiran-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/catak-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/edremit-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ercis-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gevas-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gurpinar-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ipekyolu-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/muradiye-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ozalp-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/saray-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tusba-sex-shop",
+            "destination": "/van-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akdagmadeni-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aydincik-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bogazliyan-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/candir-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cayiralan-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cekerek-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kadisehri-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yozgat-merkez-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/saraykent-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sarikaya-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sorgun-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sefaatli-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenifakili-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yerkoy-sex-shop",
+            "destination": "/yozgat-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/alapli-sex-shop",
+            "destination": "/zonguldak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/caycuma-sex-shop",
+            "destination": "/zonguldak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/devrek-sex-shop",
+            "destination": "/zonguldak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eregli-sex-shop",
+            "destination": "/zonguldak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gokcebey-sex-shop",
+            "destination": "/zonguldak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kilimli-sex-shop",
+            "destination": "/zonguldak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kozlu-sex-shop",
+            "destination": "/zonguldak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/zonguldak-merkez-sex-shop",
+            "destination": "/zonguldak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/agacoren-sex-shop",
+            "destination": "/aksaray-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eskil-sex-shop",
+            "destination": "/aksaray-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gulagac-sex-shop",
+            "destination": "/aksaray-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/guzelyurt-sex-shop",
+            "destination": "/aksaray-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aksaray-merkez-sex-shop",
+            "destination": "/aksaray-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ortakoy-sex-shop",
+            "destination": "/aksaray-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sariyahsi-sex-shop",
+            "destination": "/aksaray-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sultanhani-sex-shop",
+            "destination": "/aksaray-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aydintepe-sex-shop",
+            "destination": "/bayburt-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/demirozu-sex-shop",
+            "destination": "/bayburt-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bayburt-merkez-sex-shop",
+            "destination": "/bayburt-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ayranci-sex-shop",
+            "destination": "/karaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/basyayla-sex-shop",
+            "destination": "/karaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ermenek-sex-shop",
+            "destination": "/karaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kazimkarabekir-sex-shop",
+            "destination": "/karaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karaman-merkez-sex-shop",
+            "destination": "/karaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sariveliler-sex-shop",
+            "destination": "/karaman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bahsili-sex-shop",
+            "destination": "/kirikkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/baliseyh-sex-shop",
+            "destination": "/kirikkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/celebi-sex-shop",
+            "destination": "/kirikkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/delice-sex-shop",
+            "destination": "/kirikkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karakecili-sex-shop",
+            "destination": "/kirikkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/keskin-sex-shop",
+            "destination": "/kirikkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kirikkale-merkez-sex-shop",
+            "destination": "/kirikkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sulakyurt-sex-shop",
+            "destination": "/kirikkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yahsihan-sex-shop",
+            "destination": "/kirikkale-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/besiri-sex-shop",
+            "destination": "/batman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gercus-sex-shop",
+            "destination": "/batman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hasankeyf-sex-shop",
+            "destination": "/batman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kozluk-sex-shop",
+            "destination": "/batman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/batman-merkez-sex-shop",
+            "destination": "/batman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sason-sex-shop",
+            "destination": "/batman-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/beytussebap-sex-shop",
+            "destination": "/sirnak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cizre-sex-shop",
+            "destination": "/sirnak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/guclukonak-sex-shop",
+            "destination": "/sirnak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/idil-sex-shop",
+            "destination": "/sirnak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sirnak-merkez-sex-shop",
+            "destination": "/sirnak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/silopi-sex-shop",
+            "destination": "/sirnak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/uludere-sex-shop",
+            "destination": "/sirnak-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/amasra-sex-shop",
+            "destination": "/bartin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kurucasile-sex-shop",
+            "destination": "/bartin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bartin-merkez-sex-shop",
+            "destination": "/bartin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ulus-sex-shop",
+            "destination": "/bartin-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cildir-sex-shop",
+            "destination": "/ardahan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/damal-sex-shop",
+            "destination": "/ardahan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gole-sex-shop",
+            "destination": "/ardahan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hanak-sex-shop",
+            "destination": "/ardahan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ardahan-merkez-sex-shop",
+            "destination": "/ardahan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/posof-sex-shop",
+            "destination": "/ardahan-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/aralik-sex-shop",
+            "destination": "/igdir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karakoyunlu-sex-shop",
+            "destination": "/igdir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/igdir-merkez-sex-shop",
+            "destination": "/igdir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/tuzluca-sex-shop",
+            "destination": "/igdir-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/altinova-sex-shop",
+            "destination": "/yalova-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/armutlu-sex-shop",
+            "destination": "/yalova-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cinarcik-sex-shop",
+            "destination": "/yalova-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ciftlikkoy-sex-shop",
+            "destination": "/yalova-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yalova-merkez-sex-shop",
+            "destination": "/yalova-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/termal-sex-shop",
+            "destination": "/yalova-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eflani-sex-shop",
+            "destination": "/karabuk-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/eskipazar-sex-shop",
+            "destination": "/karabuk-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/karabuk-merkez-sex-shop",
+            "destination": "/karabuk-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/ovacik-sex-shop",
+            "destination": "/karabuk-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/safranbolu-sex-shop",
+            "destination": "/karabuk-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yenice-sex-shop",
+            "destination": "/karabuk-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/elbeyli-sex-shop",
+            "destination": "/kilis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kilis-merkez-sex-shop",
+            "destination": "/kilis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/musabeyli-sex-shop",
+            "destination": "/kilis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/polateli-sex-shop",
+            "destination": "/kilis-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/bahce-sex-shop",
+            "destination": "/osmaniye-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/duzici-sex-shop",
+            "destination": "/osmaniye-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/hasanbeyli-sex-shop",
+            "destination": "/osmaniye-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kadirli-sex-shop",
+            "destination": "/osmaniye-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/osmaniye-merkez-sex-shop",
+            "destination": "/osmaniye-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/sumbas-sex-shop",
+            "destination": "/osmaniye-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/toprakkale-sex-shop",
+            "destination": "/osmaniye-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/akcakoca-sex-shop",
+            "destination": "/duzce-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cumayeri-sex-shop",
+            "destination": "/duzce-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/cilimli-sex-shop",
+            "destination": "/duzce-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/golyaka-sex-shop",
+            "destination": "/duzce-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/gumusova-sex-shop",
+            "destination": "/duzce-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/kaynasli-sex-shop",
+            "destination": "/duzce-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/duzce-merkez-sex-shop",
+            "destination": "/duzce-sex-shop",
+            "permanent": true
+        },
+        {
+            "source": "/yigilca-sex-shop",
+            "destination": "/duzce-sex-shop",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/hakkimizda",
@@ -13,10 +4895,6 @@
         {
             "source": "/urunler",
             "destination": "/products"
-        },
-        {
-            "source": "/blog",
-            "destination": "/blog"
         },
         {
             "source": "/api/paytr/notify",

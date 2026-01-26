@@ -67,7 +67,7 @@
              <span class="counter-qty">${cartQty}</span>
              <button class="counter-btn counter-plus" data-action="plus">+</button>
            </div>
-           <a href="./cart.html" class="cart-go-btn">Sepetim 🛒</a>
+           <a href="/cart" class="cart-go-btn">Sepetim 🛒</a>
          </div>`
       : `<button class="add-to-cart-btn" data-product="${productData}">
            🛒 Sepete Ekle
@@ -75,7 +75,7 @@
 
     return `
       <div class="card product-card${blurClass}" data-product-id="${p.id}">
-        <a class="product-link" href="/product?id=${encodeURIComponent(p.id)}" aria-label="${safeTitle}">
+        <a class="product-link" href="${p.id ? '/product?id=' + encodeURIComponent(p.id) : '#'}" aria-label="${safeTitle}">
           <!-- Görsel -->
           <div class="product-image">
             <img
