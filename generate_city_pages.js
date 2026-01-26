@@ -209,6 +209,8 @@ function processTemplate(cityName, isProvince = true, provinceName = "") {
     }
 
     content = content.replace(/akhisar-sex-shop\.html/g, `${citySlug}-sex-shop.html`);
+    // SEO Fix: Eğer içerikte .html uzantılı linkler kaldıysa (template'den gelen), onları da temizle
+    content = content.replace(/href="\/([^"]+)\.html"/g, 'href="/$1"');
 
     return { filename: `${citySlug}-sex-shop.html`, content: content };
 }
@@ -244,7 +246,8 @@ const sitemapInsertionPoint = '</urlset>';
 let newSitemapLinks = "";
 
 generatedFiles.forEach(fname => {
-    const url = `https://gizlikutu.online/${fname}`;
+    const cleanFName = fname.replace('.html', '');
+    const url = `https://gizlikutu.online/${cleanFName}`;
     if (!sitemapContent.includes(url)) {
         newSitemapLinks += `
   <url>
@@ -259,7 +262,7 @@ generatedFiles.forEach(fname => {
 if (newSitemapLinks) {
     const newSitemapContent = sitemapContent.replace(sitemapInsertionPoint, newSitemapLinks + sitemapInsertionPoint);
     fs.writeFileSync(sitemapPath, newSitemapContent);
-    console.log("Sitemap updated.");
+    console.log("Sitemap updated with Clean URLs.");
 } else {
     console.log("Sitemap already up to date.");
 }

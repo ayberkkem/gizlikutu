@@ -8,9 +8,10 @@ cityFiles.sort(); // Alfabetik sıra
 
 // Linkleri oluştur
 const linksHTML = cityFiles.map(file => {
-    let name = file.replace(/-/g, ' ').replace('.html', '');
-    name = name.replace(/\b\w/g, l => l.toUpperCase()); // Baş harfleri büyüt
-    return `<a href="./${file}" class="city-link">${name}</a>`;
+  let name = file.replace(/-/g, ' ').replace('.html', '');
+  const cleanUrl = file.replace('.html', '');
+  name = name.replace(/\b\w/g, l => l.toUpperCase()); // Baş harfleri büyüt
+  return `<a href="/${cleanUrl}" class="city-link">${name}</a>`;
 }).join('');
 
 const htmlContent = `<!doctype html>
@@ -56,18 +57,18 @@ const htmlContent = `<!doctype html>
   <header id="mainHeader" style="border-bottom:1px solid #eee; background:#fff; position:sticky; top:0; z-index:100;">
     <div class="container">
       <div class="header-row" style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;">
-        <a class="logo" href="./index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+        <a class="logo" href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
           <img src="./assets/logo.jpg" alt="Logo" style="width:32px;height:32px;border-radius:6px;">
           <span style="font-weight:800;font-size:18px;color:#111;">Gizli Kutu</span>
         </a>
-        <a href="./index.html" class="btn primary" style="padding:6px 12px;font-size:12px;">Ana Sayfaya Dön</a>
+        <a href="/" class="btn primary" style="padding:6px 12px;font-size:12px;">Ana Sayfaya Dön</a>
       </div>
     </div>
   </header>
 
   <main class="container" style="padding-top:20px; padding-bottom:40px;">
     <h1 style="text-align:center; margin-bottom:10px;">Hizmet Bölgelerimiz</h1>
-    <p style="text-align:center; color:#666; max-width:600px; margin:0 auto 30px;">Türkiye'nin her noktasına %100 gizli paketleme ve güvenli teslimat ile hizmet veriyoruz. Aşağıdaki listeden bölgenize özel teslimat seçeneklerini inceleyebilirsiniz.</p>
+    <p style="text-align:center; color:#666; max-width:600px; margin:0 auto 30px;">Türkiye'nin her noktasına %100 gizli paketleme and güvenli teslimat ile hizmet veriyoruz. Aşağıdaki listeden bölgenize özel teslimat seçeneklerini inceleyebilirsiniz.</p>
     
     <div class="cities-grid">
         ${linksHTML}
@@ -77,9 +78,9 @@ const htmlContent = `<!doctype html>
   <footer class="footer">
     <div class="container">
       © <span id="y">${new Date().getFullYear()}</span> Gizli Kutu •
-      <a href="./cities.html">Hizmet Bölgelerimiz</a> • 
-      <a href="./privacy.html">Gizlilik</a> • 
-      <a href="./contact.html">İletişim</a>
+      <a href="/cities">Hizmet Bölgelerimiz</a> • 
+      <a href="/privacy">Gizlilik</a> • 
+      <a href="/contact">İletişim</a>
     </div>
   </footer>
 
@@ -98,37 +99,37 @@ console.log('Created public/cities.html with ' + cityFiles.length + ' links.');
 
 // 2. Footer'a Link Ekleme
 function getAllHTMLFiles(dirPath, arrayOfFiles) {
-    const all = fs.readdirSync(dirPath);
-    arrayOfFiles = arrayOfFiles || [];
-    all.forEach(function (file) {
-        if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-            arrayOfFiles = getAllHTMLFiles(dirPath + "/" + file, arrayOfFiles);
-        } else {
-            if (file.endsWith('.html')) arrayOfFiles.push(path.join(dirPath, "/", file));
-        }
-    });
-    return arrayOfFiles;
+  const all = fs.readdirSync(dirPath);
+  arrayOfFiles = arrayOfFiles || [];
+  all.forEach(function (file) {
+    if (fs.statSync(dirPath + "/" + file).isDirectory()) {
+      arrayOfFiles = getAllHTMLFiles(dirPath + "/" + file, arrayOfFiles);
+    } else {
+      if (file.endsWith('.html')) arrayOfFiles.push(path.join(dirPath, "/", file));
+    }
+  });
+  return arrayOfFiles;
 }
 
 const allHTML = getAllHTMLFiles(publicDir);
 let updatedCount = 0;
 
 allHTML.forEach(file => {
-    let content = fs.readFileSync(file, 'utf8');
+  let content = fs.readFileSync(file, 'utf8');
 
-    // Link zaten var mı bak
-    if (!content.includes('href="./cities.html"')) {
-        // Footer linklerini bul: <a href="./contact.html">İletişim</a>
-        // Arkasına ekle
-        // Regex ile daha güvenli bulalım
-        const contactLinkRegex = /<a\s+href=".\/contact.html">İletişim<\/a>/;
+  // Link zaten var mı bak
+  if (!content.includes('href="/cities"')) {
+    // Footer linklerini bul: <a href="/contact">İletişim</a>
+    // Arkasına ekle
+    // Regex ile daha güvenli bulalım (Clean URL formatına göre)
+    const contactLinkRegex = /<a\s+href="\/contact">İletişim<\/a>/;
 
-        if (content.match(contactLinkRegex)) {
-            content = content.replace(contactLinkRegex, '<a href="./contact.html">İletişim</a> • <a href="./cities.html">Hizmet Bölgelerimiz</a>');
-            fs.writeFileSync(file, content, 'utf8');
-            updatedCount++;
-        }
+    if (content.match(contactLinkRegex)) {
+      content = content.replace(contactLinkRegex, '<a href="/contact">İletişim</a> • <a href="/cities">Hizmet Bölgelerimiz</a>');
+      fs.writeFileSync(file, content, 'utf8');
+      updatedCount++;
     }
+  }
 });
 
 console.log(`Updated footer in ${updatedCount} files.`);
