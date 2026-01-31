@@ -9,20 +9,38 @@
   /* ==========================
      TOPLAM HESAPLAMA
   ========================== */
+  /**
+   * TOPLAM HESAPLAMA (Centralized via GKPricing)
+   */
   function calcTotal() {
     const cart = window.GKStorage.readCart();
-    const subtotal = cart.reduce((s, i) => s + (Number(i.price) || 0) * (Number(i.qty) || 0), 0);
-    const shipping = 0;
-    const total = subtotal + shipping;
+    const appliedCoupon = window.GKStorage.readCoupon();
+    const pricing = window.GKPricing.calculate(cart, appliedCoupon);
 
     const elSub = qs("#sumSubtotal");
     const elShip = qs("#sumShipping");
     const elTot = qs("#sumTotal");
-    if (elSub) elSub.textContent = money(subtotal);
-    if (elShip) elShip.textContent = "500₺+ Kargo Bedava 🚚";
-    if (elTot) elTot.textContent = money(total);
+    const elDisc = qs("#sumDiscount");
+    const discLine = qs("#discountLine");
 
-    return { subtotal, shipping, total, cart };
+    if (elSub) elSub.textContent = pricing.subtotalStr;
+    if (elShip) elShip.textContent = pricing.shippingStr;
+    if (elTot) elTot.textContent = pricing.totalStr;
+
+    if (pricing.discountKurus > 0) {
+      if (elDisc) elDisc.textContent = "-" + pricing.discountStr;
+      if (discLine) discLine.style.display = "flex";
+    } else {
+      if (discLine) discLine.style.display = "none";
+    }
+
+    return {
+      subtotalKurus: pricing.subtotalKurus,
+      shippingKurus: pricing.shippingKurus,
+      discountKurus: pricing.discountKurus,
+      totalKurus: pricing.totalKurus,
+      cart
+    };
   }
 
   const totals = calcTotal();
@@ -224,7 +242,7 @@
       },
       payment: {
         method: isCardPayment ? "online" : (paymentValue === "transfer" ? "transfer" : "cash"),
-        total: totals.total,
+        total: totals.totalKurus / 100,
         status: isCardPayment ? "pending" : "awaiting"
       },
       note: String(formData.note || "").trim(),
@@ -260,7 +278,7 @@
         const paytrPayload = {
           orderNo: orderNo,
           email: orderData.customer.email || "musteri@gizlikutu.online",
-          totalAmount: totals.total,
+          totalAmount: totals.totalKurus / 100,
           userName: `${firstName} ${surname}`,
           userPhone: gsm || "05000000000",
           userAddress: `${orderData.delivery.address}, ${orderData.delivery.district}, ${orderData.delivery.city}`,
@@ -284,7 +302,7 @@
           // Tracking için localStorage'a kaydet (success.html'de kullanılacak)
           const trackingData = {
             conversationId: orderNo,
-            paidPrice: totals.total,
+            paidPrice: totals.totalKurus / 100,
             basketItems: totals.cart.map((i) => ({
               id: i.id,
               name: i.title || "Ürün",
@@ -293,7 +311,12 @@
           };
           localStorage.setItem("gizlikutu_last_order_v1", JSON.stringify(trackingData));
 
-          // Sepeti temizle
+          // Sepeti ve kuponu temizle (ANTI-ABUSE)
+          const appliedCoupon = window.GKStorage.readCoupon();
+          if (appliedCoupon && appliedCoupon.code) {
+            window.GKStorage.markCouponAsUsed(appliedCoupon.code);
+            window.GKStorage.writeCoupon(null);
+          }
           window.GKStorage.clearCart();
 
           // PayTR öÖdeme ekranını aç
@@ -327,7 +350,7 @@
     // Tracking için localStorage'a kaydet
     const trackingData = {
       conversationId: orderNo,
-      paidPrice: totals.total,
+      paidPrice: totals.totalKurus / 100,
       basketItems: totals.cart.map((i) => ({
         id: i.id,
         name: i.title || "Ürün",
@@ -336,7 +359,12 @@
     };
     localStorage.setItem("gizlikutu_last_order_v1", JSON.stringify(trackingData));
 
-    // Sepeti temizle ve başarı sayfasına yönlendir
+    // Sepeti ve kuponu temizle (ANTI-ABUSE)
+    const appliedCoupon = window.GKStorage.readCoupon();
+    if (appliedCoupon && appliedCoupon.code) {
+      window.GKStorage.markCouponAsUsed(appliedCoupon.code);
+      window.GKStorage.writeCoupon(null);
+    }
     window.GKStorage.clearCart();
     window.location.href = "./success.html";
   });

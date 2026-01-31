@@ -8,7 +8,8 @@ import {
     Package,
     Tags,
     LogOut,
-    ExternalLink
+    ExternalLink,
+    Fan
 } from 'lucide-react';
 import { auth } from '@/lib/firebase';
 import { signOut } from 'firebase/auth';
@@ -19,6 +20,7 @@ const menuItems = [
     { name: 'Siparişler', icon: ShoppingBag, href: '/orders' },
     { name: 'Ürünler', icon: Package, href: '/products' },
     { name: 'Kategoriler', icon: Tags, href: '/categories' },
+    { name: 'Kampanyalar', icon: Fan, href: '/campaigns' },
 ];
 
 export default function Sidebar() {

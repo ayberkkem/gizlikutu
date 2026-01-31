@@ -1,0 +1,211 @@
+/* Valentine's Day Spin-to-Win Wheel v4 - Optimized Layout */
+
+:root {
+    --wheel-bg: #fff5f7;
+    --wheel-border: #fb7185;
+    --rose-primary: #e31418;
+    --rose-light: #fff1f2;
+    --purple-soft: #f5f3ff;
+    --text-dark: #4c0519;
+}
+
+/* Base Popup Overlay */
+#gk-wheel-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(76, 5, 25, 0.4);
+    backdrop-filter: blur(6px);
+    z-index: 9000;
+    /* Demoted to stay below Age Gate (9999) */
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+#gk-wheel-popup.active {
+    display: flex;
+}
+
+/* Main Container */
+.wheel-container {
+    background: white;
+    padding: 20px 15px;
+    border-radius: 30px;
+    width: min(95vw, 340px);
+    max-height: 95vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(225, 29, 72, 0.3);
+    border: 4px solid var(--rose-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Layout Wrapper */
+.wheel-layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+/* Close Button */
+.wheel-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--rose-light);
+    color: var(--rose-primary);
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+/* Wheel Wrap - Constrained */
+.wheel-inner-wrap {
+    position: relative;
+    width: min(100%, 260px);
+    /* Strict limit for mobile */
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+}
+
+.wheel-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid var(--wheel-border);
+    box-shadow: 0 0 15px rgba(251, 113, 133, 0.1);
+    transition: transform 6s cubic-bezier(0.15, 0, 0.1, 1);
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 30px;
+    background: var(--rose-primary);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    z-index: 100;
+}
+
+/* Content Area */
+.wheel-content-area {
+    width: 100%;
+    text-align: center;
+}
+
+.wheel-button {
+    width: 100%;
+    background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(225, 29, 72, 0.2);
+    text-transform: uppercase;
+    transition: all 0.2s;
+}
+
+.wheel-button:active {
+    transform: scale(0.98);
+}
+
+.wheel-button:disabled {
+    background: #fecdd3;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* Coupon Box */
+.coupon-box {
+    background: var(--rose-light);
+    border: 2px dashed var(--rose-primary);
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+    display: none;
+    width: 100%;
+    animation: wheel-pop 0.4s ease;
+}
+
+.coupon-box.active {
+    display: block;
+}
+
+.coupon-code {
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--rose-primary);
+    letter-spacing: 1px;
+}
+
+@keyframes wheel-pop {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* --- DESKTOP OPTIMIZATION --- */
+@media (min-width: 768px) {
+    .wheel-container {
+        width: min(90vw, 650px);
+        max-height: 480px;
+        /* Rigid limit for desktop */
+        padding: 35px 30px;
+        overflow: hidden;
+        /* No scroll on desktop */
+    }
+
+    .wheel-layout-wrapper {
+        flex-direction: row;
+        align-items: center;
+        gap: 40px;
+        height: 100%;
+    }
+
+    .wheel-inner-wrap {
+        flex: 0 0 300px;
+        width: 300px;
+        max-width: 300px;
+    }
+
+    .wheel-content-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .wheel-button {
+        padding: 14px;
+        font-size: 14px;
+    }
+
+    .wheel-close {
+        top: 20px;
+        right: 20px;
+    }
+}

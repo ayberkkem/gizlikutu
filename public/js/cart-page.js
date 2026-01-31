@@ -64,14 +64,54 @@
       return;
     }
 
-    let total = 0;
+    // --- PRICING CALCULATION ---
+    const appliedCoupon = window.GKStorage.readCoupon();
+    const pricing = window.GKPricing.calculate(cart, appliedCoupon);
 
-    // Mobilde kart yapısı, PC'de tablo yapısı
+    // Update UI Elements
+    const subtotalEl = qs("#sumSubtotal");
+    const shippingEl = qs("#sumShipping");
+    const discountEl = qs("#sumDiscount");
+    const discountLine = qs("#discountLine");
+    const couponInput = qs("#couponInput");
+    const applyBtn = qs("#applyCoupon");
+    const couponTag = qs("#appliedCouponTag");
+    const couponText = qs("#couponText");
+
+    if (subtotalEl) subtotalEl.textContent = pricing.subtotalStr;
+    if (shippingEl) shippingEl.textContent = pricing.shippingStr;
+    if (totalEl) totalEl.textContent = pricing.totalStr;
+
+    if (pricing.discountKurus > 0) {
+      if (discountEl) discountEl.textContent = "-" + pricing.discountStr;
+      if (discountLine) discountLine.style.display = "flex";
+
+      // Show tag if coupon applied
+      if (appliedCoupon && couponTag && couponText) {
+        couponTag.style.display = "flex";
+        couponText.textContent = appliedCoupon.code;
+        if (applyBtn) applyBtn.disabled = true;
+        if (couponInput) {
+          couponInput.value = appliedCoupon.code;
+          couponInput.disabled = true;
+        }
+      }
+    } else {
+      if (discountLine) discountLine.style.display = "none";
+      if (couponTag) couponTag.style.display = "none";
+      if (applyBtn) applyBtn.disabled = false;
+      if (couponInput) {
+        couponInput.disabled = false;
+        if (couponInput.value === (appliedCoupon ? appliedCoupon.code : "")) {
+          // logic to clear if removed
+        }
+      }
+    }
+
+    // PC / Mobile rendering logic
     if (isMobile()) {
       body.innerHTML = cart.map(i => {
-        total += i.price * i.qty;
         const imgSrc = safeImg(i.image);
-
         return `
           <tr class="mobile-cart-row">
             <td colspan="5">
@@ -107,33 +147,21 @@
         `;
       }).join("");
     } else {
-      // PC: Tablo yapısı - çöp ikonu ile
       body.innerHTML = cart.map(i => {
-        total += i.price * i.qty;
         const imgSrc = safeImg(i.image);
-
         return `
           <tr>
             <td style="width:64px">
-              <img
-                src="${imgSrc}"
-                alt="${i.title}"
-                loading="lazy"
-                onerror="this.onerror=null;this.src='${PLACEHOLDER}'"
-                style="width:56px;height:56px;object-fit:cover;border:1px solid var(--border);border-radius:12px"
-              />
+              <img src="${imgSrc}" alt="${i.title}" style="width:56px;height:56px;border-radius:12px" />
             </td>
             <td>
               <div style="font-weight:650">${i.title}</div>
-              <div class="muted" style="color:var(--muted);font-size:13px">
-                500₺+ Kargo Bedava 🚚
-              </div>
             </td>
             <td class="price">${money(i.price)}</td>
             <td>
               <div class="qty">
                 <button class="btn ghost" data-dec="${i.id}">-</button>
-                <span style="min-width:26px;text-align:center">${i.qty}</span>
+                <span>${i.qty}</span>
                 <button class="btn ghost" data-inc="${i.id}">+</button>
               </div>
             </td>
@@ -145,7 +173,52 @@
       }).join("");
     }
 
-    totalEl.textContent = money(total);
+    // Coupon Actions
+    if (applyBtn) {
+      applyBtn.onclick = async () => {
+        const code = (couponInput.value || "").trim().toUpperCase();
+        if (!code) return toast("Lütfen bir kod girin");
+
+        // Check wallet first
+        const wallet = window.GKStorage.readWallet();
+        const found = wallet.find(c => c.code === code && !c.used);
+
+        if (found) {
+          const now = Date.now();
+          if (found.expiresAt && now > found.expiresAt) return toast("Bu kuponun süresi dolmuş.");
+          window.GKStorage.writeCoupon(found);
+          toast("Kupon uygulandı! 🎉");
+          render();
+          return;
+        }
+
+        // Fallback for manual/campaign codes (static ones)
+        const staticCoupons = [
+          { code: "SEVGILI5", type: "percentage", value: 5 },
+          { code: "SEVGILI10", type: "percentage", value: 10 },
+          { code: "SEVGILI15", type: "percentage", value: 15 },
+          { code: "SEVGILI20", type: "percentage", value: 20 },
+          { code: "BEDAVAKARGO", type: "free_shipping", value: 0 }
+        ];
+
+        const staticFound = staticCoupons.find(c => c.code === code);
+        if (staticFound) {
+          window.GKStorage.writeCoupon(staticFound);
+          toast("Kupon uygulandı! 🎉");
+          render();
+        } else {
+          toast("Geçersiz veya kullanılmış kupon kodu");
+        }
+      };
+    }
+
+    if (qs("#removeCoupon")) {
+      qs("#removeCoupon").onclick = () => {
+        window.GKStorage.writeCoupon(null);
+        toast("Kupon kaldırıldı");
+        render();
+      };
+    }
 
     // Event listeners
     body.querySelectorAll("[data-inc]").forEach(b => {

@@ -14,11 +14,10 @@
   <link rel="stylesheet" href="./css/pages/checkout.css">
   <link rel="stylesheet" href="./css/category-nav.css">
   <link rel="canonical" href="https://gizlikutu.online/checkout">
-  <meta name="description"
-    content="Güvenli ödeme sayfasında siparişinizi tamamlayın. Kredi kartı, havale veya kapıda ödeme seçenekleri.">
+  content="Güvenli Ödeme sayfasında siparişinizi tamamlayın. Kredi Kartı, Havale/EFT veya Kapıda Ödeme seçenekleri.">
 
   <style>
-    /* HEadeR LOGO & WHATSAPP OVERLAP FIX */
+    /* Header LOGO & WHATSAPP OVERLAP FIX */
     .header-row .logo {
       display: flex !important;
       align-items: center !important;
@@ -57,7 +56,7 @@
   </style>
 
   <style>
-    /* --- COMPACT HEadeR FIX --- */
+    /* --- COMPACT Header FIX --- */
     /* 1. Header Genel Boşluk */
     #mainHeader .header-row {
       padding: 4px 0 !important;
@@ -332,14 +331,24 @@
 
 
       <div class="card" style="flex:.8;padding:16px">
-        <h3 style="margin:0 0 10px">Özet</h3>
-        <div class="row" style="justify-content:space-between"><span style="color:var(--muted)">Ara Toplam</span><b
-            id="sumSubtotal"></b></div>
-        <div class="row" style="justify-content:space-between"><span style="color:var(--muted)">Kargo</span><b
-            id="sumShipping"></b></div>
+        <div class="row" style="justify-content:space-between;margin-bottom:8px">
+          <span style="color:var(--muted)">Ara Toplam</span>
+          <b id="sumSubtotal">0,00 ₺</b>
+        </div>
+        <div id="discountLine" class="row"
+          style="display:none;justify-content:space-between;margin-bottom:8px;color:#dc2626">
+          <span>İndirim</span>
+          <b id="sumDiscount">0,00 ₺</b>
+        </div>
+        <div class="row" style="justify-content:space-between;margin-bottom:8px">
+          <span style="color:var(--muted)">Kargo</span>
+          <b id="sumShipping">0,00 ₺</b>
+        </div>
         <hr class="sep">
-        <div class="row" style="justify-content:space-between"><span style="color:var(--muted)">Toplam</span><b
-            id="sumTotal" style="font-size:20px"></b></div>
+        <div class="row" style="justify-content:space-between;margin-top:8px">
+          <span style="color:var(--muted)">Toplam</span>
+          <b id="sumTotal" style="font-size:24px;color:var(--primary)">0,00 ₺</b>
+        </div>
         <div class="notice" style="margin-top:12px">
           Ödeme işlemleri güvenli altyapılar üzerinden gerçekleştirilmektedir.
         </div>
@@ -362,6 +371,7 @@
     </div>
   </footer>
 
+  <script src="./js/pricing.js"></script>
   <script src="./js/storage.js"></script>
   <script src="./js/app.js"></script>
 

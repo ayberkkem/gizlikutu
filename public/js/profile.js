@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadTop5();
         loadHistory();
         loadCartPreview();
+        loadCoupons();
     });
 
     // Logout
@@ -345,4 +346,93 @@ window.removeProfileCartItem = function (id) {
         cartCountEl.textContent = count;
         cartCountEl.style.display = count > 0 ? 'flex' : 'none';
     }
+};
+
+/* =========================================
+   6. LOAD COUPONS (Wallet & Profile)
+   ========================================= */
+function loadCoupons() {
+    const container = document.querySelector('#couponsList');
+    if (!container) return;
+
+    if (!window.GKStorage) return;
+    const wallet = window.GKStorage.readWallet();
+
+    if (wallet.length === 0) {
+        container.innerHTML = `
+            <div style="grid-column: 1/-1; text-align:center; padding: 20px; color:#666; background:rgba(0,0,0,0.02); border-radius:12px;">
+                Henüz kazanılmış bir kuponunuz bulunmamaktadır. 🎁
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = wallet.map(coupon => {
+        const isExpired = coupon.expiresAt && Date.now() > coupon.expiresAt;
+        const statusText = isExpired ? 'SÜRESİ DOLDU' : (coupon.used ? 'KULLANILDI' : 'AKTİF');
+        const statusColor = isExpired ? '#ef4444' : (coupon.used ? '#9ca3af' : '#10b981');
+
+        return `
+            <div style="background:white; border: 2px dashed #e5e7eb; border-radius:15px; padding:15px; display:flex; flex-direction:column; gap:10px; position:relative; overflow:hidden;">
+                ${coupon.used ? '<div style="position:absolute; inset:0; background:rgba(255,255,255,0.6); z-index:1;"></div>' : ''}
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-weight:800; font-size:18px; color:#be185d;">${coupon.code}</span>
+                    <span style="font-size:11px; font-weight:700; color:${statusColor}; border:1px solid ${statusColor}; padding:2px 8px; border-radius:10px;">${statusText}</span>
+                </div>
+                <div style="font-size:13px; color:#4b5563; font-weight:500;">
+                    ${coupon.type === 'percentage' ? `%${coupon.value} İndirim` : 'Ücretsiz Kargo'}
+                </div>
+                <div style="font-size:11px; color:#9ca3af;">
+                    Geçerlilik: ${coupon.expiresAt ? new Date(coupon.expiresAt).toLocaleDateString('tr-TR') : 'Sınırsız'}
+                </div>
+                <div style="display:flex; gap:5px; margin-top:5px;">
+                    <button onclick="copyCoupon('${coupon.code}')" 
+                            ${coupon.used || isExpired ? 'disabled' : ''}
+                            style="flex:1; background:${coupon.used || isExpired ? '#f3f4f6' : '#fff1f2'}; color:${coupon.used || isExpired ? '#9ca3af' : '#be185d'}; border:1px solid ${coupon.used || isExpired ? '#e5e7eb' : '#fb7185'}; padding:8px; border-radius:10px; font-weight:700; cursor:${coupon.used || isExpired ? 'default' : 'pointer'}; font-size:11px;">
+                        KODU KOPYALA
+                    </button>
+                    ${!coupon.used && !isExpired ? `
+                        <button onclick="applyCouponToCart('${coupon.code}')" 
+                                style="flex:1; background:#be185d; color:white; border:none; padding:8px; border-radius:10px; font-weight:700; cursor:pointer; font-size:11px;">
+                            SEPETTE UYGULA
+                        </button>
+                    ` : `
+                        <button disabled style="flex:1; background:#f3f4f6; color:#9ca3af; border:none; padding:8px; border-radius:10px; font-weight:700; font-size:11px;">
+                            ${coupon.used ? 'KULLANILDI' : 'SÜRESİ DOLDU'}
+                        </button>
+                    `}
+                </div>
+            </div>
+        `;
+    }).join("");
+}
+
+window.applyCouponToCart = (code) => {
+    const wallet = window.GKStorage.readWallet();
+    const coupon = wallet.find(c => c.code === code);
+
+    if (!coupon || coupon.used) {
+        alert("Bu kupon artık geçersiz.");
+        return;
+    }
+
+    const now = Date.now();
+    if (coupon.expiresAt && now > coupon.expiresAt) {
+        alert("Bu kuponun süresi dolmuş.");
+        return;
+    }
+
+    // Apply to current session
+    window.GKStorage.writeCoupon(coupon);
+
+    // Redirect to cart
+    window.location.href = './cart.html';
+};
+
+window.copyCoupon = (code) => {
+    navigator.clipboard.writeText(code).then(() => {
+        alert("Kupon kodu kopyalandı: " + code);
+    }).catch(err => {
+        console.error('Kopyalama hatası:', err);
+    });
 };

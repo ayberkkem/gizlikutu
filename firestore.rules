@@ -32,5 +32,16 @@ service cloud.firestore {
       allow create: if request.auth != null;
       allow update: if isAdmin(); // Admin bile sınırlı yetkiye sahip (read-only kuralı frontend'de enforce edilecek)
     }
+
+    // Kampanyalar: Herkes okuyabilir, sadece admin yazabilir
+    match /campaigns/{campaignId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Çark Kullanımı: Herkes oluşturabilir ve okuyabilir (Session takibi için)
+    match /wheel_uses/{useId} {
+      allow read, create, update: if true;
+    }
   }
 }

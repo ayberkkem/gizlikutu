@@ -19,6 +19,30 @@
   --headerH: 70px;
 }
 
+@keyframes color-flash {
+  0% {
+    color: black;
+  }
+
+  33% {
+    color: #e11d48;
+  }
+
+  /* red */
+  66% {
+    color: #7c3aed;
+  }
+
+  /* purple */
+  100% {
+    color: black;
+  }
+}
+
+.flashing-text {
+  animation: color-flash 2s infinite;
+}
+
 * {
   box-sizing: border-box
 }
@@ -1412,7 +1436,8 @@ hr.sep {
   margin-bottom: 4px;
 
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1872,6 +1897,7 @@ body {
 html {
   overflow-x: hidden;
 }
+
 body {
   overflow-x: hidden;
   position: relative;
@@ -2675,6 +2701,7 @@ textarea {
   .container>.grid>.card .title {
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     font-size: 13px;
