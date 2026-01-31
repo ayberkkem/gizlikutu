@@ -2408,8 +2408,10 @@ textarea {
   }
 
   .cart-go-btn {
-    padding: 6px 8px;
-    font-size: 11px;
+    padding: 8px 14px;
+    font-size: 13px;
+    min-width: 90px;
+    flex-shrink: 0;
   }
 }
 
