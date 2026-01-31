@@ -24,6 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
         qs('#userName').textContent = user.displayName || user.email.split('@')[0];
         qs('#userEmail').textContent = user.email;
 
+        // Admin Button Visibility
+        const ADMIN_EMAIL = 'ayberkkem@gmail.com';
+        if (user.email && user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
+            const adminBtn = qs('#adminPanelLink');
+            if (adminBtn) {
+                adminBtn.style.display = 'block';
+                console.log('Admin yetkisi tespit edildi, panel butonu aktif.');
+            }
+        }
+
         // Load Data
         loadOrders(user.uid);
         loadTop5();

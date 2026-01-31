@@ -3,12 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const banner = document.createElement('div');
     banner.id = 'cargo-timer-banner';
-    // Arkaplan Mor, Genel Yazı Rengi BEYAZ
+    // Arkaplan BEYAZ, Genel Yazı Rengi SİYAH - Okunurluk için güncellendi
     banner.style.cssText = `
-        background: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.8)), url('./assets/premium-bg.jpg');
-        background-size: cover;
-        background-position: center;
-        color: #ffffff !important; 
+        background: #ffffff;
+        color: #000000 !important; 
         text-align: center;
         padding: 12px 10px;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -18,11 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
         align-items: center;
         gap: 8px;
         flex-wrap: wrap;
-        border-bottom: 2px solid rgba(74, 222, 128, 0.3); /* Hafif Yeşil Çizgi */
-        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        border-bottom: 2px solid #e5e5e5;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         position: relative;
         z-index: 40;
-        text-shadow: 0 1px 2px rgba(0,0,0,1);
     `;
 
     const header = document.getElementById('mainHeader') || document.querySelector('header');
@@ -57,19 +54,19 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isNextDay) {
             banner.innerHTML = `
                 <span>🌙</span>
-                <span style="opacity:0.9; color:#cccccc !important;">Bugünkü kargolar çıktı.</span>
-                <span style="color:#fbbf24 !important; font-weight:800; letter-spacing:0.5px">Yarınki Kargo</span>
-                <span style="color:#cccccc !important;">için:</span>
-                <span style="font-family:monospace; font-weight:bold; font-size:1.2em; color:#fff !important; background:rgba(255,255,255,0.15); padding:2px 8px; border-radius:4px; margin-left:5px">${h}:${m}:${s}</span>
+                <span style="opacity:0.9; color:#333333 !important;">Bugünkü kargolar çıktı.</span>
+                <span style="color:#d97706 !important; font-weight:800; letter-spacing:0.5px">Yarınki Kargo</span>
+                <span style="color:#333333 !important;">için:</span>
+                <a href="/products" style="display:inline-flex; align-items:center; justify-content:center; background:#dc2626; color:#ffffff !important; font-weight:700; padding:8px 20px; border-radius:8px; text-decoration:none; font-size:14px; margin-left:8px; transition:all 0.2s ease; box-shadow:0 2px 4px rgba(220,38,38,0.3);">Hemen Sipariş Ver</a>
              `;
         } else {
             // 18:00 Öncesi (ACİLİYET)
             // Yeşil yazıya !important ve text-shadow ekledik, ezilmesini imkansız kıldık.
             banner.innerHTML = `
                 <span style="font-size:1.3em; margin-right:5px">🚀</span>
-                <span style="font-weight:900; color:#4ade80 !important; text-transform:uppercase; letter-spacing:0.5px; text-shadow: 0 0 15px rgba(74, 222, 128, 0.4);">AYNI GÜN KARGO FIRSATI!</span>
-                <span style="font-family:monospace; font-weight:bold; font-size:1.4em; background:#dc2626; color:#ffffff !important; padding:2px 10px; border-radius:6px; margin:0 8px; letter-spacing:1px; box-shadow: 0 0 10px rgba(220, 38, 38, 0.6);">${h}:${m}:${s}</span>
-                <span style="color:#e5e5e5 !important; font-weight:500">içinde sipariş ver <strong style="text-decoration:underline;text-underline-offset:3px; color:#ffffff !important; font-weight:800">BUGÜN</strong> çıksın.</span>
+                <span style="font-weight:900; color:#16a34a !important; text-transform:uppercase; letter-spacing:0.5px;">AYNI GÜN KARGO FIRSATI!</span>
+                <span style="font-family:monospace; font-weight:bold; font-size:1.4em; background:#dc2626; color:#ffffff !important; padding:2px 10px; border-radius:6px; margin:0 8px; letter-spacing:1px;">${h}:${m}:${s}</span>
+                <span style="color:#333333 !important; font-weight:500">içinde sipariş ver <strong style="text-decoration:underline;text-underline-offset:3px; color:#000000 !important; font-weight:800">BUGÜN</strong> çıksın.</span>
              `;
         }
 

@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Admin yetkisi kontrolü fonksiyonu
+    function isAdmin() {
+      return request.auth != null && 
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // Kullanıcı dokümanları: Herkes kendi dokümanını okuyabilir, sadece admin rol değiştirebilir
+    match /users/{userId} {
+      allow read: if request.auth != null && (request.auth.uid == userId || isAdmin());
+      allow write: if isAdmin(); // Sadece admin kullanıcı oluşturabilir/düzenleyebilir (rol dahil)
+      allow create: if request.auth != null && request.auth.uid == userId; // İlk kayıt
+    }
+
+    // Ürünler: Herkes okuyabilir, sadece admin yazabilir
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Kategoriler: Herkes okuyabilir, sadece admin yazabilir
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Siparişler: Sadece sahibi ve admin okuyabilir, admin detay görebilir
+    match /orders/{orderId} {
+      allow read: if request.auth != null && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if request.auth != null;
+      allow update: if isAdmin(); // Admin bile sınırlı yetkiye sahip (read-only kuralı frontend'de enforce edilecek)
+    }
+  }
+}

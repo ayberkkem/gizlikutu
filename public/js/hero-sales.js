@@ -192,8 +192,8 @@
       fomoContainer.style.display = 'none';
     });
 
-    setTimeout(showFomo, 8000);
-    setInterval(showFomo, 60000);
+    setTimeout(showFomo, 30000);
+    setInterval(showFomo, 1800000);
   }
 
   // ============================================
@@ -283,7 +283,7 @@
   // ============================================
   document.addEventListener('DOMContentLoaded', function () {
     createTickerBar();
-    createVisitorCounter();
+    // createVisitorCounter(); // Kaldırıldı - kişi görüntülüyor sayacı devre dışı
     createFomoNotification();
     createTop5Slider();
   });
