@@ -23,8 +23,15 @@ import {
     ChevronDown
 } from 'lucide-react';
 
+
 interface PageProps {
     params: Promise<{ id: string }>;
+}
+
+interface Category {
+    id: string;
+    name: string;
+    parentId?: string;
 }
 
 export default function EditProductPage({ params }: PageProps) {
@@ -48,7 +55,7 @@ export default function EditProductPage({ params }: PageProps) {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
 
-    const [categories, setCategories] = useState<any[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]);
     const [subcategories, setSubcategories] = useState<string[]>([]);
 
     useEffect(() => {
