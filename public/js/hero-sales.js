@@ -6,6 +6,21 @@
 (function () {
   'use strict';
 
+  // Firebase URL'sini local path'e çevirir
+  function firebaseToLocal(url) {
+    if (!url || typeof url !== 'string') return url;
+    if (url.includes('firebasestorage.googleapis.com')) {
+      try {
+        const part = url.split('/o/')[1].split('?')[0];
+        const decoded = decodeURIComponent(part);
+        return '/assets/' + decoded;
+      } catch (e) {
+        return url;
+      }
+    }
+    return url;
+  }
+
   // ============================================
   // 1. TV-STYLE TICKER BAR
   // ============================================
@@ -181,7 +196,7 @@
     function showFomo() {
       const product = products[Math.floor(Math.random() * products.length)];
       document.getElementById('fomoUser').textContent = names[Math.floor(Math.random() * names.length)] + ' ' + surnames[Math.floor(Math.random() * surnames.length)];
-      document.getElementById('fomoImage').src = product.images[0];
+      document.getElementById('fomoImage').src = firebaseToLocal(product.images[0]);
       document.getElementById('fomoLink').href = './product.html?slug=' + product.slug;
       document.getElementById('fomoTime').textContent = times[Math.floor(Math.random() * times.length)];
       fomoContainer.style.display = 'flex';
@@ -265,7 +280,7 @@
       const item = document.createElement('a');
       item.className = 'top5-item' + (i === 0 ? ' active' : '');
       item.href = './product.html?slug=' + p.slug;
-      item.innerHTML = '<img src="' + p.images[0] + '" alt="' + p.title + '">';
+      item.innerHTML = '<img src="' + firebaseToLocal(p.images[0]) + '" alt="' + p.title + '">';
       container.appendChild(item);
     });
 

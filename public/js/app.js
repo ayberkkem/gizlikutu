@@ -8,6 +8,22 @@
   // Eğer /assets/placeholder.jpg sende varsa onu kullan.
   const PLACEHOLDER = "./assets/placeholder.jpg";
 
+  // Firebase URL'sini local path'e çevirir
+  function firebaseToLocal(url) {
+    if (!url || typeof url !== 'string') return null;
+    if (url.includes('firebasestorage.googleapis.com')) {
+      try {
+        const part = url.split('/o/')[1].split('?')[0];
+        const decoded = decodeURIComponent(part);
+        return '/assets/' + decoded;
+      } catch (e) {
+        console.warn('Firebase URL decode failed:', e);
+        return null;
+      }
+    }
+    return url; // Firebase değilse olduğu gibi döndür
+  }
+
   function isHttpUrl(s) {
     return typeof s === "string" && /^https?:\/\//i.test(s);
   }
@@ -17,16 +33,18 @@
     if (Array.isArray(p.images) && p.images.length && typeof p.images[0] === "string") {
       const first = p.images[0].trim();
 
-      // ✅ Firebase gibi tam URL ise AYNEN kullan
-      if (isHttpUrl(first)) return first;
+      // Firebase URL'sini local'e çevir
+      const converted = firebaseToLocal(first);
+      if (converted) return converted;
 
-      // ✅ Değilse (eski local dosya adı gibi) eski sistemdeki path’e çevir
-      // (Senin eski kurgun buydu: /assets/products/{category}/{filename})
+      // Değilse (eski local dosya adı gibi) eski sistemdeki path'e çevir
       return `/assets/products/${p.category}/${first}`;
     }
 
     // 2) image alanı zaten varsa onu kullan (geriye dönük uyumluluk)
     if (typeof p.image === "string" && p.image.trim()) {
+      const converted = firebaseToLocal(p.image.trim());
+      if (converted) return converted;
       return p.image.trim();
     }
 

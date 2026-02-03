@@ -4,11 +4,28 @@
   const KEY_WALLET = "gizlikutu_coupons_wallet_v1";
   const PLACEHOLDER = "./assets/placeholder.jpg";
 
+  // Firebase URL'sini local path'e çevirir
+  function firebaseToLocal(url) {
+    if (!url || typeof url !== 'string') return null;
+    if (url.includes('firebasestorage.googleapis.com')) {
+      try {
+        const part = url.split('/o/')[1].split('?')[0];
+        const decoded = decodeURIComponent(part);
+        return '/assets/' + decoded;
+      } catch (e) {
+        return null;
+      }
+    }
+    return url;
+  }
+
   function pickImage(p) {
     if (Array.isArray(p.images) && p.images.length && typeof p.images[0] === "string") {
-      return p.images[0];
+      return firebaseToLocal(p.images[0]) || p.images[0];
     }
-    if (typeof p.image === "string" && p.image) return p.image;
+    if (typeof p.image === "string" && p.image) {
+      return firebaseToLocal(p.image) || p.image;
+    }
     return PLACEHOLDER;
   }
 

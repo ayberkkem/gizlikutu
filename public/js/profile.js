@@ -10,6 +10,21 @@ import { auth, db } from "./firebase.js";
 
 const { money, qs } = window.GK || { money: v => v + ' TL', qs: s => document.querySelector(s) };
 
+// Firebase URL'sini local path'e çevirir
+function firebaseToLocal(url) {
+    if (!url || typeof url !== 'string') return url;
+    if (url.includes('firebasestorage.googleapis.com')) {
+        try {
+            const part = url.split('/o/')[1].split('?')[0];
+            const decoded = decodeURIComponent(part);
+            return '/assets/' + decoded;
+        } catch (e) {
+            return url;
+        }
+    }
+    return url;
+}
+
 /* =========================================
    1. INIT & AUTH CHECK
    ========================================= */
@@ -195,7 +210,8 @@ async function loadHistory() {
    ========================================= */
 function renderProductGrid(container, products) {
     const html = products.map(p => {
-        const img = (p.images && p.images[0]) || p.image || './assets/placeholder.jpg';
+        const rawImg = (p.images && p.images[0]) || p.image || './assets/placeholder.jpg';
+        const img = firebaseToLocal(rawImg);
         return `
       <a href="./product.html?slug=${p.slug || p.id}" class="p-card">
         <img src="${img}" class="p-img" loading="lazy" alt="${p.title}">
