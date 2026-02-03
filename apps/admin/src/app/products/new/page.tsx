@@ -27,6 +27,12 @@ export default function NewProductPage() {
     const { user, loading: authLoading, isAdmin } = useAuth();
     const router = useRouter();
 
+    interface Category {
+        id: string;
+        name: string;
+        parentId?: string;
+    }
+
     const [formData, setFormData] = useState({
         title: '',
         description: '',
@@ -40,7 +46,7 @@ export default function NewProductPage() {
     const [previews, setPreviews] = useState<string[]>([]);
     const [uploading, setUploading] = useState(false);
 
-    const [categories, setCategories] = useState<any[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]);
     const [subcategories, setSubcategories] = useState<string[]>([]);
     const [fetchLoading, setFetchLoading] = useState(true);
 
@@ -51,7 +57,7 @@ export default function NewProductPage() {
             try {
                 // Fetch Categories
                 const catSnap = await getDocs(collection(db, 'categories'));
-                const catData = catSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+                const catData: Category[] = catSnap.docs.map(d => ({ id: d.id, name: d.data().name || '', parentId: d.data().parentId }));
                 setCategories(catData);
 
                 // Check for URL params
