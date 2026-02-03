@@ -35,6 +35,7 @@ export const facebookProvider = new FacebookAuthProvider();
 // 🔥 GLOBAL erişim (console ve diğer scriptler için)
 window.firebaseApp = app;
 window.db = db;
+window.firestoreDB = db; // alias for checkout-page.js
 window.doc = doc;
 window.getDoc = getDoc;
 window.setDoc = setDoc;

@@ -181,7 +181,7 @@
 
       orderData.createdAt = serverTimestamp();
       await addDoc(collection(window.firestoreDB, "orders"), orderData);
-      console.log("✅ Siparişş Firestore'a kaydedildi:", orderData.orderNo);
+      console.log("✅ Sipariş Firestore'a kaydedildi:", orderData.orderNo);
       return true;
     } catch (err) {
       console.error("❌ Firestore kayıt hatası:", err);
