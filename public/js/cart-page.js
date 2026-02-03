@@ -8,8 +8,25 @@
     return window.innerWidth <= 520;
   }
 
+  // Firebase URL'sini local path'e çevirir
+  function firebaseToLocal(url) {
+    if (!url || typeof url !== 'string') return null;
+    if (url.includes('firebasestorage.googleapis.com')) {
+      try {
+        const part = url.split('/o/')[1].split('?')[0];
+        const decoded = decodeURIComponent(part);
+        return '/assets/' + decoded;
+      } catch (e) {
+        return null;
+      }
+    }
+    return url;
+  }
+
   function safeImg(src) {
-    if (typeof src === "string" && src.trim()) return src;
+    if (typeof src === "string" && src.trim()) {
+      return firebaseToLocal(src) || src;
+    }
     return PLACEHOLDER;
   }
 
