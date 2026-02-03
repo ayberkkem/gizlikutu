@@ -2,9 +2,9 @@
   const { qs, money, toast } = window.GK;
 
   /* ==========================
-     PAYTR CLOUD FUNCTION URL
+     PAYTR VERCEL API URL
   ========================== */
-  const PAYTR_FUNCTION_URL = "https://us-central1-gizli-kutu.cloudfunctions.net/createPaytrPayment";
+  const PAYTR_FUNCTION_URL = "/api/paytr-token";
 
   /* ==========================
      TOPLAM HESAPLAMA

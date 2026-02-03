@@ -4895,10 +4895,14 @@
         {
             "source": "/urunler",
             "destination": "/products"
-        },
-        {
-            "source": "/api/paytr/notify",
-            "destination": "https://us-central1-gizli-kutu.cloudfunctions.net/paytrCallback"
         }
-    ]
+    ],
+    "functions": {
+        "api/paytr-token.js": {
+            "maxDuration": 30
+        },
+        "api/paytr-callback.js": {
+            "maxDuration": 30
+        }
+    }
 }
