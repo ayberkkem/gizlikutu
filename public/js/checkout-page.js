@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   const { qs, money, toast } = window.GK;
 
   /* ==========================
@@ -110,7 +110,7 @@
       align-items: center;
     `;
     header.innerHTML = `
-      <span style="color:#fff;font-weight:600;font-size:${isMobile ? '16px' : '14px'}">💳 Güvenli ÖÖdeme</span>
+      <span style="color:#fff;font-weight:600;font-size:${isMobile ? '16px' : '14px'}">💳 Güvenli Ödeme</span>
       <button id="paytrCloseBtn" style="
         width:${isMobile ? '36px' : '28px'};
         height:${isMobile ? '36px' : '28px'};
@@ -148,7 +148,7 @@
 
     // Kapatma butonu
     document.getElementById("paytrCloseBtn").onclick = () => {
-      if (confirm("ÖÖdemeyi iptal etmek istediğinize emin misiniz?")) {
+      if (confirm("Ödemeyi iptal etmek istediğinize emin misiniz?")) {
         overlay.remove();
         document.body.style.overflow = '';
         submitBtn.disabled = false;
@@ -216,7 +216,7 @@
     const phoneDigits = String(formData.phone || "").replace(/\D/g, "");
     const gsm = phoneDigits ? "+90" + phoneDigits : "";
 
-    // ÖÖdeme yöntemi kontrolü - value="card" HTML'den
+    // Ödeme yöntemi kontrolü - value="card" HTML'den
     const paymentValue = String(formData.payment || "card");
     const isCardPayment = paymentValue === "card";
 
@@ -260,7 +260,7 @@
        💳 KREDİ KARTI İLE ÖDEME (PAYTR)
     ========================== */
     if (isCardPayment) {
-      submitBtn.textContent = "ÖÖdeme hazırlanıyor...";
+      submitBtn.textContent = "Ödeme hazırlanıyor...";
 
       // Önce siparişi Firestore'a kaydet
       const saved = await saveOrderToFirestore(orderData);
@@ -319,16 +319,16 @@
           }
           window.GKStorage.clearCart();
 
-          // PayTR öÖdeme ekranını aç
+          // PayTR Ödeme ekranını aç
           showPaytrModal(data.iframeUrl);
 
           // RETURN - success.html'e gitme!
           return;
         } else {
-          throw new Error(data.error || "ÖÖdeme sistemi yanıt vermedi");
+          throw new Error(data.error || "Ödeme sistemi yanıt vermedi");
         }
       } catch (err) {
-        toast("ÖÖdeme başlatılamadı: " + (err.message || "Bilinmeyen hata. Lütfen tekrar deneyin."));
+        toast("Ödeme başlatılamadı: " + (err.message || "Bilinmeyen hata. Lütfen tekrar deneyin."));
         submitBtn.disabled = false;
         submitBtn.textContent = "Siparişşi Tamamla";
         return;

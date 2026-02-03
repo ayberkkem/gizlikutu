@@ -1,4 +1,4 @@
-/**
+﻿/**
  * hero-sales.js
  * Conversion-boosting elements: Ticker, Visitor Counter, FOMO, Top 5 Slider
  */
@@ -67,7 +67,7 @@
     `;
     document.head.appendChild(style);
 
-    ticker.innerHTML = '<div class="ticker-content"><div class="ticker-text">🚚 500 TL ve Üzeri Alışverişlerde KARGO BEDAVA! &nbsp;•&nbsp; 🔒 %100 Gizli Paketleme &nbsp;•&nbsp; ⚡ Aynı Gün Kargo &nbsp;•&nbsp; 💳 Güvenli ÖÖdeme &nbsp;•&nbsp;</div><div class="ticker-text">🚚 500 TL ve Üzeri Alışverişlerde KARGO BEDAVA! &nbsp;•&nbsp; 🔒 %100 Gizli Paketleme &nbsp;•&nbsp; ⚡ Aynı Gün Kargo &nbsp;•&nbsp; 💳 Güvenli ÖÖdeme &nbsp;•&nbsp;</div></div>';
+    ticker.innerHTML = '<div class="ticker-content"><div class="ticker-text">🚚 500 TL ve Üzeri Alışverişlerde KARGO BEDAVA! &nbsp;•&nbsp; 🔒 %100 Gizli Paketleme &nbsp;•&nbsp; ⚡ Aynı Gün Kargo &nbsp;•&nbsp; 💳 Güvenli Ödeme &nbsp;•&nbsp;</div><div class="ticker-text">🚚 500 TL ve Üzeri Alışverişlerde KARGO BEDAVA! &nbsp;•&nbsp; 🔒 %100 Gizli Paketleme &nbsp;•&nbsp; ⚡ Aynı Gün Kargo &nbsp;•&nbsp; 💳 Güvenli Ödeme &nbsp;•&nbsp;</div></div>';
 
     document.body.appendChild(ticker);
   }

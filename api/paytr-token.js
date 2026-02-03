@@ -76,7 +76,7 @@ module.exports = async (req, res) => {
             payment_amount: paymentAmount.toString(),
             paytr_token: paytrToken,
             user_basket: userBasket,
-            debug_on: '0',
+            debug_on: '1',
             no_installment: noInstallment,
             max_installment: maxInstallment,
             user_name: userName || 'Müşteri',

@@ -1,7 +1,7 @@
-/**
+﻿/**
  * Checkout Location Controller
  * Handles Province/District selection and conditional payment methods.
- * Kapıda ÖÖdeme is ONLY available for Manisa + Akhisar.
+ * Kapıda Ödeme is ONLY available for Manisa + Akhisar.
  */
 (function () {
     'use strict';
@@ -74,7 +74,7 @@
             district === KAPIDA_ALLOWED.district
         );
 
-        // Show/hide Kapıda ÖÖdeme option
+        // Show/hide Kapıda Ödeme option
         if (kapidaOption) {
             kapidaOption.style.display = isKapidaAllowed ? '' : 'none';
 
@@ -126,7 +126,7 @@
         // Check payment method is selected and visible
         const selectedPayment = paymentMethodsContainer?.querySelector('input[type="radio"]:checked');
         if (!selectedPayment) {
-            alert('Lütfen öÖdeme yöntemi seçiniz.');
+            alert('Lütfen Ödeme yöntemi seçiniz.');
             return false;
         }
 
@@ -137,7 +137,7 @@
         );
 
         if (selectedPayment.value === 'kapida' && !isKapidaAllowed) {
-            alert('Kapıda öÖdeme bu bölge için geçerli değil.');
+            alert('Kapıda Ödeme bu bölge için geçerli değil.');
             return false;
         }
 
