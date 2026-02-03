@@ -73,11 +73,12 @@ export default function EditProductPage({ params }: PageProps) {
 
             // 2. Fetch Categories
             const catSnap = await getDocs(collection(db, 'categories'));
-            const catData = catSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+            const catData: Category[] = catSnap.docs.map(d => ({ id: d.id, name: d.data().name || '', parentId: d.data().parentId }));
             setCategories(catData);
 
             // 3. Set subcategories filtered by current product's category if possible
-            const currentCat = catData.find(c => c.name === docSnap.data().category);
+            const productData = docSnap.data();
+            const currentCat = catData.find(c => c.name === productData?.category);
             if (currentCat) {
                 const subs = catData.filter(c => c.parentId === currentCat.id).map(c => c.name);
                 setSubcategories(subs);
