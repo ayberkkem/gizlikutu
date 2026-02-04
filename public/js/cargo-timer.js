@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const s = secs.toString().padStart(2, '0');
 
         const leftBtnHtml = `
-            <div style="background: linear-gradient(135deg, #e11d48 0%, #be123c 100%); color:white; padding:10px 20px; border-radius:14px; font-weight:700; font-size:14px; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 10px rgba(225,29,72,0.3); cursor:default; white-space:nowrap;">
+            <div style="background: linear-gradient(135deg, #e11d48 0%, #be123c 100%); color:#ffffff !important; padding:10px 20px; border-radius:14px; font-weight:700; font-size:14px; display:inline-flex; align-items:center; gap:8px; box-shadow:0 4px 10px rgba(225,29,72,0.3); cursor:default; white-space:nowrap;">
               🏠 Akhisar'a Özel Kapıda Ödeme
             </div>
         `;
