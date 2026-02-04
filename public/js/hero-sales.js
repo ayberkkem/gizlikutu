@@ -28,87 +28,47 @@
     const ticker = document.createElement('div');
     ticker.id = 'salesTicker';
 
-    // WhatsApp ve Telegram URL'leri
-    const waUrl = "https://wa.me/905400443445";
-    const tgUrl = "https://t.me/+905400443445";
-
-    // Ticker İçeriği
-    const tickerContent = `
-      <div class="ticker-content">
-        <div class="ticker-item" style="background:#dc2626;"> 
-           🏠 Akhisar'a Özel Kapıda Ödeme 
-        </div>
-        
-        <a href="/products" class="ticker-item" style="background:#be185d; text-decoration:none;"> 
-           Ürünleri İncele 
-        </a>
-
-        <div class="ticker-item" style="background:#b91c1c;">
-           ☸️ 14 Şubat Sevgililer Günü ÇARK ÇEVİR
-        </div>
-
-        <a href="${waUrl}" target="_blank" class="ticker-item" style="background:#22c55e; text-decoration:none; display:flex; align-items:center; gap:5px;">
-           <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
-           WhatsApp Sipariş
-        </a>
-
-        <a href="${tgUrl}" target="_blank" class="ticker-item" style="background:#0088cc; text-decoration:none; display:flex; align-items:center; gap:5px;">
-           <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M9.78 18.65l.28-4.28 7.72-6.96c.35-.31-.08-.49-.52-.2l-9.53 6-4.09-1.28c-.89-.28-.91-.89.18-1.32l16.13-6.22c.75-.33 1.4.15 1.15 1.32l-2.76 13c-.2.92-1.8.35-1.8.35s-2.65-1.63-3.66-2.4l-1.77 1.71c-.2.2-.37.37-.75.37l.12-4.09z"/></svg> 
-           Telegram Sipariş
-        </a>
-      </div>
-    `;
-
-    // Stil Ekle (Updated)
     const style = document.createElement('style');
     style.textContent = `
       #salesTicker {
         position: fixed;
-        bottom: 60px; /* Mobilde sepetin üstünde */
+        bottom: 60px;
         left: 0;
         right: 0;
-        height: 36px;
-        background: linear-gradient(90deg, #4c1d95, #8b5cf6); /* Mor Arkaplan */
+        height: 28px;
+        background: linear-gradient(90deg, #1a1a1a, #2d1f3d, #1a1a1a);
         z-index: 9998;
         overflow: hidden;
         display: flex;
         align-items: center;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
       }
-      @media (min-width: 769px) { /* Masaüstünde En Altta */
+      @media (min-width: 769px) {
         #salesTicker { bottom: 0; }
       }
-      
       #salesTicker .ticker-content {
         display: flex;
-        animation: tickerScroll 25s linear infinite;
+        animation: tickerScroll 20s linear infinite;
         white-space: nowrap;
-        gap: 15px; /* Elemanlar arası boşluk */
-        padding-left: 100%; /* Sağdan başlasın */
       }
-
-      /* Ticker Items (Buton gibi görünenler) */
-      .ticker-item {
+      #salesTicker .ticker-text,
+      #salesTicker .ticker-text * {
         color: #ffffff !important;
-        font-size: 13px;
-        font-weight: 700;
-        padding: 4px 12px;
-        border-radius: 20px;
-        white-space: nowrap;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        display: inline-flex;
-        align-items: center;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1px;
       }
-
+      #salesTicker .ticker-text {
+        padding: 0 50px;
+      }
       @keyframes tickerScroll {
         0% { transform: translateX(0); }
-        100% { transform: translateX(-250%); } 
+        100% { transform: translateX(-50%); }
       }
     `;
     document.head.appendChild(style);
 
-    ticker.innerHTML = tickerContent + tickerContent; // İçeriği çoğalt ki akış kesilmesin
+    ticker.innerHTML = '<div class="ticker-content"><div class="ticker-text">🔒 %100 Gizli Paketleme &nbsp;•&nbsp; 🚚 Kapıda Ödeme &nbsp;•&nbsp; <a href="/akhisar-sex-shop" style="color:#ffffff; text-decoration:none;">⚡ Akhisar’da mısın? 1 Saatte Gizli Teslimat & Kapıda Ödeme için tıkla</a> &nbsp;•&nbsp;</div><div class="ticker-text">🔒 %100 Gizli Paketleme &nbsp;•&nbsp; 🚚 Kapıda Ödeme &nbsp;•&nbsp; <a href="/akhisar-sex-shop" style="color:#ffffff; text-decoration:none;">⚡ Akhisar’da mısın? 1 Saatte Gizli Teslimat & Kapıda Ödeme için tıkla</a> &nbsp;•&nbsp;</div></div>';
+
     document.body.appendChild(ticker);
   }
 
