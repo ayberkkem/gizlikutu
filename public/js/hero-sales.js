@@ -299,7 +299,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     createTickerBar();
     // createVisitorCounter(); // Kaldırıldı - kişi görüntülüyor sayacı devre dışı
-    createFomoNotification();
+    // createFomoNotification();
     createTop5Slider();
   });
 
