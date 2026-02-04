@@ -160,6 +160,50 @@
   }
 
   /* ==========================
+     E-POSTA BİLDİRİMİ GÖNDER
+  ========================== */
+  async function sendOrderEmail(orderData, totals) {
+    try {
+      const emailPayload = {
+        orderNo: orderData.orderNo,
+        customerName: orderData.customer.name,
+        customerPhone: orderData.customer.phone,
+        customerEmail: orderData.customer.email,
+        city: orderData.delivery.city,
+        district: orderData.delivery.district,
+        address: orderData.delivery.address,
+        deliveryType: orderData.delivery.type,
+        paymentMethod: orderData.payment.method === "online" ? "card" :
+          orderData.payment.method === "transfer" ? "bank" : "cod",
+        orderNote: orderData.note,
+        total: orderData.payment.total,
+        items: orderData.products.map(p => ({
+          name: p.title,
+          qty: p.qty,
+          price: p.price,
+          image: p.image
+        }))
+      };
+
+      const res = await fetch("/api/send-order-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(emailPayload)
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        console.log("✅ Sipariş e-postası gönderildi");
+      } else {
+        console.warn("⚠️ E-posta gönderilemedi:", result.error);
+      }
+    } catch (err) {
+      console.warn("⚠️ E-posta gönderme hatası:", err);
+      // E-posta hatası siparişi engellemez
+    }
+  }
+
+  /* ==========================
      FIRESTORE SİPARİŞ KAYDET
   ========================== */
   async function saveOrderToFirestore(orderData) {
@@ -319,6 +363,9 @@
           }
           window.GKStorage.clearCart();
 
+          // E-posta bildirimi gönder (arka planda)
+          sendOrderEmail(orderData, totals);
+
           // PayTR Ödeme ekranını aç
           showPaytrModal(data.iframeUrl);
 
@@ -330,7 +377,7 @@
       } catch (err) {
         toast("Ödeme başlatılamadı: " + (err.message || "Bilinmeyen hata. Lütfen tekrar deneyin."));
         submitBtn.disabled = false;
-        submitBtn.textContent = "Siparişşi Tamamla";
+        submitBtn.textContent = "Siparişi Tamamla";
         return;
       }
     }
@@ -341,9 +388,9 @@
 
     const saved = await saveOrderToFirestore(orderData);
     if (!saved) {
-      toast("Siparişş kaydedilemedi. Lütfen tekrar deneyin.");
+      toast("Sipariş kaydedilemedi. Lütfen tekrar deneyin.");
       submitBtn.disabled = false;
-      submitBtn.textContent = "Siparişşi Tamamla";
+      submitBtn.textContent = "Siparişi Tamamla";
       return;
     }
 
@@ -366,6 +413,10 @@
       window.GKStorage.writeCoupon(null);
     }
     window.GKStorage.clearCart();
+
+    // E-posta bildirimi gönder (arka planda)
+    sendOrderEmail(orderData, totals);
+
     window.location.href = "./success.html";
   });
 })();

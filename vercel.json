@@ -4903,6 +4903,9 @@
         },
         "api/paytr-callback.js": {
             "maxDuration": 30
+        },
+        "api/send-order-email.js": {
+            "maxDuration": 30
         }
     }
 }
