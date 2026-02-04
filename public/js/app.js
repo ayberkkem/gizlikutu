@@ -99,7 +99,7 @@
       t = document.createElement("div");
       t.id = "gkToast";
       t.style.cssText =
-        "position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 12px;border-radius:12px;z-index:99;font-size:14px;opacity:0;transition:.2s";
+        "position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:#ffffff;color:#111827;padding:12px 24px;border-radius:50px;z-index:9999;font-size:15px;font-weight:600;opacity:0;transition:.2s;box-shadow:0 10px 40px rgba(0,0,0,0.2);border:1px solid rgba(0,0,0,0.1);display:flex;align-items:center;gap:8px;";
       document.body.appendChild(t);
     }
     t.textContent = msg;
