@@ -165,8 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
             banner.innerHTML = `
                 ${leftBtnHtml}
                 <div style="display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;">
-                    <span style="font-size:1.3em; margin-right:5px">🚀</span>
-                    <span class="banner-tri-color-pulse" style="text-transform:uppercase; letter-spacing:0.5px;">AYNI GÜN KARGO!</span>
+
                     <a href="/products" class="banner-sync-pulse" style="display:inline-flex; align-items:center; justify-content:center; font-weight:800; padding:10px 24px; border-radius:50px; text-decoration:none; font-size:15px; margin:0 12px; border:2px solid transparent;">Ürünleri İncele</a>
                     <div class="wheel-mini-trigger banner-sync-pulse" onclick="window.openWheel()" style="margin-left:10px; padding: 8px 16px; border-radius: 50px; cursor:pointer; font-weight:800; font-size:14px; display:flex; align-items:center; gap:8px; border:1px solid transparent;">
                       <div class="mini-wheel-rotator"></div>

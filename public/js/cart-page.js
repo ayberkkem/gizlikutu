@@ -156,7 +156,7 @@
                     </svg>
                   </div>
                   <div class="mobile-cart-title">${i.title}</div>
-                  <div class="mobile-cart-shipping">500₺+ Kargo Bedava 🚚</div>
+                  <div class="mobile-cart-shipping">Hızlı Kargo 🚀</div>
                   <div class="mobile-cart-bottom">
                     <div class="mobile-cart-qty">
                       <button class="mobile-qty-btn" data-dec="${i.id}">−</button>

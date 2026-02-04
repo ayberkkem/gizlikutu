@@ -27,6 +27,13 @@
             const res = await fetch('./data/turkey-cities.json');
             citiesData = await res.json();
             populateProvinces();
+
+            // Set Defaults
+            provinceSelect.value = 'Manisa';
+            populateDistricts('Manisa');
+            districtSelect.value = 'Akhisar';
+            updatePaymentMethods();
+
             bindEvents();
         } catch (err) {
             console.error('Failed to load cities:', err);
@@ -38,7 +45,7 @@
     function populateProvinces() {
         const provinces = Object.keys(citiesData).sort((a, b) => a.localeCompare(b, 'tr'));
 
-        provinceSelect.innerHTML = '<option value="">İl Seçiniz</option>';
+        provinceSelect.innerHTML = '';
         provinces.forEach(p => {
             const opt = document.createElement('option');
             opt.value = p;
@@ -48,13 +55,13 @@
 
         // Initially disable district
         districtSelect.disabled = true;
-        districtSelect.innerHTML = '<option value="">Önce il seçiniz</option>';
+        districtSelect.innerHTML = '';
     }
 
     function populateDistricts(province) {
         const districts = citiesData[province] || [];
 
-        districtSelect.innerHTML = '<option value="">İlçe Seçiniz</option>';
+        districtSelect.innerHTML = '';
         districts.forEach(d => {
             const opt = document.createElement('option');
             opt.value = d;
@@ -66,26 +73,11 @@
     }
 
     function updatePaymentMethods() {
-        const province = provinceSelect?.value || '';
-        const district = districtSelect?.value || '';
-
-        const isKapidaAllowed = (
-            province === KAPIDA_ALLOWED.province &&
-            district === KAPIDA_ALLOWED.district
-        );
-
-        // Show/hide Kapıda Ödeme option
+        // Since Kapıda Ödeme is the ONLY payment method now, we always keep it visible and checked.
         if (kapidaOption) {
-            kapidaOption.style.display = isKapidaAllowed ? '' : 'none';
-
-            // If Kapıda was selected but is no longer allowed, reset to default
+            kapidaOption.style.display = 'flex';
             const kapidaInput = kapidaOption.querySelector('input');
-            if (kapidaInput && kapidaInput.checked && !isKapidaAllowed) {
-                kapidaInput.checked = false;
-                // Select first available payment method
-                const firstMethod = paymentMethodsContainer?.querySelector('input[type="radio"]');
-                if (firstMethod) firstMethod.checked = true;
-            }
+            if (kapidaInput) kapidaInput.checked = true;
         }
     }
 
@@ -123,28 +115,8 @@
             return false;
         }
 
-        // Check payment method is selected and visible
-        const selectedPayment = paymentMethodsContainer?.querySelector('input[type="radio"]:checked');
-        if (!selectedPayment) {
-            alert('Lütfen Ödeme yöntemi seçiniz.');
-            return false;
-        }
-
-        // Ensure Kapıda is not somehow selected when not allowed
-        const isKapidaAllowed = (
-            province === KAPIDA_ALLOWED.province &&
-            district === KAPIDA_ALLOWED.district
-        );
-
-        if (selectedPayment.value === 'kapida' && !isKapidaAllowed) {
-            alert('Kapıda Ödeme bu bölge için geçerli değil.');
-            return false;
-        }
-
         return true;
     }
-
-    // Initialize on DOMContentLoaded
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

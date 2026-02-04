@@ -72,7 +72,7 @@ function getCitySchema(cityName, fileName) {
                         "name": `${cityTitle}'da sex shop var mı?`,
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": `Evet, Gizli Kutu olarak ${cityTitle} ve tüm Türkiye'ye online hizmet veriyoruz. WhatsApp: +90 540 044 3445`
+                            "text": `Evet, Gizli Kutu olarak ${cityTitle} ve Manisa genelinde online hizmet veriyoruz. WhatsApp: +90 540 044 3445`
                         }
                     },
                     {
@@ -88,7 +88,7 @@ function getCitySchema(cityName, fileName) {
                         "name": "Teslimat süresi ne kadar?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Türkiye geneli kargo ile 1-3 iş günü içinde teslimat sağlanmaktadır. Akhisar içi motor kurye ile 1 saat."
+                            "text": "Manisa ve Akhisar genelinde 1-3 iş günü içinde teslimat sağlanmaktadır. Akhisar içi motor kurye ile 1 saat."
                         }
                     },
                     {
@@ -96,7 +96,7 @@ function getCitySchema(cityName, fileName) {
                         "name": "Kapıda ödeme seçeneği var mı?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Akhisar içi teslimatlarımızda kapıda nakit veya kredi kartı ile ödeme yapabilirsiniz. Diğer iller için online ödeme ve havale/EFT seçenekleri mevcuttur."
+                            "text": "Akhisar ve Manisa içi teslimatlarımızda kapıda nakit ödeme yapabilirsiniz. Detaylı bilgi için WhatsApp üzerinden ulaşabilirsiniz."
                         }
                     }
                 ]

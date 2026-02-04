@@ -426,3 +426,36 @@ details p {
 .city-contact-list a:hover {
     text-decoration: underline;
 }
+
+/* Glowing Text Animation */
+.glowing-red-pink {
+    color: #ff2d55 !important;
+    /* Vivid Red-Pink */
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(255, 45, 85, 0.4);
+    animation: redPinkGlow 1.5s ease-in-out infinite;
+    display: block;
+    margin-top: 15px;
+    width: 100%;
+    font-size: 0.95rem;
+    font-style: italic;
+    background: rgba(255, 45, 85, 0.05);
+    /* Very subtle background */
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px dashed rgba(255, 45, 85, 0.2);
+}
+
+@keyframes redPinkGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px rgba(255, 45, 85, 0.8), 0 0 10px rgba(255, 45, 85, 0.4);
+        transform: scale(1);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(255, 45, 85, 1), 0 0 30px rgba(255, 45, 85, 0.6);
+        transform: scale(1.02);
+    }
+}

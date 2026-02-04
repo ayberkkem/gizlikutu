@@ -161,7 +161,7 @@
               <span class="counter-qty">1</span>
               <button class="counter-btn counter-plus" data-action="plus">+</button>
             </div>
-            <a href="./cart.html" class="cart-go-btn">Sepetim 🛒</a>
+            <a href="/cart" class="cart-go-btn">Sepetim 🛒</a>
           </div>
         `;
         return;

@@ -697,3 +697,36 @@ main.container>* {
 .city-contact-list a:hover {
     text-decoration: underline;
 }
+
+/* Pulsing Badges for Regional Pages */
+@keyframes badge-pulse {
+    0% {
+        transform: scale(1);
+        background-color: #e11d48;
+        /* Vibrant Pink/Rose */
+        box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7);
+    }
+
+    50% {
+        transform: scale(1.05);
+        background-color: #be185d;
+        /* Deeper Pink */
+        box-shadow: 0 0 5px 5px rgba(190, 24, 93, 0.3);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: #e11d48;
+        box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+    }
+}
+
+.local-badges li {
+    background-color: #e11d48 !important;
+    color: #fff !important;
+    animation: badge-pulse 2s infinite;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}

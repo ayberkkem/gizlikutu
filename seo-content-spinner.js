@@ -22,15 +22,15 @@ const files = getAllFiles(publicDir).filter(f => f.endsWith('.html'));
 // ==========================================
 const cargoDeliveryTemplates = [
     (city) => `
-        <h2>${city} ARAS KARGO İLE GÖNDERİM</h2>
-        <p>Gizli Kutu siparişleriniz <strong>${city}</strong> bölgesine <strong>Aras Kargo</strong> güvencesiyle %100 gizli paket olarak gönderilir.</p>
+        <h2>${city} 1 ⚡ Akhisar Merkez 1 Saatte %100 Gizli Teslimat İLE GÖNDERİM</h2>
+        <p>Gizli Kutu siparişleriniz <strong>${city}</strong> bölgesine <strong>1 ⚡ Akhisar Merkez 1 Saatte %100 Gizli Teslimat</strong> güvencesiyle %100 gizli paket olarak gönderilir.</p>
         <div class="delivery-features">
             <div>📦 Kapalı Kutu</div>
-            <div>🚚 Aras Kargo</div>
+            <div>1 ⚡ Akhisar Merkez 1 Saatte %100 Gizli Teslimat</div>
             <div>💳 Online/Havale</div>
         </div>
         <div class="neighborhoods">
-            <strong>Teslimat Süreci:</strong> ${city} genelinde Aras Kargo şubelerinden veya adrese teslim.<br>
+            <strong>Teslimat Süreci:</strong> ${city} genelinde 1 ⚡ Akhisar Merkez 1 Saatte %100 Gizli Teslimat güvencesiyle adrese teslim.<br>
             <strong>Gizlilik:</strong> Kargo poşetinde ürün içeriği asla yazmaz.<br>
             <strong>Süre:</strong> Bölgeye göre ortalama 1-3 iş günü.
         </div>
@@ -146,7 +146,7 @@ const introTemplates = [
     (city) => `${city} şehrine özel gizli paketleme ve güvenli alışverişin adresi. %100 müşteri memnuniyeti.`,
     (city) => `${city} için en geniş ürün yelpazesi, uygun fiyatlar ve tam gizlilik garantisi.`,
     (city) => `${city} bölgesinde kimse bilmeden, güvenle alışveriş yapın. Hızlı kargo seçenekleri.`,
-    (city) => `Türkiye'nin her yerine olduğu gibi ${city} iline de sorunsuz, logosuz teslimat.`
+    (city) => `Manisa ve Akhisar genelinde olduğu gibi ${city} bölgesinde de sorunsuz, logosuz teslimat.`
 ];
 
 let count = 0;

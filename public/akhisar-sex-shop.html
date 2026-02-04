@@ -90,7 +90,7 @@
             "name": "Akhisar'da sex shop var mı?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Evet, Gizli Kutu olarak Akhisar ve tüm Türkiye'ye online hizmet veriyoruz. WhatsApp: +90 540 044 3445"
+            "text": "Evet, Gizli Kutu olarak Akhisar ve Manisa genelinde hizmet veriyoruz. WhatsApp: +90 540 044 3445"
             }
           },
           {
@@ -106,7 +106,7 @@
             "name": "Teslimat süresi ne kadar?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Türkiye geneli kargo ile 1-3 iş günü içinde teslimat sağlanmaktadır. Akhisar içi motor kurye ile 1 saat."
+              "text": "Manisa ve Akhisar genelinde 1-3 iş günü içinde teslimat sağlanmaktadır. Akhisar içi motor kurye ile 1 saat."
             }
           },
           {
@@ -114,7 +114,7 @@
             "name": "Kapıda Ödeme seçeneği var mı?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Akhisar içi teslimatlarımızda kapıda nakit veya kredi kartı ile ödeme yapabilirsiniz. Diğer iller için online ödeme ve havale/EFT seçenekleri mevcuttur."
+              "text": "Akhisar ve Manisa genelinde gönderim yapıyoruz. Kapıda nakit ödeme seçeneğimiz mevcuttur. WhatsApp üzerinden detaylı bilgi alabilirsiniz."
             }
           }
         ]
@@ -228,8 +228,37 @@
         nav.desktop-header-nav a[href="/about"],
         nav.desktop-header-nav a[href="/contact"],
         .desktop-header-nav a[href*="about"],
-        .desktop-header-nav a[href*="contact"] {
+        nav.desktop-header-nav a[href*="contact"] {
             display: none !important;
+        }
+
+        /* PREMIUM BADGES FIX */
+        .local-badges {
+            list-style: none !important;
+            padding: 0 !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 15px !important;
+            margin-bottom: 25px !important;
+        }
+
+        .local-badges li {
+            background: #e11d48 !important;
+            /* Vibrant Ruby Red */
+            color: #ffffff !important;
+            /* Pure White for Contrast */
+            padding: 10px 22px !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            font-size: 0.9rem !important;
+            animation: none !important;
+            cursor: default !important;
         }
     </style>
 </head>
@@ -385,20 +414,11 @@
                 ve ortalama 1 saat içinde kapınıza veya dilediğiniz adrese teslim edilir.
                 Paket üzerinde ürün adı veya firma bilgisi yer almaz.
             </p>
-            <ul class="local-badges"
-                style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 25px;">
-                <li
-                    style="background: var(--brand); color: #fff; padding: 8px 15px; border-radius: 50px; font-size: 0.9rem;">
-                    🛵 1 Saatte Teslim</li>
-                <li
-                    style="background: var(--brand); color: #fff; padding: 8px 15px; border-radius: 50px; font-size: 0.9rem;">
-                    🔒 %100 Gizli Paketleme</li>
-                <li
-                    style="background: var(--brand); color: #fff; padding: 8px 15px; border-radius: 50px; font-size: 0.9rem;">
-                    💬 WhatsApp Destek</li>
-                <li
-                    style="background: var(--brand); color: #fff; padding: 8px 15px; border-radius: 50px; font-size: 0.9rem;">
-                    💳 Kapıda Ödeme (Sadece Akhisar)</li>
+            <ul class="local-badges">
+                <li>🛵 1 Saatte Teslim</li>
+                <li>🔒 %100 Gizli Paketleme</li>
+                <li>💬 WhatsApp Destek</li>
+                <li>💳 Kapıda Ödeme (Sadece Akhisar)</li>
             </ul>
             <a href="/products" class="btn primary" style="font-size: 1.2rem; padding: 15px 30px;">Akhisar İçin Hemen
                 Sipariş Ver</a>
@@ -423,9 +443,10 @@
                 <div class="trustRow">
                     <span>🔒 %100 Gizli Paketleme ✅</span>
                     <span>🚚 Akhisar İçi 1 Saat Teslimat ✅</span>
-                    <span>💳 Güvenli Ödeme ✅</span>
-                    <span>💵 Kapıda Ödeme ✅</span>
-                    <span>💬 WhatsApp: +90 540 044 3445 ✅</span>
+                    <span>💳 Kapıda Nakit Ödeme ✅</span>
+                    <span>💬 WhatsApp Destek (Çekinmeden Sor) ✅</span>
+                    <span class="glowing-red-pink">* Bu site, kendini özgür ve rahat hissetmek isteyenler için
+                        hazırlanmıştır *</span>
                 </div>
             </div>
         </div>
@@ -444,20 +465,23 @@
 
         <!-- 21 Mahalle Teslimat -->
         <section class="delivery-zone">
-            <h2>AKHISAR İÇİ 1 SAATTE GİZLİ TESLİMAT</h2>
-            <p>Siparişiniz <strong>Akhisar</strong> merkez mahallelerine özel kuryemiz ile <strong>ortalama 60
-                    dakikada</strong> teslim edilir.</p>
+            <h2>1 SAATTE ÖZEL MOTORLU KURYE İLE AKHİSAR VE TÜM MAHALLERİNE GİZLİ TESLİMAT</h2>
+            <p>Siparişiniz <strong>Akhisar</strong>'ın tüm mahallelerine özel motorlu kuryemiz ile <strong>1 saat içinde
+                    (maksimum 60 dakikada)</strong> teslim edilir.</p>
             <div class="delivery-features">
                 <div>🏍️ Hızlı Kurye</div>
-                <div>💵 Kapıda Ödeme</div>
-                <div>⚡ 1 Saatte Kapında</div>
+                <div>🕵️ %100 Gizli Paketleme</div>
+                <div>💳 Kapıda Nakit Ödeme</div>
             </div>
             <div class="neighborhoods">
                 <strong>Akhisar’da Hizmet Verdiğimiz Mahalleler:</strong><br>
                 Hürriyet, Efendi, Reşatbey, Atatürk, Ulucami, Gölmarmara Yolu çevresi, Kethüda, İnönü, Hacıishak,
-                Hashoca, Paşa, Seyitahmet ve Akhisar’ın tüm mahallelerine hızlı ve gizli teslimat yapılmaktadır.<br>
-                <strong>Köy/Kasaba:</strong> Merkeze uzak bölgelere anlaşmalı kargo ile gönderim yapılır.<br>
-                <strong>Ödeme:</strong> Kapıda Nakit veya Kredi Kartı sadece Akhisar içi teslimatlarda geçerlidir.
+                Hashoca, Paşa, Seyitahmet ve Akhisar’ın tüm mahallelerine moto kurye ile anında teslimat
+                yapılmaktadır.<br>
+                <strong>Gizlilik:</strong> Paket içeriğini kurye personeli dahil kimse göremez, kargo poşeti veya 1 ⚡
+                Akhisar Merkez 1 Saatte %100 Gizli Teslimat
+                gibi ibareler yerine özel gizli paket kullanılır.<br>
+                <strong>Süre:</strong> Sadece 1 Saat! Kapıda Nakit ödeme tüm mahallelerde geçerlidir.
             </div>
         </section>
 
@@ -577,7 +601,7 @@
             </details>
             <details class="city-faq-item">
                 <summary>Kapıda Ödeme var mı?</summary>
-                <p>Evet, nakit veya kredi kartı ile Kapıda Ödeme yapabilirsiniz.</p>
+                <p>Evet, tüm siparişlerinizde kapıda nakit ödeme yapabilirsiniz.</p>
             </details>
         </section>
 
@@ -615,7 +639,7 @@
             <div class="city-trust-badges">
                 <div class="city-trust-badge"><span>🔒</span>Gizlilik</div>
                 <div class="city-trust-badge"><span>🛡️</span>SSL</div>
-                <div class="city-trust-badge"><span>💳</span>Güvenli Ödeme</div>
+                <div class="city-trust-badge"><span>💳</span>Kapıda Ödeme</div>
                 <div class="city-trust-badge"><span>🚚</span>Hızlı Teslimat</div>
             </div>
         </section>
@@ -636,8 +660,8 @@
                     olduğunu bilemez. "Gizli Kutu" güvencesiyle alışverişlerinizi güvenle yapabilirsiniz.</p>
 
                 <h3>Akhisar İçin Teslimat Seçenekleri</h3>
-                <p>Akhisar içinde verdiğiniz siparişlerde, dilerseniz Kapıda Ödeme, dilerseniz online ödeme veya
-                    havale/EFT seçeneklerini kullanabilirsiniz. <strong>Akhisar içi KARGO YOK!</strong> Siparişleriniz
+                <p>Akhisar içinde verdiğiniz siparişlerde, kapıda nakit ödeme seçeneğini kullanabilirsiniz.
+                    <strong>Akhisar içi KARGO YOK!</strong> Siparişleriniz
                     kargo beklemeden, <strong>MOTORLU KURYE</strong> hizmetimiz ile <strong>SadeCE 1 SAAT</strong>
                     içinde dilerseniz kapınıza teslim edilir, dilerseniz seçtiğiniz özel bir noktaya (Ör: Belediye
                     Önü,
@@ -655,8 +679,8 @@
                     </div>
                     <div class="city-faq-item">
                         <h4>Ödeme Seçenekleri Nelerdir?</h4>
-                        <p>Kredi kartı ile online ödeme, havale/EFT veya Kapıda Ödeme seçeneklerimiz mevcuttur.
-                            Ödemeleriniz 256-bit SSL sertifikası ile korunmaktadır.</p>
+                        <p>Kapıda nakit ödeme seçeneğimiz mevcuttur.
+                            Ödemeleriniz güvenli altyapılar ve gizlilik prensipleri ile korunmaktadır.</p>
                     </div>
                     <div class="city-faq-item">
                         <h4>Hangi Ürünler Var?</h4>

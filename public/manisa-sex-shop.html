@@ -90,7 +90,7 @@
             "name": "Manisa'da sex shop var mı?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Evet, Gizli Kutu olarak Manisa ve tüm Türkiye'ye online hizmet veriyoruz. WhatsApp: +90 540 044 3445"
+            "text": "Evet, Gizli Kutu olarak Manisa ve Akhisar genelinde hizmet veriyoruz. WhatsApp: +90 540 044 3445"
             }
           },
           {
@@ -106,7 +106,7 @@
             "name": "Teslimat süresi ne kadar?",
             "acceptedAnswer": {
               "@type": "Answer",
-Aynı gün gizli kargo ile gönderim.
+              "text": "Aynı gün gizli kargo ile gönderim."
             }
           },
           {
@@ -114,7 +114,7 @@ Aynı gün gizli kargo ile gönderim.
             "name": "Kapıda Ödeme seçeneği var mı?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Manisa içi teslimatlarımızda kapıda nakit veya kredi kartı ile ödeme yapabilirsiniz. Diğer iller için online ödeme ve havale/EFT seçenekleri mevcuttur."
+              "text": "Manisa ve Akhisar genelinde gönderim yapıyoruz. Kapıda nakit ödeme seçeneğimiz mevcuttur. WhatsApp üzerinden detaylı bilgi alabilirsiniz."
             }
           }
         ]
@@ -228,8 +228,37 @@ Aynı gün gizli kargo ile gönderim.
         nav.desktop-header-nav a[href="/about"],
         nav.desktop-header-nav a[href="/contact"],
         .desktop-header-nav a[href*="about"],
-        .desktop-header-nav a[href*="contact"] {
+        nav.desktop-header-nav a[href*="contact"] {
             display: none !important;
+        }
+
+        /* PREMIUM BADGES FIX */
+        .local-badges {
+            list-style: none !important;
+            padding: 0 !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 15px !important;
+            margin-bottom: 25px !important;
+        }
+
+        .local-badges li {
+            background: #e11d48 !important;
+            /* Vibrant Ruby Red */
+            color: #ffffff !important;
+            /* Pure White for Contrast */
+            padding: 10px 22px !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            font-size: 0.9rem !important;
+            animation: none !important;
+            cursor: default !important;
         }
     </style>
 </head>
@@ -385,20 +414,11 @@ Aynı gün gizli kargo ile gönderim.
                 ve ortalama 1 saat içinde kapınıza veya dilediğiniz adrese teslim edilir.
                 Paket üzerinde ürün adı veya firma bilgisi yer almaz.
             </p>
-            <ul class="local-badges"
-                style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 25px;">
-                <li
-                    style="background: var(--brand); color: #fff; padding: 8px 15px; border-radius: 50px; font-size: 0.9rem;">
-                    🛵 Aynı Gün Kargo</li>
-                <li
-                    style="background: var(--brand); color: #fff; padding: 8px 15px; border-radius: 50px; font-size: 0.9rem;">
-                    🔒 %100 Gizli Paketleme</li>
-                <li
-                    style="background: var(--brand); color: #fff; padding: 8px 15px; border-radius: 50px; font-size: 0.9rem;">
-                    💬 WhatsApp Destek</li>
-                <li
-                    style="background: var(--brand); color: #fff; padding: 8px 15px; border-radius: 50px; font-size: 0.9rem;">
-                    💳 Kapıda Ödeme (Sadece Manisa)</li>
+            <ul class="local-badges">
+                <li>🛵 1 Saatte Teslim</li>
+                <li>🔒 %100 Gizli Paketleme</li>
+                <li>💬 WhatsApp Destek</li>
+                <li>💳 Kapıda Nakit Ödeme</li>
             </ul>
             <a href="/products" class="btn primary" style="font-size: 1.2rem; padding: 15px 30px;">Manisa İçin Hemen
                 Sipariş Ver</a>
@@ -422,10 +442,11 @@ Aynı gün gizli kargo ile gönderim.
                 </div>
                 <div class="trustRow">
                     <span>🔒 %100 Gizli Paketleme ✅</span>
-                    <span>🚚 Aynı Gün Gizli Kargo ✅</span>
-                    <span>💳 Güvenli Ödeme ✅</span>
-                    <span></span>
-                    <span>💬 WhatsApp: +90 540 044 3445 ✅</span>
+                    <span>🚚 Manisa İçi 1 Saat Teslimat ✅</span>
+                    <span>💳 Kapıda Nakit Ödeme ✅</span>
+                    <span>💬 WhatsApp Destek (Çekinmeden Sor) ✅</span>
+                    <span class="glowing-red-pink">* Bu site, kendini özgür ve rahat hissetmek isteyenler için
+                        hazırlanmıştır *</span>
                 </div>
             </div>
         </div>
@@ -436,8 +457,7 @@ Aynı gün gizli kargo ile gönderim.
             <p class="hero-sub">Gizliliğin Adresi – Gizli Paketleme</p>
             <div class="hero-features">
                 <div>📦 Gizli Paketleme</div>
-
-                <div>⚡ Manisa İçi Aynı Gün Kargo</div>
+                <div>⚡ Manisa İçi 1 Saatte Teslim</div>
             </div>
             <a href="/products" class="btn primary">Ürünleri Gör</a>
         </section>
@@ -445,20 +465,22 @@ Aynı gün gizli kargo ile gönderim.
         <!-- 21 Mahalle Teslimat -->
 
         <section class="delivery-zone">
-            <h2>MANISA HIZLI TESLİMAT</h2>
-            <p>Siparişiniz <strong>Manisa</strong> ve tüm ilçelerine <strong>aynı gün kargo</strong> ile gizli paket
-                olarak gönderilir.</p>
+            <h2>1 SAATTE ÖZEL MOTORLU KURYE İLE MANİSA VE TÜM MAHALLERİNE GİZLİ TESLİMAT</h2>
+            <p>Siparişiniz <strong>Manisa</strong>'nın tüm mahallelerine özel motorlu kuryemiz ile <strong>1 saat içinde
+                    (maksimum 60 dakikada)</strong> teslim edilir.</p>
             <div class="delivery-features">
-                <div>🚚 Aynı Gün Kargo</div>
+                <div>🏍️ Hızlı Kurye</div>
                 <div>🕵️ %100 Gizli Paketleme</div>
-                <div>💳 Güvenli Ödeme</div>
+                <div>💳 Kapıda Nakit Ödeme</div>
             </div>
             <div class="neighborhoods">
-                <strong>Teslimat:</strong> Manisa genelindeki tüm adreslere, PTT Kargo veya Aras Kargo güvencesiyle
-                teslimat yapılmaktadır.<br>
-                <strong>Şube Teslim:</strong> Dilerseniz kargonuzu en yakın kargo şubesinden kimliğinizle teslim
-                alabilirsiniz.<br>
-                <strong>Ortalama Süre:</strong> 1-3 İş Günü
+                <strong>Manisa’da Hizmet Verdiğimiz Bölgeler:</strong><br>
+                Yunus Emre, Şehzadeler ve Manisa merkezdeki tüm mahallelere moto kurye ile anında teslimat
+                yapılmaktadır.<br>
+                <strong>Gizlilik:</strong> Paket içeriğini kurye personeli dahil kimse göremez, kargo poşeti veya 1 ⚡
+                Akhisar Merkez 1 Saatte %100 Gizli Teslimat
+                gibi ibareler yerine özel gizli paket kullanılır.<br>
+                <strong>Süre:</strong> Sadece 1 Saat! Kapıda Nakit ödeme tüm merkezi bölgelerde geçerlidir.
             </div>
         </section>
 
@@ -573,11 +595,11 @@ Aynı gün gizli kargo ile gönderim.
             </details>
             <details class="city-faq-item">
                 <summary>Teslimat süresi?</summary>
-                Aynı gün gizli kargo ile gönderim.
+                <p>Manisa içi motor kurye ile 1 saat.</p>
             </details>
             <details class="city-faq-item">
                 <summary>Kapıda Ödeme var mı?</summary>
-                <p>Şu an için sadece Havale/EFT ve Online Kredi Kartı ile ödeme kabul etmekteyiz.</p>
+                <p>Evet, tüm siparişlerinizde kapıda nakit ödeme yapabilirsiniz.</p>
             </details>
         </section>
 
@@ -615,7 +637,7 @@ Aynı gün gizli kargo ile gönderim.
             <div class="city-trust-badges">
                 <div class="city-trust-badge"><span>🔒</span>Gizlilik</div>
                 <div class="city-trust-badge"><span>🛡️</span>SSL</div>
-                <div class="city-trust-badge"><span>💳</span>Güvenli Ödeme</div>
+                <div class="city-trust-badge"><span>💳</span>Kapıda Ödeme</div>
                 <div class="city-trust-badge"><span>🚚</span>Hızlı Teslimat</div>
             </div>
         </section>
@@ -636,13 +658,12 @@ Aynı gün gizli kargo ile gönderim.
                     olduğunu bilemez. "Gizli Kutu" güvencesiyle alışverişlerinizi güvenle yapabilirsiniz.</p>
 
                 <h3>Manisa İçin Teslimat Seçenekleri</h3>
-                <p>Manisa içinde verdiğiniz siparişlerde, dilerseniz dilerseniz online ödeme veya
-                    havale/EFT seçeneklerini kullanabilirsiniz. <strong>Tüm Türkiye'ye Kargo İmkanı</strong>
-                    Siparişleriniz
-                    kargo beklemeden, <strong>ÖZEL PAKETLEME</strong> hizmetimiz ile <strong>EN KISA SÜREDE</strong>
+                <p>Manisa içinde verdiğiniz siparişlerde, kapıda nakit ödeme seçeneğini kullanabilirsiniz.
+                    <strong>Manisa içi KARGO YOK!</strong> Siparişleriniz
+                    kargo beklemeden, <strong>MOTORLU KURYE</strong> hizmetimiz ile <strong>SadeCE 1 SAAT</strong>
                     içinde dilerseniz kapınıza teslim edilir, dilerseniz seçtiğiniz özel bir noktaya (Ör: Belediye
                     Önü,
-                    AVM Önü, Hilaliye Caddesi vb.) teslimat sağlanır. Teslimat adresini belirlemek, değiştirmek veya
+                    AVM Önü vb.) teslimat sağlanır. Teslimat adresini belirlemek, değiştirmek veya
                     siparişinizin en hızlı şekilde size ulaşması için sipariş notu ekleyebilir ya da
                     <strong>WhatsApp</strong>
                     üzerinden bizlere <strong>7/24</strong> ulaşabilirsiniz.
@@ -656,8 +677,8 @@ Aynı gün gizli kargo ile gönderim.
                     </div>
                     <div class="city-faq-item">
                         <h4>Ödeme Seçenekleri Nelerdir?</h4>
-                        <p>Kredi kartı ile online ödeme, havale/EFT veya Kapıda Ödeme seçeneklerimiz mevcuttur.
-                            Ödemeleriniz 256-bit SSL sertifikası ile korunmaktadır.</p>
+                        <p>Kapıda nakit ödeme seçeneğimiz mevcuttur.
+                            Ödemeleriniz güvenli altyapılar ve gizlilik prensipleri ile korunmaktadır.</p>
                     </div>
                     <div class="city-faq-item">
                         <h4>Hangi Ürünler Var?</h4>

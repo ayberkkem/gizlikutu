@@ -68,100 +68,7 @@
   /* ==========================
      PAYTR IFRAME MODAL (PC & Mobile/PWA Responsive)
   ========================== */
-  function showPaytrModal(iframeUrl) {
-    // Mobil mi kontrol et
-    const isMobile = window.innerWidth <= 768;
-
-    const overlay = document.createElement("div");
-    overlay.id = "paytrOverlay";
-    overlay.style.cssText = `
-      position: fixed;
-      inset: 0;
-      background: ${isMobile ? '#fff' : 'rgba(0,0,0,0.85)'};
-      z-index: 9999;
-      display: flex;
-      align-items: ${isMobile ? 'stretch' : 'center'};
-      justify-content: center;
-      padding: ${isMobile ? '0' : '10px'};
-    `;
-
-    const modal = document.createElement("div");
-    modal.style.cssText = isMobile ? `
-      background: #fff;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    ` : `
-      background: #fff;
-      border-radius: 16px;
-      width: 100%;
-      max-width: 520px;
-      height: 90vh;
-      max-height: 700px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-    `;
-
-    const header = document.createElement("div");
-    header.style.cssText = `
-      padding: ${isMobile ? '14px 16px' : '12px 16px'};
-      padding-top: ${isMobile ? 'max(14px, env(safe-area-inset-top))' : '12px'};
-      background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8a 100%);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    `;
-    header.innerHTML = `
-      <span style="color:#fff;font-weight:600;font-size:${isMobile ? '16px' : '14px'}">💳 Güvenli Ödeme</span>
-      <button id="paytrCloseBtn" style="
-        width:${isMobile ? '36px' : '28px'};
-        height:${isMobile ? '36px' : '28px'};
-        border:none;
-        background:rgba(255,255,255,0.2);
-        border-radius:50%;
-        cursor:pointer;
-        color:#fff;
-        font-size:${isMobile ? '20px' : '16px'};
-        display:flex;
-        align-items:center;
-        justify-content:center;
-      ">✕</button>
-    `;
-
-    const iframe = document.createElement("iframe");
-    iframe.src = iframeUrl;
-    iframe.style.cssText = `
-      width: 100%;
-      height: calc(100% - ${isMobile ? '52px' : '48px'});
-      border: none;
-      background: #fff;
-    `;
-    iframe.setAttribute("frameborder", "0");
-    iframe.setAttribute("scrolling", "yes");
-    iframe.setAttribute("allow", "payment");
-
-    modal.appendChild(header);
-    modal.appendChild(iframe);
-    overlay.appendChild(modal);
-    document.body.appendChild(overlay);
-
-    // Body scroll'u kapat (mobilde önemli)
-    document.body.style.overflow = 'hidden';
-
-    // Kapatma butonu
-    document.getElementById("paytrCloseBtn").onclick = () => {
-      if (confirm("Ödemeyi iptal etmek istediğinize emin misiniz?")) {
-        overlay.remove();
-        document.body.style.overflow = '';
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Siparişşi Tamamla";
-      }
-    };
-
-    console.log("✅ PayTR modal açıldı (", isMobile ? "Mobile/PWA" : "PC", ")");
-  }
+  /* PayTR modal logic removed - CoD only policy */
 
   /* ==========================
      E-POSTA BİLDİRİMİ GÖNDER
@@ -264,7 +171,7 @@
     if (agreeEl && !agreeEl.checked) {
       toast("Devam etmek için sözleşmeleri onaylamalısın.");
       submitBtn.disabled = false;
-      submitBtn.textContent = "Siparişşi Tamamla";
+      submitBtn.textContent = "Siparişi Tamamla";
       return;
     }
 
@@ -278,17 +185,16 @@
     const phoneDigits = String(formData.phone || "").replace(/\D/g, "");
     const gsm = phoneDigits ? "+90" + phoneDigits : "";
 
-    // Ödeme yöntemi kontrolü - value="card" HTML'den
-    const paymentValue = String(formData.payment || "card");
-    const isCardPayment = paymentValue === "card";
+    // Ödeme yöntemi - Her zaman kapida (CoD)
+    const paymentValue = String(formData.payment || "kapida");
 
     console.log("🔍 Form payment value:", paymentValue);
     console.log("🔍 isCardPayment:", isCardPayment);
 
-    // Siparişş numarası oluştur (PayTR sadece alfanumerik kabul ediyor)
+    // Sipariş numarası oluştur (PayTR sadece alfanumerik kabul ediyor)
     const orderNo = "GK" + Date.now();
 
-    // Siparişş verisi
+    // Sipariş verisi
     const orderData = {
       orderNo: orderNo,
       customer: {
@@ -303,9 +209,9 @@
         type: "cargo"
       },
       payment: {
-        method: isCardPayment ? "online" : (paymentValue === "transfer" ? "transfer" : "cash"),
+        method: paymentValue === "transfer" ? "transfer" : "cash",
         total: currentTotals.totalKurus / 100,
-        status: isCardPayment ? "pending" : "awaiting"
+        status: "awaiting"
       },
       note: String(formData.note || "").trim(),
       products: currentTotals.cart.map((i) => ({
@@ -321,84 +227,6 @@
     /* ==========================
        💳 KREDİ KARTI İLE ÖDEME (PAYTR)
     ========================== */
-    if (isCardPayment) {
-      submitBtn.textContent = "Ödeme hazırlanıyor...";
-
-      // Önce siparişi Firestore'a kaydet
-      const saved = await saveOrderToFirestore(orderData);
-      if (!saved) {
-        toast("Siparişş kaydedilemedi. Lütfen tekrar deneyin.");
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Siparişşi Tamamla";
-        return;
-      }
-
-      // PayTR token al
-      submitBtn.textContent = "PayTR'ye bağlanılıyor...";
-
-      try {
-        const paytrPayload = {
-          orderNo: orderNo,
-          email: orderData.customer.email || "musteri@gizlikutu.online",
-          totalAmount: currentTotals.totalKurus / 100,
-          userName: `${firstName} ${surname}`,
-          userPhone: gsm || "05000000000",
-          userAddress: `${orderData.delivery.address}, ${orderData.delivery.district}, ${orderData.delivery.city}`,
-          userCity: orderData.delivery.city || "Manisa",
-          basketItems: currentTotals.cart.map((i) => ({
-            name: i.title || "Ürün",
-            price: Number(i.price) || 0,
-            qty: Number(i.qty) || 1
-          }))
-        };
-
-        const res = await fetch(PAYTR_FUNCTION_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(paytrPayload)
-        });
-
-        const data = await res.json();
-
-        if (data.success && data.iframeUrl) {
-          // Tracking için localStorage'a kaydet (success.html'de kullanılacak)
-          const trackingData = {
-            conversationId: orderNo,
-            paidPrice: currentTotals.totalKurus / 100,
-            basketItems: currentTotals.cart.map((i) => ({
-              id: i.id,
-              name: i.title || "Ürün",
-              price: Number(i.price) || 0
-            }))
-          };
-          localStorage.setItem("gizlikutu_last_order_v1", JSON.stringify(trackingData));
-
-          // Sepeti ve kuponu temizle (ANTI-ABUSE)
-          const appliedCoupon = window.GKStorage.readCoupon();
-          if (appliedCoupon && appliedCoupon.code) {
-            window.GKStorage.markCouponAsUsed(appliedCoupon.code);
-            window.GKStorage.writeCoupon(null);
-          }
-          window.GKStorage.clearCart();
-
-          // E-posta bildirimi gönder (bekleyerek)
-          await sendOrderEmail(orderData, currentTotals);
-
-          // PayTR Ödeme ekranını aç
-          showPaytrModal(data.iframeUrl);
-
-          // RETURN - success.html'e gitme!
-          return;
-        } else {
-          throw new Error(data.error || "Ödeme sistemi yanıt vermedi");
-        }
-      } catch (err) {
-        toast("Ödeme başlatılamadı: " + (err.message || "Bilinmeyen hata. Lütfen tekrar deneyin."));
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Siparişi Tamamla";
-        return;
-      }
-    }
 
     /* ==========================
        HAVALE/EFT & KAPIDA ÖDEME - MEVCUT AKIŞ

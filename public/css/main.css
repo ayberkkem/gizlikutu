@@ -2347,6 +2347,7 @@ textarea {
   align-items: center;
   gap: 8px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .cart-counter-mini {
@@ -2389,29 +2390,27 @@ textarea {
 
 @media (max-width: 400px) {
   .cart-action-row {
-    gap: 6px;
-  }
-
-  .cart-counter-mini {
-    min-width: 80px;
+    gap: 4px;
+    width: 100%;
   }
 
   .cart-counter-mini .counter-btn {
-    width: 24px;
-    height: 28px;
-    font-size: 12px;
+    width: 26px;
+    height: 32px;
+    font-size: 13px;
   }
 
   .cart-counter-mini .counter-qty {
     min-width: 20px;
     font-size: 12px;
+    padding: 0 2px;
   }
 
   .cart-go-btn {
-    padding: 8px 14px;
-    font-size: 13px;
-    min-width: 90px;
-    flex-shrink: 0;
+    padding: 8px 10px;
+    font-size: 12px;
+    min-width: 80px;
+    flex: 1;
   }
 }
 
