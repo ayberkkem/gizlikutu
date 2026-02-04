@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isNextDay) {
             banner.innerHTML = `
                 ${leftBtnHtml}
-                <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;">
+                <div style="display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;">
                     <span>🌙</span>
                     <span style="opacity:0.9; color:#333333 !important;">Bugünlük kargolar çıktı.</span>
                     <span style="color:#d97706 !important; font-weight:800; letter-spacing:0.5px">Yarınki Kargo</span>
@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // 18:00 Öncesi (ACİLİYET)
             banner.innerHTML = `
                 ${leftBtnHtml}
-                <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;">
+                <div style="display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;">
                     <span style="font-size:1.3em; margin-right:5px">🚀</span>
                     <span class="banner-tri-color-pulse" style="text-transform:uppercase; letter-spacing:0.5px;">AYNI GÜN KARGO!</span>
                     <a href="/products" class="banner-sync-pulse" style="display:inline-flex; align-items:center; justify-content:center; font-weight:800; padding:10px 24px; border-radius:50px; text-decoration:none; font-size:15px; margin:0 12px; border:2px solid transparent;">Ürünleri İncele</a>
