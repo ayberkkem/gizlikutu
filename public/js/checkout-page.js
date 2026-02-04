@@ -177,13 +177,21 @@
           orderData.payment.method === "transfer" ? "bank" : "cod",
         orderNote: orderData.note,
         total: orderData.payment.total,
-        items: orderData.products.map(p => ({
-          name: p.title,
-          qty: p.qty,
-          price: p.price,
-          image: p.image
-        }))
+        items: orderData.products.map(p => {
+          let img = p.image || "";
+          if (img && !img.startsWith("http")) {
+            img = window.location.origin + (img.startsWith("/") ? "" : "/") + img;
+          }
+          return {
+            name: p.title,
+            qty: p.qty,
+            price: p.price,
+            image: img
+          };
+        })
       };
+
+      console.log("📧 E-posta gönderilecek data:", emailPayload);
 
       const res = await fetch("/api/send-order-email", {
         method: "POST",
@@ -363,8 +371,8 @@
           }
           window.GKStorage.clearCart();
 
-          // E-posta bildirimi gönder (arka planda)
-          sendOrderEmail(orderData, totals);
+          // E-posta bildirimi gönder (bekleyerek)
+          await sendOrderEmail(orderData, totals);
 
           // PayTR Ödeme ekranını aç
           showPaytrModal(data.iframeUrl);
@@ -414,8 +422,8 @@
     }
     window.GKStorage.clearCart();
 
-    // E-posta bildirimi gönder (arka planda)
-    sendOrderEmail(orderData, totals);
+    // E-posta bildirimi gönder (bekleyerek)
+    await sendOrderEmail(orderData, totals);
 
     window.location.href = "./success.html";
   });
