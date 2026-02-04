@@ -28,13 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
         background-position: center;
         color: #000000 !important; 
         text-align: center;
-        padding: 10px 0;
+        padding: 6px 20px;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        font-size: 15px;
+        font-size: 14px;
         display: none; 
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
-        gap: 10px;
+        gap: 15px;
         flex-wrap: wrap;
         border-bottom: 1px solid rgba(229, 231, 235, 0.4);
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -132,28 +132,51 @@ document.addEventListener("DOMContentLoaded", function () {
         const m = mins.toString().padStart(2, '0');
         const s = secs.toString().padStart(2, '0');
 
+        const leftBtnHtml = `
+            <div style="background: linear-gradient(135deg, #e11d48 0%, #be123c 100%); color:white; padding:8px 16px; border-radius:12px; font-weight:700; font-size:12px; display:inline-flex; align-items:center; gap:6px; box-shadow:0 3px 8px rgba(225,29,72,0.2); cursor:default; white-space:nowrap;">
+              🏠 Akhisar'a Özel Kapıda Ödeme
+            </div>
+        `;
+
+        const rightBtnHtml = `
+            <a href="https://wa.me/905400443445" target="_blank" style="background: #25D366; color:white; padding:8px 16px; border-radius:12px; font-weight:700; font-size:12px; display:inline-flex; align-items:center; gap:6px; text-decoration:none; box-shadow:0 3px 8px rgba(37,211,102,0.2); transition: transform 0.2s; white-space:nowrap;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="white" viewBox="0 0 16 16">
+                <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+              </svg>
+              Akhisar Hızlı Teslimat & WhatsApp Sipariş
+            </a>
+        `;
+
         if (isNextDay) {
             banner.innerHTML = `
-                <span>🌙</span>
-                <span style="opacity:0.9; color:#333333 !important;">Bugünlük kargolar çıktı.</span>
-                <span style="color:#d97706 !important; font-weight:800; letter-spacing:0.5px">Yarınki Kargo</span>
-                <span style="color:#333333 !important;">için:</span>
-                <a href="/products" class="banner-sync-pulse" style="display:inline-flex; align-items:center; justify-content:center; font-weight:700; padding:8px 20px; border-radius:30px; text-decoration:none; font-size:14px; margin-left:8px; border:1px solid transparent;">Ürünleri İncele</a>
-                <div class="wheel-mini-trigger banner-sync-pulse" onclick="window.openWheel()" style="margin-left:15px; padding: 6px 14px; border-radius: 30px; cursor:pointer; font-weight:700; font-size:13px; display:flex; align-items:center; gap:8px; border:1px solid transparent;">
-                  <div class="mini-wheel-rotator"></div>
-                  <span>14 Şubat Sevgililer Günü ÇARK ÇEVİR</span>
+                ${leftBtnHtml}
+                <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;">
+                    <span>🌙</span>
+                    <span style="opacity:0.9; color:#333333 !important;">Bugünlük kargolar çıktı.</span>
+                    <span style="color:#d97706 !important; font-weight:800; letter-spacing:0.5px">Yarınki Kargo</span>
+                    <span style="color:#333333 !important;">için:</span>
+                    <a href="/products" class="banner-sync-pulse" style="display:inline-flex; align-items:center; justify-content:center; font-weight:700; padding:8px 20px; border-radius:30px; text-decoration:none; font-size:14px; margin-left:8px; border:1px solid transparent;">Ürünleri İncele</a>
+                    <div class="wheel-mini-trigger banner-sync-pulse" onclick="window.openWheel()" style="margin-left:15px; padding: 6px 14px; border-radius: 30px; cursor:pointer; font-weight:700; font-size:13px; display:flex; align-items:center; gap:8px; border:1px solid transparent;">
+                      <div class="mini-wheel-rotator"></div>
+                      <span>14 Şubat Sevgililer Günü ÇARK ÇEVİR</span>
+                    </div>
                 </div>
+                ${rightBtnHtml}
              `;
         } else {
             // 18:00 Öncesi (ACİLİYET)
             banner.innerHTML = `
-                <span style="font-size:1.3em; margin-right:5px">🚀</span>
-                <span class="banner-tri-color-pulse" style="text-transform:uppercase; letter-spacing:0.5px;">AYNI GÜN KARGO!</span>
-                <a href="/products" class="banner-sync-pulse" style="display:inline-flex; align-items:center; justify-content:center; font-weight:800; padding:10px 24px; border-radius:50px; text-decoration:none; font-size:15px; margin:0 12px; border:2px solid transparent;">Ürünleri İncele</a>
-                <div class="wheel-mini-trigger banner-sync-pulse" onclick="window.openWheel()" style="margin-left:10px; padding: 8px 16px; border-radius: 50px; cursor:pointer; font-weight:800; font-size:14px; display:flex; align-items:center; gap:8px; border:2px solid transparent;">
-                  <div class="mini-wheel-rotator"></div>
-                  <span>14 Şubat Sevgililer Günü ÇARK ÇEVİR</span>
+                ${leftBtnHtml}
+                <div style="flex:1; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;">
+                    <span style="font-size:1.3em; margin-right:5px">🚀</span>
+                    <span class="banner-tri-color-pulse" style="text-transform:uppercase; letter-spacing:0.5px;">AYNI GÜN KARGO!</span>
+                    <a href="/products" class="banner-sync-pulse" style="display:inline-flex; align-items:center; justify-content:center; font-weight:800; padding:10px 24px; border-radius:50px; text-decoration:none; font-size:15px; margin:0 12px; border:2px solid transparent;">Ürünleri İncele</a>
+                    <div class="wheel-mini-trigger banner-sync-pulse" onclick="window.openWheel()" style="margin-left:10px; padding: 8px 16px; border-radius: 50px; cursor:pointer; font-weight:800; font-size:14px; display:flex; align-items:center; gap:8px; border:1px solid transparent;">
+                      <div class="mini-wheel-rotator"></div>
+                      <span>14 Şubat Sevgililer Günü ÇARK ÇEVİR</span>
+                    </div>
                 </div>
+                ${rightBtnHtml}
              `;
         }
 
