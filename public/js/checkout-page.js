@@ -344,7 +344,7 @@
           userName: `${firstName} ${surname}`,
           userPhone: gsm || "05000000000",
           userAddress: `${orderData.delivery.address}, ${orderData.delivery.district}, ${orderData.delivery.city}`,
-          userCity: orderData.delivery.city || "Istanbul",
+          userCity: orderData.delivery.city || "Manisa",
           basketItems: currentTotals.cart.map((i) => ({
             name: i.title || "Ürün",
             price: Number(i.price) || 0,
