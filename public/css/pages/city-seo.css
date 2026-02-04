@@ -542,6 +542,19 @@ main.container>* {
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
+.city-btn-telegram {
+    background: linear-gradient(135deg, #0088cc 0%, #229ED9 100%);
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+}
+
+.city-btn-telegram:hover {
+    background: linear-gradient(135deg, #0077b5 0%, #1f8ec4 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
+}
+
 .city-btn-instagram {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     color: #fff;
