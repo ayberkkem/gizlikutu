@@ -171,6 +171,8 @@ ${orderNote || '-'}
 ${itemsText}`;
 
         // Resend API ile e-posta gönder
+        console.log('📧 Resend isteği gönderiliyor...', { to: NOTIFICATION_EMAIL, orderNo });
+
         const response = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
@@ -178,9 +180,9 @@ ${itemsText}`;
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                from: 'Gizli Kutu <onboarding@resend.dev>',
+                from: 'onboarding@resend.dev', // Sadece bu adrese izin verilir
                 to: [NOTIFICATION_EMAIL],
-                subject: `🛒 Yeni Sipariş: ${orderNo} - ${customerName} - ${total} ₺`,
+                subject: `YENI SIPARIS: ${orderNo} - ${customerName}`,
                 html: emailHtml,
                 text: emailText
             })
@@ -189,11 +191,11 @@ ${itemsText}`;
         const result = await response.json();
 
         if (response.ok) {
-            console.log('✅ Sipariş e-postası gönderildi:', orderNo);
+            console.log('✅ Resend Başarılı:', result.id);
             return res.json({ success: true, messageId: result.id });
         } else {
-            console.error('❌ E-posta gönderme hatası:', result);
-            return res.status(400).json({ success: false, error: result.message || 'E-posta gönderilemedi' });
+            console.error('❌ Resend Hatası:', JSON.stringify(result));
+            return res.status(400).json({ success: false, error: result.message || JSON.stringify(result) });
         }
 
     } catch (err) {

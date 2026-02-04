@@ -204,9 +204,11 @@
         console.log("✅ Sipariş e-postası gönderildi");
       } else {
         console.warn("⚠️ E-posta gönderilemedi:", result.error);
+        toast("Sipariş alındı ancak bildirim maili gönderilemedi: " + result.error);
       }
     } catch (err) {
       console.warn("⚠️ E-posta gönderme hatası:", err);
+      toast("E-posta servisi hatası: " + err.message);
       // E-posta hatası siparişi engellemez
     }
   }
