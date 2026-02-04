@@ -49,11 +49,15 @@
   if (!wrap) return;
 
   if (totals.cart.length === 0) {
-    wrap.innerHTML = `
-      <div class="notice">
-        Sepetin boş.
-        <a href="./products.html" style="text-decoration:underline">Ürünlere git</a>
-      </div>`;
+    // Eğer sepet sayfasındaysak (cartBody varsa), sepet sayfasının kendi "boş" uyarısı çalışsın.
+    // Sadece direkt checkout.html sayfasındaysak tüm sayfayı "boş" yapalım.
+    if (!qs("#cartBody")) {
+      wrap.innerHTML = `
+        <div class="notice">
+          Sepetin boş.
+          <a href="./products.html" style="text-decoration:underline">Ürünlere git</a>
+        </div>`;
+    }
     return;
   }
 
@@ -201,15 +205,15 @@
 
       const result = await res.json();
       if (result.success) {
-        console.log("✅ Sipariş e-postası gönderildi");
+        console.log("✅ Sipariş e-postası başarıyla gönderildi");
       } else {
-        console.warn("⚠️ E-posta gönderilemedi:", result.error);
-        toast("Sipariş alındı ancak bildirim maili gönderilemedi: " + result.error);
+        console.error("❌ E-posta Hatası:", result.error);
+        alert("E-POSTA GÖNDERİLEMEDİ: " + result.error);
+        toast("Bildirim maili gönderilemedi.");
       }
     } catch (err) {
-      console.warn("⚠️ E-posta gönderme hatası:", err);
-      toast("E-posta servisi hatası: " + err.message);
-      // E-posta hatası siparişi engellemez
+      console.error("🔥 E-posta Servis Hatası:", err);
+      alert("MAİL SERVİSİNE BAĞLANILAMADI: " + err.message);
     }
   }
 
@@ -248,6 +252,10 @@
   ========================== */
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // Get fresh totals in case quantity changed on the same page
+    const currentTotals = calcTotal();
+    const appliedCoupon = window.GKStorage.readCoupon();
 
     submitBtn.disabled = true;
     submitBtn.textContent = "İşleniyor...";
@@ -296,11 +304,11 @@
       },
       payment: {
         method: isCardPayment ? "online" : (paymentValue === "transfer" ? "transfer" : "cash"),
-        total: totals.totalKurus / 100,
+        total: currentTotals.totalKurus / 100,
         status: isCardPayment ? "pending" : "awaiting"
       },
       note: String(formData.note || "").trim(),
-      products: totals.cart.map((i) => ({
+      products: currentTotals.cart.map((i) => ({
         title: i.title,
         qty: Number(i.qty) || 1,
         price: Number(i.price) || 0,
@@ -332,12 +340,12 @@
         const paytrPayload = {
           orderNo: orderNo,
           email: orderData.customer.email || "musteri@gizlikutu.online",
-          totalAmount: totals.totalKurus / 100,
+          totalAmount: currentTotals.totalKurus / 100,
           userName: `${firstName} ${surname}`,
           userPhone: gsm || "05000000000",
           userAddress: `${orderData.delivery.address}, ${orderData.delivery.district}, ${orderData.delivery.city}`,
           userCity: orderData.delivery.city || "Istanbul",
-          basketItems: totals.cart.map((i) => ({
+          basketItems: currentTotals.cart.map((i) => ({
             name: i.title || "Ürün",
             price: Number(i.price) || 0,
             qty: Number(i.qty) || 1
@@ -356,8 +364,8 @@
           // Tracking için localStorage'a kaydet (success.html'de kullanılacak)
           const trackingData = {
             conversationId: orderNo,
-            paidPrice: totals.totalKurus / 100,
-            basketItems: totals.cart.map((i) => ({
+            paidPrice: currentTotals.totalKurus / 100,
+            basketItems: currentTotals.cart.map((i) => ({
               id: i.id,
               name: i.title || "Ürün",
               price: Number(i.price) || 0
@@ -374,7 +382,7 @@
           window.GKStorage.clearCart();
 
           // E-posta bildirimi gönder (bekleyerek)
-          await sendOrderEmail(orderData, totals);
+          await sendOrderEmail(orderData, currentTotals);
 
           // PayTR Ödeme ekranını aç
           showPaytrModal(data.iframeUrl);
@@ -407,8 +415,8 @@
     // Tracking için localStorage'a kaydet
     const trackingData = {
       conversationId: orderNo,
-      paidPrice: totals.totalKurus / 100,
-      basketItems: totals.cart.map((i) => ({
+      paidPrice: currentTotals.totalKurus / 100,
+      basketItems: currentTotals.cart.map((i) => ({
         id: i.id,
         name: i.title || "Ürün",
         price: Number(i.price) || 0
@@ -417,7 +425,6 @@
     localStorage.setItem("gizlikutu_last_order_v1", JSON.stringify(trackingData));
 
     // Sepeti ve kuponu temizle (ANTI-ABUSE)
-    const appliedCoupon = window.GKStorage.readCoupon();
     if (appliedCoupon && appliedCoupon.code) {
       window.GKStorage.markCouponAsUsed(appliedCoupon.code);
       window.GKStorage.writeCoupon(null);
@@ -425,7 +432,7 @@
     window.GKStorage.clearCart();
 
     // E-posta bildirimi gönder (bekleyerek)
-    await sendOrderEmail(orderData, totals);
+    await sendOrderEmail(orderData, currentTotals);
 
     window.location.href = "./success.html";
   });

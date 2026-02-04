@@ -61,7 +61,10 @@
   function render() {
     const cart = window.GKStorage.readCart();
     const body = qs("#cartBody");
-    const totalEl = qs("#cartTotal");
+    const totalEl = qs("#sumTotal");
+    const checkoutForm = qs("#checkoutForm");
+    const proceedBtn = qs("#proceedToCheckout");
+    const submitBtn = qs("#submitOrder");
 
     if (!body || !totalEl) return;
 
@@ -78,8 +81,15 @@
       `;
       totalEl.textContent = money(0);
       setCartBadge();
+
+      if (checkoutForm) checkoutForm.style.display = "none";
+      if (proceedBtn) proceedBtn.style.display = "none";
+      if (submitBtn) submitBtn.style.display = "none";
       return;
     }
+
+    // Cart has items
+    if (proceedBtn) proceedBtn.style.display = "block";
 
     // --- PRICING CALCULATION ---
     const appliedCoupon = window.GKStorage.readCoupon();
@@ -119,9 +129,6 @@
       if (applyBtn) applyBtn.disabled = false;
       if (couponInput) {
         couponInput.disabled = false;
-        if (couponInput.value === (appliedCoupon ? appliedCoupon.code : "")) {
-          // logic to clear if removed
-        }
       }
     }
 
@@ -266,6 +273,22 @@
 
     setCartBadge();
   }
+
+  // Güvenli Ödemeye Geç butonu tıklandığında formu göster
+  qs("#proceedToCheckout")?.addEventListener("click", () => {
+    const checkoutForm = qs("#checkoutForm");
+    const submitBtn = qs("#submitOrder");
+    const proceedBtn = qs("#proceedToCheckout");
+
+    if (checkoutForm && submitBtn && proceedBtn) {
+      checkoutForm.style.display = "block";
+      submitBtn.style.display = "block";
+      proceedBtn.style.display = "none";
+
+      // Formun olduğu yere kaydır
+      checkoutForm.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 
   // Resize handler for responsive switching
   window.addEventListener('resize', () => {

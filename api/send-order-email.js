@@ -194,8 +194,13 @@ ${itemsText}`;
             console.log('✅ Resend Başarılı:', result.id);
             return res.json({ success: true, messageId: result.id });
         } else {
-            console.error('❌ Resend Hatası:', JSON.stringify(result));
-            return res.status(400).json({ success: false, error: result.message || JSON.stringify(result) });
+            console.error('❌ Resend Hatası Detay:', result);
+            // Hata mesajını daha anlaşılır yapalım
+            let errorMessage = result.message || JSON.stringify(result);
+            if (result.name === 'invalid_api_key') errorMessage = 'API Anahtarı Geçersiz! Vercel ayarlarını kontrol edin.';
+            if (result.name === 'unauthorized') errorMessage = 'Resend onayı eksik veya from adresi hatalı.';
+
+            return res.status(response.status).json({ success: false, error: errorMessage });
         }
 
     } catch (err) {
