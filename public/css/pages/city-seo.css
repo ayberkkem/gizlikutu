@@ -516,23 +516,30 @@ main.container>* {
 }
 
 .city-btn-primary {
-    background: #fff;
-    color: #9333ea;
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .city-btn-primary:hover {
-    background: #f3f4f6;
+    border-color: #9333ea;
+    color: #9333ea;
     transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(147, 51, 234, 0.15);
 }
 
 .city-btn-whatsapp {
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366 0%, #9333ea 100%);
     color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 .city-btn-whatsapp:hover {
-    background: #1fb855;
+    background: linear-gradient(135deg, #20bd5a 0%, #7e22ce 100%);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
 .city-btn-instagram {

@@ -428,34 +428,35 @@ details p {
 }
 
 /* Glowing Text Animation */
+/* Glowing Text Animation */
 .glowing-red-pink {
-    color: #ff2d55 !important;
-    /* Vivid Red-Pink */
+    color: #ffffff !important;
+    /* Pure White */
     font-weight: 800;
-    text-shadow: 0 0 10px rgba(255, 45, 85, 0.4);
-    animation: redPinkGlow 1.5s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    animation: whiteGlow 1.5s ease-in-out infinite;
     display: block;
     margin-top: 15px;
     width: 100%;
     font-size: 0.95rem;
     font-style: italic;
-    background: rgba(255, 45, 85, 0.05);
-    /* Very subtle background */
+    background: rgba(255, 255, 255, 0.1);
+    /* Subtle white bg */
     padding: 8px;
     border-radius: 8px;
-    border: 1px dashed rgba(255, 45, 85, 0.2);
+    border: 1px dashed rgba(255, 255, 255, 0.3);
 }
 
-@keyframes redPinkGlow {
+@keyframes whiteGlow {
 
     0%,
     100% {
-        text-shadow: 0 0 5px rgba(255, 45, 85, 0.8), 0 0 10px rgba(255, 45, 85, 0.4);
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.4);
         transform: scale(1);
     }
 
     50% {
-        text-shadow: 0 0 20px rgba(255, 45, 85, 1), 0 0 30px rgba(255, 45, 85, 0.6);
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.6);
         transform: scale(1.02);
     }
 }
