@@ -18,12 +18,12 @@ module.exports = async (req, res) => {
     }
 
     try {
-        const RESEND_API_KEY = process.env.RESEND_API_KEY;
+        const RESEND_API_KEY = (process.env.RESEND_API_KEY || '').trim();
         const NOTIFICATION_EMAIL = 'ayberkkem@gmail.com';
 
         if (!RESEND_API_KEY) {
-            console.error('❌ RESEND_API_KEY eksik!');
-            return res.status(500).json({ success: false, error: 'Email configuration error' });
+            console.error('❌ RESEND_API_KEY eksik veya bulunamadı!');
+            return res.status(500).json({ success: false, error: 'Yapılandırma hatası: API Key bulunamadı.' });
         }
 
         const {
