@@ -259,6 +259,26 @@
     }
     window.GKStorage.clearCart();
 
+    // WhatsApp bildirimi gönder (arkaplanda, await etmeden de olabilir ama garanti olsun diye await edelim)
+    try {
+      await fetch("/api/send-whatsapp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          orderNo: orderData.orderNo,
+          customer: orderData.customer,
+          delivery: orderData.delivery,
+          payment: orderData.payment,
+          products: orderData.products,
+          note: orderData.note
+        })
+      });
+      console.log("✅ WhatsApp bildirimi gönderildi");
+    } catch (err) {
+      console.error("⚠️ WhatsApp bildirimi hatası:", err);
+      // Kritik hata değil, sessizce devam et
+    }
+
     // E-posta bildirimi gönder (bekleyerek)
     await sendOrderEmail(orderData, currentTotals);
 
