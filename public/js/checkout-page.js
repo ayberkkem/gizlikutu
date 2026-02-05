@@ -255,22 +255,33 @@
     }
     window.GKStorage.clearCart();
 
-    // WhatsApp bildirimi gönder (arkaplanda, beklemeden)
-    fetch("/api/send-whatsapp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        orderNo: orderData.orderNo,
-        customer: orderData.customer,
-        delivery: orderData.delivery,
-        payment: orderData.payment,
-        products: orderData.products,
-        note: orderData.note
-      })
-    }).then(() => console.log("✅ WhatsApp bildirimi gönderildi"))
-      .catch(err => console.error("⚠️ WhatsApp bildirimi hatası:", err));
+    // WhatsApp bildirimi gönder (3 saniye zaman aşımı korumalı)
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 saniye bekle, olmazsa devam et
 
-    // E-posta bildirimini kaldırdım (Kullanıcı isteği)
+      await fetch("/api/send-whatsapp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          orderNo: orderData.orderNo,
+          customer: orderData.customer,
+          delivery: orderData.delivery,
+          payment: orderData.payment,
+          products: orderData.products,
+          note: orderData.note
+        }),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+      console.log("✅ WhatsApp bildirimi gönderildi");
+    } catch (err) {
+      console.log("⚠️ WhatsApp bildirimi pas geçildi veya hata aldı:", err.name);
+      // Hata olsa bile (veya timeout) akış bozulmaz, devam eder.
+    }
+
+    // E-posta bildirimini (KAPALI)
     // sendOrderEmail(orderData, currentTotals);
 
     window.location.href = "./success.html";
