@@ -270,8 +270,8 @@
     }).then(() => console.log("✅ WhatsApp bildirimi gönderildi"))
       .catch(err => console.error("⚠️ WhatsApp bildirimi hatası:", err));
 
-    // E-posta bildirimi gönder (arkaplanda, beklemeden)
-    sendOrderEmail(orderData, currentTotals);
+    // E-posta bildirimini kaldırdım (Kullanıcı isteği)
+    // sendOrderEmail(orderData, currentTotals);
 
     window.location.href = "./success.html";
   });
