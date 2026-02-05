@@ -189,15 +189,15 @@
     const paymentValue = String(formData.payment || "kapida");
 
     console.log("🔍 Form payment value:", paymentValue);
-    console.log("🔍 isCardPayment:", isCardPayment);
 
-    // Sipariş numarası oluştur (PayTR sadece alfanumerik kabul ediyor)
+    // Sipariş numarası oluştur
     const orderNo = "GK" + Date.now();
 
     // Sipariş verisi
     const orderData = {
       orderNo: orderNo,
       customer: {
+        // ... (unchanged)
         name: `${firstName} ${surname}`,
         phone: gsm,
         email: String(formData.email || "").trim()
@@ -209,7 +209,7 @@
         type: "cargo"
       },
       payment: {
-        method: paymentValue === "transfer" ? "transfer" : "cash",
+        method: "cash", // Force cash/cod
         total: currentTotals.totalKurus / 100,
         status: "awaiting"
       },
@@ -225,11 +225,7 @@
     console.log("🔥 Order Payload:", JSON.stringify(orderData, null, 2));
 
     /* ==========================
-       💳 KREDİ KARTI İLE ÖDEME (PAYTR)
-    ========================== */
-
-    /* ==========================
-       HAVALE/EFT & KAPIDA ÖDEME - MEVCUT AKIŞ
+       SIPARIŞI TAMAMLA (KAPIDA ÖDEME)
     ========================== */
 
     const saved = await saveOrderToFirestore(orderData);
