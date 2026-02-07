@@ -44,7 +44,9 @@
 }
 
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
+  /* Mobile screenshot fix - prevent GPU layer issues */
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,
@@ -54,7 +56,10 @@ body {
   background: transparent;
   color: var(--text);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
-  line-height: 1.35
+  line-height: 1.35;
+  /* Mobile screenshot fix */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 a {
