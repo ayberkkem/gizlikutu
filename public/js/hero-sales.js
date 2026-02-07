@@ -202,7 +202,6 @@
         height: 45px;
         border-radius: 8px;
         object-fit: cover;
-        filter: blur(3px);
         cursor: pointer;
       }
       #fomoNotification .fomo-text { font-size: 12px; color: #333; }

@@ -249,7 +249,7 @@ details p {
     position: relative;
 }
 
-/* Güçlendirilmiş Işıltılı Glow efekti */
+/* Güçlendirilmiş Işıltılı Glow efekti - blur removed for mobile screenshot fix */
 .hero-brand-title::after {
     content: 'GİZLİ KUTU';
     position: absolute;
@@ -260,7 +260,7 @@ details p {
     font-weight: 800;
     letter-spacing: 4px;
     color: rgba(255, 255, 255, 0.35);
-    filter: blur(10px);
+    /* filter: blur(10px); - removed for mobile screenshot fix */
     z-index: -1;
 }
 
@@ -285,7 +285,7 @@ details p {
     font-weight: 600;
     letter-spacing: 7px;
     color: rgba(255, 255, 255, 0.3);
-    filter: blur(9px);
+    /* filter: blur(9px); - removed for mobile screenshot fix */
     z-index: -1;
 }
 
