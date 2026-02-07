@@ -1686,7 +1686,7 @@ hr.sep {
   opacity: 1 !important;
   visibility: visible !important;
   background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(4px);
+  /* backdrop-filter: blur(4px); - removed for mobile screenshot fix */
   color: #fff;
   border-radius: 50%;
   width: 44px;
@@ -2174,8 +2174,8 @@ textarea {
     top: 100% !important;
     left: 0 !important;
     right: 0 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    /* backdrop-filter: blur(10px) !important; - removed for mobile screenshot fix */
     padding: 12px 16px !important;
     border-bottom: 1px solid var(--border) !important;
     z-index: 100 !important;

@@ -150,8 +150,8 @@ main.container>* {
 }
 
 .city-badge {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.4);
+    /* backdrop-filter: blur(8px); - removed for mobile screenshot fix */
     padding: 8px 14px;
     border-radius: 50px;
     font-size: 13px;

@@ -22,7 +22,7 @@ const AUTH_STYLES = `
   /* Modal Backdrop */
   .auth-backdrop {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.7); /* backdrop-filter: blur(5px); - removed for mobile screenshot fix */
     z-index: 10000; display: flex; align-items: center; justify-content: center;
     opacity: 0; pointer-events: none; transition: opacity 0.3s;
   }

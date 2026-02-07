@@ -14,8 +14,8 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(76, 5, 25, 0.4);
-    backdrop-filter: blur(6px);
+    background: rgba(76, 5, 25, 0.7);
+    /* backdrop-filter: blur(6px); - removed for mobile screenshot fix */
     z-index: 9000;
     /* Demoted to stay below Age Gate (9999) */
     align-items: center;
