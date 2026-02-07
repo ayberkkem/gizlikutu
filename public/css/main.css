@@ -1882,7 +1882,7 @@ html,
 body {
   /* overscroll-behavior: none removed to allow natural scroll initiation */
   -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
+  /* -webkit-touch-callout: none removed to allow screenshots on mobile */
 }
 
 /* Safe area padding (notch desteği) */
