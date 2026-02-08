@@ -24,7 +24,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      z-index:2147483647; /* Maksimum z-index */
+      z-index:99999; /* Auth Modal bunun üstünde olsun (100000) */
       backdrop-filter: blur(5px);
     `;
 

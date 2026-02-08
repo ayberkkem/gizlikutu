@@ -20,19 +20,19 @@ import { auth, db, googleProvider, facebookProvider } from "./firebase.js";
    ========================================= */
 const AUTH_STYLES = `
   /* Modal Backdrop */
+  /* Modal Backdrop - TEKRAR GÜNCELLEME */
   .auth-backdrop {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6); /* Daha hafif backdrop */
-    z-index: 1000000; /* Age Gate (99999) üstünde olmalı */
-    display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.6);
+    z-index: 100000; display: flex; align-items: center; justify-content: center;
     opacity: 0; pointer-events: none; transition: opacity 0.2s;
   }
   .auth-backdrop.active { opacity: 1; pointer-events: all; }
 
-  /* Modal Wrapper - GUARANTEED VISIBILITY */
+  /* Modal Wrapper - GARANTİ GÖRÜNÜRLÜK */
   .auth-modal {
     width: 85%; max-width: 320px;
-    min-height: 350px; /* İçerik olmasa bile kutu görünsün */
+    min-height: 350px;
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
@@ -42,24 +42,25 @@ const AUTH_STYLES = `
     opacity: 1 !important; visibility: visible !important;
   }
   .auth-backdrop.active .auth-modal {
-    /* Scale animasyonu kaldırıldı, basitlik esas */
+    /* Scale yok, direkt görünsün */
   }
 
-  /* Close Button */
+  /* Close Button - SAĞ ÜST KÖŞE */
   .auth-close {
-    position: absolute; top: 10px; right: 15px;
-    background: none; border: none; color: #999; font-size: 24px;
+    position: absolute; top: 15px; right: 20px;
+    background: none; border: none; color: #666; font-size: 28px;
     cursor: pointer; z-index: 10; line-height: 1;
+    transition: color 0.2s;
   }
-  .auth-close:hover { color: #333; }
+  .auth-close:hover { color: #000; }
 
   /* Tabs */
-  .auth-tabs { display: flex; border-bottom: 1px solid #f0f0f0; background: #fafafa; padding-top: 5px; }
+  .auth-tabs { display: flex; border-bottom: 1px solid #eee; background: #f9f9f9; padding-top: 10px; }
   .auth-tabs.hidden { display: none; }
   
   .auth-tab {
-    flex: 1; padding: 12px; text-align: center; cursor: pointer;
-    font-weight: 600; font-size: 13px; color: #888;
+    flex: 1; padding: 15px; text-align: center; cursor: pointer;
+    font-weight: 600; color: #888;
     transition: all 0.2s;
     border-bottom: 2px solid transparent;
   }
@@ -69,72 +70,74 @@ const AUTH_STYLES = `
   }
 
   /* Content */
-  .auth-content { padding: 20px; display: none; } /* Padding azaltıldı */
+  .auth-content { padding: 30px 25px; display: none; }
   .auth-content.active { display: block; }
 
   /* Forms */
-  .auth-input-group { margin-bottom: 12px; }
+  .auth-input-group { margin-bottom: 15px; }
   .auth-input {
-    width: 100%; padding: 10px 12px; /* Input küçültüldü */
-    background: #f8f9fa;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px; color: #111; outline: none;
-    font-size: 13px; transition: border-color 0.2s;
+    width: 100%; padding: 12px 16px;
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px; color: #111; outline: none;
+    font-size: 14px; transition: border-color 0.2s;
   }
   .auth-input:focus { border-color: #8b5cf6; background: #fff; }
 
   .auth-btn {
-    width: 100%; padding: 10px; margin-top: 8px; /* Buton küçültüldü */
-    border-radius: 6px; border: none; font-weight: 600; cursor: pointer;
-    font-size: 13px; transition: 0.2s;
+    width: 100%; padding: 14px; margin-top: 10px;
+    border-radius: 8px; border: none; font-weight: 600; cursor: pointer;
+    font-size: 14px; transition: 0.2s;
   }
   .btn-primary { 
     background: #8b5cf6; color: #fff; 
-    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
   }
-  .btn-primary:hover { background: #7c3aed; }
+  .btn-primary:hover { background: #7c3aed; transform: translateY(-1px); }
   
-  .btn-secondary { background: #f3f4f6; color: #333; }
-  .btn-secondary:hover { background: #e5e7eb; }
+  .btn-secondary { background: #e5e7eb; color: #333; }
+  .btn-secondary:hover { background: #d1d5db; }
 
   .divider { 
-    margin: 15px 0; display: flex; align-items: center; 
-    color: #bbb; font-size: 11px; font-weight: 500;
+    margin: 20px 0; display: flex; align-items: center; 
+    color: #999; font-size: 12px; font-weight: 500;
   }
   .divider::before, .divider::after {
-    content: ""; flex: 1; height: 1px; background: #f0f0f0;
+    content: ""; flex: 1; height: 1px; background: #eee;
   }
   .divider span { padding: 0 10px; }
 
   /* Social Login */
   .social-btn {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-    background: #fff; color: #444; margin-bottom: 10px;
-    border: 1px solid #eee; padding: 10px;
-    font-size: 12px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: #fff; color: #333; margin-bottom: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   }
-  .social-btn:hover { background: #fafafa; }
-  .social-btn img { width: 16px; }
+  .social-btn:hover { background: #f9f9f9; }
+  .social-btn.facebook { background: #1877F2; color: #fff; border:none; }
+  .social-btn.facebook:hover { background: #166fe5; }
+  .social-btn img { width: 18px; }
 
   /* Helper Text */
-  .auth-helper { font-size: 11px; color: #777; text-align: center; margin-top: 10px; }
-  .auth-link { color: #8b5cf6; text-decoration: none; cursor: pointer; font-weight: 500; font-size: 11px; }
+  .auth-helper { font-size: 12px; color: #666; text-align: center; margin-top: 15px; }
+  .auth-link { color: #8b5cf6; text-decoration: none; cursor: pointer; font-weight: 500; }
   .auth-link:hover { text-decoration: underline; }
 
   .error-msg { 
-    color: #dc2626; font-size: 12px; margin-bottom: 10px; 
-    display: none; background: #fef2f2; padding: 8px; border-radius: 4px;
-    border: 1px solid #fee2e2;
+    color: #dc2626; font-size: 13px; margin-bottom: 15px; 
+    display: none; background: #fee2e2; padding: 10px; border-radius: 6px;
+    border: 1px solid #fecaca;
   }
   .success-msg {
-    color: #16a34a; font-size: 12px; margin-bottom: 10px;
-    display: none; background: #f0fdf4; padding: 8px; border-radius: 4px;
-    border: 1px solid #dcfce7;
+    color: #16a34a; font-size: 13px; margin-bottom: 15px;
+    display: none; background: #dcfce7; padding: 10px; border-radius: 6px;
+    border: 1px solid #bbf7d0;
   }
   
   /* Reset Password Title */
-  .auth-title { color: #111; font-size: 16px; font-weight: bold; margin-bottom: 5px; }
-  .auth-desc { color: #666; font-size: 13px; margin-bottom: 15px; line-height: 1.4; }
+  .auth-title { color: #111; font-size: 20px; font-weight: bold; margin-bottom: 8px; }
+  .auth-desc { color: #666; font-size: 14px; margin-bottom: 20px; line-height: 1.5; }
 `;
 
 const AUTH_HTML = `
@@ -419,126 +422,47 @@ function checkAuthState() {
   });
 }
 
-// Global Access Helper
-window.toggleAuthModal = (show = true, view = 'login') => toggleModal(show, view);
-
 function updateHeaderUI(user) {
-  // 1. Masaüstü Header Yönetimi
+  // Desktop Header Bul
   const nav = document.querySelector('.desktop-header-nav') || document.querySelector('.header-right nav');
-  document.querySelectorAll('.auth-nav-item').forEach(e => e.remove()); // Eski balonları temizle
 
-  if (nav) {
-    if (user) {
-      // --- GİRİŞ YAPILMIŞ ---
-      const profileLink = document.createElement('a');
-      profileLink.className = 'auth-nav-item auth-btn-desktop';
-      profileLink.href = './profile.html';
-      profileLink.innerHTML = `👤 Profilim`;
-      profileLink.style.fontWeight = 'bold';
-      profileLink.style.color = '#4ade80'; // Yeşil
-      nav.appendChild(profileLink);
-    } else {
-      // --- GİRİŞ YAPILMAMIŞ ---
-      const signupBtn = document.createElement('a');
-      signupBtn.className = 'auth-nav-item auth-btn-desktop';
-      signupBtn.href = '#';
-      signupBtn.textContent = 'Üye Ol';
-      signupBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'signup'); };
+  // Varsa eski butonları temizle (tekrar eklenmesin diye)
+  document.querySelectorAll('.auth-nav-item').forEach(e => e.remove());
 
-      const loginBtn = document.createElement('a');
-      loginBtn.className = 'auth-nav-item auth-btn-desktop';
-      loginBtn.href = '#';
-      loginBtn.textContent = 'Giriş Yap';
-      loginBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'login'); };
+  if (!nav) return; // Header yoksa çık
 
-      nav.appendChild(signupBtn);
-      nav.appendChild(loginBtn);
-    }
-  }
+  if (user) {
+    // --- GİRİŞ YAPILMIŞ ---
+    const profileLink = document.createElement('a');
+    profileLink.className = 'auth-nav-item';
+    profileLink.href = './profile.html';
+    profileLink.innerHTML = `👤 Profilim`;
+    profileLink.style.fontWeight = 'bold';
+    profileLink.style.color = '#4ade80'; // Yeşil
 
-  // 2. Mobil Header İkon Yönetimi (Yeni Eklenen İkon)
-  const profileIcon = document.querySelector('.iconbtn.profileBtn');
-  if (profileIcon) {
-    if (user) {
-      // Login -> Profil Sayfasına Git + Yeşil Yap
-      profileIcon.onclick = () => { window.location.href = './profile.html'; };
-      profileIcon.style.color = '#4ade80'; // Yeşil (Aktif)
-      const svgPath = profileIcon.querySelector('path');
-      const svgCircle = profileIcon.querySelector('circle');
-      if (svgPath) svgPath.style.stroke = '#4ade80';
-      if (svgCircle) svgCircle.style.stroke = '#4ade80';
+    // Blog'dan sonra ekle
+    nav.appendChild(profileLink);
 
-      profileIcon.setAttribute('aria-label', 'Profilim (' + (user.displayName || '') + ')');
-    } else {
-      // Logout -> Modal Aç
-      profileIcon.onclick = (e) => { e.preventDefault(); toggleModal(true, 'login'); };
-      profileIcon.style.color = ''; // Varsayılan renk
-      const svgPath = profileIcon.querySelector('path');
-      const svgCircle = profileIcon.querySelector('circle');
-      if (svgPath) svgPath.style.stroke = 'currentColor';
-      if (svgCircle) svgCircle.style.stroke = 'currentColor';
+  } else {
+    // --- GİRİŞ YAPILMAMIŞ ---
 
-      profileIcon.setAttribute('aria-label', 'Giriş Yap / Üye Ol');
-    }
-  }
+    // Üye Ol Butonu
+    const signupBtn = document.createElement('a');
+    signupBtn.className = 'auth-nav-item';
+    signupBtn.href = '#';
+    signupBtn.textContent = 'Üye Ol';
+    signupBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'signup'); };
 
-  // 3. Mobil Drawer Yönetimi
-  const drawerBtn = document.getElementById('drawerAuthBtn');
-  if (drawerBtn) {
-    drawerBtn.innerHTML = ''; // Temizle
+    // Giriş Yap Butonu
+    const loginBtn = document.createElement('a');
+    loginBtn.className = 'auth-nav-item';
+    loginBtn.href = '#';
+    loginBtn.textContent = 'Giriş Yap';
+    loginBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'login'); };
 
-    if (user) {
-      // Giriş Yapmış Kullanıcı -> Profil Linki (Full Width Buton)
-      const btn = document.createElement('a');
-      btn.href = './profile.html';
-      btn.className = 'btn btn-primary btn-block';
-      btn.innerHTML = `👤 Hesabım (${user.displayName || 'Profil'})`;
-      btn.style.width = '100%';
-      btn.style.display = 'block';
-      btn.style.textAlign = 'center';
-      btn.style.padding = '10px';
-      btn.style.borderRadius = '8px';
-      btn.style.background = '#8b5cf6'; // Mor Theme
-      btn.style.color = 'white';
-      btn.style.textDecoration = 'none';
-      btn.style.fontWeight = 'bold';
-      drawerBtn.appendChild(btn);
-    } else {
-      // Giriş Yapmamış -> Giriş Yap / Üye Ol Butonları (Yan Yana)
-      const wrap = document.createElement('div');
-      wrap.style.display = 'flex';
-      wrap.style.gap = '10px';
-
-      const login = document.createElement('button');
-      login.textContent = 'Giriş Yap';
-      login.className = 'btn btn-outline-primary';
-      login.style.flex = '1';
-      login.style.padding = '10px';
-      login.style.borderRadius = '8px';
-      login.style.border = '1px solid #8b5cf6';
-      login.style.background = 'white';
-      login.style.color = '#8b5cf6';
-      login.style.cursor = 'pointer';
-      login.style.fontWeight = 'bold';
-      login.onclick = () => toggleModal(true, 'login');
-
-      const signup = document.createElement('button');
-      signup.textContent = 'Üye Ol';
-      signup.className = 'btn btn-primary';
-      signup.style.flex = '1';
-      signup.style.padding = '10px';
-      signup.style.borderRadius = '8px';
-      signup.style.background = '#8b5cf6';
-      signup.style.color = 'white';
-      signup.style.border = 'none';
-      signup.style.cursor = 'pointer';
-      signup.style.fontWeight = 'bold';
-      signup.onclick = () => toggleModal(true, 'signup');
-
-      wrap.appendChild(login);
-      wrap.appendChild(signup);
-      drawerBtn.appendChild(wrap);
-    }
+    // Üye Ol solda, Giriş Yap sağda olacak şekilde ekle
+    nav.appendChild(signupBtn);
+    nav.appendChild(loginBtn);
   }
 }
 
@@ -548,7 +472,3 @@ if (document.readyState === 'loading') {
 } else {
   initAuthUI();
 }
-
-// Global Access Helper (Module Loaded Check)
-window.toggleAuthModal = (show = true, view = 'login') => toggleModal(show, view);
-console.log('✅ Auth UI Module Loaded & Ready');
