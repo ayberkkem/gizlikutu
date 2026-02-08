@@ -804,6 +804,41 @@
 
   <!-- Cargo Countdown Timer -->
   <script src="./js/cargo-timer.js"></script>
+
+  <!-- Force Close Overlays Script (Safety) -->
+  <script>
+    (function () {
+      // Zorla temizlik
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('drawer');
+      const splash = document.getElementById('pwaSplashScreen');
+
+      if (backdrop) {
+        backdrop.style.display = 'none';
+        backdrop.classList.remove('open');
+      }
+
+      if (drawer) {
+        drawer.classList.remove('open');
+      }
+
+      if (splash) {
+        // PWA Değilse hemen gizle
+        if (window.matchMedia && !window.matchMedia('(display-mode: standalone)').matches && !window.navigator.standalone) {
+          splash.style.display = 'none';
+        }
+      }
+
+      // Kilitlenmiş scrollu aç
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+
+      // Tıklanabilirliği geri ver
+      document.body.style.pointerEvents = 'auto';
+
+      console.log('Safety cleanup executed: Overlays forced closed & scroll unlocked.');
+    })();
+  </script>
 </body>
 
 </html>
