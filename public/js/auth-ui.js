@@ -22,41 +22,40 @@ const AUTH_STYLES = `
   /* Modal Backdrop */
   .auth-backdrop {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.7); /* backdrop-filter: blur(5px); - removed for mobile screenshot fix */
+    background: rgba(0,0,0,0.6); /* Daha hafif backdrop */
     z-index: 10000; display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    opacity: 0; pointer-events: none; transition: opacity 0.2s;
   }
   .auth-backdrop.active { opacity: 1; pointer-events: all; }
 
-  /* Modal Wrapper */
+  /* Modal Wrapper - MINIMAL TASARIM */
   .auth-modal {
-    width: 90%; max-width: 400px;
+    width: 85%; max-width: 320px; /* Minimal Genişlik */
     background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     overflow: hidden;
-    transform: scale(0.95); transition: transform 0.3s;
+    transform: scale(0.9); transition: transform 0.2s;
     position: relative;
     color: #333;
   }
   .auth-backdrop.active .auth-modal { transform: scale(1); }
 
-  /* Close Button - SAĞ ÜST KÖŞE */
+  /* Close Button */
   .auth-close {
-    position: absolute; top: 15px; right: 20px;
-    background: none; border: none; color: #666; font-size: 28px;
+    position: absolute; top: 10px; right: 15px;
+    background: none; border: none; color: #999; font-size: 24px;
     cursor: pointer; z-index: 10; line-height: 1;
-    transition: color 0.2s;
   }
-  .auth-close:hover { color: #000; }
+  .auth-close:hover { color: #333; }
 
   /* Tabs */
-  .auth-tabs { display: flex; border-bottom: 1px solid #eee; background: #f9f9f9; padding-top: 10px; }
+  .auth-tabs { display: flex; border-bottom: 1px solid #f0f0f0; background: #fafafa; padding-top: 5px; }
   .auth-tabs.hidden { display: none; }
   
   .auth-tab {
-    flex: 1; padding: 15px; text-align: center; cursor: pointer;
-    font-weight: 600; color: #888;
+    flex: 1; padding: 12px; text-align: center; cursor: pointer;
+    font-weight: 600; font-size: 13px; color: #888;
     transition: all 0.2s;
     border-bottom: 2px solid transparent;
   }
@@ -66,74 +65,72 @@ const AUTH_STYLES = `
   }
 
   /* Content */
-  .auth-content { padding: 30px 25px; display: none; }
+  .auth-content { padding: 20px; display: none; } /* Padding azaltıldı */
   .auth-content.active { display: block; }
 
   /* Forms */
-  .auth-input-group { margin-bottom: 15px; }
+  .auth-input-group { margin-bottom: 12px; }
   .auth-input {
-    width: 100%; padding: 12px 16px;
-    background: #f3f4f6;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px; color: #111; outline: none;
-    font-size: 14px; transition: border-color 0.2s;
+    width: 100%; padding: 10px 12px; /* Input küçültüldü */
+    background: #f8f9fa;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px; color: #111; outline: none;
+    font-size: 13px; transition: border-color 0.2s;
   }
   .auth-input:focus { border-color: #8b5cf6; background: #fff; }
 
   .auth-btn {
-    width: 100%; padding: 14px; margin-top: 10px;
-    border-radius: 8px; border: none; font-weight: 600; cursor: pointer;
-    font-size: 14px; transition: 0.2s;
+    width: 100%; padding: 10px; margin-top: 8px; /* Buton küçültüldü */
+    border-radius: 6px; border: none; font-weight: 600; cursor: pointer;
+    font-size: 13px; transition: 0.2s;
   }
   .btn-primary { 
     background: #8b5cf6; color: #fff; 
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.2);
   }
-  .btn-primary:hover { background: #7c3aed; transform: translateY(-1px); }
+  .btn-primary:hover { background: #7c3aed; }
   
-  .btn-secondary { background: #e5e7eb; color: #333; }
-  .btn-secondary:hover { background: #d1d5db; }
+  .btn-secondary { background: #f3f4f6; color: #333; }
+  .btn-secondary:hover { background: #e5e7eb; }
 
   .divider { 
-    margin: 20px 0; display: flex; align-items: center; 
-    color: #999; font-size: 12px; font-weight: 500;
+    margin: 15px 0; display: flex; align-items: center; 
+    color: #bbb; font-size: 11px; font-weight: 500;
   }
   .divider::before, .divider::after {
-    content: ""; flex: 1; height: 1px; background: #eee;
+    content: ""; flex: 1; height: 1px; background: #f0f0f0;
   }
   .divider span { padding: 0 10px; }
 
   /* Social Login */
   .social-btn {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    background: #fff; color: #333; margin-bottom: 12px;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: #fff; color: #444; margin-bottom: 10px;
+    border: 1px solid #eee; padding: 10px;
+    font-size: 12px;
   }
-  .social-btn:hover { background: #f9f9f9; }
-  .social-btn.facebook { background: #1877F2; color: #fff; border:none; }
-  .social-btn.facebook:hover { background: #166fe5; }
-  .social-btn img { width: 18px; }
+  .social-btn:hover { background: #fafafa; }
+  .social-btn img { width: 16px; }
 
   /* Helper Text */
-  .auth-helper { font-size: 12px; color: #666; text-align: center; margin-top: 15px; }
-  .auth-link { color: #8b5cf6; text-decoration: none; cursor: pointer; font-weight: 500; }
+  .auth-helper { font-size: 11px; color: #777; text-align: center; margin-top: 10px; }
+  .auth-link { color: #8b5cf6; text-decoration: none; cursor: pointer; font-weight: 500; font-size: 11px; }
   .auth-link:hover { text-decoration: underline; }
 
   .error-msg { 
-    color: #dc2626; font-size: 13px; margin-bottom: 15px; 
-    display: none; background: #fee2e2; padding: 10px; border-radius: 6px;
-    border: 1px solid #fecaca;
+    color: #dc2626; font-size: 12px; margin-bottom: 10px; 
+    display: none; background: #fef2f2; padding: 8px; border-radius: 4px;
+    border: 1px solid #fee2e2;
   }
   .success-msg {
-    color: #16a34a; font-size: 13px; margin-bottom: 15px;
-    display: none; background: #dcfce7; padding: 10px; border-radius: 6px;
-    border: 1px solid #bbf7d0;
+    color: #16a34a; font-size: 12px; margin-bottom: 10px;
+    display: none; background: #f0fdf4; padding: 8px; border-radius: 4px;
+    border: 1px solid #dcfce7;
   }
   
   /* Reset Password Title */
-  .auth-title { color: #111; font-size: 20px; font-weight: bold; margin-bottom: 8px; }
-  .auth-desc { color: #666; font-size: 14px; margin-bottom: 20px; line-height: 1.5; }
+  .auth-title { color: #111; font-size: 16px; font-weight: bold; margin-bottom: 5px; }
+  .auth-desc { color: #666; font-size: 13px; margin-bottom: 15px; line-height: 1.4; }
 `;
 
 const AUTH_HTML = `
