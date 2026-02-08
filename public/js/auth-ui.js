@@ -544,3 +544,7 @@ if (document.readyState === 'loading') {
 } else {
   initAuthUI();
 }
+
+// Global Access Helper (Module Loaded Check)
+window.toggleAuthModal = (show = true, view = 'login') => toggleModal(show, view);
+console.log('✅ Auth UI Module Loaded & Ready');
