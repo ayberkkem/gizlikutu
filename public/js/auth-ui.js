@@ -419,46 +419,96 @@ function checkAuthState() {
 }
 
 function updateHeaderUI(user) {
-  // Desktop Header Bul
+  // 1. Masaüstü Header Yönetimi
   const nav = document.querySelector('.desktop-header-nav') || document.querySelector('.header-right nav');
+  document.querySelectorAll('.auth-nav-item').forEach(e => e.remove()); // Eski balonları temizle
 
-  // Varsa eski butonları temizle (tekrar eklenmesin diye)
-  document.querySelectorAll('.auth-nav-item').forEach(e => e.remove());
+  if (nav) {
+    if (user) {
+      // --- GİRİŞ YAPILMIŞ ---
+      const profileLink = document.createElement('a');
+      profileLink.className = 'auth-nav-item auth-btn-desktop';
+      profileLink.href = './profile.html';
+      profileLink.innerHTML = `👤 Profilim`;
+      profileLink.style.fontWeight = 'bold';
+      profileLink.style.color = '#4ade80'; // Yeşil
+      nav.appendChild(profileLink);
+    } else {
+      // --- GİRİŞ YAPILMAMIŞ ---
+      const signupBtn = document.createElement('a');
+      signupBtn.className = 'auth-nav-item auth-btn-desktop';
+      signupBtn.href = '#';
+      signupBtn.textContent = 'Üye Ol';
+      signupBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'signup'); };
 
-  if (!nav) return; // Header yoksa çık
+      const loginBtn = document.createElement('a');
+      loginBtn.className = 'auth-nav-item auth-btn-desktop';
+      loginBtn.href = '#';
+      loginBtn.textContent = 'Giriş Yap';
+      loginBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'login'); };
 
-  if (user) {
-    // --- GİRİŞ YAPILMIŞ ---
-    const profileLink = document.createElement('a');
-    profileLink.className = 'auth-nav-item';
-    profileLink.href = './profile.html';
-    profileLink.innerHTML = `👤 Profilim`;
-    profileLink.style.fontWeight = 'bold';
-    profileLink.style.color = '#4ade80'; // Yeşil
+      nav.appendChild(signupBtn);
+      nav.appendChild(loginBtn);
+    }
+  }
 
-    // Blog'dan sonra ekle
-    nav.appendChild(profileLink);
+  // 2. Mobil Drawer Yönetimi
+  const drawerBtn = document.getElementById('drawerAuthBtn');
+  if (drawerBtn) {
+    drawerBtn.innerHTML = ''; // Temizle
 
-  } else {
-    // --- GİRİŞ YAPILMAMIŞ ---
+    if (user) {
+      // Giriş Yapmış Kullanıcı -> Profil Linki (Full Width Buton)
+      const btn = document.createElement('a');
+      btn.href = './profile.html';
+      btn.className = 'btn btn-primary btn-block';
+      btn.innerHTML = `👤 Hesabım (${user.displayName || 'Profil'})`;
+      btn.style.width = '100%';
+      btn.style.display = 'block';
+      btn.style.textAlign = 'center';
+      btn.style.padding = '10px';
+      btn.style.borderRadius = '8px';
+      btn.style.background = '#8b5cf6'; // Mor Theme
+      btn.style.color = 'white';
+      btn.style.textDecoration = 'none';
+      btn.style.fontWeight = 'bold';
+      drawerBtn.appendChild(btn);
+    } else {
+      // Giriş Yapmamış -> Giriş Yap / Üye Ol Butonları (Yan Yana)
+      const wrap = document.createElement('div');
+      wrap.style.display = 'flex';
+      wrap.style.gap = '10px';
 
-    // Üye Ol Butonu
-    const signupBtn = document.createElement('a');
-    signupBtn.className = 'auth-nav-item';
-    signupBtn.href = '#';
-    signupBtn.textContent = 'Üye Ol';
-    signupBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'signup'); };
+      const login = document.createElement('button');
+      login.textContent = 'Giriş Yap';
+      login.className = 'btn btn-outline-primary';
+      login.style.flex = '1';
+      login.style.padding = '10px';
+      login.style.borderRadius = '8px';
+      login.style.border = '1px solid #8b5cf6';
+      login.style.background = 'white';
+      login.style.color = '#8b5cf6';
+      login.style.cursor = 'pointer';
+      login.style.fontWeight = 'bold';
+      login.onclick = () => toggleModal(true, 'login');
 
-    // Giriş Yap Butonu
-    const loginBtn = document.createElement('a');
-    loginBtn.className = 'auth-nav-item';
-    loginBtn.href = '#';
-    loginBtn.textContent = 'Giriş Yap';
-    loginBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'login'); };
+      const signup = document.createElement('button');
+      signup.textContent = 'Üye Ol';
+      signup.className = 'btn btn-primary';
+      signup.style.flex = '1';
+      signup.style.padding = '10px';
+      signup.style.borderRadius = '8px';
+      signup.style.background = '#8b5cf6';
+      signup.style.color = 'white';
+      signup.style.border = 'none';
+      signup.style.cursor = 'pointer';
+      signup.style.fontWeight = 'bold';
+      signup.onclick = () => toggleModal(true, 'signup');
 
-    // Üye Ol solda, Giriş Yap sağda olacak şekilde ekle
-    nav.appendChild(signupBtn);
-    nav.appendChild(loginBtn);
+      wrap.appendChild(login);
+      wrap.appendChild(signup);
+      drawerBtn.appendChild(wrap);
+    }
   }
 }
 

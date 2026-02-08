@@ -20,7 +20,7 @@
     wrap.style.cssText = `
       position:fixed;
       inset:0;
-      background:rgba(220, 38, 38, 0.9); /* KIRMIZI ARKA PLAN - TEST İÇİN */
+      background:rgba(0,0,0,.95);
       display:flex;
       align-items:center;
       justify-content:center;

@@ -180,7 +180,6 @@
             <a href="/">Anasayfa</a>
             <a href="/blog">Blog</a>
           `;
-      nav.style.display = 'flex';
       nav.style.gap = '15px';
       nav.style.alignItems = 'center';
     });
