@@ -178,8 +178,6 @@
     navs.forEach(nav => {
       nav.innerHTML = `
             <a href="/">Anasayfa</a>
-            <a href="/products">Popüler Ürünler</a>
-            <a href="/cities">Hizmet Bölgelerimiz</a>
             <a href="/blog">Blog</a>
           `;
       nav.style.display = 'flex';
