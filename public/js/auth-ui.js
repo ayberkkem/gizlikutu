@@ -462,13 +462,21 @@ function updateHeaderUI(user) {
       // Login -> Profil Sayfasına Git + Yeşil Yap
       profileIcon.onclick = () => { window.location.href = './profile.html'; };
       profileIcon.style.color = '#4ade80'; // Yeşil (Aktif)
-      profileIcon.children[0].setAttribute('fill', '#4ade80'); // İçi dolu olabilir
+      const svgPath = profileIcon.querySelector('path');
+      const svgCircle = profileIcon.querySelector('circle');
+      if (svgPath) svgPath.style.stroke = '#4ade80';
+      if (svgCircle) svgCircle.style.stroke = '#4ade80';
+
       profileIcon.setAttribute('aria-label', 'Profilim (' + (user.displayName || '') + ')');
     } else {
       // Logout -> Modal Aç
       profileIcon.onclick = (e) => { e.preventDefault(); toggleModal(true, 'login'); };
       profileIcon.style.color = ''; // Varsayılan renk
-      profileIcon.children[0].setAttribute('fill', 'none');
+      const svgPath = profileIcon.querySelector('path');
+      const svgCircle = profileIcon.querySelector('circle');
+      if (svgPath) svgPath.style.stroke = 'currentColor';
+      if (svgCircle) svgCircle.style.stroke = 'currentColor';
+
       profileIcon.setAttribute('aria-label', 'Giriş Yap / Üye Ol');
     }
   }
