@@ -392,6 +392,16 @@
           <a href="/blog">Blog</a>
         </nav>
 
+        <!-- 6.5. MOBİL GİRİŞ İKONU (Sepetin Solunda) -->
+        <a class="iconbtn profileBtn" href="#"
+          onclick="event.preventDefault(); window.toggleAuthModal ? window.toggleAuthModal() : (window.location.href='/profile.html')"
+          aria-label="Giriş Yap / Profil">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
         <!-- 7. SEPET (En Sağda) -->
         <a class="iconbtn cartWrap" href="/cart">
           🛒<span class="badge" id="cartCount" style="display:none">0</span>

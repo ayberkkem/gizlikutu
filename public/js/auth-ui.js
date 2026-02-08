@@ -418,6 +418,9 @@ function checkAuthState() {
   });
 }
 
+// Global Access Helper
+window.toggleAuthModal = (show = true, view = 'login') => toggleModal(show, view);
+
 function updateHeaderUI(user) {
   // 1. Masaüstü Header Yönetimi
   const nav = document.querySelector('.desktop-header-nav') || document.querySelector('.header-right nav');
@@ -452,7 +455,25 @@ function updateHeaderUI(user) {
     }
   }
 
-  // 2. Mobil Drawer Yönetimi
+  // 2. Mobil Header İkon Yönetimi (Yeni Eklenen İkon)
+  const profileIcon = document.querySelector('.iconbtn.profileBtn');
+  if (profileIcon) {
+    if (user) {
+      // Login -> Profil Sayfasına Git + Yeşil Yap
+      profileIcon.onclick = () => { window.location.href = './profile.html'; };
+      profileIcon.style.color = '#4ade80'; // Yeşil (Aktif)
+      profileIcon.children[0].setAttribute('fill', '#4ade80'); // İçi dolu olabilir
+      profileIcon.setAttribute('aria-label', 'Profilim (' + (user.displayName || '') + ')');
+    } else {
+      // Logout -> Modal Aç
+      profileIcon.onclick = (e) => { e.preventDefault(); toggleModal(true, 'login'); };
+      profileIcon.style.color = ''; // Varsayılan renk
+      profileIcon.children[0].setAttribute('fill', 'none');
+      profileIcon.setAttribute('aria-label', 'Giriş Yap / Üye Ol');
+    }
+  }
+
+  // 3. Mobil Drawer Yönetimi
   const drawerBtn = document.getElementById('drawerAuthBtn');
   if (drawerBtn) {
     drawerBtn.innerHTML = ''; // Temizle
