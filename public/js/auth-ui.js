@@ -29,18 +29,21 @@ const AUTH_STYLES = `
   }
   .auth-backdrop.active { opacity: 1; pointer-events: all; }
 
-  /* Modal Wrapper - MINIMAL TASARIM */
+  /* Modal Wrapper - GUARANTEED VISIBILITY */
   .auth-modal {
-    width: 85%; max-width: 320px; /* Minimal Genişlik */
+    width: 85%; max-width: 320px;
+    min-height: 350px; /* İçerik olmasa bile kutu görünsün */
     background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     overflow: hidden;
-    transform: scale(0.9); transition: transform 0.2s;
     position: relative;
     color: #333;
+    opacity: 1 !important; visibility: visible !important;
   }
-  .auth-backdrop.active .auth-modal { transform: scale(1); }
+  .auth-backdrop.active .auth-modal {
+    /* Scale animasyonu kaldırıldı, basitlik esas */
+  }
 
   /* Close Button */
   .auth-close {
