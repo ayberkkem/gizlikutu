@@ -211,7 +211,12 @@
     nav.desktop-header-nav a[href="/about"],
     nav.desktop-header-nav a[href="/contact"],
     .desktop-header-nav a[href*="about"],
-    .desktop-header-nav a[href*="contact"] {
+    .desktop-header-nav a[href*="contact"],
+    /* Kullanıcı isteği üzerine kaldırılanlar */
+    nav.desktop-header-nav a[href="/products"],
+    nav.desktop-header-nav a[href="/cities"],
+    .desktop-header-nav a[href*="products"],
+    .desktop-header-nav a[href*="cities"] {
       display: none !important;
     }
   </style>
