@@ -337,7 +337,7 @@
   // INIT
   // ============================================
   document.addEventListener('DOMContentLoaded', function () {
-    createTickerBar();
+    // createTickerBar(); // Kaldırıldı - kayan yazı devre dışı
     // createVisitorCounter(); // Kaldırıldı - kişi görüntülüyor sayacı devre dışı
     // createFomoNotification();
     createTop5Slider();
