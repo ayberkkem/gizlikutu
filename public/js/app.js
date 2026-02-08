@@ -183,6 +183,26 @@
       nav.style.gap = '15px';
       nav.style.alignItems = 'center';
     });
+
+    // --- FORCE MOBILE PROFILE ICON INJECTION ---
+    // Her sayfada sepetin yanına profil ikonunu zorla ekle
+    const cartBtn = document.querySelector('.cartWrap') || document.querySelector('a[href="/cart"]');
+    if (cartBtn && !document.querySelector('.profileBtn')) {
+      const icon = document.createElement('a');
+      icon.className = 'iconbtn profileBtn';
+      icon.href = '#';
+      icon.setAttribute('onclick', "event.preventDefault(); window.toggleAuthModal ? window.toggleAuthModal() : (window.location.href='/profile.html')");
+      icon.innerHTML = `
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      `;
+      icon.style.cssText = "display: inline-flex !important; margin-right: 8px; cursor: pointer;";
+
+      // Sepet butonunun hemen öncesine ekle
+      cartBtn.parentNode.insertBefore(icon, cartBtn);
+    }
   }
 
   // DOM Yüklendikten sonra çalıştır
