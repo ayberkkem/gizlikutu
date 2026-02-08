@@ -23,7 +23,8 @@ const AUTH_STYLES = `
   .auth-backdrop {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.6); /* Daha hafif backdrop */
-    z-index: 10000; display: flex; align-items: center; justify-content: center;
+    z-index: 1000000; /* Age Gate (99999) üstünde olmalı */
+    display: flex; align-items: center; justify-content: center;
     opacity: 0; pointer-events: none; transition: opacity 0.2s;
   }
   .auth-backdrop.active { opacity: 1; pointer-events: all; }
