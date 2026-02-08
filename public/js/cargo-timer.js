@@ -1,21 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Dynamically load Wheel CSS immediately
-    if (!document.getElementById('gk-wheel-css')) {
-        const link = document.createElement('link');
-        link.id = 'gk-wheel-css';
-        link.rel = 'stylesheet';
-        link.href = './css/wheel.css';
-        document.head.appendChild(link);
-    }
-
-    // Dynamically load Wheel JS with a slight delay or priority to ensure Firebase is up
-    if (!document.getElementById('gk-wheel-js')) {
-        const script = document.createElement('script');
-        script.id = 'gk-wheel-js';
-        script.src = './js/wheel.js';
-        script.onload = () => console.log('[Loader] Wheel.js loaded successfully.');
-        document.body.appendChild(script);
-    }
+    // Wheel loading disabled - was causing page freeze
+    // if (!document.getElementById('gk-wheel-css')) { ... }
+    // if (!document.getElementById('gk-wheel-js')) { ... }
 
     if (document.getElementById('cargo-timer-banner')) return;
 
@@ -96,34 +82,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 box-shadow: 0 3px 8px rgba(139,92,246,0.3);
             }
             
-            .promo-btn-cark {
-                background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            .promo-btn-telegram {
+                background: linear-gradient(135deg, #0088cc 0%, #229ED9 100%);
                 color: #fff !important;
-                box-shadow: 0 3px 8px rgba(245,158,11,0.3);
-            }
-            
-            @keyframes wheelRotate {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
-            }
-            
-            .mini-wheel-rotator {
-                display: inline-block;
-                width: 18px;
-                height: 18px;
-                border-radius: 50%;
-                border: 2px solid #ffffff;
-                background: conic-gradient(
-                    #ff4d4d 0deg 60deg,
-                    #ffda44 60deg 120deg,
-                    #44ffda 120deg 180deg,
-                    #44a0ff 180deg 240deg,
-                    #ff44da 240deg 300deg,
-                    #ff8c44 300deg 360deg
-                );
-                box-shadow: 0 0 4px rgba(0,0,0,0.2);
-                animation: wheelRotate 3s linear infinite;
-                flex-shrink: 0;
+                box-shadow: 0 3px 8px rgba(0,136,204,0.3);
             }
             
             /* Desktop için tek satır */
@@ -167,10 +129,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 <a href="/products" class="promo-btn promo-btn-urunler">
                     🛍️ Ürünleri İncele
                 </a>
-                <div class="promo-btn promo-btn-cark" onclick="window.openWheel()">
-                    <div class="mini-wheel-rotator"></div>
-                    🎁 Çark Çevir
-                </div>
+                <a href="https://t.me/+905400443445" target="_blank" class="promo-btn promo-btn-telegram">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="white">
+                        <path d="M20.665 3.717c.19-.098.402-.132.607-.096.205.035.395.138.544.295.149.157.25.36.29.582.04.223.017.454-.066.664L19.062 19.563c-.044.22-.15.423-.306.583-.156.16-.354.269-.569.315-.214.045-.435.024-.635-.06-.2-.084-.37-.228-.487-.413l-3.867-5.867-2.562 2.442c-.117.112-.265.185-.425.21-.16.025-.323 0-.47-.07-.147-.07-.27-.184-.353-.326-.083-.142-.123-.305-.114-.469l.417-5.167 8.75-4.541c.12-.064.225-.154.306-.263.081-.109.136-.233.16-.362.025-.13.018-.26-.02-.381-.037-.121-.104-.228-.195-.313-.09-.085-.202-.144-.326-.174-.124-.03-.256-.03-.385.002-.129.031-.251.092-.356.177-.106.086-.191.194-.249.315l-9.988 8.717-3.754-2.679c-.223-.155-.384-.373-.459-.622-.075-.25-.06-.517.042-.766l2.583-6.291c.084-.207.232-.383.425-.505.193-.122.421-.183.655-.176l13.785.839z"/>
+                    </svg>
+                    Telegram
+                </a>
             </div>
         `;
         banner.style.display = 'flex';
