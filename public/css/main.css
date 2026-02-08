@@ -300,7 +300,7 @@ select {
   inset: 0;
   background: rgba(0, 0, 0, .35);
   display: none;
-  z-index: 2147483647 !important;
+  z-index: 9000 !important;
 }
 
 .drawer {
@@ -316,7 +316,7 @@ select {
   border-right: 1px solid var(--border);
   transform: translateX(-102%);
   transition: .2s ease;
-  z-index: 2147483647 !important;
+  z-index: 9001 !important;
   padding: 14px;
   display: flex;
   flex-direction: column;

@@ -11,8 +11,9 @@
   }
 
   function lockScroll(lock) {
-    document.documentElement.style.overflow = lock ? "hidden" : "";
-    document.body.style.overflow = lock ? "hidden" : "";
+    // document.documentElement.style.overflow = lock ? "hidden" : "";
+    // document.body.style.overflow = lock ? "hidden" : "";
+    // Kilitlenme sorununu çözmek için scroll engellemeyi kaldırıyoruz!
   }
 
   function createGate() {
@@ -21,11 +22,11 @@
     wrap.style.cssText = `
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,.85);
+      background:rgba(0,0,0,0.9); /* Daha koyu arka plan */
       display:flex;
       align-items:center;
       justify-content:center;
-      z-index:2147483647; /* Maksimum z-index */
+      z-index:2147483647; /* Maksimum z-index - Her şeyin üstünde */
     `;
 
     wrap.innerHTML = `
