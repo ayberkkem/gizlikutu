@@ -21,35 +21,38 @@
     wrap.style.cssText = `
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,.75);
+      background:rgba(0,0,0,.85);
       display:flex;
       align-items:center;
       justify-content:center;
-      z-index:9999;
+      z-index:2147483647; /* Maksimum z-index */
     `;
 
     wrap.innerHTML = `
       <div style="
         background:#fff;
-        max-width:420px;
+        max-width:380px;
         width:90%;
-        padding:24px;
+        padding:30px 20px;
         border-radius:16px;
         text-align:center;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        position: relative;
+        z-index: 2147483647;
       ">
-        <h2 style="margin:0 0 10px">18+ Uyarısı</h2>
+        <h2 style="margin:0 0 15px; color:#111; font-weight:800; font-size:22px;">🔞 18+ Uyarısı</h2>
 
-        <p style="font-size:14px;color:#555;margin-bottom:18px">
-          Bu site yalnızca <b>18 yaş ve üzeri</b> kullanıcılar içindir.
-          Devam ederek 18 yaşından büyük olduğunuzu kabul etmiş olursunuz.
+        <p style="font-size:15px;color:#444;margin-bottom:24px; line-height:1.5;">
+          Bu site yalnızca <b>18 yaş ve üzeri</b> yetişkinler içindir.<br>
+          İçerikleri görüntülemek için yaşınızı doğrulayın.
         </p>
 
-        <div class="row" style="justify-content:center;gap:10px">
-          <button class="btn primary" id="ageYes">Evet, 18+</button>
-          <a class="btn" href="https://www.google.com">Hayır</a>
+        <div class="row" style="display:flex; justify-content:center; gap:12px">
+          <button class="btn primary" id="ageYes" style="background:#e11d48; color:white; border:none; padding:12px 24px; border-radius:8px; font-weight:700; cursor:pointer; font-size:15px;">Evet, 18+</button>
+          <a class="btn" href="https://www.google.com" style="background:#f3f4f6; color:#374151; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:600; font-size:15px;">Çıkış</a>
         </div>
 
-        <p style="font-size:12px;color:#999;margin-top:12px">
+        <p style="font-size:11px;color:#9ca3af;margin-top:20px">
           Bu onay yalnızca cihazınızda saklanır.
         </p>
       </div>
@@ -59,7 +62,8 @@
 
     document.getElementById("ageYes").addEventListener("click", () => {
       setConsent();
-      wrap.remove();
+      // wrap.remove() yerine display:none yapalım (daha güvenli)
+      wrap.style.display = 'none';
       lockScroll(false);
     });
   }
