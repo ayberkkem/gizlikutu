@@ -372,6 +372,6 @@
     };
 
     // Delay auto-open for 3 seconds to avoid landing page jumpiness
-    setTimeout(autoOpen, 3000);
+    // setTimeout(autoOpen, 3000); // Devre dışı - sayfa kilitleme sorunu
 
 })();
