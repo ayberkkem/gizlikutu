@@ -434,7 +434,7 @@ function updateHeaderUI(user) {
   if (user) {
     // --- GİRİŞ YAPILMIŞ ---
     const profileLink = document.createElement('a');
-    profileLink.className = 'auth-nav-item';
+    profileLink.className = 'auth-nav-item auth-btn-desktop';
     profileLink.href = './profile.html';
     profileLink.innerHTML = `👤 Profilim`;
     profileLink.style.fontWeight = 'bold';
@@ -445,24 +445,8 @@ function updateHeaderUI(user) {
 
   } else {
     // --- GİRİŞ YAPILMAMIŞ ---
-
-    // Üye Ol Butonu
-    const signupBtn = document.createElement('a');
-    signupBtn.className = 'auth-nav-item';
-    signupBtn.href = '#';
-    signupBtn.textContent = 'Üye Ol';
-    signupBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'signup'); };
-
-    // Giriş Yap Butonu
-    const loginBtn = document.createElement('a');
-    loginBtn.className = 'auth-nav-item';
-    loginBtn.href = '#';
-    loginBtn.textContent = 'Giriş Yap';
-    loginBtn.onclick = (e) => { e.preventDefault(); toggleModal(true, 'login'); };
-
-    // Üye Ol solda, Giriş Yap sağda olacak şekilde ekle
-    nav.appendChild(signupBtn);
-    nav.appendChild(loginBtn);
+    // Metin butonlar İSTENMİYOR. Sadece Mobil İkon kullanılacak.
+    // Burası boş bırakıldı.
   }
 }
 
