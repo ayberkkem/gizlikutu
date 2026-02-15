@@ -89,7 +89,6 @@
     }
 
     // Cart has items
-    if (checkoutForm) checkoutForm.style.display = "block";
     if (submitBtn) submitBtn.style.display = "block";
 
     // --- PRICING CALCULATION ---
@@ -131,6 +130,45 @@
       if (couponInput) {
         couponInput.disabled = false;
       }
+    }
+
+    // WA Button Logic
+    if (submitBtn) {
+      // Remove old listeners by cloning
+      const newBtn = submitBtn.cloneNode(true);
+      submitBtn.parentNode.replaceChild(newBtn, submitBtn);
+      
+      newBtn.onclick = () => {
+        // Construct Message
+        let msg = "*Merhabalar, Gizli Kutu mağazanızdan sipariş vermek istiyorum.* 📦\n\n";
+        msg += "*Seçtiğim Ürünler:*\n";
+        
+        cart.forEach((item, idx) => {
+          msg += `${idx + 1}. ${item.title} (x${item.qty}) - ${money(item.price * item.qty)}\n`;
+        });
+
+        msg += "\n--------------------------------\n";
+        msg += `*Ara Toplam:* ${pricing.subtotalStr}\n`;
+        
+        if (pricing.discountKurus > 0) {
+           msg += `*İndirim (${appliedCoupon?.code || ''}):* -${pricing.discountStr}\n`;
+        }
+        
+        msg += `*Kargo:* ${pricing.shippingStr}\n`;
+        msg += `*GENEL TOPLAM:* ${pricing.totalStr}\n`;
+        msg += "--------------------------------\n\n";
+        
+        msg += "✅ *Ödeme Yöntemi:* Kapıda Ödeme (Nakit/Kart)\n";
+        msg += "🔒 *Teslimat:* %100 Gizli Paket Şeklinde İstiyorum.\n\n";
+        msg += "Müsait olduğunuzda dönüş yapabilirseniz adres bilgilerimi paylaşacağım. Teşekkürler.";
+
+        // Send to WA
+        // Phone: 905400443445
+        const phone = "905400443445";
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+        
+        window.open(url, "_blank");
+      };
     }
 
     // PC / Mobile rendering logic
