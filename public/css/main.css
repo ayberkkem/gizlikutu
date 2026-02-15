@@ -7,8 +7,9 @@
   --card: transparent;
 
   --brand: #111827;
-  --accent: #e11d48;
-  /* premium kırmızı */
+  --brand: #111827;
+  --accent: #FF4500;
+  /* Impulse Red/Orange */
   --accent2: #7c3aed;
   /* mor vurgu */
   --gold: #d4af37;
@@ -2287,7 +2288,7 @@ textarea {
   padding: 10px 14px;
   border: none;
   border-radius: 10px;
-  background: var(--accent, #e11d48);
+  background: var(--accent);
   color: #fff;
   font-size: 14px;
   font-weight: 600;
@@ -2296,7 +2297,7 @@ textarea {
 }
 
 .add-to-cart-btn:hover {
-  background: #c81d42;
+  background: #E03E00;
   transform: translateY(-1px);
 }
 
@@ -2379,7 +2380,7 @@ textarea {
   justify-content: center;
   gap: 4px;
   padding: 8px 12px;
-  background: var(--accent, #9333ea);
+  background: var(--accent);
   color: #fff;
   border-radius: 8px;
   font-size: 13px;
@@ -2390,7 +2391,7 @@ textarea {
 }
 
 .cart-go-btn:hover {
-  background: #7c3aed;
+  background: #E03E00;
 }
 
 @media (max-width: 400px) {
