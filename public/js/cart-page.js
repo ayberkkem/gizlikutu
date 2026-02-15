@@ -92,72 +92,41 @@
     if (submitBtn) submitBtn.style.display = "block";
 
     // --- PRICING CALCULATION ---
-    const appliedCoupon = window.GKStorage.readCoupon();
-    const pricing = window.GKPricing.calculate(cart, appliedCoupon);
+    const pricing = window.GKPricing.calculate(cart);
 
     // Update UI Elements
     const subtotalEl = qs("#sumSubtotal");
     const shippingEl = qs("#sumShipping");
-    const discountEl = qs("#sumDiscount");
-    const discountLine = qs("#discountLine");
-    const couponInput = qs("#couponInput");
-    const applyBtn = qs("#applyCoupon");
-    const couponTag = qs("#appliedCouponTag");
-    const couponText = qs("#couponText");
+
 
     if (subtotalEl) subtotalEl.textContent = pricing.subtotalStr;
     if (shippingEl) shippingEl.textContent = pricing.shippingStr;
     if (totalEl) totalEl.textContent = pricing.totalStr;
-
-    if (pricing.discountKurus > 0) {
-      if (discountEl) discountEl.textContent = "-" + pricing.discountStr;
-      if (discountLine) discountLine.style.display = "flex";
-
-      // Show tag if coupon applied
-      if (appliedCoupon && couponTag && couponText) {
-        couponTag.style.display = "flex";
-        couponText.textContent = appliedCoupon.code;
-        if (applyBtn) applyBtn.disabled = true;
-        if (couponInput) {
-          couponInput.value = appliedCoupon.code;
-          couponInput.disabled = true;
-        }
-      }
-    } else {
-      if (discountLine) discountLine.style.display = "none";
-      if (couponTag) couponTag.style.display = "none";
-      if (applyBtn) applyBtn.disabled = false;
-      if (couponInput) {
-        couponInput.disabled = false;
-      }
-    }
 
     // WA Button Logic
     if (submitBtn) {
       // Remove old listeners by cloning
       const newBtn = submitBtn.cloneNode(true);
       submitBtn.parentNode.replaceChild(newBtn, submitBtn);
-      
+
       newBtn.onclick = () => {
         // Construct Message
         let msg = "*Merhabalar, Gizli Kutu mağazanızdan sipariş vermek istiyorum.* 📦\n\n";
         msg += "*Seçtiğim Ürünler:*\n";
-        
+
         cart.forEach((item, idx) => {
           msg += `${idx + 1}. ${item.title} (x${item.qty}) - ${money(item.price * item.qty)}\n`;
         });
 
         msg += "\n--------------------------------\n";
         msg += `*Ara Toplam:* ${pricing.subtotalStr}\n`;
-        
-        if (pricing.discountKurus > 0) {
-           msg += `*İndirim (${appliedCoupon?.code || ''}):* -${pricing.discountStr}\n`;
-        }
-        
+
+
+
         msg += `*Kargo:* ${pricing.shippingStr}\n`;
         msg += `*GENEL TOPLAM:* ${pricing.totalStr}\n`;
         msg += "--------------------------------\n\n";
-        
+
         msg += "✅ *Ödeme Yöntemi:* Kapıda Ödeme (Nakit/Kart)\n";
         msg += "🔒 *Teslimat:* %100 Gizli Paket Şeklinde İstiyorum.\n\n";
         msg += "Müsait olduğunuzda dönüş yapabilirseniz adres bilgilerimi paylaşacağım. Teşekkürler.";
@@ -166,7 +135,7 @@
         // Phone: 905400443445
         const phone = "905400443445";
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-        
+
         window.open(url, "_blank");
       };
     }
@@ -236,52 +205,7 @@
       }).join("");
     }
 
-    // Coupon Actions
-    if (applyBtn) {
-      applyBtn.onclick = async () => {
-        const code = (couponInput.value || "").trim().toUpperCase();
-        if (!code) return toast("Lütfen bir kod girin");
 
-        // Check wallet first
-        const wallet = window.GKStorage.readWallet();
-        const found = wallet.find(c => c.code === code && !c.used);
-
-        if (found) {
-          const now = Date.now();
-          if (found.expiresAt && now > found.expiresAt) return toast("Bu kuponun süresi dolmuş.");
-          window.GKStorage.writeCoupon(found);
-          toast("Kupon uygulandı! 🎉");
-          render();
-          return;
-        }
-
-        // Fallback for manual/campaign codes (static ones)
-        const staticCoupons = [
-          { code: "SEVGILI5", type: "percentage", value: 5 },
-          { code: "SEVGILI10", type: "percentage", value: 10 },
-          { code: "SEVGILI15", type: "percentage", value: 15 },
-          { code: "SEVGILI20", type: "percentage", value: 20 },
-          { code: "BEDAVAKARGO", type: "free_shipping", value: 0 }
-        ];
-
-        const staticFound = staticCoupons.find(c => c.code === code);
-        if (staticFound) {
-          window.GKStorage.writeCoupon(staticFound);
-          toast("Kupon uygulandı! 🎉");
-          render();
-        } else {
-          toast("Geçersiz veya kullanılmış kupon kodu");
-        }
-      };
-    }
-
-    if (qs("#removeCoupon")) {
-      qs("#removeCoupon").onclick = () => {
-        window.GKStorage.writeCoupon(null);
-        toast("Kupon kaldırıldı");
-        render();
-      };
-    }
 
     // Event listeners
     body.querySelectorAll("[data-inc]").forEach(b => {
