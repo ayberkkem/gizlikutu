@@ -1,110 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Ana Sayfa -->
   <url>
     <loc>https://gizlikutu.online/</loc>
-    <lastmod>2026-02-05</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Ürünler -->
   <url>
     <loc>https://gizlikutu.online/products</loc>
-    <lastmod>2026-02-05</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gizlikutu.online/cities</loc>
-    <lastmod>2026-02-05</lastmod>
+    <loc>https://gizlikutu.online/popular</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/product</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/fiyat-listesi</loc>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Şehir Sayfaları -->
+  <url>
+    <loc>https://gizlikutu.online/cities</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/akhisar-sex-shop</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/manisa-sex-shop</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Kategori Sayfaları -->
+  <url>
+    <loc>https://gizlikutu.online/vibrator</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/dildo</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/titresim</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/jel</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/masaj</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/cesur</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/fantezi</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/realistik</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/masturbator</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/manken</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/performans</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gizlikutu.online/erotik-giyim</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog -->
   <url>
     <loc>https://gizlikutu.online/blog</loc>
-    <lastmod>2026-02-05</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://gizlikutu.online/blog-alisveris-dikkat</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-anorgazmi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-atesleyici-bilgiler</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-az-bilinen-orgazm</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-cesur-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-cilt-ve-orgazm</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-dildo-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-erkek-urunleri</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-fantezi-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-g-noktasi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-kadin-masturbasyon</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-kayganlastirici-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-kolaylastirici-yontemler</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-manken-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-masaj-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-masturbator-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-neden-orgazm-olamiyorsun</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-neden-yatirim-yapmaliyiz</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-oral-seks</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-orgazm-pozisyonlari</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-oyuncak-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-performans-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-realistik-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-ruh-hali-faydalari</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-titresim-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-vibrator-rehberi</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-yatak-odasi-sirlari</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://gizlikutu.online/blog-zevk-noktalari</loc><lastmod>2026-02-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Sipariş -->
   <url>
-    <loc>https://gizlikutu.online/sss</loc>
-    <lastmod>2026-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://gizlikutu.online/cart</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://gizlikutu.online/checkout</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Kurumsal -->
+  <url>
     <loc>https://gizlikutu.online/about</loc>
-    <lastmod>2026-02-05</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://gizlikutu.online/contact</loc>
-    <lastmod>2026-02-05</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
-  
-  <!-- City Pages -->
   <url>
-    <loc>https://gizlikutu.online/manisa-sex-shop</loc>
-    <lastmod>2026-02-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://gizlikutu.online/akhisar-sex-shop</loc>
-    <lastmod>2026-02-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://gizlikutu.online/sss</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
-  <!-- Categories -->
-  <url><loc>https://gizlikutu.online/cesur</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/dildo</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/erotik-giyim</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/fantezi</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/jel</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/manken</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/masaj</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/masturbator</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/performans</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/realistik</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/titresim</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://gizlikutu.online/vibrator</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-
-  <!-- Blog Posts -->
-  <url><loc>https://gizlikutu.online/blog-alisveris-dikkat</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-anorgazmi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-atesleyici-bilgiler</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-az-bilinen-orgazm</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-cesur-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-cilt-ve-orgazm</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-dildo-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-erkek-urunleri</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-fantezi-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-g-noktasi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-kadin-masturbasyon</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-kayganlastirici-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-kolaylastirici-yontemler</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-manken-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-masaj-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-masturbator-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-neden-orgazm-olamiyorsun</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-neden-yatirim-yapmaliyiz</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-oral-seks</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-orgazm-pozisyonlari</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-oyuncak-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-performans-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-realistik-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-ruh-hali-faydalari</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-titresim-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-vibrator-rehberi</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-yatak-odasi-sirlari</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://gizlikutu.online/blog-zevk-noktalari</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-
-  <!-- Agreements -->
-  <url><loc>https://gizlikutu.online/distance-sales</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://gizlikutu.online/kvkk</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://gizlikutu.online/privacy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://gizlikutu.online/returns</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://gizlikutu.online/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <!-- Sözleşmeler -->
+  <url><loc>https://gizlikutu.online/distance-sales</loc><lastmod>2026-02-17</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://gizlikutu.online/kvkk</loc><lastmod>2026-02-17</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://gizlikutu.online/privacy</loc><lastmod>2026-02-17</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://gizlikutu.online/returns</loc><lastmod>2026-02-17</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://gizlikutu.online/terms</loc><lastmod>2026-02-17</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>

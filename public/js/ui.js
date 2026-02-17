@@ -230,6 +230,6 @@
     bindCartButtons();
   }
 
-  window.GKUI = { productCard, escapeHtml, getCartQty };
+  window.GKUI = { productCard, escapeHtml, getCartQty, bindCartButtons };
 })();
 

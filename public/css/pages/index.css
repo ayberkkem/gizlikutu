@@ -183,11 +183,355 @@ body {
     border-color: var(--accent);
 }
 
-/* QR */
-.qr-zone img {
-    max-width: 200px;
-    margin: 0 auto 16px;
+/* QR - REMOVED, kept for backward compat */
+.qr-zone {
+    display: none;
+}
+
+/* =====================================================
+   🔥 EN ÇOK SATANLAR (BESTSELLERS) SECTION
+===================================================== */
+.bestsellers-zone {
+    background: var(--card);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
+    padding: 36px 24px;
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section üst dekoratif çizgi */
+.bestsellers-zone::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #e11d48, #FF4500);
+    border-radius: 0 0 4px 4px;
+}
+
+.bestsellers-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.bestsellers-header h2 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin: 0 0 10px;
+    background: linear-gradient(135deg, #e11d48 0%, #f97316 50%, #e11d48 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+}
+
+.bestsellers-subtitle {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+/* ==================
+   SKELETON LOADING
+================== */
+.skeleton-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.skeleton-img {
+    width: 100%;
+    height: 180px;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.skeleton-body {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skeleton-line {
+    height: 14px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.skeleton-line.short {
+    height: 12px;
+}
+
+@keyframes skeletonPulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.skeleton-pulse {
+    animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+/* ==================
+   TABS
+================== */
+.bestsellers-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px 0 16px;
+    margin-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+.bestsellers-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.bs-tab {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--text);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.bs-tab:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(225, 29, 72, 0.06);
+    transform: translateY(-1px);
+}
+
+.bs-tab.active {
+    background: linear-gradient(135deg, #e11d48 0%, #FF4500 100%);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 3px 12px rgba(225, 29, 72, 0.35);
+    transform: translateY(-1px);
+}
+
+.bs-tab-count {
+    font-size: 0.7rem;
+    padding: 1px 6px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.08);
+    font-weight: 700;
+    min-width: 18px;
+    text-align: center;
+}
+
+.bs-tab.active .bs-tab-count {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+/* ==================
+   ÜRÜN GRID
+================== */
+.bestsellers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    min-height: 200px;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Empty State */
+.bestsellers-empty {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    gap: 12px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.bestsellers-empty .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 8px;
+}
+
+.bestsellers-empty p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Loading Spinner (fallback) */
+.bestsellers-loading {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.bestsellers-loading .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==================
+   CTA BUTTON
+================== */
+.bestsellers-cta {
+    text-align: center;
+    margin-top: 32px;
+}
+
+.bestsellers-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 36px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e11d48 0%, #FF4500 100%);
+    color: #fff;
+    border: none;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(225, 29, 72, 0.35);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.bestsellers-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.bestsellers-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(225, 29, 72, 0.45);
+}
+
+.bestsellers-btn:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.bestsellers-btn:active {
+    transform: translateY(-1px);
+}
+
+/* ==================
+   RESPONSIVE
+================== */
+@media (max-width: 520px) {
+    .bestsellers-zone {
+        padding: 20px 12px;
+        margin: 20px 0;
+    }
+
+    .bestsellers-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .bestsellers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .skeleton-img {
+        height: 140px;
+    }
+
+    .bs-tab {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+
+    .bs-tab-count {
+        font-size: 0.65rem;
+    }
+
+    .bestsellers-btn {
+        padding: 12px 28px;
+        font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 521px) and (max-width: 768px) {
+    .bestsellers-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 769px) {
+    .bestsellers-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 /* FAQ */
@@ -336,14 +680,12 @@ details p {
 
     /* smallCard mobilde */
     .smallCard {
-        .smallCard {
-            padding: 20px 16px;
-            border-radius: 0 0 var(--radius) var(--radius);
-        }
+        padding: 20px 16px;
+        border-radius: 0 0 var(--radius) var(--radius);
+    }
 
-        .smallCard h1 {
-            font-size: 1.4rem;
-        }
+    .smallCard h1 {
+        font-size: 1.4rem;
     }
 }
 

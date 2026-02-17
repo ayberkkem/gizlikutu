@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Özel/kişisel sayfalar - taranmasın
+Disallow: /profile
+Disallow: /success
+Disallow: /404
+
+# Arama motorlarının gereksiz yere taramasını önle
+Disallow: /api/
+
 Sitemap: https://gizlikutu.online/sitemap.xml
